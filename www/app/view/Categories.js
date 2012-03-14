@@ -1,8 +1,9 @@
 Ext.define('TouchStyle.view.Categories', {
     extend: 'Ext.dataview.DataView',
     xtype: 'categories',
-		title: 'PopShop for Etsy',
+	title: 'PopShop for Etsy',
     config: {
+	scrollable: false,
         baseCls: 'categories-list',
 	title: 'PopShop for Etsy',
         itemTpl: [

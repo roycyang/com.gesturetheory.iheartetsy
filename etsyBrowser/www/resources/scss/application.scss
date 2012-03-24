@@ -1,0 +1,206 @@
+#closeFullBrowserButton .x-button-icon.x-icon-mask {
+    background: #fff;
+}
+
+#browserSearchPanel {
+    -webkit-transition: -webkit-transform 350ms;
+    -webkit-transform: translate3d(0,-47px,0);
+}
+    
+body,
+.x-fullscreen, .x-layout-fit-item, .x-layout-card-item {
+background: none;
+} 
+
+.x-fullscreen {
+    background: url(../images/background.png) repeat 0 0;
+}
+
+.large-listings {
+    background: #000;
+    
+    .large-product {
+         height: 748px;
+			width: 1024px;
+			
+			.image {
+                height: 748px;
+        			width: 1024px;
+        			background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;	
+            }	
+    }
+}
+
+.products {
+
+
+    .x-innerhtml {
+/*        display: table;
+        table-layout: fixed;*/
+/*        width: 100%;
+        height: 100%;*/
+padding: 10px;
+overflow: hidden;
+/*        border: 1px solid #ccc;
+        border-width: 0 1px 1px 0;*/
+
+        .x-phone & {
+            border-right: 0;
+            border-bottom: 0;
+        }
+    }
+
+    .row {
+/*        display: table-row;*/
+
+        > * {
+/*            display: table-cell;*/
+        }
+
+        &:last-child .product {
+/*            border-bottom: 0;*/
+        }
+    }
+    
+
+    .product {
+        background: url(../images/polaroid_background.png) no-repeat center bottom;
+        position: relative;
+        display: block;
+        float: left;
+        height: 198px;
+        width: 184px;
+        padding: 6px;
+        margin: 8px 8px 5px 8px;
+        
+        &.category{
+            margin: 35px;
+        }
+
+
+        .image {
+            height: 135px;
+			width: 170px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        img {
+
+        }
+        
+        .category-name {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .name {
+			margin-top: 5px;
+			height: 15px;
+            width: 100%;
+            display: block;
+			color: #666;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-size: 13px;
+        }
+
+        .price {
+            font-size: 13px;
+            position: absolute;
+            right: 9px;
+            bottom: 16px;
+            color: #78C042;
+            line-height: 14px;
+            text-align: right;
+            width: 50%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+			
+			.usd {
+				font-size: 9px;
+			}
+        }
+    }
+    
+
+
+/*    .landscape .product {
+        width: 25%;
+
+        .image {
+            margin-top: 36px;
+        }
+    }
+
+    .portrait .product {
+        width: 33%;
+
+        .image {
+            margin-top: 18px;
+        }
+    }*/
+}
+
+.product-view {
+    background: #fff;
+    padding: 30px;
+
+    .product-view-inner {
+        .description {
+            padding-left: 15px;
+
+            ul li {
+                list-style: disc outside none;
+                margin-left: 25px;
+            }
+        }
+
+        .name {
+            font-family: 'Quattrocento Sans', sans-serif;
+            line-height: 28px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #014637;
+        }
+
+        .text {
+            font-size:14px;
+            color: #aaa;
+            line-height: 20px;
+        }
+
+        .x-img {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
+
+.product-view,
+.products {
+    a:link,
+    a:active,
+    a:visited {
+        display: block;
+        border: 1px solid darken(#028257, 10);
+        margin: 30px 60px;
+        text-align: center;
+        padding: 10px;
+        font-size: 22px;
+        font-family: 'Quattrocento Sans', sans-serif;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+        text-decoration: none;
+    }
+}
+
+.products a {
+    margin-top: 0;
+}

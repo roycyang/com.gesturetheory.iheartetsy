@@ -17,8 +17,8 @@ Ext.define('Etsy.view.HeartPanel', {
     extend: 'Ext.Panel',
 
     config: {
-        title: 'Heart',
-        iconCls: 'star',
+        title: 'Favorites',
+        iconCls: 'heart',
         id: 'heartPanel',
         layout: 'card',
         items: [
@@ -27,8 +27,13 @@ Ext.define('Etsy.view.HeartPanel', {
                 xtype: 'toolbar',
                 docked: 'top',
                 id: 'heartToolbar',
-                title: 'star',
+                title: 'Favorites',
                 items: [
+				{
+                    xtype: 'button',
+                    id: 'heartPanelLogin',
+                    text: 'Sign In'
+                },
                 {xtype: 'spacer'},
                 {
                     xtype: 'searchfield',
@@ -36,6 +41,17 @@ Ext.define('Etsy.view.HeartPanel', {
                     placeHolder: 'Search Etsy'
                 }]
             },
+			{
+				xtype: 'container',
+				layout: 'vbox',
+				defaults:{
+					cls: 'homepage-button',
+				},
+				items: [{
+					html: 'Log in to view your Favorites'
+				}
+				]
+			}
             
 
 

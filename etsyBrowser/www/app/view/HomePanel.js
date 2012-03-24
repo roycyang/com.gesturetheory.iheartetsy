@@ -24,24 +24,39 @@ Ext.define('Etsy.view.HomePanel', {
             type: 'vbox'
         },
         items: [
-            // {
-            //     xtype: 'toolbar',
-            //     docked: 'top',
-            //     title: 'Heart',
-            //     items: [
-            //     {xtype: 'spacer'},
-            //     {
-            //         xtype: 'searchfield',
-            //         id: 'homePanelSearch',
-            //         placeHolder: 'Search Etsy'
-            //     }]
-            // },
-
             {
-                xtype: 'container',
-                padding: '15px 20px 5px',
-                html: '<h1>Explore Latest Listings</h1>'
+                xtype: 'toolbar',
+                docked: 'top',
+                title: 'Heart',
+                items: [
+                {xtype: 'spacer'},
+                {
+                    xtype: 'searchfield',
+                    id: 'homePanelSearch',
+                    placeHolder: 'Search Etsy'
+                }]
             },
+			{
+				xtype: 'container',
+				layout: 'hbox',
+				flex: 1,
+				defaults: {
+					cls: 'homepage-button',
+					flex: 1,
+				},
+
+				items: [
+					{
+						html: 'Categories are Fun'
+					},
+					{
+						html: 'Follow the Heart'
+					},
+					{
+						html: 'Discover'
+					}
+				]
+			},
             {
                 id: 'listingsCarousel',
                 xtype: 'listingsCarousel',

@@ -18,7 +18,7 @@ Ext.define('Etsy.view.BrowserPanel', {
 
     config: {
         title: 'Categories',
-        iconCls: 'home',
+        iconCls: 'spaces2',
         id: 'browserPanel',
         layout: 'card',
         items: [
@@ -50,7 +50,7 @@ Ext.define('Etsy.view.BrowserPanel', {
                 xtype: 'toolbar',
                 docked: 'top',
                 id: 'browserToolbar',
-                title: 'Title of Section',
+                title: 'Categories',
                 items: [
                     {
                         xtype: 'button',
@@ -82,12 +82,17 @@ Ext.define('Etsy.view.BrowserPanel', {
                             }
                         ]
                     },
-                    {
-                        xtype: 'button',
-                        iconCls: 'search',
-                        id: 'browserSearchButton',
-                        iconMask: true
-                    }
+                    // {
+                    //     xtype: 'button',
+                    //     iconCls: 'search',
+                    //     id: 'browserSearchButton',
+                    //     iconMask: true
+                    // },
+					{
+	                    xtype: 'searchfield',
+	                    id: 'categoriesSearch',
+	                    placeHolder: 'Search Etsy'
+	                }
                 ]
             },
             

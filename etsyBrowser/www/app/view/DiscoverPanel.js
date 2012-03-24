@@ -18,7 +18,7 @@ Ext.define('Etsy.view.DiscoverPanel', {
 
     config: {
         title: 'Discover',
-        iconCls: 'search',
+        iconCls: 'search_black',
         id: 'discoverPanel',
         layout: 'card',
         items: [
@@ -36,6 +36,23 @@ Ext.define('Etsy.view.DiscoverPanel', {
                     placeHolder: 'Search Etsy'
                 }]
             },
+			{
+				xtype: 'container',
+				layout: 'vbox',
+				defaults:{
+					cls: 'homepage-button',
+				},
+				items: [{
+					html: 'Pick a color!'
+				},
+				{
+                    html: 'Search by Keyword'
+                },
+				{
+                    html: 'Find a Shop'
+                }
+				]
+			}
             
 
             

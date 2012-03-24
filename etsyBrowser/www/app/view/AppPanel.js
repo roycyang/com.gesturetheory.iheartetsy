@@ -18,7 +18,7 @@ Ext.define('Etsy.view.AppPanel', {
 
     config: {
         tabBar: {
-            docked: 'bottom'
+            docked: 'bottom',
         },
         fullscreen: true,
         id: 'appPanel',

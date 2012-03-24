@@ -20,27 +20,71 @@ Ext.define('Etsy.view.DetailPanel', {
     requires: ['Ext.Img'],
 
     config: {
-        baseCls: 'product-view',
+        cls: 'product-view',
         centered: true,
-        width: '80%',
-        height: '80%',
+        width: '90%',
+        height: '90%',
         modal: true,
         hideOnMaskTap: true,
-
+		scrollable: {
+			direction: 'vertical',
+			directionLock: true
+		},
         layout: {
-            type: 'hbox'
+            type: 'vbox'
         },
 
         items: [
+        {
+            xtype: 'toolbar',
+            docked: 'left',
+			ui: 'dark-grey',
+			width: 57,
+            // id: 'browserToolbar',
+            // title: 'Categories',
+			defaults: {
+				ui: 'plain'
+			},
+            items: [
+                {
+                    xtype: 'button',
+                   	iconCls: 'bookmarks',
+					iconMask: true,
+                },
+                {
+                    xtype: 'button',
+                   	iconCls: 'star',
+					iconMask: true,
+                },
+                {
+                    xtype: 'button',
+                   	iconCls: 'arrow_up',
+					iconMask: true,
+                },
+                {
+                    xtype: 'button',
+                   	iconCls: 'arrow_down',
+					iconMask: true,
+                },
+				]
+			},
             {
-                xtype: 'image',
-                flex: 2
+				padding: 20,
+				xtype: 'carousel',
+				id: 'detailPanelCarousel',
+                height: 400,
+				indicator: {
+					bottom: 5
+				},
+				config: {
+			        direction: 'horizontal',
+					
+					directionLock: true
+				}
             },
             {
-                flex: 2,
                 id: 'description',
                 cls: 'description',
-                scrollable: true,
                 tpl: new Ext.XTemplate(
                     '<div class="name">{title}</div>',
                     '<div class="text">{description}</div>'
@@ -62,23 +106,43 @@ Ext.define('Etsy.view.DetailPanel', {
     },
 
     initialize: function() {
-        var image = this.down('image');
-
-        image.on({
-            scope: this,
-            load: function() {
-                image.element.dom.style.backgroundSize = "contain";
-            }
-        });
+        // var image = this.down('image');
+        // 
+        // image.on({
+        //     scope: this,
+        //     load: function() {
+        //         image.element.dom.style.backgroundSize = "contain";
+        //     }
+        // });
     },
 
     updateData: function(newData) {
-        var image = this.down('image');
-
-        image.element.dom.style.backgroundSize = "30%";
-        image.element.dom.style.backgroundImage = 'url(resources/images/loading.gif)';
-        image.setSrc('');
-        image.setSrc(newData.image.large);
+        // var image = this.down('image');
+        // 
+        // image.element.dom.style.backgroundSize = "30%";
+        // image.element.dom.style.backgroundImage = 'url(resources/images/loading.gif)';
+        // image.setSrc('');	
+        // image.setSrc(newData.image.large);
+		var carousel = Ext.getCmp('detailPanelCarousel');
+		carousel.removeAll();
+		console.log('newData.Images', newData.Images);
+		var images = newData.Images;
+		var imageArray = [];
+		for(i = 0; i < images.length; i++){
+			var image = images[i].url_570xN;
+			imageArray.push({
+                xtype: 'container',
+				//src: image
+				html: '<img height="350" src="' + image + '" />'
+            });
+		}
+		// if(images.length == 1){
+		// 	carousel.disable();
+		// }
+		carousel.add(imageArray);
+		carousel.setActiveItem(0);
+		
+		
         Ext.getCmp('description').setData(newData);
     }
 });

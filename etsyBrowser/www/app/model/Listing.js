@@ -59,8 +59,8 @@ Ext.define('Etsy.model.Listing', {
             startParam: 'offset',
             pageParam: false,
             extraParams: {
-                api_key: 'j5utcraygkcgn2vg6rfln8xh',
-				includes: 'Images:1'
+                api_key: 'tia49fh9iqjcrukurpbyqtv5',
+				includes: 'Images:6'
             },
             reader: {
                 type: 'json',

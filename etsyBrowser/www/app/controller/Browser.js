@@ -142,6 +142,7 @@ Ext.define('Etsy.controller.Browser', {
             case 'category':
                 store.getProxy().setExtraParam('category', record.get('name'));  
                 self.getBrowserToolbar().setTitle(record.get('short_name'));
+				Ext.getCmp('categoriesSearch').setPlaceHolder('Search ' + record.get('short_name'));
                 break;
             case 'keyword':
                 store.getProxy().setExtraParam('keywords', record);  
@@ -182,6 +183,8 @@ Ext.define('Etsy.controller.Browser', {
         });
         Ext.getCmp('browserViewButtons').hide();
         Ext.getCmp('browserBackButton').hide();
+		self.getBrowserToolbar().setTitle('Categories');
+		Ext.getCmp('categoriesSearch').setPlaceHolder('Search Etsy');
         self.getBrowserPanel().setActiveItem(0);
     },
     

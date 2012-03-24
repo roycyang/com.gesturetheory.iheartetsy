@@ -32,9 +32,9 @@ Ext.define('Etsy.view.FullBrowserPanel', {
                 right: 2,
                 xtype: 'button',
                 id: 'closeFullBrowserButton',
-                ui: 'plain',
                 iconCls: 'delete',
                 iconMask: true,
+				zIndex: 10000
 
             }
         ]

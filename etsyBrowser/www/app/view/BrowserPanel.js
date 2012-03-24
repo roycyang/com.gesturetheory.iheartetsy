@@ -63,24 +63,11 @@ Ext.define('Etsy.view.BrowserPanel', {
                         xtype: 'spacer'
                     },
                     {
-                        id: 'browserViewButtons',
-                        hidden: true,
-                        xtype: 'segmentedbutton',
-                        items: [
-                            {
-                                xtype: 'button',
-                                text: '[]',
-                                id: 'browserFullCarouselButton'
-                            },
-                            {
-                                xtype: 'button',
-                                text: '[] []'
-                            },
-                            {
-                                xtype: 'button',
-                                text: '[] [] []'
-                            }
-                        ]
+                        xtype: 'button',
+                        id: 'browserFullCarouselButton',
+							iconCls: 'expand',
+							iconMask: true,
+							hidden: true
                     },
                     // {
                     //     xtype: 'button',

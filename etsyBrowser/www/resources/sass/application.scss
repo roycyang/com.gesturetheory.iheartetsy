@@ -1,7 +1,7 @@
 .x-field-search .x-field-input .x-form-field {
 	font-family: helvetica;
 	font-size: 11px;
-	height: 30px;
+	height: 25px;
 	padding-left: 15px;
 } 
 	
@@ -79,12 +79,17 @@ overflow: hidden;
         }
     }
     
+.x-dataview-item {
+    display: inline-block;
+	vertical-align: top;
+}
 
     .product {
-        background: url(../images/polaroid_background.png) no-repeat center bottom;
+/*        background: url(../images/polaroid_background.png) no-repeat center bottom;*/
+background: white;
         position: relative;
-        display: block;
-        float: left;
+        display: inline-block;
+		vertical-align: top;
         height: 198px;
         width: 184px;
         padding: 6px;
@@ -92,6 +97,7 @@ overflow: hidden;
         
         &.category{
             margin: 35px;
+			float: none;
         }
 
 

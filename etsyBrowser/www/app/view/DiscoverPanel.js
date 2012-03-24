@@ -41,6 +41,7 @@ Ext.define('Etsy.view.DiscoverPanel', {
 				layout: 'vbox',
 				defaults:{
 					cls: 'homepage-button',
+					flex: 1
 				},
 				items: [{
 					html: 'Pick a color!'

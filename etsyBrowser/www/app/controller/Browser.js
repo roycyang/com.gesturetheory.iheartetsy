@@ -134,7 +134,7 @@ Ext.define('Etsy.controller.Browser', {
     
     
     showListings: function(type, record){
-        Ext.getCmp('browserViewButtons').show();
+        Ext.getCmp('browserFullCarouselButton').show();
         Ext.getCmp('browserBackButton').show();
         var self = this;
         var store = self.listingsStore;
@@ -181,7 +181,7 @@ Ext.define('Etsy.controller.Browser', {
             duration: 300,
             direction: 'right'
         });
-        Ext.getCmp('browserViewButtons').hide();
+        Ext.getCmp('browserFullCarouselButton').hide();
         Ext.getCmp('browserBackButton').hide();
 		self.getBrowserToolbar().setTitle('Categories');
 		Ext.getCmp('categoriesSearch').setPlaceHolder('Search Etsy');

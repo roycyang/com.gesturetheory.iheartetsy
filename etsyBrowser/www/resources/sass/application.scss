@@ -1,3 +1,9 @@
+.detail-panel-image {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+}
+
 .x-field-search .x-field-input .x-form-field {
 	font-family: helvetica;
 	font-size: 11px;
@@ -104,6 +110,7 @@ background: white;
         .image {
             height: 135px;
 			width: 170px;
+			background-color: black;
             background-repeat: no-repeat;
             background-position: center center;
         }

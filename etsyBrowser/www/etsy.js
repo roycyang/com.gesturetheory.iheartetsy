@@ -20,6 +20,7 @@ Ext.application({
         'BrowserPanel',
         'FullBrowserPanel',
         'HeartPanel',
+		'CartPanel',
         'DiscoverPanel',
         'DetailPanel',
         'LargeListingsCarousel',

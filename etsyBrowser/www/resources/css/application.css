@@ -1,4 +1,11 @@
 /* line 1, ../sass/application.scss */
+.detail-panel-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+/* line 7, ../sass/application.scss */
 .x-field-search .x-field-input .x-form-field {
   font-family: helvetica;
   font-size: 11px;
@@ -6,7 +13,7 @@
   padding-left: 15px;
 }
 
-/* line 8, ../sass/application.scss */
+/* line 14, ../sass/application.scss */
 .homepage-button {
   background: white url("../images/home_button.png?2") no-repeat center center;
   border: 1px solid #ccc;
@@ -15,12 +22,12 @@
   margin: 20px;
 }
 
-/* line 16, ../sass/application.scss */
+/* line 22, ../sass/application.scss */
 #closeFullBrowserButton .x-button-icon.x-icon-mask {
   background: #fff;
 }
 
-/* line 20, ../sass/application.scss */
+/* line 26, ../sass/application.scss */
 #browserSearchPanel {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(0, -47px, 0);
@@ -31,21 +38,21 @@
 background: none;
 } 
 */
-/* line 30, ../sass/application.scss */
+/* line 36, ../sass/application.scss */
 .x-fullscreen {
   background: url(../images/background.png) repeat 0 0;
 }
 
-/* line 34, ../sass/application.scss */
+/* line 40, ../sass/application.scss */
 .large-listings {
   background: #000;
 }
-/* line 37, ../sass/application.scss */
+/* line 43, ../sass/application.scss */
 .large-listings .large-product {
   height: 748px;
   width: 1024px;
 }
-/* line 41, ../sass/application.scss */
+/* line 47, ../sass/application.scss */
 .large-listings .large-product .image {
   height: 748px;
   width: 1024px;
@@ -54,7 +61,7 @@ background: none;
   background-position: center center;
 }
 
-/* line 51, ../sass/application.scss */
+/* line 57, ../sass/application.scss */
 .products {
   /*    .landscape .product {
           width: 25%;
@@ -72,7 +79,7 @@ background: none;
           }
       }*/
 }
-/* line 54, ../sass/application.scss */
+/* line 60, ../sass/application.scss */
 .products .x-innerhtml {
   /*        display: table;
           table-layout: fixed;*/
@@ -83,29 +90,29 @@ background: none;
   /*        border: 1px solid #ccc;
           border-width: 0 1px 1px 0;*/
 }
-/* line 64, ../sass/application.scss */
+/* line 70, ../sass/application.scss */
 .x-phone .products .x-innerhtml {
   border-right: 0;
   border-bottom: 0;
 }
-/* line 70, ../sass/application.scss */
+/* line 76, ../sass/application.scss */
 .products .row {
   /*        display: table-row;*/
 }
-/* line 73, ../sass/application.scss */
+/* line 79, ../sass/application.scss */
 .products .row > * {
   /*            display: table-cell;*/
 }
-/* line 77, ../sass/application.scss */
+/* line 83, ../sass/application.scss */
 .products .row:last-child .product {
   /*            border-bottom: 0;*/
 }
-/* line 82, ../sass/application.scss */
+/* line 88, ../sass/application.scss */
 .products .x-dataview-item {
   display: inline-block;
   vertical-align: top;
 }
-/* line 87, ../sass/application.scss */
+/* line 93, ../sass/application.scss */
 .products .product {
   /*        background: url(../images/polaroid_background.png) no-repeat center bottom;*/
   background: white;
@@ -117,24 +124,25 @@ background: none;
   padding: 6px;
   margin: 8px 8px 5px 8px;
 }
-/* line 98, ../sass/application.scss */
+/* line 104, ../sass/application.scss */
 .products .product.category {
   margin: 35px;
   float: none;
 }
-/* line 104, ../sass/application.scss */
+/* line 110, ../sass/application.scss */
 .products .product .image {
   height: 135px;
   width: 170px;
+  background-color: black;
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 115, ../sass/application.scss */
+/* line 122, ../sass/application.scss */
 .products .product .category-name {
   padding: 60px 20px;
   text-align: center;
 }
-/* line 120, ../sass/application.scss */
+/* line 127, ../sass/application.scss */
 .products .product .name {
   margin-top: 5px;
   height: 15px;
@@ -146,7 +154,7 @@ background: none;
   text-overflow: ellipsis;
   font-size: 13px;
 }
-/* line 132, ../sass/application.scss */
+/* line 139, ../sass/application.scss */
 .products .product .price {
   font-size: 13px;
   position: absolute;
@@ -160,17 +168,17 @@ background: none;
   overflow: hidden;
   text-overflow: clip;
 }
-/* line 145, ../sass/application.scss */
+/* line 152, ../sass/application.scss */
 .products .product .price .usd {
   font-size: 9px;
 }
 
-/* line 172, ../sass/application.scss */
+/* line 179, ../sass/application.scss */
 .product-view .description {
   border-top: 1px solid #ccc;
   padding: 20px;
 }
-/* line 178, ../sass/application.scss */
+/* line 185, ../sass/application.scss */
 .product-view .name {
   line-height: 28px;
   font-size: 20px;
@@ -178,13 +186,13 @@ background: none;
   color: #333;
   margin-bottom: 10px;
 }
-/* line 186, ../sass/application.scss */
+/* line 193, ../sass/application.scss */
 .product-view .text {
   font-size: 14px;
   color: #aaa;
   line-height: 20px;
 }
-/* line 192, ../sass/application.scss */
+/* line 199, ../sass/application.scss */
 .product-view img {
   /*            background-size: contain;
               background-repeat: no-repeat;
@@ -195,7 +203,7 @@ background: none;
   margin: 0 auto;
 }
 
-/* line 212, ../sass/application.scss */
+/* line 219, ../sass/application.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -215,7 +223,7 @@ background: none;
   text-decoration: none;
 }
 
-/* line 227, ../sass/application.scss */
+/* line 234, ../sass/application.scss */
 .products a {
   margin-top: 0;
 }

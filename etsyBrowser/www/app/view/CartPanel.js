@@ -13,13 +13,13 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Etsy.view.HeartPanel', {
+Ext.define('Etsy.view.CartPanel', {
     extend: 'Ext.Panel',
 
     config: {
-        title: 'Favorites',
-        iconCls: 'heart',
-        id: 'heartPanel',
+        title: 'Cart',
+        iconCls: 'shop1',
+        id: 'cartPanel',
         layout: 'card',
         items: [
         
@@ -29,12 +29,18 @@ Ext.define('Etsy.view.HeartPanel', {
                 id: 'heartToolbar',
                 title: 'Favorites',
                 items: [
-                {xtype: 'spacer'},
-				{
-                    xtype: 'button',
-                    id: 'heartPanelLoginButton',
-                    text: 'Sign In'
-                },
+					{xtype: 'spacer'},
+					{
+	                    xtype: 'button',
+	                    id: 'cartPanelSignInButton',
+	                    text: 'Sign In'
+	                },
+					{
+	                    xtype: 'button',
+	                    id: 'cartPanelSignOutButton',
+	                    text: 'Sign Out',
+						hidden: true
+	                },
 
                 // {
                 //                     xtype: 'searchfield',
@@ -47,10 +53,12 @@ Ext.define('Etsy.view.HeartPanel', {
 				xtype: 'container',
 				layout: 'vbox',
 				defaults:{
-					cls: 'homepage-button',
+					cls: '',
 				},
-				items: [{
-					html: 'Please sign in to browse your Etsy favorite items'
+				items: [
+				{
+					id: 'cartContent',
+					html: 'Please sign in to browse your Etsy cart'
 				}
 				]
 			}

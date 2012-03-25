@@ -117,12 +117,13 @@ Ext.define('Etsy.view.DetailPanel', {
     },
 
     updateData: function(newData) {
-        // var image = this.down('image');
+        var image = this.down('image');
         // 
         // image.element.dom.style.backgroundSize = "30%";
         // image.element.dom.style.backgroundImage = 'url(resources/images/loading.gif)';
         // image.setSrc('');	
         // image.setSrc(newData.image.large);
+		
 		var carousel = Ext.getCmp('detailPanelCarousel');
 		carousel.removeAll();
 		console.log('newData.Images', newData.Images);
@@ -131,9 +132,11 @@ Ext.define('Etsy.view.DetailPanel', {
 		for(i = 0; i < images.length; i++){
 			var image = images[i].url_570xN;
 			imageArray.push({
-                xtype: 'container',
-				//src: image
-				html: '<img height="350" src="' + image + '" />'
+                xtype: 'image',
+				padding: 20,
+				src: image,
+				cls: 'detail-panel-image',
+				//html: '<img height="350" src="' + image + '" />'
             });
 		}
 		// if(images.length == 1){

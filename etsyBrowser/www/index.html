@@ -18,27 +18,7 @@
 	<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
     <script type="text/javascript">
 
-var GLOBAL = {};
-
-// var accessors = {"accessTokenKey":"e1240c49924820ccd685dfcf02a6cd","accessTokenSecret":"04a06dcdcf"};
-// var options = { 
-//       consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
-//       consumerSecret: '2dvoqadnxo',
-// 			accessTokenKey: "e1240c49924820ccd685dfcf02a6cd",
-// 			accessTokenSecret: "04a06dcdcf"
-// };
-// 
-// oauth = OAuth(options);
-// 
-// oauth.get('http://openapi.etsy.com/v2/users/__SELF__',
-// function(data) {    
-// 		var info = JSON.parse(data.text);
-// 		alert('Hi ' + info.results[0].login_name);
-// 		console.log(info);
-// },
-// function(data) { 
-// console.log('error data',data);
-// });
+		var GLOBAL = {};
 
 
 	// If you want to prevent dragging, uncomment this section
@@ -64,6 +44,7 @@ var GLOBAL = {};
 	{		
 		document.addEventListener("deviceready", onDeviceReady, false);
 		console.log('in onBodyLoad');
+		initializeCart();
 		
 	}
 	
@@ -75,44 +56,56 @@ var GLOBAL = {};
 	{
 		// do your thing!
     // navigator.notification.alert("Cordova is working")
-		// authenticate();
-		// 
-		// url = "https://www.etsy.com/oauth/signin?oauth_consumer_key=tia49fh9iqjcrukurpbyqtv5&oauth_token=5f207a9abec08643e000b4a84d9242&service=v2_prod&oauth_token=5f207a9abec08643e000b4a84d9242&oauth_token_secret=2285d1c3f9&oauth_callback_confirmed=true&oauth_consumer_key=tia49fh9iqjcrukurpbyqtv5&oauth_callback=oob";
+
 		var cb = ChildBrowser.install();
 		
 		cb.onLocationChange = function(loc){ 
 			console.log('******** location' + loc);
 			locChanged(loc); 
 		};
+
 		
-		authorizeEtsy();
+
 		
 	}
 
-	function locChanged(loc){
-		console.log('********** LOC:' + loc);
-		console.log("AppLaudLog: onLocationChange : " + loc);
+	function initializeCart(){
+		console.log('in initialize cart');
+		var options = { 
+	            consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
+	            consumerSecret: '2dvoqadnxo'
+		};
+		
+		// Check for access token key/secret in localStorage
+	    var storedAccessData, rawData = localStorage.getItem('token');
 
-    // // If user hit "No, thanks" when asked to authorize access
-    //  if (loc.indexOf("http://www.your-callback-url.com/?denied") >= 0) {
-    //      $('#oauthStatus').html('<span style="color:red;">User declined access</span>');
-    //      window.plugins.childBrowser.close();
-    //      return;
-    //  }
-    // 
-    //  // Same as above, but user went to app's homepage instead
-    //  // of back to app. Don't close the browser in this case.
-    //  if (loc === "http://www.your-apps-homepage.com/") {
-    //      $('#oauthStatus').html('<span style="color:red;">User declined access</span>');
-    //      return;
-    //  }
+    storedAccessData = JSON.parse(rawData);                 
+    options.accessTokenKey = storedAccessData.accessTokenKey;
+    options.accessTokenSecret = storedAccessData.accessTokenSecret;
+
+    console.log("AppLaudLog: Attemping oauth with stored token key/secret");           
+    oauth = OAuth(options);
+    oauth.get('http://openapi.etsy.com/v2/users/__SELF__/carts',
+			 function(data) {
+				var info = JSON.parse(data.text);
+				var results = info.results;
+				console.log('info is', info);
+					var cart = "Cart items:<br/></br>";
+					for(i=0; i< results.length; i++){
+						cart = cart + results[i].shop_name + '<br/>'
+					}
+					Ext.getCmp('cartContent').setHtml(cart);
+				},
+				 function(data) {
+					}
+				);
+	}
+	
+	function locChanged(loc){
     
     // The supplied oauth_callback_url for this session is being loaded
     if (loc.indexOf("http://www.etsy.com/?") >= 0) {
-        
         completeAuthorization(loc);
-   
-     
     }
 	}
 	
@@ -133,16 +126,8 @@ var GLOBAL = {};
  		};
 
 		oauth = OAuth(options);
-		console.log('');
-		console.log('');
-		console.log('');
-		console.log('');
-		console.log('');
-		console.log('');
-		console.log('');
 		verifier = parsedParams.oauth_verifier;
-		console.log('GLOBAL.params is: ' + GLOBAL.params);
-		console.log('verifier is: ' + verifier);
+
 		  
 		// Exchange request token for access token
 		var url = 'http://openapi.etsy.com/v2/oauth/access_token?oauth_verifier=' + verifier;
@@ -167,18 +152,23 @@ var GLOBAL = {};
                     accessData.accessTokenKey = accessParams.oauth_token;
                     accessData.accessTokenSecret = accessParams.oauth_token_secret;
                     console.log("AppLaudLog: \n\n\n\n\n" + JSON.stringify(accessData));
-                    //localStorage.setItem(localStoreKey, JSON.stringify(accessData));
+                    localStorage.setItem('tokens', JSON.stringify(accessData));
 
-										oauth.get('http://openapi.etsy.com/v2/users/__SELF__',
-										function(data) {    
-												var info = JSON.parse(data.text);
-												navigator.notification.alert('Hi ' + info.results[0].login_name);
-												console.log(info);
-										},
-										function(data) { 
-											console.log('error data',data);
-										});
-
+										// oauth.get('http://openapi.etsy.com/v2/users/__SELF__',
+										// 										function(data) {    
+										// 												var info = JSON.parse(data.text);
+										// 												navigator.notification.alert('Hi ' + info.results[0].login_name);
+										// 												console.log(info);
+										// 										},
+										// 										function(data) { 
+										// 											console.log('error data',data);
+										// 										});
+										
+										Ext.getCmp('heartPanelLoginButton').hide();
+										
+										Ext.getCmp('cartPanelSignInButton').hide();
+										Ext.getCmp('cartPanelSignOutButton').show();
+										
                     // oauth.get('https://api.twitter.com/1/account/verify_credentials.json?skip_status=true',
                     //         function(data) {
                     //             var entry = JSON.parse(data.text);
@@ -202,50 +192,18 @@ var GLOBAL = {};
         );
 	}
 	  
-	function authorizeEtsy() {
-		
-		
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	}
     </script>
     
     <!-- GT ADDED -->
 		<script src="jquery.js"></script>
-
 		<script src="jquery.bbq.js"></script>
 
     <link rel="stylesheet" type="text/css" href="resources/css/sencha-touch.css?1"/>
     <script type="text/javascript" src="sencha-touch-all.js"></script>
     <script type="text/javascript" src="etsy.js"></script>
-    <link rel="stylesheet" type="text/css" href="resources/css/application.css?1"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/application.css?2"/>
 
   </head>
   <body onload="onBodyLoad()">
-	
-
   </body>
 </html>

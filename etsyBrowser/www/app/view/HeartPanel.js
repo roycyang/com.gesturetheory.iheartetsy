@@ -31,7 +31,7 @@ Ext.define('Etsy.view.HeartPanel', {
                 items: [
 				{
                     xtype: 'button',
-                    id: 'heartPanelLogin',
+                    id: 'heartPanelLoginButton',
                     text: 'Sign In'
                 },
                 {xtype: 'spacer'},

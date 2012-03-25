@@ -58,11 +58,38 @@ Ext.define('Etsy.controller.Browser', {
             "#homePanelSearch": {
 				keyup: 'onSearchKeyup',
 			},
+			'#heartPanelLoginButton': {
+				tap: 'onLoginTap'
+			}
         },
     },
     
     
-    
+    onLoginTap: function(){
+		console.log('in login tap');
+		var oauth;
+		var localStoreKey = "heart";
+		var options = { 
+	            consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
+	            consumerSecret: '2dvoqadnxo',
+	            callbackUrl: 'http://www.etsy.com' 
+		};
+	
+		oauth = OAuth(options);
+	
+		oauth.get('http://openapi.etsy.com/v2/oauth/request_token?scope=cart_rw',
+	        function(data) {
+				GLOBAL.params = $.deparam(data.text);
+				var params = $.deparam(data.text);
+				console.log('authorizeEtsy callback params', params);
+	            window.plugins.childBrowser.showWebPage(params.login_url, { showLocationBar : false });  
+	        },
+	        function(data) { 
+	            alert('Error : No Authorization'); 
+	            //$('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
+	        }
+		);
+	},
     
 
     launch: function() {

@@ -49,5 +49,7 @@ Ext.application({
         
         self.mainView.add(Ext.create('Etsy.view.AppPanel'));
         self.mainView.add(Ext.create('Etsy.view.NavPanel'));
+
+
     }
 });

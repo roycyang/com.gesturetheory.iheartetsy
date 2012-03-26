@@ -48,6 +48,9 @@
 		4375EAB9151F78BC00E416BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAE151F78BC00E416BF /* index.html */; };
 		4375EABA151F78BC00E416BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAF151F78BC00E416BF /* README.txt */; };
 		4375EABB151F78BC00E416BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAB0151F78BC00E416BF /* README.md */; };
+		43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE14811520F4E50050CFF0 /* EmailComposer.m */; };
+		43DE14851520F4E50050CFF0 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43DE14821520F4E50050CFF0 /* readme.md */; };
+		43DE14881520F5950050CFF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DE14871520F5950050CFF0 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +103,10 @@
 		4375EAAE151F78BC00E416BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		4375EAAF151F78BC00E416BF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4375EAB0151F78BC00E416BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		43DE147F1520F4E50050CFF0 /* EmailComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailComposer.h; sourceTree = "<group>"; };
+		43DE14811520F4E50050CFF0 /* EmailComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailComposer.m; sourceTree = "<group>"; };
+		43DE14821520F4E50050CFF0 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		43DE14871520F5950050CFF0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43DE14881520F5950050CFF0 /* MessageUI.framework in Frameworks */,
 				4352FD5E151D1A4400F75C44 /* Foundation.framework in Frameworks */,
 				4352FD60151D1A4400F75C44 /* UIKit.framework in Frameworks */,
 				4352FD62151D1A4400F75C44 /* CoreGraphics.framework in Frameworks */,
@@ -137,6 +145,7 @@
 		4352FD4B151D1A4400F75C44 = {
 			isa = PBXGroup;
 			children = (
+				43DE14871520F5950050CFF0 /* MessageUI.framework */,
 				4352FDB5151D1A5800F75C44 /* www */,
 				4352FD77151D1A4400F75C44 /* etsyBrowser */,
 				4352FD5C151D1A4400F75C44 /* Frameworks */,
@@ -277,6 +286,7 @@
 		4352FDAC151D1A4400F75C44 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				43DE147E1520F4E50050CFF0 /* EmailComposer */,
 				4375EAA2151F78BC00E416BF /* ChildBrowser */,
 				4352FDAD151D1A4400F75C44 /* README */,
 			);
@@ -307,6 +317,16 @@
 				4375EAAF151F78BC00E416BF /* README.txt */,
 			);
 			path = FBConnectExample;
+			sourceTree = "<group>";
+		};
+		43DE147E1520F4E50050CFF0 /* EmailComposer */ = {
+			isa = PBXGroup;
+			children = (
+				43DE147F1520F4E50050CFF0 /* EmailComposer.h */,
+				43DE14811520F4E50050CFF0 /* EmailComposer.m */,
+				43DE14821520F4E50050CFF0 /* readme.md */,
+			);
+			path = EmailComposer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +407,7 @@
 				4375EAB9151F78BC00E416BF /* index.html in Resources */,
 				4375EABA151F78BC00E416BF /* README.txt in Resources */,
 				4375EABB151F78BC00E416BF /* README.md in Resources */,
+				43DE14851520F4E50050CFF0 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +440,7 @@
 				4375EAB4151F78BC00E416BF /* ChildBrowserCommand.m in Sources */,
 				4375EAB5151F78BC00E416BF /* ChildBrowserViewController.m in Sources */,
 				4375EAB8151F78BC00E416BF /* FBConnect.js in Sources */,
+				43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

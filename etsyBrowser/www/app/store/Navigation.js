@@ -22,8 +22,10 @@ Ext.define('Etsy.store.Navigation', {
            // { title: 'Treasuries',  type: ''  , panel: 'discoverPanel'},
            { title: 'Favorites',  type: ''  , panel: 'heartPanel'},
            { title: 'Cart',  type: ''  , panel: 'cartPanel'},
-           // { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'discoverPanel'},
-           // { title: 'Wedding',  type: 'Bookmarked Categories'  , panel: 'discoverPanel'},
+           { title: 'Settings',  type: ''  , panel: 'settingsPanel'},
+           { title: 'Feedback',  type: ''  , panel: 'feedback'},
+           { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'discoverPanel'},
+           { title: 'Wedding',  type: 'Bookmarked Categories'  , panel: 'discoverPanel'},
        ]
     }
 

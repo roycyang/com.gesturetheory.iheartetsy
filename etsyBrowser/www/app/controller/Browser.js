@@ -86,6 +86,7 @@ Ext.define('Etsy.controller.Browser', {
     },
     
     toggleNav: function(){
+
         if(GLOBAL.expandedNav){
              $('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
              GLOBAL.expandedNav = false;
@@ -218,13 +219,29 @@ Ext.define('Etsy.controller.Browser', {
     
     
     onNavListTap: function(view, index, item, record) {
+		var self = this;
 		console.log(view, index, item, record);
 		console.log(record.get('panel'));
-		this.getAppPanel().setActiveItem(this[record.get('panel')]);
-		setTimeout(function(){
-		   		view.deselectAll(); 
-		}, 300);
-
+		var panel = record.get('panel');
+		if(panel == 'feedback'){
+		    try{
+		        window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gtcrafted.com");
+		    }catch(err){
+		        
+		    }
+		    setTimeout(function(){
+		        if(GLOBAL.previousNavItemIndex){
+    		        self.getNavList().select(GLOBAL.previousNavItemIndex);
+    		    }else{
+    		        self.getNavList().select(0);
+    		    } 
+		    }, 350);
+		    
+		}else{
+		   	this.getAppPanel().setActiveItem(this[record.get('panel')]);
+		   	GLOBAL.previousNavItemIndex = index;
+		}
+		
 		this.toggleNav();
     },
     

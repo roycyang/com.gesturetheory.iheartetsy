@@ -28,6 +28,8 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>org.apache.cordova.EmailComposer</key>
+		<string>EmailComposer</string>
 		<key>ChildBrowserCommand</key>
 		<string>ChildBrowserCommand</string>
 		<key>org.apache.cordova.accelerometer</key>

@@ -26,8 +26,14 @@ Ext.define('Etsy.view.NavPanel', {
 			itemTpl: '<div class="contact">{title}</div>',
 			store: 'Navigation',
 			grouped: true,
+			listeners: {
+    		    initialize: function(){
+                    this.select(0);
+    		    }
+    		}
 
-		}]
+		}],
+
 	},
 
 });

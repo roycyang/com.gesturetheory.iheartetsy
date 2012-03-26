@@ -8,14 +8,27 @@
     background: rgba(0,0,0,0.1);
 }*/
 
-#detailPanelCarousel .x-carousel-item {
-    background: url(../images/loading.gif) no-repeat center center;
-    background-size: 10%;
+#detailPanelCarousel {
+    background: #fff;
+    
+    &.fullsize {
+        background: #000;
+    }
+
+
+    .x-carousel-item {
+        background: url(../images/loading.gif) no-repeat center center;
+        background-size: 10%;
+    }
 }
 .detail-panel-image {
 	background-repeat: no-repeat;
 	background-size: auto 80%;
 	background-position: center center;
+	
+	.fullsize & {
+	    background-size: contain;
+	}
 }
 
 .x-field-search .x-field-input .x-form-field {

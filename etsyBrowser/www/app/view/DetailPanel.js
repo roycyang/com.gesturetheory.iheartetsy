@@ -69,7 +69,10 @@ Ext.define('Etsy.view.DetailPanel', {
             {
 				flex: 2,
 				xtype: 'carousel',
-    			id: 'detailPanelCarousel',			
+    			id: 'detailPanelCarousel',	
+    			indicator: {
+    			    ui: 'light'
+    			}		
             },
             {
                 flex: 1,
@@ -108,7 +111,50 @@ Ext.define('Etsy.view.DetailPanel', {
         //         image.element.dom.style.backgroundSize = "contain";
         //     }
         // });
+        
+        //  this.element.on({
+        //     scope: this,
+        //     tap: 'onTap'
+        // });
+        
+        Ext.getCmp('detailPanelCarousel').element.on({
+             scope: this,
+             tap: 'onTap'
+         });
+       
+        
     },
+    
+     onTap: function(e) {
+         console.log('on detailpanle tap!!!', GLOBAL.onFullView);
+         if(GLOBAL.onFullView){
+
+             self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
+             self.detailPanel.remove(Ext.getCmp('description'), false)
+             self.detailPanel.add(Ext.getCmp('description'))
+             // Ext.getCmp('detailPanelCarousel').element.un('tap');
+             //  
+             // // Ext.getCmp('detailPanelCarousel').element.on({
+             // //      scope: this,
+             // //      tap: 'onTap'
+             // //  });
+             $('#detailPanelCarousel').removeClass('fullsize');
+             GLOBAL.onFullView = false;
+             
+        }else{
+            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
+            Ext.getCmp('detailPanelCarousel').show()
+            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
+            Ext.getCmp('detailPanelCarousel').element.on({
+                 scope: this,
+                 tap: 'onTap'
+             });
+            $('#detailPanelCarousel').addClass('fullsize');
+            GLOBAL.onFullView = true;
+        }
+             
+         
+        },
 
     updateData: function(newData) {
         var image = this.down('image');

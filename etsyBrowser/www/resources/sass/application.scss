@@ -4,11 +4,17 @@
     -webkit-transform: translate3d(0, 0, 0);
 }
 
+/*.x-carousel .x-mask.x-floating {
+    background: rgba(0,0,0,0.1);
+}*/
 
-
+#detailPanelCarousel .x-carousel-item {
+    background: url(../images/loading.gif) no-repeat center center;
+    background-size: 10%;
+}
 .detail-panel-image {
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: auto 80%;
 	background-position: center center;
 }
 

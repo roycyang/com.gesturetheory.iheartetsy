@@ -32,9 +32,9 @@ Ext.application({
     views: [
         'AppPanel',
         'HomePanel',
-        'BrowserPanel',
-        'FullBrowserPanel',
-        'HeartPanel',
+        'CategoriesPanel',
+        'FullCategoriesPanel',
+        'FavoritesPanel',
         'DiscoverPanel',
         'DetailPanel',
         'LargeListingsCarousel',

@@ -18,9 +18,9 @@ Ext.define('Etsy.store.Navigation', {
 
        data: [
            { title: 'Discover',  type: '', panel: 'homePanel'  },
-           { title: 'Categories',  type: ''  , panel: 'browserPanel'},
+           { title: 'Categories',  type: ''  , panel: 'categoriesPanel'},
            { title: 'Treasuries',  type: ''  , panel: 'treasuriesPanel'},
-           { title: 'Favorites',  type: ''  , panel: 'heartPanel'},
+           { title: 'Favorites',  type: ''  , panel: 'favoritesPanel'},
            { title: 'Cart',  type: ''  , panel: 'cartPanel'},
            { title: 'Settings',  type: ''  , panel: 'settingsPanel'},
            { title: 'Feedback',  type: ''  , panel: 'feedback'},

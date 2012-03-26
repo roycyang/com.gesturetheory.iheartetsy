@@ -21,15 +21,13 @@ Ext.define('Etsy.view.DetailPanel', {
 
     config: {
         cls: 'product-view',
+        zIndex: 1000000000,
         centered: true,
         width: '90%',
         height: '90%',
         modal: true,
         hideOnMaskTap: true,
-		scrollable: {
-			direction: 'vertical',
-			directionLock: true
-		},
+		scrollable: false,
         layout: {
             type: 'vbox'
         },
@@ -69,22 +67,18 @@ Ext.define('Etsy.view.DetailPanel', {
 				]
 			},
             {
-				padding: 20,
+				flex: 2,
 				xtype: 'carousel',
-				id: 'detailPanelCarousel',
-                height: 400,
-				indicator: {
-					bottom: 5
-				},
-				config: {
-			        direction: 'horizontal',
-					
-					directionLock: true
-				}
+    			id: 'detailPanelCarousel',			
             },
             {
+                flex: 1,
                 id: 'description',
                 cls: 'description',
+                scrollable: {
+        			direction: 'vertical',
+        			directionLock: true
+        		},
                 tpl: new Ext.XTemplate(
                     '<div class="name">{title}</div>',
                     '<div class="text">{description}</div>'
@@ -133,7 +127,6 @@ Ext.define('Etsy.view.DetailPanel', {
 			var image = images[i].url_570xN;
 			imageArray.push({
                 xtype: 'image',
-				padding: 20,
 				src: image,
 				cls: 'detail-panel-image',
 				//html: '<img height="350" src="' + image + '" />'

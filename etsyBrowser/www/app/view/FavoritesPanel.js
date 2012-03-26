@@ -13,38 +13,33 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Etsy.view.CartPanel', {
+Ext.define('Etsy.view.FavoritesPanel', {
     extend: 'Ext.Panel',
 
     config: {
-        title: 'Cart',
-        iconCls: 'shop1',
-        id: 'cartPanel',
+        title: 'Your Favorites',
+        iconCls: 'heart',
+        id: 'favoritesPanel',
         layout: 'card',
         items: [
         
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Your Cart',
+                id: 'heartToolbar',
+                title: 'Favorites',
                 items: [{
                     xtype: 'button',
                     action: 'showNav',
                     iconCls: 'list',
     				iconMask: true,
                 },
-					{xtype: 'spacer'},
-					{
-	                    xtype: 'button',
-	                    id: 'cartPanelSignInButton',
-	                    text: 'Sign In'
-	                },
-					{
-	                    xtype: 'button',
-	                    id: 'cartPanelSignOutButton',
-	                    text: 'Sign Out',
-						hidden: true
-	                },
+                {xtype: 'spacer'},
+				{
+                    xtype: 'button',
+                    id: 'favoritesPanelLoginButton',
+                    text: 'Sign In'
+                },
 
                 // {
                 //                     xtype: 'searchfield',
@@ -57,12 +52,10 @@ Ext.define('Etsy.view.CartPanel', {
 				xtype: 'container',
 				layout: 'vbox',
 				defaults:{
-					cls: '',
+					cls: 'homepage-button',
 				},
-				items: [
-				{
-					id: 'cartContent',
-					html: 'Please sign in to browse your Etsy cart'
+				items: [{
+					html: 'Please sign in to browse your Etsy favorite items'
 				}
 				]
 			}

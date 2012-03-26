@@ -1,3 +1,9 @@
+#appPanel {
+    background: url(../images/background.png) repeat 0 0;
+    -webkit-transition: -webkit-transform 350ms;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
 .detail-panel-image {
 	background-repeat: no-repeat;
 	background-size: contain;

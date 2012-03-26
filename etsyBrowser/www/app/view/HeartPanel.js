@@ -28,7 +28,12 @@ Ext.define('Etsy.view.HeartPanel', {
                 docked: 'top',
                 id: 'heartToolbar',
                 title: 'Favorites',
-                items: [
+                items: [{
+                    xtype: 'button',
+                    action: 'showNav',
+                    iconCls: 'list',
+    				iconMask: true,
+                },
                 {xtype: 'spacer'},
 				{
                     xtype: 'button',

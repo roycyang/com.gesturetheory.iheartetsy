@@ -14,13 +14,11 @@
  */
 
 Ext.define('Etsy.view.AppPanel', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.Panel',
 
     config: {
-        tabBar: {
-            docked: 'bottom',
-        },
-        fullscreen: true,
+
+        zIndex: 1000,
         id: 'appPanel',
         layout: {
             type: 'card',

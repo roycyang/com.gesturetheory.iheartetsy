@@ -28,7 +28,12 @@ Ext.define('Etsy.view.CartPanel', {
                 docked: 'top',
                 id: 'heartToolbar',
                 title: 'Your Cart',
-                items: [
+                items: [{
+                    xtype: 'button',
+                    action: 'showNav',
+                    iconCls: 'list',
+    				iconMask: true,
+                },
 					{xtype: 'spacer'},
 					{
 	                    xtype: 'button',

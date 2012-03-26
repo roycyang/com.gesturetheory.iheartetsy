@@ -5,16 +5,19 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'Listing',
-        'Category'
+        'Category',
+        'Navigation'
     ],
 
     stores: [
         'LatestListings',
         'Listings',
-        'Categories'
+        'Categories',
+        'Navigation'
     ],
 
     views: [
+        'NavPanel',
         'AppPanel',
         'HomePanel',
         'BrowserPanel',
@@ -36,6 +39,15 @@ Ext.application({
     ],
 
     launch: function() {
-        Ext.create('Etsy.view.AppPanel', {fullscreen: true});
+        var self = this;
+        
+        self.mainView = Ext.create('Ext.Panel', {
+            fullscreen: true,
+            height: 748,
+            width: 1024
+        });
+        
+        self.mainView.add(Ext.create('Etsy.view.AppPanel'));
+        self.mainView.add(Ext.create('Etsy.view.NavPanel'));
     }
 });

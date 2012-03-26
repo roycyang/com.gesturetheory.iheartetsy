@@ -18,6 +18,8 @@ Ext.define('Etsy.controller.Browser', {
 
     config: {
         refs: {
+            navPanel: '#navPanel',
+            navList: '#navList',
             appPanel: '#appPanel',
             homePanel: '#homePanel',
             browserPanel: '#browserPanel',
@@ -27,16 +29,24 @@ Ext.define('Etsy.controller.Browser', {
             detailPanel: '#detailPanel',
             listingsCarousel: 'listingsCarousel',
             categoryList: '#categoryList',
+            showNav: 'button[action=showNav]',
 
 
         },
         control: {
+            showNav: {
+                tap: 'onShowNavTap',
+            },
             listingsCarousel: {
                 itemtap: 'onListingTap'
             },
             categoryList: {
                 itemtap: 'onCategoryListTap'
             },
+            '#navList': {
+                itemtap: 'onNavListTap'
+            },
+            
             '#browserBackButton': {
                 tap: 'onBrowserBackButtonTap'
             },
@@ -68,6 +78,22 @@ Ext.define('Etsy.controller.Browser', {
 				tap: 'onSignOutTap'
 			}
         },
+    },
+    
+    onShowNavTap: function(){
+        this.toggleNav();
+
+    },
+    
+    toggleNav: function(){
+        if(GLOBAL.expandedNav){
+             $('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
+             GLOBAL.expandedNav = false;
+        }else{
+            $('#appPanel').css('-webkit-transform', 'translate3d(250px,0,0)');
+            
+             GLOBAL.expandedNav = true;
+        }
     },
     
 	onSignOutTap: function(){
@@ -186,6 +212,20 @@ Ext.define('Etsy.controller.Browser', {
     
     onCategoryListTap: function(view, index, item, record) {
 		this.showListings('category', record);
+		
+		
+    },
+    
+    
+    onNavListTap: function(view, index, item, record) {
+		console.log(view, index, item, record);
+		console.log(record.get('panel'));
+		this.getAppPanel().setActiveItem(this[record.get('panel')]);
+		setTimeout(function(){
+		   		view.deselectAll(); 
+		}, 300);
+
+		this.toggleNav();
     },
     
     

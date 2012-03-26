@@ -237,6 +237,11 @@ Ext.define('Etsy.controller.Browser', {
     		    } 
 		    }, 350);
 		    
+		}else if(panel == "bookmarkedCategory"){
+            console.log('record is', record.get('short_name'));
+		    this.getAppPanel().setActiveItem(self.browserPanel);
+		    this.showListings('category', record);
+		   	GLOBAL.previousNavItemIndex = index;
 		}else{
 		   	this.getAppPanel().setActiveItem(this[record.get('panel')]);
 		   	GLOBAL.previousNavItemIndex = index;

@@ -22,7 +22,7 @@
 
 /* line 20, ../sass/application.scss */
 .homepage-button {
-  background: white url("../images/home_button.png?2") no-repeat center center;
+  background: white;
   border: 1px solid #ccc;
   text-align: center;
   line-height: 200px;

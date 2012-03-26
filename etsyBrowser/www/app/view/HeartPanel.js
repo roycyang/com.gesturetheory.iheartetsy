@@ -17,7 +17,7 @@ Ext.define('Etsy.view.HeartPanel', {
     extend: 'Ext.Panel',
 
     config: {
-        title: 'Favorites',
+        title: 'Your Favorites',
         iconCls: 'heart',
         id: 'heartPanel',
         layout: 'card',

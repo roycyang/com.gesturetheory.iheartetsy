@@ -37,10 +37,12 @@ Ext.define('Etsy.view.HomePanel', {
                 },
                 {xtype: 'spacer'},
                 {
-                    xtype: 'searchfield',
-                    id: 'homePanelSearch',
-                    placeHolder: 'Search Etsy'
-                }]
+                    xtype: 'button',
+                    action: 'showSearch',
+                    iconCls: 'search',
+    				iconMask: true,
+                },
+                ]
             },
 			{
 				xtype: 'container',
@@ -68,7 +70,7 @@ Ext.define('Etsy.view.HomePanel', {
                 xtype: 'listingsCarousel',
                 flex: 2,
                 
-                count: 14
+                count: 9
                 
             }
         ]

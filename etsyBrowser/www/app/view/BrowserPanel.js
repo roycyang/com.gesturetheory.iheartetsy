@@ -7,30 +7,7 @@ Ext.define('Etsy.view.BrowserPanel', {
         id: 'browserPanel',
         layout: 'card',
         items: [
-        {
-		    xtype: 'toolbar',
-			top: 0,
-			left: 0,
-			width: 1024,
-			docked: 'top',
-			id: 'browserSearchPanel',
-			items: [{
-             width: 686,
-             xtype: 'searchfield',
-             id: 'browserPanelSearch',
-             placeHolder: 'Search'
-            },
-            {
-                xtype: 'button',
-                id: 'browserSearchCancelButton',
-                ui: 'plain',
-                iconCls: 'delete',
-                iconMask: true,
-
-            }]
-
-
-		},
+        
             {
                 xtype: 'toolbar',
                 docked: 'top',
@@ -42,23 +19,23 @@ Ext.define('Etsy.view.BrowserPanel', {
                     iconCls: 'list',
     				iconMask: true,
                 },
-                    {
-                        xtype: 'button',
-                        ui: 'back',
-                        text: 'Back',
-                        id: 'browserBackButton',
-                        hidden: true
-                    },
+                    // {
+                    //     xtype: 'button',
+                    //     ui: 'back',
+                    //     text: 'Back',
+                    //     id: 'browserBackButton',
+                    //     hidden: true
+                    // },
                     {
                         xtype: 'spacer'
                     },
-                    {
-                        xtype: 'button',
-                        id: 'browserFullCarouselButton',
-							iconCls: 'expand',
-							iconMask: true,
-							hidden: true
-                    },
+                             //                    {
+                            //                         xtype: 'button',
+                            //                         id: 'browserFullCarouselButton',
+                            // iconCls: 'expand',
+                            // iconMask: true,
+                            // hidden: true
+                            //                     },
                     // {
                     //     xtype: 'button',
                     //     iconCls: 'search',
@@ -66,10 +43,11 @@ Ext.define('Etsy.view.BrowserPanel', {
                     //     iconMask: true
                     // },
 					{
-	                    xtype: 'searchfield',
-	                    id: 'categoriesSearch',
-	                    placeHolder: 'Search Etsy'
-	                }
+                        xtype: 'button',
+                        action: 'showSearch',
+                        iconCls: 'search',
+        				iconMask: true,
+                    },
                 ]
             },
             
@@ -84,7 +62,7 @@ Ext.define('Etsy.view.BrowserPanel', {
                 ]
             },
             {
-                id: 'tester',
+                id: 'browserCarousel',
                 xtype: 'listingsCarousel',
                 flex: 2
             }

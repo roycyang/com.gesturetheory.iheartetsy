@@ -17,14 +17,16 @@ Ext.application({
     ],
 
     views: [
+        'SettingsPanel',
+        'SearchPanel',
         'NavPanel',
         'AppPanel',
         'HomePanel',
         'BrowserPanel',
         'FullBrowserPanel',
+        'TreasuriesPanel',
         'HeartPanel',
 		'CartPanel',
-        'DiscoverPanel',
         'DetailPanel',
         'LargeListingsCarousel',
         'LargeListings',
@@ -49,7 +51,7 @@ Ext.application({
         
         self.mainView.add(Ext.create('Etsy.view.AppPanel'));
         self.mainView.add(Ext.create('Etsy.view.NavPanel'));
-
+        self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
 
     }
 });

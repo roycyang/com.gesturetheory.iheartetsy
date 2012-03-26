@@ -6,17 +6,13 @@ Ext.define('Etsy.view.NavPanel', {
 		width: 250,
 		height: 748,
         top: 0,
+        hidden: true,
                 left: 0,
 		items: [{
 			xtype: 'toolbar',
 			docked: 'top',
 			ui: 'neutral',
-			items: [{
-			    width: '93%',
-				xtype: 'searchfield',
-				id: 'browserPanelSearch',
-				placeHolder: 'Search Etsy'
-			}]
+			title: 'I Heart Etsy'
 		},
 		{
 			xtype: 'list',

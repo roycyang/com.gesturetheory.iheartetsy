@@ -64,12 +64,12 @@ Ext.define('Etsy.view.ListingsCarousel', {
             element = Ext.get(e.target).parent('.product');
         }
 
-		if(x_dist < 5){
-			if(y_dist < -10 && y_dist > -80){
+		if(x_dist < 10){
+			if(y_dist < -20 && y_dist > -80){
 				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
 			}
 			
-			if(y_dist >10 && y_dist < 80){
+			if(y_dist >20 && y_dist < 80){
 				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
 			}
 		}
@@ -92,14 +92,16 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		if (element.hasCls('add-to-favorites')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			alert('Added to favorites!');
+			navigator.notification.alert('Added to favorites!', alertCallback, [title], [buttonName])
+
 			return false;
 		}
 
 		if (element.hasCls('add-to-pinterest')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			alert('Added to pinterested!');
+			navigator.notification.alert('Added to pinterest!', alertCallback, [title], [buttonName])
+
 			return false;
 		}
 		

@@ -92,7 +92,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		if (element.hasCls('add-to-favorites')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			navigator.notification.alert('Added to favorites!', alertCallback, [title], [buttonName])
+			navigator.notification.alert('Added to favorites!')
 
 			return false;
 		}
@@ -100,7 +100,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		if (element.hasCls('add-to-pinterest')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			navigator.notification.alert('Added to pinterest!', alertCallback, [title], [buttonName])
+			navigator.notification.alert('Added to pinterest!')
 
 			return false;
 		}

@@ -40,6 +40,12 @@ Ext.define('Etsy.view.FavoritesPanel', {
                     id: 'favoritesPanelLoginButton',
                     text: 'Sign In'
                 },
+                {
+                    xtype: 'button',
+                    id: 'favoritesPanelSignOutButton',
+                    text: 'Sign Out',
+					hidden: true
+                },
 
                 // {
                 //                     xtype: 'searchfield',

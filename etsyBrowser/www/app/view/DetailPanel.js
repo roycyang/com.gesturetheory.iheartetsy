@@ -74,19 +74,24 @@ Ext.define('Etsy.view.DetailPanel', {
     			    ui: 'light'
     			}		
             },
-            {
-                flex: 1,
-                id: 'description',
-                cls: 'description',
-                scrollable: {
-        			direction: 'vertical',
-        			directionLock: true
-        		},
-                tpl: new Ext.XTemplate(
-                    '<div class="name">{title}</div>',
-                    '<div class="text">{description}</div>'
-                )
-            }
+                            {   padding: 20,
+                                top: 0,
+                                right: 0,
+                                height: 690,
+                                width: 280,
+                                floating: true,
+                                flex: 1,
+                                id: 'description',
+                                cls: 'description',
+                                scrollable: {
+                 direction: 'vertical',
+                 directionLock: true
+                },
+                                tpl: new Ext.XTemplate(
+                                    '<div class="name">{title}</div>',
+                                    '<div class="text">{description}</div>'
+                                )
+                            }
         ],
 
         // showAnimation: {

@@ -28,6 +28,7 @@ Ext.define('Etsy.view.HomePanel', {
                 xtype: 'toolbar',
                 docked: 'top',
                 title: 'Discover',
+                id: 'homeToolbar',
                 items: [
                 {
                     xtype: 'button',
@@ -36,6 +37,10 @@ Ext.define('Etsy.view.HomePanel', {
     				iconMask: true,
                 },
                 {xtype: 'spacer'},
+                
+                
+                
+                
                 {
                     xtype: 'button',
                     action: 'showSearch',
@@ -70,7 +75,7 @@ Ext.define('Etsy.view.HomePanel', {
                 xtype: 'listingsCarousel',
                 flex: 2,
                 
-                count: 9
+                count: 10
                 
             }
         ]

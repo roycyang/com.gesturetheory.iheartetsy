@@ -22,12 +22,12 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
-		<string>*.etsy.com</string>
-		<string>extjs.cachefly.net</string>
-		<string>*.etsystatic.com</string>
+		<string>*</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>ShareKitPlugin</key>
+		<string>ShareKitPlugin</string>
 		<key>org.apache.cordova.EmailComposer</key>
 		<string>EmailComposer</string>
 		<key>ChildBrowserCommand</key>

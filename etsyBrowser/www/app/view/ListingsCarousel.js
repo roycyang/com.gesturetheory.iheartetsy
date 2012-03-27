@@ -38,6 +38,15 @@ Ext.define('Etsy.view.ListingsCarousel', {
             scope: this,
             drag : 'onDragItem' 
         });
+        
+        
+        // this.getStore().on({
+        //     scope: this,
+        //     addRecords: function(){
+        //         console.log('********* ADDED RECORDS');
+        //     },
+        //     
+        // })
 
 		//var products = Ext.DomQuery.select('.product');
 		
@@ -147,15 +156,28 @@ Ext.define('Etsy.view.ListingsCarousel', {
     },
 
     updateStore: function(newStore) {
-        console.log('update the store');
+        console.log('update the store', newStore);
         var me = this;
 
         if (newStore.isLoading()) {
             me.setMasked({
                 xtype: 'loadmask'
             });
+            
+            // this is when the store updates, we can update the max index.
+            newStore.on('refresh', function() {
+                console.log('\n\n\n\n\n\n\newStore', newStore.data.length);
+                var storeCount = newStore.data.length;
+                var max = parseInt(storeCount/me.getCount());
+                setTimeout(function(){
+                    me.setMaxItemIndex(max-1);
+                }, 1000);
 
+            });
+
+            // this is when the store loads for the first time
             newStore.on('load', function() {
+                console.log('\n\n\n\n\n\nin the newstore.load');
                 me.setMasked(false);
 
                 me.updateStore(newStore);
@@ -164,6 +186,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
             });
         } else {
             me.reset();
+            
         }
     },
 
@@ -180,6 +203,27 @@ Ext.define('Etsy.view.ListingsCarousel', {
             console.log('firing store.nextPage()', store.data.length);
             
         }
+        
+        var startIndex = (index) * (count) + 1;
+        var endIndex = startIndex + (count-1);
+        
+        
+        console.log('***Panel #' + index);
+        console.log(startIndex + '-' + endIndex)
+        
+        
+        // settings the max index
+        
+        var max = parseInt(storeCount/(count));
+        console.log('storeCount is', storeCount);
+        console.log('max', max);
+
+        this.setMaxItemIndex(max-1);
+        Ext.getCmp('homeToolbar').setTitle('Discover (' + startIndex + '-' + endIndex + ')... Page ' + (index + 1) + ' of ' + (max));
+        
+        // 
+        // console.log('start index is', startIndex);
+        // console.log('count is', count);
     },
 
     onItemIndexChange: function(me, item, index) {
@@ -193,6 +237,9 @@ Ext.define('Etsy.view.ListingsCarousel', {
         }
 
         startIndex = index * count;
+        
+        
+        
 
         if (count > 1) {
             endIndex = startIndex + count;

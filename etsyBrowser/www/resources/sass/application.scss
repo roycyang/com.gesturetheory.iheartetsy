@@ -23,7 +23,7 @@
 }
 .detail-panel-image {
 	background-repeat: no-repeat;
-	background-size: auto 80%;
+	background-size: contain;
 	background-position: center center;
 	
 	.fullsize & {

@@ -71,19 +71,21 @@ Ext.define('Etsy.controller.Browser', {
 	},
 
 	onShowNavTap: function() {
-		var self = this;
-		self.getAppPanel().mask({
-
-			listeners: {
-				tap: function() {
-
-					self.toggleNav();
-
-				}
-			}
-
-		})
-		this.toggleNav();
+	    console.log('test');
+//	    Cordova.exec(null, null, "ShareKitPlugin", "shareToFacebook", ['test', 'http://google.com'] );
+        var self = this;
+        self.getAppPanel().mask({
+        
+         listeners: {
+             tap: function() {
+        
+                 self.toggleNav();
+        
+             }
+         }
+        
+        })
+        this.toggleNav();
 
 	},
 

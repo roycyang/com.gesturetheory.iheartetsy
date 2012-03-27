@@ -48,8 +48,10 @@ Ext.define('Etsy.view.Listings', {
             '</tpl>'
         )
     },
-
+    
+    
     updateRecords: function(newRecords) {
+        console.log('newRecords is', newRecords);
         this.setData({
             items: newRecords.items,
             landscape: Ext.Viewport.getOrientation() == "landscape"

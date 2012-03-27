@@ -25,7 +25,7 @@
 /* line 24, ../sass/application.scss */
 .detail-panel-image {
   background-repeat: no-repeat;
-  background-size: auto 80%;
+  background-size: contain;
   background-position: center center;
 }
 /* line 29, ../sass/application.scss */

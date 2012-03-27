@@ -93,6 +93,28 @@ overflow: hidden;
 	vertical-align: top;
 }
 
+    .favorite-flag .favorite-stamp {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: red;
+    }
+    
+    .cart-flag .cart-stamp {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 50px;
+        height: 26px;
+        background: red;
+        z-index: 10000;
+        background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
+        background-size: contain;
+
+    }
+
     .product {
         /*        background: url(../images/polaroid_background.png) no-repeat center bottom;*/
         background: white;
@@ -104,7 +126,7 @@ overflow: hidden;
         padding: 0;
         margin: 15px 33px;
         overflow: hidden;
-        border: 6px solid white;
+        padding: 6px;
         /*-moz-box-shadow: 0 0 5px #888;
         -webkit-box-shadow: 0 0 5px#888;
         box-shadow: 0 0 2px #888;*/
@@ -115,6 +137,7 @@ overflow: hidden;
 			float: none;
         }
 
+ 
 
         .image {
             height: 135px;
@@ -129,8 +152,8 @@ overflow: hidden;
         }
 
 		.actions {
-			top: 55px;
-			left: 0;
+			top: 61px;
+			left: 6px;
 			height: 80px;
 			width: 170px;
 			position: absolute;

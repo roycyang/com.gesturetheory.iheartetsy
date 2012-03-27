@@ -288,6 +288,16 @@ Ext.define('Etsy.controller.Browser', {
 			this.getAppPanel().setActiveItem(self.categoriesPanel);
 			this.showListings('category', record);
 			GLOBAL.previousNavItemIndex = index;
+		} else if (panel == 'cartPanel') {
+		    window.plugins.childBrowser.showWebPage("http://www.etsy.com/cart");
+		    setTimeout(function() {
+				if (GLOBAL.previousNavItemIndex) {
+					self.getNavList().select(GLOBAL.previousNavItemIndex);
+				} else {
+					self.getNavList().select(0);
+				}
+			},
+			350);
 		} else {
 			this.getAppPanel().setActiveItem(this[record.get('panel')]);
 			GLOBAL.previousNavItemIndex = index;

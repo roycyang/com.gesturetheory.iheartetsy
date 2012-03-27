@@ -101,23 +101,22 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		if (element.hasCls('add-to-favorites')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-            // navigator.notification.alert('Added to favorites!')
-            
-            
             id = Math.abs(element.getAttribute('ref'));
             ETSY.addToFavorites(id);
+            $('#' + element.id).addClass('favorite-flag');
+
             
             
 			return false;
 		}
 
-		if (element.hasCls('add-to-pinterest')){
+		if (element.hasCls('add-to-cart')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			//navigator.notification.alert('Added to pinterest!')
-
             id = Math.abs(element.getAttribute('ref'));
+            
             ETSY.addToCart(id);
+            $('#' + element.id).addClass('cart-flag');
 			return false;
 		}
 		

@@ -4,7 +4,8 @@ Ext.define('Etsy.view.ListingsCarousel', {
     requires: ['Etsy.view.Listings'],
 
     config: {
-        direction: 'horizontal',
+        directionLock: true,
+		direction: 'horizontal',
         innerItemConfig: {
             xclass: 'Etsy.view.Listings'
         },
@@ -26,13 +27,59 @@ Ext.define('Etsy.view.ListingsCarousel', {
     },
 
     initialize: function() {
-        Ext.Viewport.on('orientationchange', this.onOrientationChange, this);
+        //Ext.Viewport.on('orientationchange', this.onOrientationChange, this);
 
         this.element.on({
             scope: this,
             tap: 'onTap'
         });
+
+        this.element.on({
+            scope: this,
+            drag : 'onDragItem' 
+        });
+
+		//var products = Ext.DomQuery.select('.product');
+		
+		// var product = this.down('.product');
+		//         
+		       // products.on({
+		       //     scope: this,
+		       //     swipe: 'onSwipe'
+		       // });
+
     },
+
+	onDragItem: function(e){
+		// console.log('event', e);
+		var element = Ext.get(e.target),
+            store = this.getStore(),
+            id;
+
+		var y_dist = e.deltaY;
+		
+		var x_dist = e.deltaX;
+
+        if (!element.hasCls('product')) {
+            element = Ext.get(e.target).parent('.product');
+        }
+
+		if(x_dist < 5){
+			if(y_dist < -10 && y_dist > -80){
+				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
+			}
+			
+			if(y_dist >10 && y_dist < 80){
+				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+			}
+		}
+
+		//console.log($('#' + element.id));
+		
+
+		//id = Math.abs(element.getAttribute('ref'));
+		console.log('the element being swiped is', element);
+	},
 
     onTap: function(e) {
         console.log('on tap!!!');
@@ -40,18 +87,40 @@ Ext.define('Etsy.view.ListingsCarousel', {
             store = this.getStore(),
             id;
 
+		// test to see if the target was add to favoirtes or pinterest
+
+		if (element.hasCls('add-to-favorites')){
+			element = Ext.get(e.target).parent('.product');
+			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+			alert('Added to favorites!');
+			return false;
+		}
+
+		if (element.hasCls('add-to-pinterest')){
+			element = Ext.get(e.target).parent('.product');
+			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+			alert('Added to pinterested!');
+			return false;
+		}
+		
+		// if not, then set it to the product and open it up!
+
         if (!element.hasCls('product')) {
             element = Ext.get(e.target).parent('.product');
         }
 
-        id = Math.abs(element.getAttribute('ref'));
-        console.log('id is', id);
-        console.log('store is', store);
-        record = store.getAt(store.findExact('id', id));
-        console.log('record', record);
-        if (record) {
-            this.fireEvent('itemtap', this, record);
-        }
+		// if there actually is an element, then we tapped on a product
+		if(element){
+	        id = Math.abs(element.getAttribute('ref'));
+	        console.log('id is', id);
+	        console.log('store is', store);
+	        record = store.getAt(store.findExact('id', id));
+	        console.log('record', record);
+	        if (record) {
+	            this.fireEvent('itemtap', this, record);
+	        }
+		}
+
     },
 
     applyCount: function(count) {

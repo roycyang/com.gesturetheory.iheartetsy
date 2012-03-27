@@ -28,7 +28,8 @@ Ext.define('Etsy.controller.Browser', {
 				tap: 'onShowSearchTap',
 			},
 			listingsCarousel: {
-				itemtap: 'onListingTap'
+				itemtap: 'onListingTap',
+				itemswipe: 'onListingSwipe'
 			},
 			categoryList: {
 				itemtap: 'onCategoryListTap'
@@ -232,7 +233,7 @@ Ext.define('Etsy.controller.Browser', {
 	},
 
 	// ================================
-	// = Whenever a product is tapped =
+	// = Whenever a product is tapped or swiped =
 	// ================================
 	onListingTap: function(view, record) {
 		console.log('**on onListingTap!');
@@ -244,6 +245,11 @@ Ext.define('Etsy.controller.Browser', {
 		}
 
 		this.detailPanel.show();
+	},
+	
+	onListingSwipe: function(view, item, index, e){
+		alert('swipe');
+		console.log('e is', e);
 	},
 
 	// ================================

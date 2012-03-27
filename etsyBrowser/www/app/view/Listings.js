@@ -14,7 +14,7 @@ Ext.define('Etsy.view.Listings', {
                         '{% if (xindex < 6) { %}',
                             '<div class="product" ref="{data.id}">',
                                 '<div class="image" style="background-image:url({data.image.thumb});"></div>',
-                                '<div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
+                                '<div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-pinterest">Add to Pinterest</div></div><div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
                                 
                             '</div>',
                         '{% } %}',
@@ -26,7 +26,7 @@ Ext.define('Etsy.view.Listings', {
                         '{% if (xindex > 5 && xindex < 11) { %}',
                             '<div class="product" ref="{data.id}">',
                                 '<div class="image" style="background-image:url({data.image.thumb});"></div>',
-                                '<div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
+                                '<div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-pinterest">Add to Pinterest</div></div><div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
                                 
                             '</div>',
                         '{% } %}',
@@ -38,7 +38,7 @@ Ext.define('Etsy.view.Listings', {
                         '{% if (xindex > 10) { %}',
                             '<div class="product" ref="{data.id}">',
                                 '<div class="image" style="background-image:url({data.image.thumb});"></div>',
-                                '<div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
+                                '<div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-pinterest">Add to Pinterest</div></div><div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
                                 
                             '</div>',
                         '{% } %}',
@@ -54,5 +54,6 @@ Ext.define('Etsy.view.Listings', {
             items: newRecords.items,
             landscape: Ext.Viewport.getOrientation() == "landscape"
         });
+
     }
 });

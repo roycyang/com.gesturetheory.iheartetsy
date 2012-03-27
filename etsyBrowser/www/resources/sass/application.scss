@@ -55,14 +55,8 @@
     -webkit-transform: translate3d(0,-47px,0);
 }
     
-/*body,
-.x-fullscreen, .x-layout-fit-item, .x-layout-card-item {
-background: none;
-} 
-*/
-.x-fullscreen {
-    background: url(../images/background.png) repeat 0 0;
-}
+
+    
 
 .large-listings {
     background: #000;
@@ -120,13 +114,15 @@ overflow: hidden;
     .product {
 /*        background: url(../images/polaroid_background.png) no-repeat center bottom;*/
 background: white;
-        position: relative;
-        display: inline-block;
-		vertical-align: top;
-        height: 198px;
-        width: 184px;
-        padding: 6px;
-        margin: 8px 8px 5px 8px;
+position: relative;
+display: inline-block;
+vertical-align: top;
+height: 198px;
+width: 184px;
+padding: 0;
+margin: 8px 8px 5px 8px;
+overflow: hidden;
+border: 6px solid white;
         
         &.category{
             margin: 35px;
@@ -140,7 +136,31 @@ background: white;
 			background-color: black;
             background-repeat: no-repeat;
             background-position: center center;
+		    -webkit-transition: -webkit-transform 350ms;
+		    -webkit-transform: translate3d(0, 0, 0);
+			position: relative;
+			z-index: 10;
         }
+
+		.actions {
+			top: 55px;
+			left: 0;
+			height: 80px;
+			width: 170px;
+			position: absolute;
+			z-index: 1;
+			font-size: 10px;
+			background: url(../images/share_background.png) no-repeat 0 0 ;
+			background-size: contain;
+			
+			div {
+				text-indent: -10000em;
+				float: left;
+				width: 50%;
+				text-align: center;
+				padding: 20% 10%;
+			}
+		}
 
         img {
 
@@ -166,8 +186,8 @@ background: white;
         .price {
             font-size: 13px;
             position: absolute;
-            right: 9px;
-            bottom: 16px;
+            right: 3px;
+            bottom: 10px;
             color: #78C042;
             line-height: 14px;
             text-align: right;

@@ -17,7 +17,7 @@ exports.twoLeggedCalls = function (test) {
 
     var oauth = OAuth(options);
     test.waitUntilDone();
-    oauth.get('http://oauth-sandbox.sevengoslings.net/two_legged', function (data) {
+    oauth.get('http://oauth-sevengoslings.net/two_legged', function (data) {
         test.assertEqual(data.text, 'SUCCESS! This is a 2-legged call from the `jsOAuth2` consumer which was made by `bytespider`.', 'Request made successfully');
         test.done();
     });

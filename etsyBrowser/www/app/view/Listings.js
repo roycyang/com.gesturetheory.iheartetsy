@@ -11,7 +11,7 @@ Ext.define('Etsy.view.Listings', {
             '<tpl if="landscape">',
                 '<div class="row landscape">',
                     '<tpl for="items">',
-                        '{% if (xindex < 6) { %}',
+                        '{% if (xindex < 5) { %}',
                             '<div class="product" ref="{data.id}">',
                                 '<div class="image" style="background-image:url({data.image.thumb});"></div>',
                                 '<div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-pinterest">Add to Pinterest</div></div><div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
@@ -23,7 +23,7 @@ Ext.define('Etsy.view.Listings', {
 
                 '<div class="row landscape">',
                     '<tpl for="items">',
-                        '{% if (xindex > 5 && xindex < 11) { %}',
+                        '{% if (xindex > 4 && xindex < 9) { %}',
                             '<div class="product" ref="{data.id}">',
                                 '<div class="image" style="background-image:url({data.image.thumb});"></div>',
                                 '<div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-pinterest">Add to Pinterest</div></div><div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',
@@ -35,7 +35,7 @@ Ext.define('Etsy.view.Listings', {
 
                 '<div class="row landscape">',
                     '<tpl for="items">',
-                        '{% if (xindex > 10) { %}',
+                        '{% if (xindex > 8) { %}',
                             '<div class="product" ref="{data.id}">',
                                 '<div class="image" style="background-image:url({data.image.thumb});"></div>',
                                 '<div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-pinterest">Add to Pinterest</div></div><div class="name">{data.title}</div><div class="price">${data.price} <span class="usd">USD</span></div>',

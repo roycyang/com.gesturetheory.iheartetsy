@@ -14,182 +14,226 @@
  */
 
 Ext.define('Etsy.view.DetailPanel', {
-    extend: 'Ext.Panel',
-    xtype: 'listing',
+	extend: 'Ext.Container',
+	xtype: 'listing',
 
-    requires: ['Ext.Img'],
+	requires: ['Ext.Img'],
 
-    config: {
-        cls: 'product-view',
-        zIndex: 1000000000,
-        centered: true,
-        width: '90%',
-        height: '90%',
-        modal: true,
-        hideOnMaskTap: true,
+	config: {
+		cls: 'product-view',
+		zIndex: 1000000000,
+		centered: true,
+		width: 765,
+		height: 640,
+		modal: true,
+		hideOnMaskTap: true,
 		scrollable: false,
-        layout: {
-            type: 'vbox'
-        },
+		layout: {
+			type: 'vbox'
+		},
 
-        items: [
-        {
-            xtype: 'toolbar',
-            docked: 'left',
-			ui: 'dark-grey',
-			width: 57,
-            // id: 'browserToolbar',
-            // title: 'Categories',
+		items: [{
+			xtype: 'toolbar',
+			docked: 'left',
+			ui: 'neutral',
+			width: 70,
+			// id: 'browserToolbar',
+			// title: 'Categories',
 			defaults: {
 				ui: 'plain'
 			},
-            items: [
-                {
-                    xtype: 'button',
-                   	iconCls: 'bookmarks',
-					iconMask: true,
-                },
-                {
-                    xtype: 'button',
-                   	iconCls: 'star',
-					iconMask: true,
-                },
-                {
-                    xtype: 'button',
-                   	iconCls: 'arrow_up',
-					iconMask: true,
-                },
-                {
-                    xtype: 'button',
-                   	iconCls: 'arrow_down',
-					iconMask: true,
-                },
-				]
+			items: [{
+				xtype: 'button',
+				iconCls: 'heart',
+				iconMask: true,
+				listeners: {
+				    tap: function(){
+				        console.log
+				        ETSY.addToFavorites(GLOBAL.newData.id, 'Added to Favorites');
+				        
+				    }
+				}
 			},
-            {
-				flex: 2,
-				xtype: 'carousel',
-    			id: 'detailPanelCarousel',	
-    			indicator: {
-    			    ui: 'light'
-    			}		
-            },
-                            {   padding: 20,
-                                top: 0,
-                                right: 0,
-                                height: 690,
-                                width: 280,
-                                floating: true,
-                                flex: 1,
-                                id: 'description',
-                                cls: 'description',
-                                scrollable: {
-                 direction: 'vertical',
-                 directionLock: true
-                },
-                                tpl: new Ext.XTemplate(
-                                    '<div class="name">{title}</div>',
-                                    '<div class="text">{description}</div>'
-                                )
-                            }
-        ],
+			{
+				xtype: 'button',
+				iconCls: 'shop1',
+				iconMask: true,
+				listeners: {
+				    tap: function(){
+				        ETSY.addToCart(GLOBAL.newData.id, 'Added to Cart');
+				    }
+				}
+			},
+			{xtype: 'spacer'},
+			{
+				xtype: 'button',
+				iconCls: 'twitter2',
+				iconMask: true,
+			},
+			{
+				xtype: 'button',
+				iconCls: 'facebook',
+				iconMask: true,
+			},
+			{
+				xtype: 'button',
+				iconCls: 'mail4',
+				iconMask: true,
+			},
+			]
+		},
+		{
+			flex: 2,
+			xtype: 'carousel',
+			id: 'detailPanelCarousel',
+			indicator: {
+				ui: 'light'
+			}
+		},
+		{
+		    xtype: 'container',
+			top: 0,
+			right: 0,
+			height: 640,
+			width: 320,
+			floating: true,
+			layout: 'vbox',
+			
+            id: 'info-main-wrapper',
+			
+			cls: 'description',
+			items: [{
+			    flex: 1,
+			    id: 'meta-info',
+			    tpl: new Ext.XTemplate(
+    			    '<div class="description-inner-wrapper">',
+    			        '<div class="name">{title}</div>', 
+        			    '<div class="price">{price}</div>', 
+        			    '<div class="quantity">Only {quantity} available</div>', 
+        			    '<div class="seller">ANOTHER API CALL FOR USER INFORMATION</div>',
+        			    '<div class="shipping">ANOTHER API CALL FOR SHIPPING INFORMATION</div>',
+                    '</div>'
+    			)
+			},
+			{
+			    flex: 1,
+			    id: 'description',
+			    tpl: new Ext.XTemplate(
+    			    '<div class="description-inner-wrapper">',
+                     '<div class="text">{description}</div>',
+                    '</div>'
+    			),
+				scrollable: {
+    				direction: 'vertical',
+    				directionLock: true
+    			}
+			}]
 
-        // showAnimation: {
-        //     type: 'fadeIn',
-        //     duration: 250,
-        //     easing: 'ease-out'
-        // },
-        // 
-        // hideAnimation: {
-        //     type: 'fadeOut',
-        //     duration: 250,
-        //     easing: 'ease-in'
-        // }
-    },
+			
+		}],
 
-    initialize: function() {
-        // var image = this.down('image');
-        // 
-        // image.on({
-        //     scope: this,
-        //     load: function() {
-        //         image.element.dom.style.backgroundSize = "contain";
-        //     }
-        // });
-        
-        //  this.element.on({
-        //     scope: this,
-        //     tap: 'onTap'
-        // });
-        
-        Ext.getCmp('detailPanelCarousel').element.on({
-             scope: this,
-             tap: 'onTap'
-         });
-       
-        
-    },
-    
-     onTap: function(e) {
-         console.log('on detailpanle tap!!!', GLOBAL.onFullView);
-         if(GLOBAL.onFullView){
+		// showAnimation: {
+		//     type: 'fadeIn',
+		//     duration: 250,
+		//     easing: 'ease-out'
+		// },
+		// 
+		// hideAnimation: {
+		//     type: 'fadeOut',
+		//     duration: 250,
+		//     easing: 'ease-in'
+		// }
+	},
 
-             self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
-             self.detailPanel.remove(Ext.getCmp('description'), false)
-             self.detailPanel.add(Ext.getCmp('description'))
-             // Ext.getCmp('detailPanelCarousel').element.un('tap');
-             //  
-             // // Ext.getCmp('detailPanelCarousel').element.on({
-             // //      scope: this,
-             // //      tap: 'onTap'
-             // //  });
-             $('#detailPanelCarousel').removeClass('fullsize');
-             GLOBAL.onFullView = false;
-             
+	initialize: function() {
+		// var image = this.down('image');
+		// 
+		// image.on({
+		//     scope: this,
+		//     load: function() {
+		//         image.element.dom.style.backgroundSize = "contain";
+		//     }
+		// });
+		//  this.element.on({
+		//     scope: this,
+		//     tap: 'onTap'
+		// });
+		Ext.getCmp('info-main-wrapper').element.on({
+			scope: this,
+			tap: 'onTap'
+		});
+
+	},
+
+	onTap: function(e) {
+	    if(GLOBAL.isInfoDisplayed){ 
+	        $('#info-main-wrapper').css('-webkit-transform', 'translate3d(290px,0,0)');
+	        GLOBAL.isInfoDisplayed = false;
         }else{
-            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
-            Ext.getCmp('detailPanelCarousel').show()
-            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
-            Ext.getCmp('detailPanelCarousel').element.on({
-                 scope: this,
-                 tap: 'onTap'
-             });
-            $('#detailPanelCarousel').addClass('fullsize');
-            GLOBAL.onFullView = true;
+    	    $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
+             GLOBAL.isInfoDisplayed = true;
         }
-             
-         
-        },
+	    
+	    
+		// console.log('on detailpanle tap!!!', GLOBAL.onFullView);
+		//        if (GLOBAL.onFullView) {
+		// 
+		//            self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
+		//            self.detailPanel.remove(Ext.getCmp('description'), false)
+		//            self.detailPanel.add(Ext.getCmp('description'))
+		//            // Ext.getCmp('detailPanelCarousel').element.un('tap');
+		//            //  
+		//            // // Ext.getCmp('detailPanelCarousel').element.on({
+		//            // //      scope: this,
+		//            // //      tap: 'onTap'
+		//            // //  });
+		//            $('#detailPanelCarousel').removeClass('fullsize');
+		//            GLOBAL.onFullView = false;
+		// 
+		//        } else {
+		//            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
+		//            Ext.getCmp('detailPanelCarousel').show()
+		//            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
+		//            Ext.getCmp('detailPanelCarousel').element.on({
+		//                scope: this,
+		//                tap: 'onTap'
+		//            });
+		//            $('#detailPanelCarousel').addClass('fullsize');
+		//            GLOBAL.onFullView = true;
+		//        }
 
-    updateData: function(newData) {
-        var image = this.down('image');
-        // 
-        // image.element.dom.style.backgroundSize = "30%";
-        // image.element.dom.style.backgroundImage = 'url(resources/images/loading.gif)';
-        // image.setSrc('');	
-        // image.setSrc(newData.image.large);
-		
+	},
+
+	updateData: function(newData) {
+	    GLOBAL.newData = newData;
+	    console.log('newData is', newData);
+		var image = this.down('image');
+		// 
+		// image.element.dom.style.backgroundSize = "30%";
+		// image.element.dom.style.backgroundImage = 'url(resources/images/loading.gif)';
+		// image.setSrc('');	
+		// image.setSrc(newData.image.large);
 		var carousel = Ext.getCmp('detailPanelCarousel');
 		carousel.removeAll();
 		console.log('newData.Images', newData.Images);
 		var images = newData.Images;
 		var imageArray = [];
-		for(i = 0; i < images.length; i++){
+		for (i = 0; i < images.length; i++) {
 			var image = images[i].url_570xN;
 			imageArray.push({
-                xtype: 'image',
+				xtype: 'image',
 				src: image,
 				cls: 'detail-panel-image',
 				//html: '<img height="350" src="' + image + '" />'
-            });
+			});
 		}
 		// if(images.length == 1){
 		// 	carousel.disable();
 		// }
 		carousel.add(imageArray);
 		carousel.setActiveItem(0);
-		
-		
-        Ext.getCmp('description').setData(newData);
-    }
+
+		Ext.getCmp('description').setData(newData);
+        Ext.getCmp('meta-info').setData(newData);
+	}
 });

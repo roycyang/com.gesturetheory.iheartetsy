@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Etsy.model.Listing', {
+Ext.define('Etsy.model.Favorites', {
     extend: 'Ext.data.Model',
 
     config: {
@@ -57,7 +57,7 @@ Ext.define('Etsy.model.Listing', {
 
         proxy: {
             type: 'jsonp',
-            url: 'http://openapi.etsy.com/v2/listings/active.js',
+            url: 'http://openapi.etsy.com/v2/users/roycyang/favorites/listings.js',
             limitParam: 'limit',
             startParam: 'offset',
             pageParam: false,

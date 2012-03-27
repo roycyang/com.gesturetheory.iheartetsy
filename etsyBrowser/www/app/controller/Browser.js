@@ -171,7 +171,7 @@ Ext.define('Etsy.controller.Browser', {
 		};
 
 		oauth = OAuth(options);
-		oauth.get('http://openapi.etsy.com/v2/oauth/request_token?scope=cart_rw', function(data) {
+		oauth.get('http://openapi.etsy.com/v2/oauth/request_token?scope=cart_rw favorites_rw', function(data) {
 			setTimeout(function() {
 				GLOBAL.params = $.deparam(data.text);
 				window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url, {
@@ -183,6 +183,7 @@ Ext.define('Etsy.controller.Browser', {
 		},
 		function(data) {
 			alert('Error : No Authorization');
+			console.log(data.text);
 			//$('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
 		});
 	},

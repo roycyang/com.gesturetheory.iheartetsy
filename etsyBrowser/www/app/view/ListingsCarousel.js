@@ -17,7 +17,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         store: null,
 
         animation: {
-            duration: 350
+            duration: 600
         },
 
         listeners: {
@@ -101,16 +101,23 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		if (element.hasCls('add-to-favorites')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			navigator.notification.alert('Added to favorites!')
-
+            // navigator.notification.alert('Added to favorites!')
+            
+            
+            id = Math.abs(element.getAttribute('ref'));
+            ETSY.addToFavorites(id);
+            
+            
 			return false;
 		}
 
 		if (element.hasCls('add-to-pinterest')){
 			element = Ext.get(e.target).parent('.product');
 			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			navigator.notification.alert('Added to pinterest!')
+			//navigator.notification.alert('Added to pinterest!')
 
+            id = Math.abs(element.getAttribute('ref'));
+            ETSY.addToCart(id);
 			return false;
 		}
 		

@@ -1,3 +1,65 @@
+ETSY = {
+    addToFavorites: function(id, msg){
+        console.log('id is ' + id);
+        var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
+    	
+    	oauth.post(url, 
+    	    function(data) {
+    	        console.log(data);
+    	        if(msg){
+    	            ETSY.alert(msg);
+    	        }
+    	    },
+    	    function(data) {
+    	        
+	        }
+	    );
+	    
+	    // temporary
+	    
+	    if(msg){
+            ETSY.alert(msg);
+        }
+	    
+    	    
+    },
+    
+    addToCart: function(id, msg){
+        console.log('id is ' + id);
+        var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
+    	
+    	oauth.post(url, 
+    	    {'listing_id': id},
+    	    function(data) {
+    	        console.log(data);
+    	        if(msg){
+    	            ETSY.alert(msg);
+    	        }
+    	    },
+    	    function(data) {
+
+	        }
+	    );
+	    
+	    // temporary
+	    
+	    if(msg){
+            ETSY.alert(msg);
+        }
+    	    
+    },
+    
+    alert: function(msg){
+        try{
+            navigator.notification.alert(msg);
+        }catch(err){
+            alert(msg);
+        }
+        
+    }
+}
+
+
 function locChanged(loc) {
 	// The supplied oauth_callback_url for this session is being loaded
 	if (loc.indexOf("http://www.etsy.com/?") >= 0) {
@@ -23,6 +85,7 @@ function completeAuthorization(loc) {
 	oauth = OAuth(options);
 	verifier = parsedParams.oauth_verifier;
 
+    console.log('trying to complete the authorization!!!!!');
 	// Exchange request token for access token
 	var url = 'http://openapi.etsy.com/v2/oauth/access_token?oauth_verifier=' + verifier;
 	console.log('URL IS\n\n\n' + url)
@@ -121,6 +184,40 @@ function initCart() {
     			}
     		}
     		Ext.getCmp('cartContent').setHtml(cart);
+    	},
+	    function(data) {
+	        
+	    }
+	);
+}
+
+function initFavorites() {
+	var oauth;
+	var options = {
+		consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
+		consumerSecret: '2dvoqadnxo',
+		accessTokenKey: GLOBAL.accessTokenKey,
+		accessTokenSecret: GLOBAL.accessTokenSecret
+	};
+
+	oauth = OAuth(options);
+	oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings', 
+	    function(data) {
+		    var info = JSON.parse(data.text);
+    		var results = info.results;
+    		console.log('favorite items are', info);
+    		// var cart = "Favorite items:<br/></br>";
+    		//            for (i = 0; i < results.length; i++) {
+    		//                var listings = results[i].Listings;
+    		//                for(j = 0; j < listings.length; j++){
+    		//                    var item = listings[j];
+    		//                    if(item.title){
+    		//                        cart = cart + item.title + "<br/>";
+    		//                    }
+    		//                    
+    		//                }
+    		//            }
+    		//            Ext.getCmp('cartContent').setHtml(cart);
     	},
 	    function(data) {
 	        

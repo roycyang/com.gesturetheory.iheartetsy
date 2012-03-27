@@ -8,28 +8,10 @@
     background: rgba(0,0,0,0.1);
 }*/
 
-#detailPanelCarousel {
-    background: #fff;
-    
-    &.fullsize {
-        background: #000;
-    }
 
 
-    .x-carousel-item {
-        background: url(../images/loading.gif) no-repeat center center;
-        background-size: 10%;
-    }
-}
-.detail-panel-image {
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center center;
-	
-	.fullsize & {
-	    background-size: contain;
-	}
-}
+
+
 
 .x-field-search .x-field-input .x-form-field {
 	font-family: helvetica;
@@ -112,17 +94,21 @@ overflow: hidden;
 }
 
     .product {
-/*        background: url(../images/polaroid_background.png) no-repeat center bottom;*/
-background: white;
-position: relative;
-display: inline-block;
-vertical-align: top; 
-height: 198px;
-width: 184px;
-padding: 0;
-margin: 8px 8px 5px 8px;
-overflow: hidden;
-border: 6px solid white;
+        /*        background: url(../images/polaroid_background.png) no-repeat center bottom;*/
+        background: white;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        height: 198px;
+        width: 184px;
+        padding: 0;
+        margin: 15px 33px;
+        overflow: hidden;
+        border: 6px solid white;
+        /*-moz-box-shadow: 0 0 5px #888;
+        -webkit-box-shadow: 0 0 5px#888;
+        box-shadow: 0 0 2px #888;*/
+        /*border-radius: 3px;*/
         
         &.category{
             margin: 35px;
@@ -135,7 +121,7 @@ border: 6px solid white;
 			width: 170px;
 			background-color: black;
             background-repeat: no-repeat;
-            background-position: center center;
+            background-position: 0 0;
 		    -webkit-transition: -webkit-transform 250ms;
 		    -webkit-transform: translate3d(0, 0, 0);
 			position: relative;
@@ -224,9 +210,15 @@ border: 6px solid white;
 .product-view {
 	
     	.description {
-			
-			border-top: 1px solid #ccc;
-			padding: 20px;
+            background: white; 
+            border: 1px solid #000;
+            -webkit-transition: -webkit-transform 350ms;
+            -webkit-transform: translate3d(290px, 0, 0);
+            
+            .description-inner-wrapper {
+
+                padding: 15px;
+            }
 		}
 		
         .name {
@@ -280,4 +272,30 @@ border: 6px solid white;
 
 .products a {
     margin-top: 0;
+}
+
+#detailPanelCarousel {
+    background: #fff;
+    
+    &.fullsize {
+        background: #000;
+        
+    }
+    
+
+
+
+    .x-carousel-item {
+        background: url(../images/loading.gif) no-repeat center center;
+        background-size: 10%;
+    }
+}
+.detail-panel-image {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	
+	.fullsize & {
+	    background-size: contain;
+	}
 }

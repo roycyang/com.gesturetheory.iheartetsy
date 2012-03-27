@@ -51,7 +51,7 @@ You'll need to replace the consumer key and secret with your own. Once that is
 done, you can make your authenticated 2-legged request.
 
     <script type="text/javascript">
-        oauth.get('http://oauth-sandbox.sevengoslings.net/two_legged', function (data) {
+        oauth.get('http://oauth-sevengoslings.net/two_legged', function (data) {
             alert(data);
         });
     </script>

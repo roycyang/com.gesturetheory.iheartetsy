@@ -55,16 +55,12 @@ Ext.define('Etsy.view.FavoritesPanel', {
 				]
             },
 			{
-				xtype: 'container',
-				layout: 'vbox',
-				defaults:{
-					cls: 'homepage-button',
-				},
-				items: [{
-					html: 'Please sign in to browse your Etsy favorite items'
-				}
-				]
-			}
+                xtype: 'dataview',
+                itemTpl: [
+                    '<div>Data View Item {string}</div>'
+                ],
+                store: 'favoriteListings'
+            }
             
 
 

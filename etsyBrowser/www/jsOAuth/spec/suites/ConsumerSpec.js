@@ -57,7 +57,7 @@ asyncTest("OAuth URL query params and data request", function() {
 		consumerSecret: '846ffe1ec3b18989e73fe7fff833'
     });
     oauth.request({
-    	url: 'http://oauth-sandbox.sevengoslings.net/two_legged?param1=parameter',
+    	url: 'http://oauth-sevengoslings.net/two_legged?param1=parameter',
     	data: {
     		status: 'test'
     	},
@@ -76,7 +76,7 @@ asyncTest("OAuth 2-Legged Request", function() {
         consumerKey: 'ba9df9055c77f338',
         consumerSecret: '846ffe1ec3b18989e73fe7fff833'
     });
-    oauth.get('http://oauth-sandbox.sevengoslings.net/two_legged', function (data) {
+    oauth.get('http://oauth-sevengoslings.net/two_legged', function (data) {
         start();
         ok(data.text.search('SUCCESS! This is a 2-legged call from the `jsOAuth2` consumer which was made by `bytespider`.'), 'Request success');
     });
@@ -87,10 +87,10 @@ var oauth = OAuth({
     consumerKey: 'ba9df9055c77f338',
     consumerSecret: '846ffe1ec3b18989e73fe7fff833',
     
-    realm: 'http://oauth-sandbox.sevengoslings.net',
-    requestTokenUrl: 'http://oauth-sandbox.sevengoslings.net/request_token',
-    authorizationUrl: 'http://oauth-sandbox.sevengoslings.net/authorize',
-    accessTokenUrl: 'http://oauth-sandbox.sevengoslings.net/access_token'
+    realm: 'http://oauth-sevengoslings.net',
+    requestTokenUrl: 'http://oauth-sevengoslings.net/request_token',
+    authorizationUrl: 'http://oauth-sevengoslings.net/authorize',
+    accessTokenUrl: 'http://oauth-sevengoslings.net/access_token'
 });
     
 
@@ -122,7 +122,7 @@ asyncTest("OAuth Authorise", function() {
 });
 
 asyncTest("OAuth 3-Legged Request", function() {
-	oauth.get('http://oauth-sandbox.sevengoslings.net/three_legged', function (data) {
+	oauth.get('http://oauth-sevengoslings.net/three_legged', function (data) {
         start();
         ok(data.text.search('SUCCESS! This is a 3-legged call from the `jsOAuth2` consumer which was made by `bytespider`.'), 'Request success');
     });

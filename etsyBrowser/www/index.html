@@ -21,9 +21,21 @@
 
 	var GLOBAL = {
 	  version: '1.0',
-	  "accessTokenKey":"4d8c3ddf72322c0c20860ca647ea38",
-	  "accessTokenSecret":"ad772111f0"
+	  "accessTokenKey":"477af50c4eecbafbdbd6e6cf38b96d",
+	  "accessTokenSecret":"90787cd63a"
+	      
 	};
+  // 474d5d915c8f448b85d8ccf2ea9d84 : 56b02a1450
+	
+	var oauth;
+	var options = {
+		consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
+		consumerSecret: '2dvoqadnxo',
+		accessTokenKey: GLOBAL.accessTokenKey,
+		accessTokenSecret: GLOBAL.accessTokenSecret
+	};
+
+	oauth = OAuth(options);
 
 	// If you want to prevent dragging, uncomment this section
 	/*
@@ -49,8 +61,9 @@
 		document.addEventListener("deviceready", onDeviceReady, false);
 		console.log('in onBodyLoad');
 		//initializeCart();
-    initUserCustomization();
-    initCart();
+    // initUserCustomization();
+    // initCart();
+    // initFavorites();
 	}
 	
 	/* When this function is called, Cordova has been initialized and is ready to roll */

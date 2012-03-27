@@ -49,33 +49,33 @@ Ext.define('Etsy.view.HomePanel', {
                 },
                 ]
             },
-			{
-				xtype: 'container',
-				layout: 'hbox',
-				flex: 1,
-				defaults: {
-					cls: 'homepage-button',
-					flex: 1,
-				},
-
-				items: [
-					{
-						html: 'Categories are Fun'
-					},
-					{
-						html: 'Follow the Heart'
-					},
-					{
-						html: 'Discover'
-					}
-				]
-			},
+            // {
+            //  xtype: 'container',
+            //  layout: 'hbox',
+            //  flex: 1,
+            //  defaults: {
+            //      cls: 'homepage-button',
+            //      flex: 1,
+            //  },
+            // 
+            //  items: [
+            //      {
+            //          html: 'Categories are Fun'
+            //      },
+            //      {
+            //          html: 'Follow the Heart'
+            //      },
+            //      {
+            //          html: 'Discover'
+            //      }
+            //  ]
+            // },
             {
                 id: 'listingsCarousel',
                 xtype: 'listingsCarousel',
                 flex: 2,
                 
-                count: 10
+                count: 12
                 
             }
         ]

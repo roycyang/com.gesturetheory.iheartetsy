@@ -41,7 +41,7 @@ Ext.application({
         'LargeListings',
         'ListingsCarousel',
         'Listings'
-    ],
+    ], 
 
     name: 'Etsy',
 

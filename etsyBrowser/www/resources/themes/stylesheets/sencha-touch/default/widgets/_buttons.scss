@@ -315,6 +315,9 @@ $include-button-highlights: $include-highlights !default;
     @include pictos-iconmask('search_black');
     @include pictos-iconmask('list');
     @include pictos-iconmask('home');
+    
+        @include pictos-iconmask('mail4');
+            @include pictos-iconmask('twitter2');
   }
 
   @if $include-button-uis {

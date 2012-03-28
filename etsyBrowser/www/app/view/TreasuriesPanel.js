@@ -43,15 +43,16 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 			]
 		},
 		{
-			xtype: 'container',
-			layout: 'vbox',
-			defaults: {
-				cls: 'homepage-button',
-				flex: 1
-			},
-			items: [{
-				html: 'Treasuries'
-			}]
+			xtype: 'dataview',
+			store: 'Treasuries',
+			itemTpl: [
+              '<img src="{image_1}"/>',
+'<img src="{image_2}"/>',
+'<img src="{image_3}"/>',
+'<img src="{image_4}"/>',
+'<div>By {user_name}</div></div>',
+'<div>{title}</div><br/><br/>'
+              ]
 		}
 
 		]

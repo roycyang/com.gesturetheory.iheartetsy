@@ -108,7 +108,7 @@ function compileTreasuries() {
 				console.log('parsedListData.results.length');
 				console.log(parsedListData.results.length);
 				for(var i = 0; i < parsedListData.results.length; i++){
-					var image = parsedListData.results[i].Images[0].url_75x75;
+					var image = parsedListData.results[i].Images[0].url_170x135;
 					var listingId = parsedListData.results[i].listing_id;
 					//console.log(listingId);
 					console.log('i is', i);

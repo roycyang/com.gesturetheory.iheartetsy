@@ -6,14 +6,16 @@ Ext.application({
     models: [
         'Listing',
         'Category',
-        'Navigation'
+        'Navigation',
+		'Treasury'
     ],
 
     stores: [
         'LatestListings',
         'Listings',
         'Categories',
-        'Navigation'
+        'Navigation',
+		'Treasuries'
     ],
 
     views: [

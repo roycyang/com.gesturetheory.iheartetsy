@@ -640,7 +640,8 @@ input, textarea {
 
 /* line 187, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-layout-card-item {
-  background: #fdfae3;
+  /*  background: $page-bg-color;*/
+  background: url(../images/background_x2.png) no-repeat 0 0;
 }
 
 /* line 1, ../themes/stylesheets/sencha-touch/default/widgets/_map.scss */
@@ -4655,25 +4656,27 @@ audio {
   background-image: linear-gradient(#f1c4ad, #df7c49 2%, #c05721);
   border-color: #050201;
 }
-/* line 126, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 127, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
-  text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+  /*      @include bevel-by-background($color);*/
+  font-family: georgia;
+  font-size: 20px;
 }
-/* line 132, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark.x-docked-top {
   border-bottom-color: #050201;
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark.x-docked-bottom {
   border-top-color: #050201;
 }
-/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark.x-docked-left {
   border-right-color: #050201;
 }
-/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 148, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark.x-docked-right {
   border-left-color: #050201;
 }
@@ -4760,10 +4763,15 @@ audio {
   background-image: -webkit-linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
   background-image: linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
 }
-/* line 154, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 158, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark .x-form-label {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+}
+
+/* line 164, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+.x-toolbar-dark {
+  background: url(../images/header_background_x2.png) repeat-x 0 0;
 }
 
 /* line 122, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
@@ -4774,25 +4782,27 @@ audio {
   background-image: linear-gradient(#f1c4ad, #df7c49 2%, #c05721);
   border-color: #050201;
 }
-/* line 126, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 127, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
-  text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+  /*      @include bevel-by-background($color);*/
+  font-family: georgia;
+  font-size: 20px;
 }
-/* line 132, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light.x-docked-top {
   border-bottom-color: #050201;
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light.x-docked-bottom {
   border-top-color: #050201;
 }
-/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light.x-docked-left {
   border-right-color: #050201;
 }
-/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 148, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light.x-docked-right {
   border-left-color: #050201;
 }
@@ -4827,10 +4837,15 @@ audio {
   background-image: -webkit-linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
   background-image: linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
 }
-/* line 154, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 158, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light .x-form-label {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+}
+
+/* line 164, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+.x-toolbar-dark {
+  background: url(../images/header_background_x2.png) repeat-x 0 0;
 }
 
 /* line 122, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
@@ -4841,25 +4856,27 @@ audio {
   background-image: linear-gradient(#ffffff, #f2f2f2 2%, #cecece);
   border-color: #616161;
 }
-/* line 126, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 127, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
-  text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+  /*      @include bevel-by-background($color);*/
+  font-family: georgia;
+  font-size: 20px;
 }
-/* line 132, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral.x-docked-top {
   border-bottom-color: #616161;
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral.x-docked-bottom {
   border-top-color: #616161;
 }
-/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral.x-docked-left {
   border-right-color: #616161;
 }
-/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 148, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral.x-docked-right {
   border-left-color: #616161;
 }
@@ -4894,10 +4911,15 @@ audio {
   background-image: -webkit-linear-gradient(#b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd);
   background-image: linear-gradient(#b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd);
 }
-/* line 154, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 158, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral .x-form-label {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+}
+
+/* line 164, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+.x-toolbar-dark {
+  background: url(../images/header_background_x2.png) repeat-x 0 0;
 }
 
 /* line 122, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
@@ -4908,25 +4930,27 @@ audio {
   background-image: linear-gradient(#808080, #454545 2%, #212121);
   border-color: black;
 }
-/* line 126, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 127, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
-  text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
+  /*      @include bevel-by-background($color);*/
+  font-family: georgia;
+  font-size: 20px;
 }
-/* line 132, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey.x-docked-top {
   border-bottom-color: black;
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey.x-docked-bottom {
   border-top-color: black;
 }
-/* line 140, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey.x-docked-left {
   border-right-color: black;
 }
-/* line 144, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 148, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey.x-docked-right {
   border-left-color: black;
 }
@@ -4961,10 +4985,15 @@ audio {
   background-image: -webkit-linear-gradient(#050505, #121212 10%, #1f1f1f 65%, #202020);
   background-image: linear-gradient(#050505, #121212 10%, #1f1f1f 65%, #202020);
 }
-/* line 154, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 158, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey .x-form-label {
   color: white;
   text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
+}
+
+/* line 164, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+.x-toolbar-dark {
+  background: url(../images/header_background_x2.png) repeat-x 0 0;
 }
 
 /* line 97, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */

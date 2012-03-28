@@ -43,15 +43,26 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 			]
 		},
 		{
+		    id: 'treasuryItems',
 			xtype: 'dataview',
 			store: 'Treasuries',
+
 			itemTpl: [
-              '<img src="{image_1}"/>',
-'<img src="{image_2}"/>',
-'<img src="{image_3}"/>',
-'<img src="{image_4}"/>',
-'<div>By {user_name}</div></div>',
-'<div>{title}</div><br/><br/>'
+
+            '<div class="treasury-item">',
+
+'<div class="image-wrapper image-1"><div class="image" style="background-image: url({image_1})"></div></div>',
+'<div class="image-wrapper image-2"><div class="image" style="background-image: url({image_2})"></div></div>',
+'<div class="image-wrapper image-3"><div class="image" style="background-image: url({image_3})"></div></div>',
+'<div class="image-wrapper image-4"><div class="image" style="background-image: url({image_4})"></div></div>',
+
+'<div class="title">{title}</div>',                                 
+'<div class="user"><span>By</span> {user_name}</div>',
+'</div>',
+
+
+            
+			
               ]
 		}
 

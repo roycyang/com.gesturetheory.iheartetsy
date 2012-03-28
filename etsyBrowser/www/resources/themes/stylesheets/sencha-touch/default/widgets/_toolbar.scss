@@ -122,11 +122,15 @@ $include-toolbar-uis: $include-default-uis !default;
   .x-toolbar-#{$ui-label} {
     @include background-gradient($color, $gradient);
     border-color: $toolbar-border-color;
+    
 
     .x-title {
 /*      @include color-by-background($color);*/
 color: #fff;
-      @include bevel-by-background($color);
+/*      @include bevel-by-background($color);*/
+
+font-family: georgia;
+font-size: 20px;
     }
 
     &.x-docked-top {
@@ -155,5 +159,9 @@ color: #fff;
       @include color-by-background($color);
       @include bevel-by-background($color);
     }
+  }
+  
+  .x-toolbar-dark {
+      background: url(../images/header_background_x2.png) repeat-x 0 0;
   }
 }

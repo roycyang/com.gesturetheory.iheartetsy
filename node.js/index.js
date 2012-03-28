@@ -147,7 +147,7 @@ function compileArt () {
   options = {
     host: 'openapi.etsy.com',
     port: 80,
-    path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=art'
+    path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=art&includes=Images:6&limit=100'
   };
   
   http.get(options, function (response) {

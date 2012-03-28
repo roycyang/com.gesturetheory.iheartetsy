@@ -1,3 +1,90 @@
+/* ================== */
+/* = Treasury Items = */
+/* ================== */
+
+#treasuryItems {
+    .x-dataview-item {
+        height: 166px;
+        display: inline-block;
+        position: relative;
+        width: 472px;
+        margin: 40px 10px 20px 30px;
+        padding-left: 280px;
+        vertical-align: top;
+        color: #3f3f3f;
+        
+
+        .image-wrapper {
+            border: 1px solid #ccc;
+            border-radius: 3px;                
+            background-color: white;
+            padding: 3px;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            
+            &.image-1 {
+                -webkit-transform: rotate(-5deg);
+            }
+    
+    
+            &.image-2 {
+                left: 16px;
+                top: 12px;
+                -webkit-transform: rotate(-1deg);
+            }
+    
+            &.image-3 {
+                left: 38px;
+                top: 15px;
+            }
+    
+            &.image-4 {
+                left: 61px;
+                -webkit-transform: rotate(2deg);
+                top: 14px;
+            }
+            
+            
+            .image {
+                width: 170px;
+                height: 135px;
+                background-position: center center;
+                background-repeat: no-repeat;
+
+
+
+
+                -webkit-background-clip:padding-box; /* IOS fix */
+                background-clip:padding-box; /* IOS fix */
+        
+
+            }
+        }
+        
+        .title {
+            font-size: 30px;
+            font-family: georgia;
+            margin-bottom: 5px;
+            
+        }
+        
+        .user {
+            font-size: 13px;
+            padding: 10px 0;
+            span {
+                color: #ccc;
+            }
+            
+        }
+    }  
+}
+
+
+
+
+
+
 #appPanel {
     background: url(../images/background.png) repeat 0 0;
     -webkit-transition: -webkit-transform 350ms;

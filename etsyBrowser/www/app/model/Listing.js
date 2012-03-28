@@ -56,8 +56,11 @@ Ext.define('Etsy.model.Listing', {
         ],
 
         proxy: {
-            type: 'jsonp',
-            url: 'http://openapi.etsy.com/v2/listings/active.js',
+            // type: 'jsonp',
+            // url: 'http://openapi.etsy.com/v2/listings/active.js',
+            type: 'ajax',
+            url: 'http://192.168.0.250:8888/art',
+            
             limitParam: 'limit',
             startParam: 'offset',
             pageParam: false,

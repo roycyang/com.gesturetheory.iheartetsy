@@ -17,7 +17,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         store: null,
 
         animation: {
-            duration: 600
+            duration: 350
         },
 
         listeners: {
@@ -172,12 +172,20 @@ Ext.define('Etsy.view.ListingsCarousel', {
             
             // this is when the store updates, we can update the max index.
             newStore.on('refresh', function() {
-                console.log('\n\n\n\n\n\n\newStore', newStore.data.length);
+                console.log('\n\n\n\n\n\n\nNewStore', newStore.data.length);
                 var storeCount = newStore.data.length;
                 var max = parseInt(storeCount/me.getCount());
                 setTimeout(function(){
                     me.setMaxItemIndex(max-1);
                 }, 1000);
+                
+                if(storeCount == 100){
+                    newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+                    //newStore.getProxy().setType('jsonp');
+                    
+                    // type: 'jsonp',
+                    //             url: 'http://openapi.etsy.com/v2/listings/active.js',
+                }
 
             });
 

@@ -300,6 +300,9 @@ Ext.define('Etsy.controller.Browser', {
 			},
 			350);
 		} else {
+		    if (panel == 'categoriesPanel') {
+		        self.categoriesPanel.setActiveItem(0);
+	        }
 			this.getAppPanel().setActiveItem(this[record.get('panel')]);
 			GLOBAL.previousNavItemIndex = index;
 		}
@@ -316,7 +319,7 @@ Ext.define('Etsy.controller.Browser', {
 		case 'category':
 			store.getProxy().setExtraParam('category', record.get('name'));
             // resetting the store to use our NODE.JS
-            store.getProxy().setUrl('http://192.168.0.250:8888/art');
+            store.getProxy().setUrl('http://50.74.56.194:8888/art');
 			                    
 			self.getBrowserToolbar().setTitle(record.get('short_name'));
 			Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));

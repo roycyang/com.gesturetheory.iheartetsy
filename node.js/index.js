@@ -1,3 +1,15 @@
+var DATA = {
+	treasuries: ""
+};
+
+var GLOBAL = {
+	cacheInMinutes: 10
+};
+
+// ======================
+// = Initialize NODE.JS =
+// ======================
+
 var server = require("./server");
 var router = require("./router");
 var requestHandlers = require("./requestHandlers");
@@ -8,20 +20,29 @@ handle["/"] = requestHandlers.root;
 handle["/treasuries"] = requestHandlers.treasuries;
 handle["/upload"] = requestHandlers.upload;
 
-var DATA = {
-	treasuries: ""
-};
+// =============================================================================================
+// = Equivalent of a CRON job in PHP.  We just run the updater according to the cacheInMinutes =
+// =============================================================================================
 
-var timer = 0;
+init();
 
 setInterval(function() {
-    var timer = timer + 1000;
-    compileTreasuries();
-},
-60 * 60 * 1000);
+	init();
+},GLOBAL.cacheInMinutes * 60 * 1000);
 
-compileTreasuries();
-console.log(DATA);
+server.start(router.route, handle, DATA);
+
+// ===========================================
+// = Init function that loads all the caches =
+// ===========================================
+
+function init(){
+	compileTreasuries();
+}
+
+// =================================
+// = Setting up the Treasury Cache =
+// =================================
 
 function compileTreasuries() {
     var options = {
@@ -31,27 +52,19 @@ function compileTreasuries() {
     };
 
     var treasuries = "";
-    var ifsRequest = http.get(options,
-    function(ifsResponse) {
-
-        ifsResponse.setEncoding("utf8");
-
-        ifsResponse.on("data",
+    var request = http.get(options,
+    function(response) {
+        response.setEncoding("utf8");
+        response.on("data",
         function(data) {
             treasuries += data;
 
         });
 
-
-        ifsResponse.on("end",
+        response.on("end",
         function() {
             getListingDetails(treasuries);
-
-
         });
-
-
-
     });
 
 
@@ -77,19 +90,19 @@ function compileTreasuries() {
 	    };
 
 	    var listData = "";
-	    var ifsRequest = http.get(options,
-	    function(ifsResponse) {
+	    var request = http.get(options,
+	    function(response) {
 
-	        ifsResponse.setEncoding("utf8");
+	        response.setEncoding("utf8");
 
-	        ifsResponse.on("data",
+	        response.on("data",
 	        function(data) {
 	            listData += data;
 
 	        });
 
 
-	        ifsResponse.on("end",
+	        response.on("end",
 	        function() {
 	            var parsedListData = JSON.parse(listData);
 				console.log('parsedListData.results.length');
@@ -125,7 +138,3 @@ function compileTreasuries() {
 
 	}
 }
-
-
-
-server.start(router.route, handle, DATA);

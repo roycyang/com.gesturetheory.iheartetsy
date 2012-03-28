@@ -1,4 +1,5 @@
 function root(response, DATA) {
+	console.log(response);
 	var body = '<html>'+
 	    '<head>'+
 	    '<meta http-equiv="Content-Type" '+
@@ -13,8 +14,8 @@ function root(response, DATA) {
 	    '</html>';
 	
 		response.writeHead(200, {"Content-Type": "text/html"});
-		    response.write(body);
-		    response.end();
+		response.write(body);
+		response.end();
 }
 
 function treasuries(response, DATA) {

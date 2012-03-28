@@ -34,6 +34,16 @@ function upload(response) {
   response.end();
 }
 
+function art (response, DATA) {
+  console.log('Art response: ', response);
+  
+  response.writeHead(200, {"Content-Type": "application/json"});
+  response.write(DATA.art);
+  
+  response.end();
+}
+
 exports.root = root;
 exports.treasuries = treasuries;
 exports.upload = upload;
+exports.art = art;

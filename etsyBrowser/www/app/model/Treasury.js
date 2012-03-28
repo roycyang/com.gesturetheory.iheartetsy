@@ -54,7 +54,7 @@ Ext.define('Etsy.model.Treasury', {
 
         proxy: {
             type: 'ajax',
-            url: 'http://192.168.0.250:8888/treasuries',
+            url: 'http://50.74.56.194:8888/treasuries',
             // limitParam: 'limit',
             //             startParam: 'offset',
             //             pageParam: false,

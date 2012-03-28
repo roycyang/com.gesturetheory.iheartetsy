@@ -1,15 +1,15 @@
 var DATA = {
-	treasuries: ""
+    treasuries: "",
+    art: ''
 };
 
 var GLOBAL = {
-	cacheInMinutes: 10
+    cacheInMinutes: 10
 };
 
 // ======================
 // = Initialize NODE.JS =
 // ======================
-
 var server = require("./server");
 var router = require("./router");
 var requestHandlers = require("./requestHandlers");
@@ -20,30 +20,31 @@ handle["/"] = requestHandlers.root;
 handle["/treasuries"] = requestHandlers.treasuries;
 handle["/upload"] = requestHandlers.upload;
 
+handle["/art"] = requestHandlers.art;
+
 // =============================================================================================
 // = Equivalent of a CRON job in PHP.  We just run the updater according to the cacheInMinutes =
 // =============================================================================================
-
 init();
 
 setInterval(function() {
-	init();
-},GLOBAL.cacheInMinutes * 60 * 1000);
+    init();
+},
+GLOBAL.cacheInMinutes * 60 * 1000);
 
 server.start(router.route, handle, DATA);
 
 // ===========================================
 // = Init function that loads all the caches =
 // ===========================================
-
-function init(){
-	compileTreasuries();
+function init() {
+    compileTreasuries();
+    compileArt();
 }
 
 // =================================
 // = Setting up the Treasury Cache =
 // =================================
-
 function compileTreasuries() {
     var options = {
         host: 'openapi.etsy.com',
@@ -68,73 +69,97 @@ function compileTreasuries() {
     });
 
 
-	function getListingDetails(treasuries){
-		var parsedTreasuries = JSON.parse(treasuries);
-	    var listingIds = [];
-	    for (var i = 0; i < parsedTreasuries.results.length; i++) {
-	        var listings = parsedTreasuries.results[i].listings;
-	        for (var j = 0; j < listings.length; j++) {
-	            if(j<4){
-					listingIds.push(listings[j].data.listing_id);
-				}else if(j > 3 ){
-					listings[j] = "";
-				}
-	        }
-	    }
+    function getListingDetails(treasuries) {
+        var parsedTreasuries = JSON.parse(treasuries);
+        var listingIds = [];
+        for (var i = 0; i < parsedTreasuries.results.length; i++) {
+            var listings = parsedTreasuries.results[i].listings;
+            for (var j = 0; j < listings.length; j++) {
+                if (j < 4) {
+                    listingIds.push(listings[j].data.listing_id);
+                } else if (j > 3) {
+                    listings[j] = "";
+                }
+            }
+        }
 
-		console.log(listingIds);
-	    var options = {
-	        host: 'openapi.etsy.com',
-	        port: 80,
-	        path: '/v2/listings/' + listingIds.join() + '?api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:1'
-	    };
+        console.log(listingIds);
+        var options = {
+            host: 'openapi.etsy.com',
+            port: 80,
+            path: '/v2/listings/' + listingIds.join() + '?api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:1'
+        };
 
-	    var listData = "";
-	    var request = http.get(options,
-	    function(response) {
+        var listData = "";
+        var request = http.get(options,
+        function(response) {
 
-	        response.setEncoding("utf8");
+            response.setEncoding("utf8");
 
-	        response.on("data",
-	        function(data) {
-	            listData += data;
+            response.on("data",
+            function(data) {
+                listData += data;
 
-	        });
-
-
-	        response.on("end",
-	        function() {
-	            var parsedListData = JSON.parse(listData);
-				console.log('parsedListData.results.length');
-				console.log(parsedListData.results.length);
-				for(var i = 0; i < parsedListData.results.length; i++){
-					var image = parsedListData.results[i].Images[0].url_170x135;
-					var listingId = parsedListData.results[i].listing_id;
-					//console.log(listingId);
-					console.log('i is', i);
-					for (var j = 0; j < parsedTreasuries.results.length; j++) {
-				        var listings = parsedTreasuries.results[j].listings;
-				        for (var k = 0; k < 4; k++) {
-				            if(listingId == listings[k].data.listing_id){
-								listings[k].data.image_url = image; 
-							}
-				        }
-				    }
-				}
-				console.log('end of the loop');
-
-				// end of adding the listing images
-
-				DATA.treasuries = JSON.stringify(parsedTreasuries);
-
-				console.log(parsedTreasuries);
+            });
 
 
-	        });
+            response.on("end",
+            function() {
+                var parsedListData = JSON.parse(listData);
+                console.log('parsedListData.results.length');
+                console.log(parsedListData.results.length);
+                for (var i = 0; i < parsedListData.results.length; i++) {
+                    var image = parsedListData.results[i].Images[0].url_170x135;
+                    var listingId = parsedListData.results[i].listing_id;
+                    //console.log(listingId);
+                    console.log('i is', i);
+                    for (var j = 0; j < parsedTreasuries.results.length; j++) {
+                        var listings = parsedTreasuries.results[j].listings;
+                        for (var k = 0; k < 4; k++) {
+                            if (listingId == listings[k].data.listing_id) {
+                                listings[k].data.image_url = image;
+                            }
+                        }
+                    }
+                }
+                console.log('end of the loop');
+
+                // end of adding the listing images
+                DATA.treasuries = JSON.stringify(parsedTreasuries);
+
+                console.log(parsedTreasuries);
+
+
+            });
 
 
 
-	    });
+        });
 
-	}
+    }
 }
+
+function compileArt () {
+  var options, art, request;
+  
+  art = '';
+  
+  options = {
+    host: 'openapi.etsy.com',
+    port: 80,
+    path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=art'
+  };
+  
+  http.get(options, function (response) {
+    response.setEncoding("utf8");
+    
+    response.on('data', function (data) {
+      art += data;
+    });
+    
+    response.on('end', function () {
+      DATA.art = art;
+      console.log('End art');
+    });
+  });
+};

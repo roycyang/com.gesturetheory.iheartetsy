@@ -30,6 +30,14 @@ Ext.define('Etsy.model.Listing', {
             'title',
             'url',
 			'price',
+			
+			{
+	            name: 'rounded_price',
+	            convert: function(value, record) {
+					var price = record.data.price.split(".");
+	                return price[0];
+	            }
+	        },
 			'User',
 			'quantity',
 			

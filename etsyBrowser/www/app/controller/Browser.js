@@ -212,7 +212,7 @@ Ext.define('Etsy.controller.Browser', {
 
 		// adding the homepage to the getAppPanel
 		self.getAppPanel().add([self.homePanel, self.categoriesPanel, self.treasuriesPanel, self.favoritesPanel, self.settingsPanel]);
-		self.getAppPanel().setActiveItem(self.treasuriesPanel);
+		// self.getAppPanel().setActiveItem(self.treasuriesPanel);
 	},
 
 	// ==========

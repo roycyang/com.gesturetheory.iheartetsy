@@ -191,8 +191,8 @@ overflow: hidden;
     
     .cart-flag .cart-stamp {
         position: absolute;
-        top: 0px;
-        right: 0px;
+		top: -4px;
+		right: -9px;
         width: 50px;
         height: 26px;
         background: red;
@@ -208,16 +208,17 @@ overflow: hidden;
         position: relative;
         display: inline-block;
         vertical-align: top;
-        height: 198px;
-        width: 184px;
+        height: 182px;
+        width: 182px;
         padding: 0;
         margin: 15px 33px;
-        overflow: hidden;
-        padding: 6px;
+        padding: 5px;
+		border: 1px solid #EAE9E1;
         /*-moz-box-shadow: 0 0 5px #888;
         -webkit-box-shadow: 0 0 5px#888;
         box-shadow: 0 0 2px #888;*/
-        /*border-radius: 3px;*/
+        border-radius: 4px;
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
         
         &.category{
             margin: 35px;
@@ -226,37 +227,51 @@ overflow: hidden;
 
  
 
-        .image {
-            height: 135px;
+		.image-wrapper {
+			height: 135px;
 			width: 170px;
 			background-color: black;
             background-repeat: no-repeat;
             background-position: 0 0;
-		    -webkit-transition: -webkit-transform 250ms;
-		    -webkit-transform: translate3d(0, 0, 0);
+			overflow: hidden;
 			position: relative;
-			z-index: 10;
-        }
-
-		.actions {
-			top: 61px;
-			left: 6px;
-			height: 80px;
-			width: 170px;
-			position: absolute;
-			z-index: 1;
-			font-size: 10px;
-			background: url(../images/share_background.png) no-repeat 0 0 ;
-			background-size: contain;
 			
-			div {
-				text-indent: -10000em;
-				float: left;
-				width: 50%;
-				text-align: center;
-				padding: 20% 10%;
+			.image {
+				position: relative;
+				z-index: 10;
+				height: 135px;
+				width: 170px;
+				background-color: black;
+	            background-repeat: no-repeat;
+	            background-position: 0 0;
+
+			    -webkit-transition: -webkit-transform 250ms;
+			    -webkit-transform: translate3d(0, 0, 0);
+	        }
+	
+			.actions {
+				bottom: 0px;
+				left: 0px;
+				height: 80px;
+				width: 170px;
+				position: absolute;
+				z-index: 1;
+				font-size: 10px;
+				background: url(../images/share_background.png) no-repeat 0 0 ;
+				background-size: contain;
+
+				div {
+					text-indent: -10000em;
+					float: left;
+					width: 50%;
+					text-align: center;
+					padding: 20% 10%;
+				}
 			}
 		}
+
+
+		
 
         img {
 
@@ -268,7 +283,7 @@ overflow: hidden;
         }
 
         .name {
-			margin-top: 5px;
+/*			margin-top: 5px;
 			height: 15px;
             width: 100%;
             display: block;
@@ -276,24 +291,45 @@ overflow: hidden;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			font-size: 13px;*/
+			
+			margin-top: 5px;
+			height: 32px;
+			width: 110px;
+			display: block;
+			color: #666;
+/*			white-space: nowrap;*/
+/*			overflow: hidden;
+			text-overflow: ellipsis;*/
 			font-size: 13px;
+			overflow: hidden;
+			
         }
 
         .price {
-            font-size: 13px;
-            position: absolute;
-            right: 3px;
-            bottom: 10px;
-            color: #78C042;
-            line-height: 14px;
-            text-align: right;
-            width: 50%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: clip;
+			font-size: 20px;
+			position: absolute;
+			right: 9px;
+			bottom: 5px;
+			color: #78C042;
+			line-height: 14px;
+			text-align: right;
+			max-width: 54px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			border: 1px solid #DADAD6;
+			padding: 6px;
+			border-radius: 5px;
+			background: rgba(203, 203, 197, 0.1);
+			font-family: serif;
+			font-weight: bold;
+
 			
 			.usd {
+				display: none;
 				font-size: 9px;
+				
 			}
         }
     }

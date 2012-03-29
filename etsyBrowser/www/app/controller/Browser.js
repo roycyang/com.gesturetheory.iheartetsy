@@ -11,13 +11,16 @@ Ext.define('Etsy.controller.Browser', {
 			homePanel: '#homePanel',
 			categoriesPanel: '#categoriesPanel',
 			browserCarousel: '#browserCarousel',
-			browserToolbar: '#browserToolbar',
+			categoriesToolbar: '#categoriesToolbar',
+            treasuriesCarousel: '#treasuriesCarousel',
+			favoritesCarousel: '#favoritesCarousel',
 			fullBrowserCarousel: '#fullBrowserCarousel',
 			detailPanel: '#detailPanel',
 			listingsCarousel: 'listingsCarousel',
 			categoryList: '#categoryList',
 			showNav: 'button[action=showNav]',
 			showSearch: 'button[action=showSearch]',
+			
 
 		},
 		control: {
@@ -38,9 +41,9 @@ Ext.define('Etsy.controller.Browser', {
 				itemtap: 'onNavListTap'
 			},
 
-            // '#browserBackButton': {
-            //  tap: 'onBrowserBackButtonTap'
-            // },
+			// '#browserBackButton': {
+			//  tap: 'onBrowserBackButtonTap'
+			// },
 			// ================
 			// = Search Keyup =
 			// ================
@@ -50,10 +53,10 @@ Ext.define('Etsy.controller.Browser', {
 			"#homePanelSearch": {
 				keyup: 'onSearchKeyup',
 			},
-			
-            // '#browserFullCarouselButton': {
-            //  tap: 'onBrowserFullCarouselButtonTap'
-            // },
+
+			// '#browserFullCarouselButton': {
+			//  tap: 'onBrowserFullCarouselButtonTap'
+			// },
 			'#closeFullBrowserButton': {
 				tap: 'onCloseFullBrowserButtonTap'
 			},
@@ -71,21 +74,21 @@ Ext.define('Etsy.controller.Browser', {
 	},
 
 	onShowNavTap: function() {
-	    console.log('test');
-//	    Cordova.exec(null, null, "ShareKitPlugin", "shareToFacebook", ['test', 'http://google.com'] );
-        var self = this;
-        self.getAppPanel().mask({
-        
-         listeners: {
-             tap: function() {
-        
-                 self.toggleNav();
-        
-             }
-         }
-        
-        })
-        this.toggleNav();
+		console.log('test');
+		//	    Cordova.exec(null, null, "ShareKitPlugin", "shareToFacebook", ['test', 'http://google.com'] );
+		var self = this;
+		self.getAppPanel().mask({
+
+			listeners: {
+				tap: function() {
+
+					self.toggleNav();
+
+				}
+			}
+
+		})
+		this.toggleNav();
 
 	},
 
@@ -113,7 +116,7 @@ Ext.define('Etsy.controller.Browser', {
 			$('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
 			GLOBAL.expandedNav = false;
 		} else {
-            self.getNavPanel().show();
+			self.getNavPanel().show();
 			$('#appPanel').css('-webkit-transform', 'translate3d(250px,0,0)');
 
 			GLOBAL.expandedNav = true;
@@ -128,7 +131,7 @@ Ext.define('Etsy.controller.Browser', {
 			$('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
 			GLOBAL.expandedNav = false;
 		} else {
-		    self.getSearchPanel().show();
+			self.getSearchPanel().show();
 			$('#appPanel').css('-webkit-transform', 'translate3d(-250px,0,0)');
 			setTimeout(function() {
 				var zIndex = self.getAppPanel().setZIndex(5);
@@ -209,6 +212,16 @@ Ext.define('Etsy.controller.Browser', {
 
 		// Listings Store for BROWSER PANEL
 		self.listingsStore = Ext.data.StoreManager.lookup('Listings');
+		
+	    // Listings Store for FAVORITES PANEL
+		self.favoriteListingsStore = Ext.data.StoreManager.lookup('FavoriteListings');
+        self.getFavoritesCarousel().setStore(self.favoriteListingsStore);
+        
+        // Listings Store for FAVORITES PANEL
+		self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
+        self.getTreasuriesCarousel().setStore(self.treasuriesStore);
+        
+        self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
 
 		// adding the homepage to the getAppPanel
 		self.getAppPanel().add([self.homePanel, self.categoriesPanel, self.treasuriesPanel, self.favoritesPanel, self.settingsPanel]);
@@ -228,10 +241,10 @@ Ext.define('Etsy.controller.Browser', {
 		var self = this;
 		console.log('textfield search term is: ', textfield.getValue());
 		if (e.event.keyCode == 13) {
-		    self.getAppPanel().setActiveItem(self.categoriesPanel);
-		    self.categoriesPanel.setActiveItem(1);
-		    self.toggleSearch();
-			self.showListings('keyword', textfield.getValue());
+			self.getAppPanel().setActiveItem(self.categoriesPanel);
+			self.categoriesPanel.setActiveItem(1);
+			self.toggleSearch();
+			self.loadListings('keyword', textfield.getValue());
 		}
 
 	},
@@ -250,8 +263,8 @@ Ext.define('Etsy.controller.Browser', {
 
 		this.detailPanel.show();
 	},
-	
-	onListingSwipe: function(view, item, index, e){
+
+	onListingSwipe: function(view, item, index, e) {
 		alert('swipe');
 		console.log('e is', e);
 	},
@@ -260,7 +273,7 @@ Ext.define('Etsy.controller.Browser', {
 	// = Whenever a category is tapped =
 	// ================================
 	onCategoryListTap: function(view, index, item, record) {
-		this.showListings('category', record);
+		this.loadListings('category', record);
 
 	},
 
@@ -287,11 +300,11 @@ Ext.define('Etsy.controller.Browser', {
 		} else if (panel == "bookmarkedCategory") {
 			console.log('record is', record.get('short_name'));
 			this.getAppPanel().setActiveItem(self.categoriesPanel);
-			this.showListings('category', record);
+			this.loadListings('category', record);
 			GLOBAL.previousNavItemIndex = index;
 		} else if (panel == 'cartPanel') {
-		    window.plugins.childBrowser.showWebPage("http://www.etsy.com/cart");
-		    setTimeout(function() {
+			window.plugins.childBrowser.showWebPage("http://www.etsy.com/cart");
+			setTimeout(function() {
 				if (GLOBAL.previousNavItemIndex) {
 					self.getNavList().select(GLOBAL.previousNavItemIndex);
 				} else {
@@ -300,33 +313,121 @@ Ext.define('Etsy.controller.Browser', {
 			},
 			350);
 		} else {
-		    if (panel == 'categoriesPanel') {
-		        self.categoriesPanel.setActiveItem(0);
-	        }
+			if (panel == 'categoriesPanel') {
+				self.categoriesPanel.setActiveItem(0);
+			}
+			if (panel == "favoritesPanel") {
+				self.loadFavorites();
+			}
+			if (panel == "treasuriesPanel") {
+				self.loadTreasuries();
+			}
 			this.getAppPanel().setActiveItem(this[record.get('panel')]);
 			GLOBAL.previousNavItemIndex = index;
 		}
 
 		this.toggleNav();
 	},
+	
+	loadTreasuries: function(){
+	    var store = self.treasuriesStore;
+	    store.load();
+	    //empty the store before adding the new one
+		var treasuriesCarouselStore = self.getTreasuriesCarousel().getStore();
+		if (treasuriesCarouselStore) {
+			// if there is already a store, then it needs to be updated, not set
+			self.getTreasuriesCarousel().updateStore(store);
+		} else {
+			self.getTreasuriesCarousel().setStore(store);
+		}
+	},
 
-	showListings: function(type, record) {
-        // Ext.getCmp('browserFullCarouselButton').show();
-        // Ext.getCmp('browserBackButton').show();
+	loadFavorites: function() {
+		var self = this;
+		self.favoritesPanel.setMasked({
+			xtype: 'loadmask'
+		});
+
+		oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100', function(data) {
+
+			var data = JSON.parse(data.text);
+			var listingIds = [];
+			for (i = 0; i < data.results.length; i++) {
+				listingIds.push(data.results[i].listing_id);
+			}
+			console.log('listings ids are', listingIds.length);
+			oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6', function(data) {
+				var data = JSON.parse(data.text);
+				var store = self.favoriteListingsStore;
+				self.favoriteListingsStore.removeAll();
+				store.add(data.results);
+				Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
+			    self.getFavoritesCarousel().reset()
+			    
+			    
+			    
+			    var storeCount = store.data.length;
+                var max = parseInt(storeCount/12 - 1);
+                var remainder = storeCount % 12;
+                console.log('the store count is', storeCount);
+                console.log('max is', max);
+
+                console.log('remainder', remainder);
+                if(remainder > 0){
+                    max++;
+                }
+                console.log('max is', max);
+                setTimeout(function(){
+                    self.getFavoritesCarousel().setMaxItemIndex(max);
+                }, 1000);
+			    
+			    self.getFavoritesCarousel().setActiveItem(0);
+				self.favoritesPanel.unmask();
+
+			});
+		});
+	},
+
+	loadListings: function(type, record, tags) {
+		// Ext.getCmp('browserFullCarouselButton').show();
+		// Ext.getCmp('browserBackButton').show();
 		var self = this;
 		var store = self.listingsStore;
 		switch (type) {
 		case 'category':
+
+		    console.log('store proxy', store.getProxy())
+            
 			store.getProxy().setExtraParam('category', record.get('name'));
-            // resetting the store to use our NODE.JS
-            store.getProxy().setUrl('http://50.74.56.194:8888/art');
-			                    
-			self.getBrowserToolbar().setTitle(record.get('short_name'));
+			delete self.listingsStore.getProxy()._extraParams.tags;
+			delete self.listingsStore.getProxy()._extraParams.keywords;
+			console.log('****** store', store);
+			// resetting the store to use our NODE.JS
+            // store.getProxy().setUrl('http://50.74.56.194:8888/art');
+            console.log('2 store proxy', store.getProxy())
+
+			self.getCategoriesToolbar().setTitle(record.get('short_name'));
 			Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
 			break;
+		case 'tags':
+		    console.log('store proxy', store.getProxy())
+            delete self.listingsStore.getProxy()._extraParams.keywords;
+		    store.getProxy().setExtraParam('tags', tags);
+		    store.getProxy().setExtraParam('category', record.get('name'));
+		    console.log('2 store proxy', store.getProxy())
+            
+    		console.log('****** store', store);
+    		// resetting the store to use our NODE.JS
+            // store.getProxy().setUrl('http://50.74.56.194:8888/art');
+
+    		self.getCategoriesToolbar().setTitle(record.get('short_name'));
+    		Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
+		    break;
 		case 'keyword':
+		    delete self.listingsStore.getProxy()._extraParams.tags;
+		    delete self.listingsStore.getProxy()._extraParams.category;
 			store.getProxy().setExtraParam('keywords', record);
-			self.getBrowserToolbar().setTitle('Search results for: ' + record);
+			self.getCategoriesToolbar().setTitle('Search results for: ' + record);
 			break;
 		}
 		store.load();
@@ -340,32 +441,33 @@ Ext.define('Etsy.controller.Browser', {
 			self.getBrowserCarousel().setStore(store);
 		}
 
-		self.getCategoriesPanel().getLayout().setAnimation({
+        self.getAppPanel().setActiveItem(self.categoriesPanel);
+		self.categoriesPanel.getLayout().setAnimation({
 			type: 'slide',
 			duration: 300,
 			direction: 'left'
 		});
 
 		self.getCategoriesPanel().setActiveItem(self.getBrowserCarousel());
+		
 
 	},
 
 	// =========================
 	// = Browser Panel Actions =
 	// =========================
-    // onBrowserBackButtonTap: function() {
-    //  this.getCategoriesPanel().getLayout().setAnimation({
-    //      type: 'slide',
-    //      duration: 300,
-    //      direction: 'right'
-    //  });
-    //  Ext.getCmp('browserFullCarouselButton').hide();
-    //  Ext.getCmp('browserBackButton').hide();
-    //  self.getBrowserToolbar().setTitle('Categories');
-    //  Ext.getCmp('categoriesSearch').setPlaceHolder('Search Etsy');
-    //  self.getCategoriesPanel().setActiveItem(0);
-    // },
-
+	// onBrowserBackButtonTap: function() {
+	//  this.getCategoriesPanel().getLayout().setAnimation({
+	//      type: 'slide',
+	//      duration: 300,
+	//      direction: 'right'
+	//  });
+	//  Ext.getCmp('browserFullCarouselButton').hide();
+	//  Ext.getCmp('browserBackButton').hide();
+	//  self.getCategoriesToolbar().setTitle('Categories');
+	//  Ext.getCmp('categoriesSearch').setPlaceHolder('Search Etsy');
+	//  self.getCategoriesPanel().setActiveItem(0);
+	// },
 	onBrowserSearchButtonTap: function() {
 		Ext.getCmp('browserSearchPanel').setStyle('-webkit-transform:translate3d(0,0px,0)');
 	},
@@ -374,19 +476,18 @@ Ext.define('Etsy.controller.Browser', {
 		Ext.getCmp('browserSearchPanel').setStyle('-webkit-transform:translate3d(0,-50px,0)');
 	},
 
-    // onBrowserFullCarouselButtonTap: function() {
-    //  var self = this;
-    //  //empty the store before adding the new one
-    //  var browserCarouselStore = self.getFullBrowserCarousel().getStore();
-    //  if (browserCarouselStore) {
-    //      // if there is already a store, then it needs to be updated, not set
-    //      self.getFullBrowserCarousel().updateStore(self.listingsStore);
-    //  } else {
-    //      self.getFullBrowserCarousel().setStore(self.listingsStore);
-    //  }
-    //  self.fullCategoriesPanel.show();
-    // },
-
+	// onBrowserFullCarouselButtonTap: function() {
+	//  var self = this;
+	//  //empty the store before adding the new one
+	//  var browserCarouselStore = self.getFullBrowserCarousel().getStore();
+	//  if (browserCarouselStore) {
+	//      // if there is already a store, then it needs to be updated, not set
+	//      self.getFullBrowserCarousel().updateStore(self.listingsStore);
+	//  } else {
+	//      self.getFullBrowserCarousel().setStore(self.listingsStore);
+	//  }
+	//  self.fullCategoriesPanel.show();
+	// },
 	onCloseFullBrowserButtonTap: function() {
 		var self = this;
 		self.fullCategoriesPanel.hide();

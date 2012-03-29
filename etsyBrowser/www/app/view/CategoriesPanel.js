@@ -11,7 +11,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                id: 'browserToolbar',
+                id: 'categoriesToolbar',
                 title: 'Categories',
                 items: [{
                     xtype: 'button',

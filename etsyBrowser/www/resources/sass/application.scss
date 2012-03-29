@@ -2,8 +2,8 @@
 /* = Treasury Items = */
 /* ================== */
 
-#treasuryItems {
-    .x-dataview-item {
+#treasuriesCarousel {
+    .treasury-item {
         height: 166px;
         display: inline-block;
         position: relative;
@@ -287,7 +287,7 @@ overflow: hidden;
 
         .name {
 			margin-top: 4px;
-			height: 27px;
+			height: 29px;
 			padding-left: 2px;
 			width: 114px;
 			display: block;
@@ -305,7 +305,7 @@ overflow: hidden;
 			color: #78C042;
 			line-height: 14px;
 			text-align: right;
-			max-width: 52px;
+			width: 52px;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -315,15 +315,7 @@ overflow: hidden;
 			background: rgba(203, 203, 197, 0.1);
 			font-family: serif;
 			font-weight: bold;
-			min-width: 46px;
-
-
 			
-			.usd {
-				display: none;
-				font-size: 9px;
-				
-			}
         }
     }
     

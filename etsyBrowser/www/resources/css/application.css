@@ -2,7 +2,7 @@
 /* = Treasury Items = */
 /* ================== */
 /* line 6, ../sass/application.scss */
-#treasuryItems .x-dataview-item {
+#treasuriesCarousel .treasury-item {
   height: 166px;
   display: inline-block;
   position: relative;
@@ -13,7 +13,7 @@
   color: #3f3f3f;
 }
 /* line 17, ../sass/application.scss */
-#treasuryItems .x-dataview-item .image-wrapper {
+#treasuriesCarousel .treasury-item .image-wrapper {
   border: 1px solid #ccc;
   border-radius: 3px;
   background-color: white;
@@ -23,28 +23,28 @@
   left: 0;
 }
 /* line 26, ../sass/application.scss */
-#treasuryItems .x-dataview-item .image-wrapper.image-1 {
+#treasuriesCarousel .treasury-item .image-wrapper.image-1 {
   -webkit-transform: rotate(-5deg);
 }
 /* line 31, ../sass/application.scss */
-#treasuryItems .x-dataview-item .image-wrapper.image-2 {
+#treasuriesCarousel .treasury-item .image-wrapper.image-2 {
   left: 16px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
 /* line 37, ../sass/application.scss */
-#treasuryItems .x-dataview-item .image-wrapper.image-3 {
+#treasuriesCarousel .treasury-item .image-wrapper.image-3 {
   left: 38px;
   top: 15px;
 }
 /* line 42, ../sass/application.scss */
-#treasuryItems .x-dataview-item .image-wrapper.image-4 {
+#treasuriesCarousel .treasury-item .image-wrapper.image-4 {
   left: 61px;
   -webkit-transform: rotate(2deg);
   top: 14px;
 }
 /* line 49, ../sass/application.scss */
-#treasuryItems .x-dataview-item .image-wrapper .image {
+#treasuriesCarousel .treasury-item .image-wrapper .image {
   width: 170px;
   height: 135px;
   background-position: center center;
@@ -55,18 +55,18 @@
   /* IOS fix */
 }
 /* line 65, ../sass/application.scss */
-#treasuryItems .x-dataview-item .title {
+#treasuriesCarousel .treasury-item .title {
   font-size: 30px;
   font-family: georgia;
   margin-bottom: 5px;
 }
 /* line 72, ../sass/application.scss */
-#treasuryItems .x-dataview-item .user {
+#treasuriesCarousel .treasury-item .user {
   font-size: 13px;
   padding: 10px 0;
 }
 /* line 75, ../sass/application.scss */
-#treasuryItems .x-dataview-item .user span {
+#treasuriesCarousel .treasury-item .user span {
   color: #ccc;
 }
 
@@ -275,7 +275,7 @@
 /* line 288, ../sass/application.scss */
 .products .product .name {
   margin-top: 4px;
-  height: 27px;
+  height: 29px;
   padding-left: 2px;
   width: 114px;
   display: block;
@@ -292,7 +292,7 @@
   color: #78C042;
   line-height: 14px;
   text-align: right;
-  max-width: 52px;
+  width: 52px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -302,26 +302,20 @@
   background: rgba(203, 203, 197, 0.1);
   font-family: serif;
   font-weight: bold;
-  min-width: 46px;
-}
-/* line 322, ../sass/application.scss */
-.products .product .price .usd {
-  display: none;
-  font-size: 9px;
 }
 
-/* line 351, ../sass/application.scss */
+/* line 343, ../sass/application.scss */
 .product-view .description {
   background: white;
   border: 1px solid #000;
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(290px, 0, 0);
 }
-/* line 357, ../sass/application.scss */
+/* line 349, ../sass/application.scss */
 .product-view .description .description-inner-wrapper {
   padding: 15px;
 }
-/* line 363, ../sass/application.scss */
+/* line 355, ../sass/application.scss */
 .product-view .name {
   line-height: 28px;
   font-size: 20px;
@@ -329,13 +323,13 @@
   color: #333;
   margin-bottom: 10px;
 }
-/* line 371, ../sass/application.scss */
+/* line 363, ../sass/application.scss */
 .product-view .text {
   font-size: 14px;
   color: #aaa;
   line-height: 20px;
 }
-/* line 377, ../sass/application.scss */
+/* line 369, ../sass/application.scss */
 .product-view img {
   /*            background-size: contain;
               background-repeat: no-repeat;
@@ -346,7 +340,7 @@
   margin: 0 auto;
 }
 
-/* line 397, ../sass/application.scss */
+/* line 389, ../sass/application.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -366,32 +360,32 @@
   text-decoration: none;
 }
 
-/* line 412, ../sass/application.scss */
+/* line 404, ../sass/application.scss */
 .products a {
   margin-top: 0;
 }
 
-/* line 416, ../sass/application.scss */
+/* line 408, ../sass/application.scss */
 #detailPanelCarousel {
   background: #fff;
 }
-/* line 419, ../sass/application.scss */
+/* line 411, ../sass/application.scss */
 #detailPanelCarousel.fullsize {
   background: #000;
 }
-/* line 427, ../sass/application.scss */
+/* line 419, ../sass/application.scss */
 #detailPanelCarousel .x-carousel-item {
   background: url(../images/loading.gif) no-repeat center center;
   background-size: 10%;
 }
 
-/* line 432, ../sass/application.scss */
+/* line 424, ../sass/application.scss */
 .detail-panel-image {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
 }
-/* line 437, ../sass/application.scss */
+/* line 429, ../sass/application.scss */
 .fullsize .detail-panel-image {
   background-size: contain;
 }

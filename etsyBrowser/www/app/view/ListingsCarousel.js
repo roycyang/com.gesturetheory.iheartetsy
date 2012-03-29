@@ -10,7 +10,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
             xclass: 'Etsy.view.Listings'
         },
 
-        count: 'auto',
+        count: 12,
 
         offsetLimit: 100,
 
@@ -72,16 +72,20 @@ Ext.define('Etsy.view.ListingsCarousel', {
         if (!element.hasCls('product')) {
             element = Ext.get(e.target).parent('.product');
         }
+        
+        if(element){
+            if(x_dist < 10){
+    			if(y_dist < -20 && y_dist > -80){
+    				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
+    			}
 
-		if(x_dist < 10){
-			if(y_dist < -20 && y_dist > -80){
-				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
-			}
-			
-			if(y_dist >20 && y_dist < 80){
-				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-			}
-		}
+    			if(y_dist >20 && y_dist < 80){
+    				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+    			}
+    		}
+        }
+
+		
 
 		//console.log($('#' + element.id));
 		
@@ -140,26 +144,26 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     },
 
-    applyCount: function(count) {
-        if (count == "auto") {
-            count = 14;
-            // if (Ext.Viewport.getOrientation() == "landscape") {
-            //                 count = 14;
-            //             }
-        }
-
-        return count;
-    },
-
-    onOrientationChange: function(vewport, orientation) {
-        var oldCount = this.getCount(),
-            newCount = this.applyCount(this.config.count);
-
-        if (oldCount != newCount) {
-            this.setCount(newCount);
-            this.refreshItems();
-        }
-    },
+    // applyCount: function(count) {
+    //     if (count == "auto") {
+    //         count = 14;
+    //         // if (Ext.Viewport.getOrientation() == "landscape") {
+    //         //                 count = 14;
+    //         //             }
+    //     }
+    // 
+    //     return count;
+    // },
+    // 
+    // onOrientationChange: function(vewport, orientation) {
+    //     var oldCount = this.getCount(),
+    //         newCount = this.applyCount(this.config.count);
+    // 
+    //     if (oldCount != newCount) {
+    //         this.setCount(newCount);
+    //         this.refreshItems();
+    //     }
+    // },
 
     updateStore: function(newStore) {
         console.log('update the store', newStore);

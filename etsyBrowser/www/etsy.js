@@ -15,7 +15,8 @@ Ext.application({
         'Listings',
         'Categories',
         'Navigation',
-		'Treasuries'
+		'Treasuries',
+		'FavoriteListings'
     ],
 
     views: [
@@ -33,7 +34,9 @@ Ext.application({
         'LargeListingsCarousel',
         'LargeListings',
         'ListingsCarousel',
-        'Listings'
+        'Listings',
+        'FavoriteListingsCarousel',
+        'FavoriteListings',
     ],
 
     name: 'Etsy',

@@ -1,5 +1,5 @@
 var DATA = {
-    treasuries: "",
+    treasuries: '{}',
     art: ''
 };
 
@@ -38,18 +38,21 @@ server.start(router.route, handle, DATA);
 // = Init function that loads all the caches =
 // ===========================================
 function init() {
-    compileTreasuries();
+    compileTreasuries(0);
+    compileTreasuries(25);
+    compileTreasuries(50);
+    compileTreasuries(75);
     compileArt();
 }
 
 // =================================
 // = Setting up the Treasury Cache =
 // =================================
-function compileTreasuries() {
+function compileTreasuries(offset) {
     var options = {
         host: 'openapi.etsy.com',
         port: 80,
-        path: '/v2/treasuries?api_key=tia49fh9iqjcrukurpbyqtv5'
+        path: '/v2/treasuries?api_key=tia49fh9iqjcrukurpbyqtv5&offset=' + offset
     };
 
     var treasuries = "";
@@ -125,9 +128,20 @@ function compileTreasuries() {
                 console.log('end of the loop');
 
                 // end of adding the listing images
-                DATA.treasuries = JSON.stringify(parsedTreasuries);
+                //DATA.treasuries = JSON.stringify(parsedTreasuries);
 
-                console.log(parsedTreasuries);
+                var parsedDataTreasuries = JSON.parse(DATA.treasuries);
+                
+                if(!parsedDataTreasuries.results){
+                    DATA.treasuries = JSON.stringify(parsedTreasuries);   
+                }else if(parsedDataTreasuries.results.length == 100){
+                    DATA.treasuries = JSON.stringify(parsedTreasuries);   
+                }else{
+                    for(i=0; i<parsedTreasuries.results.length; i++){
+                        parsedDataTreasuries.results.push(parsedTreasuries.results[i]);
+                    }
+                    DATA.treasuries = JSON.stringify(parsedDataTreasuries);   
+                }
 
 
             });

@@ -164,6 +164,7 @@ overflow: hidden;
     }
 
     .row {
+	padding: 13px 20px 0;
 /*        display: table-row;*/
 
         > * {
@@ -181,12 +182,14 @@ overflow: hidden;
 }
 
     .favorite-flag .favorite-stamp {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 40px;
-        height: 40px;
-        background: red;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 57px;
+		height: 57px;
+		background: url(../images/heart_stamp_x2.png);
+		background-size: contain;
+		z-index: 1000;
     }
     
     .cart-flag .cart-stamp {
@@ -208,10 +211,10 @@ overflow: hidden;
         position: relative;
         display: inline-block;
         vertical-align: top;
-        height: 182px;
+        height: 178px;
         width: 182px;
         padding: 0;
-        margin: 15px 33px;
+        margin: 15px 29px;
         padding: 5px;
 		border: 1px solid #EAE9E1;
         /*-moz-box-shadow: 0 0 5px #888;
@@ -283,47 +286,37 @@ overflow: hidden;
         }
 
         .name {
-/*			margin-top: 5px;
-			height: 15px;
-            width: 100%;
-            display: block;
-			color: #666;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			font-size: 13px;*/
-			
-			margin-top: 5px;
-			height: 32px;
-			width: 110px;
+			margin-top: 4px;
+			height: 27px;
+			padding-left: 2px;
+			width: 114px;
 			display: block;
 			color: #666;
-/*			white-space: nowrap;*/
-/*			overflow: hidden;
-			text-overflow: ellipsis;*/
-			font-size: 13px;
+			font-size: 11px;
 			overflow: hidden;
 			
         }
 
         .price {
-			font-size: 20px;
+			font-size: 19px;
 			position: absolute;
-			right: 9px;
+			right: 5px;
 			bottom: 5px;
 			color: #78C042;
 			line-height: 14px;
 			text-align: right;
-			max-width: 54px;
+			max-width: 52px;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			border: 1px solid #DADAD6;
-			padding: 6px;
-			border-radius: 5px;
+			padding: 5px 5px 4px;
+			border-radius: 3px;
 			background: rgba(203, 203, 197, 0.1);
 			font-family: serif;
 			font-weight: bold;
+			min-width: 46px;
+
 
 			
 			.usd {

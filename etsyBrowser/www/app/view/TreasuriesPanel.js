@@ -30,16 +30,20 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 				xtype: 'button',
 				action: 'showNav',
 				iconCls: 'list',
+				width: 60,
 				iconMask: true,
+				ui: 'plain', 
 			},
 			{
 				xtype: 'spacer'
 			},
 			{
 				xtype: 'button',
-				                    ui: 'plain', action: 'showSearch',width: 60,
+				ui: 'plain', 
+				action: 'showSearch',
 				iconCls: 'search',
-				iconMask: true,
+				width: 60,
+				iconMask: true
 			},
 			]
 		},

@@ -23,6 +23,7 @@ Ext.define('Etsy.model.Treasury', {
             'user_name',
             'user_avatar_id',
 			'listings',
+			'counts',
             
             {
                 name: 'image_1',

@@ -46,7 +46,7 @@ Ext.define('Etsy.view.DetailPanel', {
 			items: [{
 				xtype: 'button',
 
-				height: 57,
+				height: 64,
 				listeners: {
 				    tap: function(){
 				        console.log
@@ -58,7 +58,7 @@ Ext.define('Etsy.view.DetailPanel', {
 			{
 				xtype: 'button',
 
-				height: 57,
+				height: 64,
 				listeners: {
 				    tap: function(){
 				        console.log('firing once!');
@@ -69,19 +69,19 @@ Ext.define('Etsy.view.DetailPanel', {
 			{
 				xtype: 'button',
 
-								height: 57,
+								height: 64,
 
 			},
 			{
 				xtype: 'button',
 
-								height: 57,
+								height: 64,
 
 			},
 			{
 				xtype: 'button',
 
-								height: 57,
+								height: 64,
 
 			},
 			]
@@ -162,9 +162,14 @@ Ext.define('Etsy.view.DetailPanel', {
 		//     scope: this,
 		//     tap: 'onTap'
 		// });
+		// Ext.getCmp('info-main-wrapper').element.on({
+		// 	scope: this,
+		// 	drag: 'onDragItem'
+		// });
+		
 		Ext.getCmp('info-main-wrapper').element.on({
 			scope: this,
-			drag: 'onDragItem'
+			tap: 'onTap'
 		});
 
 	},
@@ -188,7 +193,7 @@ Ext.define('Etsy.view.DetailPanel', {
 			}
 
 			if(x_dist >10){
-				$('#info-main-wrapper').css('-webkit-transform', 'translate3d(290px,0,0)');
+				$('#info-main-wrapper').css('-webkit-transform', 'translate3d(317px,0,0)');
 			}
         }
 
@@ -202,44 +207,44 @@ Ext.define('Etsy.view.DetailPanel', {
 	},
 	
 
-	// onTap: function(e) {
-	//     if(GLOBAL.isInfoDisplayed){ 
-	//         
-	//         GLOBAL.isInfoDisplayed = false;
-	//         }else{
-	//     	    
-	//              GLOBAL.isInfoDisplayed = true;
-	//         }
-	//     
-	//     
-	// 	// console.log('on detailpanle tap!!!', GLOBAL.onFullView);
-	// 	//        if (GLOBAL.onFullView) {
-	// 	// 
-	// 	//            self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
-	// 	//            self.detailPanel.remove(Ext.getCmp('description'), false)
-	// 	//            self.detailPanel.add(Ext.getCmp('description'))
-	// 	//            // Ext.getCmp('detailPanelCarousel').element.un('tap');
-	// 	//            //  
-	// 	//            // // Ext.getCmp('detailPanelCarousel').element.on({
-	// 	//            // //      scope: this,
-	// 	//            // //      tap: 'onTap'
-	// 	//            // //  });
-	// 	//            $('#detailPanelCarousel').removeClass('fullsize');
-	// 	//            GLOBAL.onFullView = false;
-	// 	// 
-	// 	//        } else {
-	// 	//            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
-	// 	//            Ext.getCmp('detailPanelCarousel').show()
-	// 	//            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
-	// 	//            Ext.getCmp('detailPanelCarousel').element.on({
-	// 	//                scope: this,
-	// 	//                tap: 'onTap'
-	// 	//            });
-	// 	//            $('#detailPanelCarousel').addClass('fullsize');
-	// 	//            GLOBAL.onFullView = true;
-	// 	//        }
-	// 
-	// },
+	onTap: function(e) {
+	    if(GLOBAL.isInfoDisplayed){ 
+    	    $('#info-main-wrapper').css('-webkit-transform', 'translate3d(317px,0,0)');
+	        GLOBAL.isInfoDisplayed = false;
+        }else{
+			$('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
+            GLOBAL.isInfoDisplayed = true;
+        }
+	    
+	    
+		// console.log('on detailpanle tap!!!', GLOBAL.onFullView);
+		//        if (GLOBAL.onFullView) {
+		// 
+		//            self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
+		//            self.detailPanel.remove(Ext.getCmp('description'), false)
+		//            self.detailPanel.add(Ext.getCmp('description'))
+		//            // Ext.getCmp('detailPanelCarousel').element.un('tap');
+		//            //  
+		//            // // Ext.getCmp('detailPanelCarousel').element.on({
+		//            // //      scope: this,
+		//            // //      tap: 'onTap'
+		//            // //  });
+		//            $('#detailPanelCarousel').removeClass('fullsize');
+		//            GLOBAL.onFullView = false;
+		// 
+		//        } else {
+		//            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
+		//            Ext.getCmp('detailPanelCarousel').show()
+		//            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
+		//            Ext.getCmp('detailPanelCarousel').element.on({
+		//                scope: this,
+		//                tap: 'onTap'
+		//            });
+		//            $('#detailPanelCarousel').addClass('fullsize');
+		//            GLOBAL.onFullView = true;
+		//        }
+	
+	},
 
 	updateData: function(newData) {
 	    GLOBAL.newData = newData;

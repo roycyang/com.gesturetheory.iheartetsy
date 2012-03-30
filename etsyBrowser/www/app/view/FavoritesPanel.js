@@ -5,46 +5,52 @@ Ext.define('Etsy.view.FavoritesPanel', {
         id: 'favoritesPanel',
         layout: 'card',
         items: [
-        
+
+        {
+            xtype: 'toolbar',
+            docked: 'top',
+            id: 'favoritesToolbar',
+            title: GLOBAL.name + '\'s Favorites',
+            items: [{
+                xtype: 'button',
+                ui: 'plain',
+                action: 'showNav',
+                width: 60,
+                iconCls: 'list',
+                iconMask: true,
+            },
+
             {
-                xtype: 'toolbar',
-                docked: 'top',
-                id: 'favoritesToolbar',
-                title: 'Your Favorites',
-                items: [{
-                    xtype: 'button',
-                    ui: 'plain', action: 'showNav',width: 60,
-                    iconCls: 'list',
-    				iconMask: true,
-                },
-                   
-                    {
-                        xtype: 'spacer'
-                    },
-                             //                    {
-                 				{
-                                     xtype: 'button',
-                                     action: 'refreshFavorites',
-                                     iconCls: 'refresh',
-                     				iconMask: true,
-                     				listeners:{
-                     				 tap: function(){
-                     				     self.loadFavorites();
-                     				 }
-                 				    }
-                                 },
-					{
-                        xtype: 'button',
-                                            ui: 'plain', action: 'showSearch',width: 60,
-                        iconCls: 'search',
-        				iconMask: true,
-                    },
-                ]
+                xtype: 'spacer'
+            },
+            //                    {
+            {
+                xtype: 'button',
+                action: 'refreshFavorites',
+                iconCls: 'refresh',
+                width: 60,
+                ui: 'plain',
+                iconMask: true,
+                listeners: {
+                    tap: function() {
+                        self.loadFavorites();
+                    }
+                }
             },
             {
-                id: 'favoritesCarousel',
-                xtype: 'favoriteslistingsCarousel'
-            }
+                xtype: 'button',
+                ui: 'plain',
+                action: 'showSearch',
+                width: 60,
+                iconCls: 'search',
+                iconMask: true,
+            },
+            ]
+        },
+        {
+            id: 'favoritesCarousel',
+            xtype: 'favoriteslistingsCarousel'
+        }
         ]
     }
 

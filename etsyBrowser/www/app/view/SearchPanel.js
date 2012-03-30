@@ -13,7 +13,7 @@ Ext.define('Etsy.view.SearchPanel', {
 			docked: 'top',
 			ui: 'none',
 			items: [{
-				width: '93%',
+				width: '95%',
 				xtype: 'searchfield',
 				id: 'globalSearch',
 				placeHolder: 'Search Etsy'

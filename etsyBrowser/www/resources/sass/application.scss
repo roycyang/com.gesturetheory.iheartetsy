@@ -35,36 +35,79 @@
 		color: #3F3F3F;
         
 
+		.open .image-wrapper .image-1 {
+			top: 10px;
+            left: 0;
+		}
+		
+		.open .image-wrapper .image-2 {
+			left: 16px;
+            top: 12px;
+            -webkit-transform: rotate(-1deg);
+		}
+		
+		.open .image-wrapper .image-3 {
+			left: 38px;
+            top: 11px;
+		}
+		
+		.open .image-wrapper .image-4 {
+			left: 296px;
+			-webkit-transform: rotate(4deg);
+			top: 14px;
+		}
+		
+		
         .image-wrapper {
             border: 1px solid #ccc;
             border-radius: 3px;                
             background-color: white;
             padding: 3px;
             position: absolute;
-            top: 10px;
-            left: 0;
+		    -webkit-transition: -webkit-transform 350ms, top 350ms, left 350ms;
+		    -webkit-transform: translate3d(0, 0, 0);
+
             
             &.image-1 {
                 -webkit-transform: rotate(-5deg);
+	            top: 10px;
+	            left: 0;
             }
-    
     
             &.image-2 {
                 left: 16px;
                 top: 12px;
                 -webkit-transform: rotate(-1deg);
             }
-    
+  			
+			.open &.image-2 {
+				left: 81px;
+				top: 12px;
+				-webkit-transform: rotate(-1deg);
+			}
+			
             &.image-3 {
                 left: 38px;
-                top: 15px;
+                top: 11px;
             }
+
+			.open &.image-3 {
+				left: 185px;
+				top: 15px;
+
+			}
     
             &.image-4 {
                 left: 61px;
                 -webkit-transform: rotate(2deg);
                 top: 14px;
             }
+
+			.open &.image-4 {
+				left: 296px;
+				-webkit-transform: rotate(4deg);
+				top: 14px;
+			}
             
             
             .image {
@@ -402,7 +445,7 @@ overflow: hidden;
             padding-left: 50px;
             background-size: contain;
             -webkit-transition: -webkit-transform 350ms;
-            -webkit-transform: translate3d(290px, 0, 0);
+            -webkit-transform: translate3d(317px, 0, 0);
             
             .description-inner-wrapper {
                 padding: 0 15px;

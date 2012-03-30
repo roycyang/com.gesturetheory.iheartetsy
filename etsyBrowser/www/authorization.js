@@ -36,10 +36,7 @@ ETSY = {
 		function(data) {
 		});
 
-		// temporary
-		if (msg) {
-			ETSY.alert(msg);
-		}
+
 
 	},
 

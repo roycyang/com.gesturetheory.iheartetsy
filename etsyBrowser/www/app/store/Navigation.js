@@ -14,16 +14,15 @@ Ext.define('Etsy.store.Navigation', {
                return record.get('type');
            }
        },
-       groupDir: 'ASC',
+       groupDir: 'DESC',
 
        data: [
-           { title: 'Discover',  type: '', panel: 'homePanel'  },
-           { title: 'Categories',  type: ''  , panel: 'categoriesPanel'},
-           { title: 'Treasuries',  type: ''  , panel: 'treasuriesPanel'},
-           { title: 'Favorites',  type: ''  , panel: 'favoritesPanel'},
-           { title: 'Cart',  type: ''  , panel: 'cartPanel'},
-           { title: 'Settings',  type: ''  , panel: 'settingsPanel'},
-           { title: 'Feedback',  type: ''  , panel: 'feedback'},
+           { title: 'Discover',  type: 'Navigation', panel: 'homePanel'  },
+           { title: 'Categories',  type: 'Navigation'  , panel: 'categoriesPanel'},
+           { title: 'Treasuries',  type: 'Navigation'  , panel: 'treasuriesPanel'},
+           { title: 'Favorites',  type: 'Navigation'  , panel: 'favoritesPanel'},
+           { title: 'Cart',  type: 'Navigation'  , panel: 'cartPanel'},
+           { title: 'Feedback',  type: 'Navigation'  , panel: 'feedback'},
            { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'bookmarkedCategory', short_name: 'Art', name: 'art'},
            { title: 'Weddings',  type: 'Bookmarked Categories', panel: 'bookmarkedCategory', short_name: 'Weddings', name: 'weddings'},
        ]

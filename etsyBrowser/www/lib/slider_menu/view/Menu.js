@@ -26,7 +26,7 @@ Ext.define('SliderMenu.view.Menu', {
         title: 'Slider Menu', //You can change it using menu.setTitle('new title');
 
         optionSelected: 0, //By default the first option is selected
-        width: 250, //By default width sets to 250px
+        width: 250, //By default width sets to 288px
         closeAnimDuration: 300, //By default the duration of close animation is 300ms
         openAnimDuration: 300, //By default the duration of open animation is 300ms
 

@@ -16,6 +16,7 @@
 Ext.define('Etsy.view.DetailPanel', {
 	extend: 'Ext.Container',
 	xtype: 'listing',
+	id: 'detailPanel',
 
 	requires: ['Ext.Img'],
 
@@ -23,8 +24,8 @@ Ext.define('Etsy.view.DetailPanel', {
 		cls: 'product-view',
 		zIndex: 1000000000,
 		centered: true,
-		width: 765,
-		height: 640,
+		width: 783,
+		height: 648,
 		modal: true,
 		hideOnMaskTap: true,
 		scrollable: false,
@@ -35,7 +36,7 @@ Ext.define('Etsy.view.DetailPanel', {
 		items: [{
 			xtype: 'toolbar',
 			docked: 'left',
-			ui: 'neutral',
+			ui: 'none',
 			width: 70,
 			// id: 'browserToolbar',
 			// title: 'Categories',
@@ -44,8 +45,8 @@ Ext.define('Etsy.view.DetailPanel', {
 			},
 			items: [{
 				xtype: 'button',
-				iconCls: 'heart',
-				iconMask: true,
+
+				height: 57,
 				listeners: {
 				    tap: function(){
 				        console.log
@@ -56,29 +57,32 @@ Ext.define('Etsy.view.DetailPanel', {
 			},
 			{
 				xtype: 'button',
-				iconCls: 'shop1',
-				iconMask: true,
+
+				height: 57,
 				listeners: {
 				    tap: function(){
+				        console.log('firing once!');
 				        ETSY.addToCart(GLOBAL.newData.id, 'Added to Cart');
 				    }
 				}
 			},
-			{xtype: 'spacer'},
 			{
 				xtype: 'button',
-				iconCls: 'twitter2',
-				iconMask: true,
+
+								height: 57,
+
 			},
 			{
 				xtype: 'button',
-				iconCls: 'facebook',
-				iconMask: true,
+
+								height: 57,
+
 			},
 			{
 				xtype: 'button',
-				iconCls: 'mail4',
-				iconMask: true,
+
+								height: 57,
+
 			},
 			]
 		},
@@ -92,10 +96,10 @@ Ext.define('Etsy.view.DetailPanel', {
 		},
 		{
 		    xtype: 'container',
-			top: 0,
+			top: 5,
 			right: 0,
-			height: 640,
-			width: 320,
+			height: 627,
+			width: 363,
 			floating: true,
 			layout: 'vbox',
 			
@@ -108,7 +112,7 @@ Ext.define('Etsy.view.DetailPanel', {
 			    tpl: new Ext.XTemplate(
     			    '<div class="description-inner-wrapper">',
     			        '<div class="name">{title}</div>', 
-        			    '<div class="price">{price}</div>', 
+        			    '<div class="price">${price}</div>', 
         			    '<div class="quantity">Only {quantity} available</div>', 
         			    '<div class="seller">ANOTHER API CALL FOR USER INFORMATION</div>',
         			    '<div class="shipping">ANOTHER API CALL FOR SHIPPING INFORMATION</div>',

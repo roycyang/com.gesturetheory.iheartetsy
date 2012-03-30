@@ -1,3 +1,24 @@
+#navPanel {
+    background: url(../images/left_rail_background.png) no-repeat 0 0;
+    background-size: contain;
+    padding-top: 101px;
+}
+
+#searchPanel {
+    background: url(../images/right_rail_background.png) no-repeat 0 0;
+    background-size: contain;
+    
+    .x-layout-card-item {
+        background: none;
+    }
+}
+
+#detailPanel {
+    background: url(../images/detail_modal_background_x2.png) no-repeat 0 0;
+    background-size: contain;
+    padding: 7px;
+}
+
 /* ================== */
 /* = Treasury Items = */
 /* ================== */
@@ -63,9 +84,11 @@
         }
         
         .title {
-            font-size: 30px;
+            font-size: 23px;
             font-family: georgia;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            height: 54px;
+            overflow: hidden;
             
         }
         
@@ -102,8 +125,8 @@
 
 .x-field-search .x-field-input .x-form-field {
 	font-family: helvetica;
-	font-size: 11px;
-	height: 25px;
+    font-size: 13px;
+    height: 29px;
 	padding-left: 15px;
 } 
 	
@@ -220,7 +243,7 @@ overflow: hidden;
         /*-moz-box-shadow: 0 0 5px #888;
         -webkit-box-shadow: 0 0 5px#888;
         box-shadow: 0 0 2px #888;*/
-        border-radius: 4px;
+/*        border-radius: 4px;*/
 		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
         
         &.category{
@@ -339,31 +362,70 @@ overflow: hidden;
 }
 
 .product-view {
+    
+        .x-body {
+            overflow: visible;
+        }
+        
+        .x-docking-horizontal {
+            overflow: hidden;
+        }
 	
     	.description {
-            background: white; 
-            border: 1px solid #000;
+            background: url(../images/detail_modal_info.png) no-repeat 0 0;
+            border: none;
+            padding-left: 50px;
+            background-size: contain;
             -webkit-transition: -webkit-transform 350ms;
             -webkit-transform: translate3d(290px, 0, 0);
             
             .description-inner-wrapper {
-
-                padding: 15px;
+                padding: 0 15px;
             }
 		}
 		
         .name {
-            line-height: 28px;
+            line-height: 37px;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: normal;
             color: #333;
-			margin-bottom: 10px;
+            padding-top: 15px;
+            font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+            height: 52px;
+            overflow: hidden;
+            margin-bottom: 23px;
         }
 
+        .price {
+            float: left;
+            width: 68px;
+            text-align: right;
+            color: green;
+            font-family: serif;
+        }
+        
         .text {
             font-size:14px;
             color: #aaa;
-            line-height: 20px;
+            line-height: 18px;
+            padding-bottom: 30px;
+        }
+        
+        .quantity {
+            float: left;
+            margin-left: 26px;
+            font-size: 12px;
+            margin-top: 5px;
+            color: #666;
+            margin-bottom: 39px;
+        }
+        
+        .shipping,
+        .seller {
+            clear: both;
+            font-size: 12px;
+            height: 77px;
+            color: #666;
         }
 
         img {

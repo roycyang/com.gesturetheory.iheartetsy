@@ -3,17 +3,12 @@ Ext.define('Etsy.view.NavPanel', {
 	config: {
 		layout: 'fit',
 		id: 'navPanel',
-		width: 250,
+		width: 288,
 		height: 748,
         top: 0,
         hidden: true,
                 left: 0,
-		items: [{
-			xtype: 'toolbar',
-			docked: 'top',
-			ui: 'neutral',
-			title: 'I Heart Etsy'
-		},
+		items: [
 		{
 			xtype: 'list',
 			flex: 1,

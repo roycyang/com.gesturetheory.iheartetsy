@@ -20,7 +20,6 @@ Ext.application({
     ],
 
     views: [
-        'SettingsPanel',
         'SearchPanel',
         'NavPanel',
         'AppPanel',

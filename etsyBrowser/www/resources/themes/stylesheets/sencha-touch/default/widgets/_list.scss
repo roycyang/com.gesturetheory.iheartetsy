@@ -8,7 +8,7 @@
  * @var {color} $list-color
  * Text color for list rows.
  */
-$list-color: #000 !default;
+$list-color: #fefbe3 !default;
 
 /**
  * @var {color} $list-bg-color
@@ -79,7 +79,7 @@ $list-disclosure-round-size: 1.5em;
 @mixin sencha-list {
   .x-list {
     position: relative;
-    background-color: $list-bg-color;
+/*    background-color: $list-bg-color;*/
 
     .x-list-inner {
       width: 100%;
@@ -114,7 +114,8 @@ $list-disclosure-round-size: 1.5em;
 
       .x-list-item-label {
         min-height: $global-row-height;
-        padding: 0.65em 0.8em;
+        padding: 15px 20px 13px;
+        font-size: 15px;
       }
 
       &.x-item-pressed {
@@ -138,6 +139,7 @@ $list-disclosure-round-size: 1.5em;
   }
 
   .x-list-header-swap {
+      color: #FEFBE3;
     position: absolute;
     left: 0;
     width: 100%;
@@ -151,15 +153,17 @@ $list-disclosure-round-size: 1.5em;
   .x-list-normal {
 
     .x-list-header {
-      @include background-gradient($list-header-bg-color, $list-header-gradient);
+/*      @include background-gradient($list-header-bg-color, $list-header-gradient);
       @include color-by-background($list-header-bg-color, 30%);
       @include bevel-by-background($list-header-bg-color);
       border-top: 1px solid $list-header-bg-color;
       border-bottom: 1px solid darken($list-header-bg-color, 20%);
-      font-weight: bold;
-      font-size: 0.8em;
-      padding: 0.2em 1.02em;
-      @include bevel-by-background($list-header-bg-color);
+      font-weight: bold;*/
+      font-size: 12px;
+      padding: 7px 20px;
+
+/*      @include bevel-by-background($list-header-bg-color);*/
+        background: #2e1807;
     }
 
     .x-list-item {
@@ -176,10 +180,11 @@ $list-disclosure-round-size: 1.5em;
         }
       } @else {
         .x-list-item-label {
-          border-top: 1px solid darken($list-bg-color, 10%);
+/*          border-top: 1px solid darken($list-bg-color, 10%);*/
+            border-bottom: 1px solid #2e1807;
         }
         &:last-child .x-list-item-label {
-          border-bottom: 1px solid darken($list-bg-color, 10%);
+/*          border-bottom: 1px solid darken($list-bg-color, 10%);*/
         }
       }
 

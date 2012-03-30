@@ -4,14 +4,14 @@ Ext.define('Etsy.view.SearchPanel', {
 		layout: 'vbox',
 		id: 'searchPanel',
 		hidden: true,
-		width: 250,
+		width: 288,
 		height: 748,
 		top: 0,
 		right: 0,
 		items: [{
 			xtype: 'toolbar',
 			docked: 'top',
-			ui: 'neutral',
+			ui: 'none',
 			items: [{
 				width: '93%',
 				xtype: 'searchfield',
@@ -22,6 +22,7 @@ Ext.define('Etsy.view.SearchPanel', {
 		{
 			flex: 1,
 			xtype: 'formpanel',
+			hidden: true,
 
 			items: [{
 				xtype: 'fieldset',
@@ -75,7 +76,7 @@ Ext.define('Etsy.view.SearchPanel', {
 						console.log('LEVEL 3');
 						console.log('tags are', tags);
 						console.log('category is', category);
-						self.loadListings('tags', record.parentNode.parentNode, tags);
+						self.loadListings('tags', record.parentNode.parentNode, record.get('short_name'), tags);
 
 					} else if (!record.parentNode.parentNode) {
 						console.log('LEVEL 1');
@@ -85,7 +86,7 @@ Ext.define('Etsy.view.SearchPanel', {
 					} else {
 						var tags = record.get('name');
 						var category = record.parentNode.get('name');
-						self.loadListings('tags', record.parentNode, tags);
+						self.loadListings('tags', record.parentNode, record.get('short_name'), tags);
 						console.log('LEVEL 2');
 						console.log('tags are', tags);
 						console.log('category is', category);

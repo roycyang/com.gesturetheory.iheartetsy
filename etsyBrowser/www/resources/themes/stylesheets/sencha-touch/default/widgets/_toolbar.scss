@@ -55,14 +55,14 @@ $include-toolbar-uis: $include-default-uis !default;
       width: 7em;
       height: auto;
       padding: $toolbar-spacing;
-      border-right: .1em solid;
+/*      border-right: .1em solid;*/
     }
 
     &.x-docked-right {
       width: 7em;
       height: auto;
       padding: $toolbar-spacing;
-      border-left: .1em solid;
+/*      border-left: .1em solid;*/
     }
   }
 
@@ -120,9 +120,12 @@ $include-toolbar-uis: $include-default-uis !default;
   $toolbar-button-color: darken($color, 5%);
 
   .x-toolbar-#{$ui-label} {
+    @if $ui-label == light {
+        background: #2E1807;
+    } @else {
     @include background-gradient($color, $gradient);
     border-color: $toolbar-border-color;
-    
+    }
 
     .x-title {
 /*      @include color-by-background($color);*/

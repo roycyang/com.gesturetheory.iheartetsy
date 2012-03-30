@@ -25,14 +25,14 @@
 
 #treasuriesCarousel {
     .treasury-item {
-        height: 166px;
-        display: inline-block;
-        position: relative;
-        width: 472px;
-        margin: 40px 10px 20px 30px;
-        padding-left: 280px;
-        vertical-align: top;
-        color: #3f3f3f;
+		height: 166px;
+		display: inline-block;
+		position: relative;
+		width: 452px;
+		margin: 40px 30px 20px 30px;
+		padding-left: 280px;
+		vertical-align: top;
+		color: #3F3F3F;
         
 
         .image-wrapper {
@@ -92,14 +92,39 @@
             
         }
         
+		.user-avatar {
+			width: 35px;
+			height: 35px;
+			float: left;
+			background-size: contain;
+			margin-right: 15px;
+		}
+
+		.stats {
+			clear: both;
+			font-size: 11px;
+		    padding: 10px 0;
+			color: #afafaf;
+		}
+		
         .user {
-            font-size: 13px;
-            padding: 10px 0;
+			font-size: 11px;
+			padding: 10px 0;
             span {
-                color: #ccc;
+                color: #afafaf;
             }
             
         }
+
+		.visit-treasury-button {
+			padding: 5px 10px;
+			background: #079BBE;
+			border: 1px solid #BCB9A6;
+			border-radius: 3px;
+			color: #EDEDEB;
+			font-size: 13px;
+			display: inline-block;
+		}
     }  
 }
 

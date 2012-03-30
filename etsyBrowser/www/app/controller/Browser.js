@@ -408,7 +408,7 @@ Ext.define('Etsy.controller.Browser', {
 		case 'keyword':
 		    delete self.listingsStore.getProxy()._extraParams.tags;
 		    delete self.listingsStore.getProxy()._extraParams.category;
-            store.getProxy().setUrl('http://50.74.56.194:8888/art');
+            store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
 			store.getProxy().setExtraParam('keywords', record);
 			self.getCategoriesToolbar().setTitle('Search results for: ' + record);
 			break;

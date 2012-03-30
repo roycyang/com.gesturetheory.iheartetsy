@@ -27,7 +27,7 @@ Ext.define('Etsy.view.HomePanel', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'I Heart Etsy',
+                title: 'Latest Listings',
                 id: 'homeToolbar',
                 items: [
                 {

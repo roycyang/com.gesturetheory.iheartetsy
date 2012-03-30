@@ -73,16 +73,17 @@ Ext.define('Etsy.view.ListingsCarousel', {
             element = Ext.get(e.target).parent('.product');
         }
         
-        if(element){
-            if(x_dist < 10){
-    			if(y_dist < -20 && y_dist > -80){
-    				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
-    			}
+        if(element && !this.isDragging){
+            // if(x_dist < 10){
+            //     			
+            //     		}
+			if(y_dist < -10){
+				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
+			}
 
-    			if(y_dist >20 && y_dist < 80){
-    				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-    			}
-    		}
+			if(y_dist >10){
+				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+			}
         }
 
 		
@@ -91,11 +92,11 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		
 
 		//id = Math.abs(element.getAttribute('ref'));
-		console.log('the element being swiped is', element);
+		// console.log('the element being swiped is', element);
 	},
 
     onTap: function(e) {
-        console.log('on tap!!!');
+        // console.log('on tap!!!');
         var element = Ext.get(e.target),
             store = this.getStore(),
             id;
@@ -133,10 +134,10 @@ Ext.define('Etsy.view.ListingsCarousel', {
 		// if there actually is an element, then we tapped on a product
 		if(element){
 	        id = Math.abs(element.getAttribute('ref'));
-	        console.log('id is', id);
-	        console.log('store is', store);
+	        // console.log('id is', id);
+	        // console.log('store is', store);
 	        record = store.getAt(store.findExact('id', id));
-	        console.log('record', record);
+	        // console.log('record', record);
 	        if (record) {
 	            this.fireEvent('itemtap', this, record);
 	        }
@@ -166,7 +167,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
     // },
 
     updateStore: function(newStore) {
-        console.log('update the store', newStore);
+        // console.log('update the store', newStore);
         var me = this;
 
         if (newStore.isLoading()) {
@@ -176,7 +177,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
             
             // this is when the store updates, we can update the max index.
             newStore.on('refresh', function() {
-                console.log('\n\n\n\n\n\n\nNewStore', newStore.data.length);
+                // console.log('\n\n\n\n\n\n\nNewStore', newStore.data.length);
                 var storeCount = newStore.data.length;
                 var max = parseInt(storeCount/me.getCount());
                 setTimeout(function(){
@@ -195,7 +196,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
             // this is when the store loads for the first time
             newStore.on('load', function() {
-                console.log('\n\n\n\n\n\nin the newstore.load');
+                //console.log('\n\n\n\n\n\nin the newstore.load');
                 me.setMasked(false);
 
                 me.updateStore(newStore);
@@ -209,7 +210,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
     },
 
     onActiveItemChange: function(carousel, newItem, oldItem) {
-        console.log('***** onActiveItemChange');
+        //console.log('***** onActiveItemChange');
         var index = carousel.getActiveIndex(),
             count = this.getCount(),
             offsetLimit = this.getOffsetLimit(),
@@ -218,7 +219,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
         if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {            
             store.nextPage();
-            console.log('firing store.nextPage()', store.data.length);
+            //console.log('firing store.nextPage()', store.data.length);
             
         }
         
@@ -226,18 +227,18 @@ Ext.define('Etsy.view.ListingsCarousel', {
         var endIndex = startIndex + (count-1);
         
         
-        console.log('***Panel #' + index);
-        console.log(startIndex + '-' + endIndex)
+        //console.log('***Panel #' + index);
+        //console.log(startIndex + '-' + endIndex)
         
         
         // settings the max index
         
         var max = parseInt(storeCount/(count));
-        console.log('storeCount is', storeCount);
-        console.log('max', max);
+        // console.log('storeCount is', storeCount);
+        // console.log('max', max);
 
         this.setMaxItemIndex(max-1);
-        Ext.getCmp('homeToolbar').setTitle('Discover (' + startIndex + '-' + endIndex + ')... Page ' + (index + 1) + ' of ' + (max));
+        //Ext.getCmp('homeToolbar').setTitle('Discover (' + startIndex + '-' + endIndex + ')... Page ' + (index + 1) + ' of ' + (max));
         
         // 
         // console.log('start index is', startIndex);

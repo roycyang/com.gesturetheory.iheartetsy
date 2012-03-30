@@ -29,8 +29,8 @@ Ext.define('Etsy.view.Treasuries', {
     
     
     updateRecords: function(newRecords) {
-        console.log('newRecords is', newRecords);
-        console.log('newRecords.items', newRecords.items);
+        // console.log('newRecords is', newRecords);
+        // console.log('newRecords.items', newRecords.items);
         this.setData({
             items: newRecords.items,
         });

@@ -121,7 +121,7 @@ Ext.define('Etsy.view.DetailPanel', {
 			},
 			{
 			    flex: 1,
-			    id: 'description',
+			    id: 'scrollingDescription',
 			    tpl: new Ext.XTemplate(
     			    '<div class="description-inner-wrapper">',
                      '<div class="text">{description}</div>',
@@ -164,49 +164,82 @@ Ext.define('Etsy.view.DetailPanel', {
 		// });
 		Ext.getCmp('info-main-wrapper').element.on({
 			scope: this,
-			tap: 'onTap'
+			drag: 'onDragItem'
 		});
 
 	},
+	
+	onDragItem: function(e){
+		// console.log('event', e);
+		var element = Ext.get(e.target);
+		
+		var y_dist = e.deltaY;
+		
+		var x_dist = e.deltaX;
 
-	onTap: function(e) {
-	    if(GLOBAL.isInfoDisplayed){ 
-	        $('#info-main-wrapper').css('-webkit-transform', 'translate3d(290px,0,0)');
-	        GLOBAL.isInfoDisplayed = false;
-        }else{
-    	    $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
-             GLOBAL.isInfoDisplayed = true;
+        if (!element.hasCls('description')) {
+            element = Ext.get(e.target).parent('.description');
         }
-	    
-	    
-		// console.log('on detailpanle tap!!!', GLOBAL.onFullView);
-		//        if (GLOBAL.onFullView) {
-		// 
-		//            self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
-		//            self.detailPanel.remove(Ext.getCmp('description'), false)
-		//            self.detailPanel.add(Ext.getCmp('description'))
-		//            // Ext.getCmp('detailPanelCarousel').element.un('tap');
-		//            //  
-		//            // // Ext.getCmp('detailPanelCarousel').element.on({
-		//            // //      scope: this,
-		//            // //      tap: 'onTap'
-		//            // //  });
-		//            $('#detailPanelCarousel').removeClass('fullsize');
-		//            GLOBAL.onFullView = false;
-		// 
-		//        } else {
-		//            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
-		//            Ext.getCmp('detailPanelCarousel').show()
-		//            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
-		//            Ext.getCmp('detailPanelCarousel').element.on({
-		//                scope: this,
-		//                tap: 'onTap'
-		//            });
-		//            $('#detailPanelCarousel').addClass('fullsize');
-		//            GLOBAL.onFullView = true;
-		//        }
+        
+        if(element && !Ext.getCmp('detailPanelCarousel').isDragging && $('#scrollingDescription .x-scroll-indicator-y').css('opacity') == '0'){
+			console.log('should be dragging');
+			if(x_dist < -10){
+				$('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
+			}
 
+			if(x_dist >10){
+				$('#info-main-wrapper').css('-webkit-transform', 'translate3d(290px,0,0)');
+			}
+        }
+
+		
+
+		//console.log($('#' + element.id));
+		
+
+		//id = Math.abs(element.getAttribute('ref'));
+		// console.log('the element being swiped is', element);
 	},
+	
+
+	// onTap: function(e) {
+	//     if(GLOBAL.isInfoDisplayed){ 
+	//         
+	//         GLOBAL.isInfoDisplayed = false;
+	//         }else{
+	//     	    
+	//              GLOBAL.isInfoDisplayed = true;
+	//         }
+	//     
+	//     
+	// 	// console.log('on detailpanle tap!!!', GLOBAL.onFullView);
+	// 	//        if (GLOBAL.onFullView) {
+	// 	// 
+	// 	//            self.detailPanel.add(Ext.getCmp('detailPanelCarousel'));
+	// 	//            self.detailPanel.remove(Ext.getCmp('description'), false)
+	// 	//            self.detailPanel.add(Ext.getCmp('description'))
+	// 	//            // Ext.getCmp('detailPanelCarousel').element.un('tap');
+	// 	//            //  
+	// 	//            // // Ext.getCmp('detailPanelCarousel').element.on({
+	// 	//            // //      scope: this,
+	// 	//            // //      tap: 'onTap'
+	// 	//            // //  });
+	// 	//            $('#detailPanelCarousel').removeClass('fullsize');
+	// 	//            GLOBAL.onFullView = false;
+	// 	// 
+	// 	//        } else {
+	// 	//            Ext.Viewport.add(Ext.getCmp('detailPanelCarousel'))
+	// 	//            Ext.getCmp('detailPanelCarousel').show()
+	// 	//            Ext.getCmp('detailPanelCarousel').setZIndex(100000000000);
+	// 	//            Ext.getCmp('detailPanelCarousel').element.on({
+	// 	//                scope: this,
+	// 	//                tap: 'onTap'
+	// 	//            });
+	// 	//            $('#detailPanelCarousel').addClass('fullsize');
+	// 	//            GLOBAL.onFullView = true;
+	// 	//        }
+	// 
+	// },
 
 	updateData: function(newData) {
 	    GLOBAL.newData = newData;
@@ -237,7 +270,7 @@ Ext.define('Etsy.view.DetailPanel', {
 		carousel.add(imageArray);
 		carousel.setActiveItem(0);
 
-		Ext.getCmp('description').setData(newData);
+		Ext.getCmp('scrollingDescription').setData(newData);
         Ext.getCmp('meta-info').setData(newData);
 	}
 });

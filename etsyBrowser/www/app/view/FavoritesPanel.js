@@ -13,7 +13,7 @@ Ext.define('Etsy.view.FavoritesPanel', {
                 title: 'Your Favorites',
                 items: [{
                     xtype: 'button',
-                    action: 'showNav',
+                    ui: 'plain', action: 'showNav',width: 60,
                     iconCls: 'list',
     				iconMask: true,
                 },
@@ -35,7 +35,7 @@ Ext.define('Etsy.view.FavoritesPanel', {
                                  },
 					{
                         xtype: 'button',
-                        action: 'showSearch',
+                                            ui: 'plain', action: 'showSearch',width: 60,
                         iconCls: 'search',
         				iconMask: true,
                     },

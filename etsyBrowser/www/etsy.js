@@ -20,18 +20,17 @@ Ext.application({
     ],
 
     views: [
+		// core panels
         'SearchPanel',
         'NavPanel',
         'AppPanel',
+
+		// other panels
         'HomePanel',
         'CategoriesPanel',
-        'FullCategoriesPanel',
         'TreasuriesPanel',
         'FavoritesPanel',
-		'CartPanel',
         'DetailPanel',
-        'LargeListingsCarousel',
-        'LargeListings',
         'ListingsCarousel',
         'Listings',
         'FavoriteListingsCarousel',

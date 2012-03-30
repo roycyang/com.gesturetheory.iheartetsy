@@ -1,21 +1,21 @@
-Ext.define('Etsy.view.CategoriesPanel', {
+Ext.define('Etsy.view.BrowserPanel', {
     extend: 'Ext.Panel',
 
     config: {
         title: 'Categories',
         iconCls: 'spaces2',
-        id: 'categoriesPanel',
+        id: 'browserPanel',
         layout: 'card',
         items: [
         
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                id: 'categoriesToolbar',
+                id: 'browserToolbar',
                 title: 'Categories',
                 items: [{
                     xtype: 'button',
-                    ui: 'plain', action: 'showNav',width: 60,
+                    action: 'showNav',
                     iconCls: 'list',
     				iconMask: true,
                 },
@@ -44,7 +44,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
                     // },
 					{
                         xtype: 'button',
-                                            ui: 'plain', action: 'showSearch',width: 60,
+                        action: 'showSearch',
                         iconCls: 'search',
         				iconMask: true,
                     },

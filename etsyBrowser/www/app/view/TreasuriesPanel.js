@@ -15,6 +15,7 @@
 
 Ext.define('Etsy.view.TreasuriesPanel', {
 	extend: 'Ext.Panel',
+	requires: ['Etsy.view.Treasuries'],
 
 	config: {
 		title: 'Treasuries',
@@ -36,7 +37,7 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 			},
 			{
 				xtype: 'button',
-				action: 'showSearch',
+				                    ui: 'plain', action: 'showSearch',width: 60,
 				iconCls: 'search',
 				iconMask: true,
 			},

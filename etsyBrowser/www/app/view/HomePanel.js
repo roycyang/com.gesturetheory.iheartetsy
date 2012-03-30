@@ -27,12 +27,12 @@ Ext.define('Etsy.view.HomePanel', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Discover',
+                title: 'I Heart Etsy',
                 id: 'homeToolbar',
                 items: [
                 {
                     xtype: 'button',
-                    action: 'showNav',
+                    ui: 'plain', action: 'showNav',width: 60,
                     iconCls: 'list',
     				iconMask: true,
                 },
@@ -43,7 +43,7 @@ Ext.define('Etsy.view.HomePanel', {
                 
                 {
                     xtype: 'button',
-                    action: 'showSearch',
+                                        ui: 'plain', action: 'showSearch',width: 60,
                     iconCls: 'search',
     				iconMask: true,
                 },

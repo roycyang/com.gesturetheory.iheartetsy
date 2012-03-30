@@ -30,15 +30,15 @@ Ext.application({
     ],
 
     views: [
+		'NavPanel',
+		'SearchPanel',
         'AppPanel',
         'HomePanel',
         'CategoriesPanel',
-        'FullCategoriesPanel',
         'FavoritesPanel',
         'DiscoverPanel',
+		'Treasuries',
         'DetailPanel',
-        'LargeListingsCarousel',
-        'LargeListings',
         'ListingsCarousel',
         'Listings'
     ], 

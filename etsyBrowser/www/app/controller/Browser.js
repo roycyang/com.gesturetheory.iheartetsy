@@ -14,7 +14,6 @@ Ext.define('Etsy.controller.Browser', {
 			categoriesToolbar: '#categoriesToolbar',
             treasuriesCarousel: '#treasuriesCarousel',
 			favoritesCarousel: '#favoritesCarousel',
-			fullBrowserCarousel: '#fullBrowserCarousel',
 			detailPanel: '#detailPanel',
 			listingsCarousel: 'listingsCarousel',
 			categoryList: '#categoryList',
@@ -54,22 +53,7 @@ Ext.define('Etsy.controller.Browser', {
 				keyup: 'onSearchKeyup',
 			},
 
-			// '#browserFullCarouselButton': {
-			//  tap: 'onBrowserFullCarouselButtonTap'
-			// },
-			'#closeFullBrowserButton': {
-				tap: 'onCloseFullBrowserButtonTap'
-			},
 
-			'#favoritesPanelLoginButton': {
-				tap: 'onLoginTap'
-			},
-			'#cartPanelSignInButton': {
-				tap: 'onLoginTap'
-			},
-			'#cartPanelSignOutButton': {
-				tap: 'onSignOutTap'
-			}
 		},
 	},
 
@@ -198,10 +182,8 @@ Ext.define('Etsy.controller.Browser', {
         self.categoriesPanel = Ext.create('Etsy.view.CategoriesPanel');
         self.treasuriesPanel = Ext.create('Etsy.view.TreasuriesPanel');
         self.favoritesPanel = Ext.create('Etsy.view.FavoritesPanel');
-        self.cartPanel = Ext.create('Etsy.view.CartPanel');
 
         // not main views
-        self.fullCategoriesPanel = Ext.create('Etsy.view.FullCategoriesPanel');
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
         
         // Latest Listings Store for HOME PANEL
@@ -480,21 +462,5 @@ Ext.define('Etsy.controller.Browser', {
 		Ext.getCmp('browserSearchPanel').setStyle('-webkit-transform:translate3d(0,-50px,0)');
 	},
 
-	// onBrowserFullCarouselButtonTap: function() {
-	//  var self = this;
-	//  //empty the store before adding the new one
-	//  var browserCarouselStore = self.getFullBrowserCarousel().getStore();
-	//  if (browserCarouselStore) {
-	//      // if there is already a store, then it needs to be updated, not set
-	//      self.getFullBrowserCarousel().updateStore(self.listingsStore);
-	//  } else {
-	//      self.getFullBrowserCarousel().setStore(self.listingsStore);
-	//  }
-	//  self.fullCategoriesPanel.show();
-	// },
-	onCloseFullBrowserButtonTap: function() {
-		var self = this;
-		self.fullCategoriesPanel.hide();
-	}
 
 });

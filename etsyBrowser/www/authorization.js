@@ -18,6 +18,26 @@ ETSY = {
 		}
 
 	},
+	
+	removeFromFavorites: function(id, msg) {
+		console.log('id is ' + id);
+		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
+		oauth.delete(url, function(data) {
+			console.log(data);
+			if (msg) {
+				ETSY.alert(msg);
+			}
+		},
+		function(data) {
+
+		});
+
+		// temporary
+		if (msg) {
+			ETSY.alert(msg);
+		}
+
+	},
 
 	addToCart: function(id, msg) {
 		console.log('id is ' + id);
@@ -25,6 +45,28 @@ ETSY = {
 
 		oauth.post(url, {
 			'listing_id': id
+		},
+		function(data) {
+		    // adding this to my cart!
+			console.log(data);
+			if (msg) {
+				ETSY.alert(msg);
+			}
+		},
+		function(data) {
+		});
+
+
+
+	},
+	
+	removeFromCart: function(id, msg) {
+		console.log('id is ' + id);
+		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
+
+		oauth.get(url, {
+			'listing_id': id,
+			'method': 'DELETE'
 		},
 		function(data) {
 		    // adding this to my cart!

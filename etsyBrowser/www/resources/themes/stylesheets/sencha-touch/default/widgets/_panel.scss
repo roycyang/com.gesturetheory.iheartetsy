@@ -25,8 +25,8 @@ $panel-border-radius: .3em;
       > .x-panel-inner,
       .x-scroll-view,
       .x-body {
-        background-color: #fff;
-        @if $include-border-radius { @include border_radius($panel-border-radius); }
+        background-color: #47250b;
+/*        @if $include-border-radius { @include border_radius($panel-border-radius); }*/
       }
     }
 

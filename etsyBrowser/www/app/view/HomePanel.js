@@ -21,13 +21,18 @@ Ext.define('Etsy.view.HomePanel', {
         iconCls: 'home',
         id: 'homePanel',
         layout: {
-            type: 'vbox'
+            type: 'hbox'
         },
         items: [
             {
+                flex: 1,
+                html: '<div id="fakeHome"></div>'
+            },
+            {
+
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Latest Listings',
+                title: 'Discover Etsy',
                 id: 'homeToolbar',
                 items: [
                 {
@@ -73,7 +78,7 @@ Ext.define('Etsy.view.HomePanel', {
             {
                 id: 'listingsCarousel',
                 xtype: 'listingsCarousel',
-                flex: 2,
+                flex: 1,
                 
                 count: 12
                 

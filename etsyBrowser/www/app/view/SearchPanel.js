@@ -62,6 +62,7 @@ Ext.define('Etsy.view.SearchPanel', {
 
 		},
 		{
+		    id: 'categoryNestedList',
 			flex: 1,
 			xtype: 'nestedlist',
 			title: 'Categories',

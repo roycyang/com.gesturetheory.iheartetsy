@@ -37,19 +37,20 @@ $include-toolbar-uis: $include-default-uis !default;
     padding: 0 $toolbar-spacing;
     overflow: hidden;
     position: relative;
-    height: $global-row-height;
+/*    height: $global-row-height;*/
+    height: 65px;
 
     & > * {
       z-index: 1;
     }
 
-    &.x-docked-top {
+/*    &.x-docked-top {
       border-bottom: .1em solid;
     }
 
     &.x-docked-bottom {
       border-top: .1em solid;
-    }
+    }*/
 
     &.x-docked-left {
       width: 7em;
@@ -136,7 +137,7 @@ font-family: georgia;
 font-size: 20px;
     }
 
-    &.x-docked-top {
+/*    &.x-docked-top {
       border-bottom-color: $toolbar-border-color;
     }
 
@@ -150,7 +151,7 @@ font-size: 20px;
 
     &.x-docked-right {
       border-left-color: $toolbar-border-color;
-    }
+    }*/
 
     .x-button,
     .x-field-select .x-component-outer,
@@ -165,6 +166,6 @@ font-size: 20px;
   }
   
   .x-toolbar-dark {
-      background: url(../images/header_background_x2.png) repeat-x 0 0;
+      background: url(../images/final/app-header-background-1x.png?1) repeat-x 0 0;
   }
 }

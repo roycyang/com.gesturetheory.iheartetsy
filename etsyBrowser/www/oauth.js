@@ -503,6 +503,10 @@ exports.OAuth = (function (global) {
         post: function (url, data, success, failure) {
             this.request({'method': 'POST', 'url': url, 'data': data, 'success': success, 'failure': failure});
         },
+        
+        delete: function (url, data, success, failure) {
+            this.request({'method': 'DELETE', 'url': url, 'data': data, 'success': success, 'failure': failure});
+        },
 
         /**
          * Wrapper to parse a JSON string and pass it to the callback

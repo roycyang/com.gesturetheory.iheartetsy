@@ -26,6 +26,8 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>com.phonegap.twitter</key>
+		<string>TwitterPlugin</string>
 		<key>ShareKitPlugin</key>
 		<string>ShareKitPlugin</string>
 		<key>org.apache.cordova.EmailComposer</key>

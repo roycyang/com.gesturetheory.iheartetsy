@@ -19,6 +19,7 @@ Ext.define('Etsy.controller.Browser', {
 			categoryList: '#categoryList',
 			showNav: 'button[action=showNav]',
 			showSearch: 'button[action=showSearch]',
+			categoryNestedList: '#categoryNestedList',
 			
 
 		},
@@ -30,8 +31,7 @@ Ext.define('Etsy.controller.Browser', {
 				tap: 'onShowSearchTap',
 			},
 			listingsCarousel: {
-				itemtap: 'onListingTap',
-				itemswipe: 'onListingSwipe'
+				itemtap: 'onListingTap'
 			},
 			categoryList: {
 				itemtap: 'onCategoryListTap'
@@ -67,6 +67,7 @@ Ext.define('Etsy.controller.Browser', {
 
         // not main views
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
+        self.categoryNestedListPanel = Ext.create('Etsy.view.CategoryNestedListPanel');
         
         // Latest Listings Store for HOME PANEL
         self.latestListingsStore = Ext.data.StoreManager.lookup('LatestListings');
@@ -104,9 +105,7 @@ Ext.define('Etsy.controller.Browser', {
 
 			listeners: {
 				tap: function() {
-
 					self.toggleNav();
-
 				}
 			}
 
@@ -121,9 +120,7 @@ Ext.define('Etsy.controller.Browser', {
 
 			listeners: {
 				tap: function() {
-
 					self.toggleSearch();
-
 				}
 			}
 
@@ -251,23 +248,15 @@ Ext.define('Etsy.controller.Browser', {
 		this.detailPanel.show();
 	},
 
-	onListingSwipe: function(view, item, index, e) {
-		alert('swipe');
-		console.log('e is', e);
-	},
-
 	// ================================
 	// = Whenever a category is tapped =
 	// ================================
 	onCategoryListTap: function(view, index, item, record) {
 		this.loadListings('category', record);
-
 	},
 
 	onNavListTap: function(view, index, item, record) {
 		var self = this;
-		console.log(view, index, item, record);
-		console.log(record.get('panel'));
 		var panel = record.get('panel');
 		if (panel == 'feedback') {
 			try {
@@ -304,10 +293,11 @@ Ext.define('Etsy.controller.Browser', {
 				}
 			},
 			350);
+		} else if (panel == 'categoriesPanel') {
+            self.loadCategoriesPopup(item);
+            return false;
 		} else {
-			if (panel == 'categoriesPanel') {
-				self.categoriesPanel.setActiveItem(0);
-			}
+
 			if (panel == "favoritesPanel") {
 				self.loadFavorites();
 			}
@@ -319,6 +309,12 @@ Ext.define('Etsy.controller.Browser', {
 		}
 
 		this.toggleNav();
+	},
+	
+	loadCategoriesPopup: function(item){
+	    window.item = item;
+	    self.categoryNestedListPanel.showBy(item);
+
 	},
 	
 	loadTreasuries: function(){

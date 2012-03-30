@@ -15,6 +15,7 @@ Ext.define('Etsy.model.Listing', {
             'title',
             'url',
 			'price',
+			'state',
 			
 			{
 	            name: 'rounded_price',

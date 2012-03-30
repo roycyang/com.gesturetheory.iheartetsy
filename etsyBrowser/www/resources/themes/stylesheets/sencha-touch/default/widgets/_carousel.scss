@@ -32,10 +32,20 @@ $carousel-track-size: 1.5em !default;
  */
 @mixin sencha-carousel-indicator-ui($ui-label, $color, $gradient, $active-color, $active-gradient) {
   .x-carousel-indicator-#{$ui-label} span {
-    @include background-gradient($color, $gradient);
+/*    @include background-gradient($color, $gradient);*/
+width: 24px;
+height: 28px;
+text-align: center;
+font-weight: normal;
+font-size: 13px;
+line-height: 28px;
+	color: #78C042;
 
     &.x-carousel-indicator-active {
-      @include background-gradient($active-color, $active-gradient)
+/*      @include background-gradient($active-color, $active-gradient)*/
+
+background: url(../images/final/product-detail-sprite-1x.png) no-repeat 0 -692px;
+
     }
   }
 }
@@ -74,16 +84,16 @@ $carousel-track-size: 1.5em !default;
     -webkit-box-shadow: none;
 /*    background-color: transparent;
     background-image: none;*/
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.8);
   }
 
   .x-carousel-indicator {
     -webkit-box-flex: 1;
 
     @include display-box;
-    @include box-pack(center);
+    @include box-pack(left);
     @include box-align(center);
-
+    padding-left: 17px;
     span {
       display: block;
       width: $carousel-indicator-size;
@@ -94,7 +104,8 @@ $carousel-track-size: 1.5em !default;
   }
 
   .x-carousel-indicator-horizontal {
-    height: $carousel-track-size;
+    /*height: $carousel-track-size;*/
+    height: 50px;
     width: 100%;
   }
 

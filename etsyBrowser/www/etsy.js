@@ -34,8 +34,7 @@ Ext.application({
         'ListingsCarousel',
         'Listings',
         'FavoriteListingsCarousel',
-        'FavoriteListings',
-        'CategoryNestedListPanel'
+        'FavoriteListings'
     ],
 
     name: 'Etsy',

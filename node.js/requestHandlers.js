@@ -28,14 +28,12 @@ function treasuries(response, DATA) {
 }
 
 function upload(response) {
-  console.log("Request handler 'upload' was called.");
   //response.writeHead(200, {"Content-Type": "text/plain"});
   response.write("Hello Upload");
   response.end();
 }
 
 function art (response, DATA) {
-  console.log('Art response: ', response);
   
   response.writeHead(200, {"Content-Type": "application/json"});
   response.write(DATA.art);

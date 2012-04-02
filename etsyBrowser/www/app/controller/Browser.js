@@ -59,6 +59,10 @@ Ext.define('Etsy.controller.Browser', {
 	
 	launch: function() {
 		window.self = this;
+		
+		// initialize the counts
+		ETSY.updateCartInfo();
+		ETSY.updateFavoritesInfo()
 
 		self.homePanel = Ext.create('Etsy.view.HomePanel');
         self.categoriesPanel = Ext.create('Etsy.view.CategoriesPanel');
@@ -67,7 +71,6 @@ Ext.define('Etsy.controller.Browser', {
 
         // not main views
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
-        self.categoryNestedListPanel = Ext.create('Etsy.view.CategoryNestedListPanel');
         
         // Latest Listings Store for HOME PANEL
         self.latestListingsStore = Ext.data.StoreManager.lookup('LatestListings');
@@ -294,7 +297,15 @@ Ext.define('Etsy.controller.Browser', {
 			},
 			350);
 		} else if (panel == 'categoriesPanel') {
-            self.loadCategoriesPopup(item);
+            // self.loadCategoriesPopup(item);
+			self.getNavPanel().getLayout().setAnimation({
+				type: 'slide',
+				duration: 300,
+				direction: 'left'
+			});
+			setTimeout(function(){
+				self.getNavPanel().setActiveItem(1);	
+			}, 0);
             return false;
 		} else {
 

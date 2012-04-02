@@ -38,6 +38,7 @@ server.start(router.route, handle, DATA);
 // = Init function that loads all the caches =
 // ===========================================
 function init() {
+
     compileTreasuries(0);
     compileTreasuries(25);
     compileTreasuries(50);
@@ -68,6 +69,7 @@ function compileTreasuries(offset) {
         response.on("end",
         function() {
             getListingDetails(treasuries);
+
         });
     });
 
@@ -111,19 +113,25 @@ function compileTreasuries(offset) {
                 var parsedListData = JSON.parse(listData);
                 console.log('parsedListData.results.length');
                 console.log(parsedListData.results.length);
+                                    
                 for (var i = 0; i < parsedListData.results.length; i++) {
-                    var image = parsedListData.results[i].Images[0].url_170x135;
-                    var listingId = parsedListData.results[i].listing_id;
-                    //console.log(listingId);
-                    console.log('i is', i);
-                    for (var j = 0; j < parsedTreasuries.results.length; j++) {
-                        var listings = parsedTreasuries.results[j].listings;
-                        for (var k = 0; k < 4; k++) {
-                            if (listingId == listings[k].data.listing_id) {
-                                listings[k].data.image_url = image;
+                    try{
+                        var image = parsedListData.results[i].Images[0].url_170x135;
+                        var listingId = parsedListData.results[i].listing_id;
+                        //console.log(listingId);
+                        console.log('i is', i);
+                        for (var j = 0; j < parsedTreasuries.results.length; j++) {
+                            var listings = parsedTreasuries.results[j].listings;
+                            for (var k = 0; k < 4; k++) {
+                                if (listingId == listings[k].data.listing_id) {
+                                    listings[k].data.image_url = image;
+                                }
                             }
-                        }
+                        } 
+                    }catch(err){
+                        console.log('error in ', i)
                     }
+
                 }
                 console.log('end of the loop');
 

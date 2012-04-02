@@ -21,7 +21,7 @@ Ext.define('Etsy.store.LatestListings', {
 
     config: {
         clearOnPageLoad: false,
-        autoLoad: true,
+        // autoLoad: true,
         model: 'Etsy.model.Listing',
         storeId: 'LatestListings',
         pageSize: 100,

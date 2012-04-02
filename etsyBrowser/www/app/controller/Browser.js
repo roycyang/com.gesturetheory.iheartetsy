@@ -59,15 +59,18 @@ Ext.define('Etsy.controller.Browser', {
 	
 	launch: function() {
 		window.self = this;
+		
+		// initialize the counts
+		ETSY.updateCartInfo();
+		ETSY.updateFavoritesInfo()
 
-		self.homePanel = Ext.create('Etsy.view.HomePanel');
+		//self.homePanel = Ext.create('Etsy.view.HomePanel');
         self.categoriesPanel = Ext.create('Etsy.view.CategoriesPanel');
         self.treasuriesPanel = Ext.create('Etsy.view.TreasuriesPanel');
         self.favoritesPanel = Ext.create('Etsy.view.FavoritesPanel');
 
         // not main views
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
-        self.categoryNestedListPanel = Ext.create('Etsy.view.CategoryNestedListPanel');
         
         // Latest Listings Store for HOME PANEL
         self.latestListingsStore = Ext.data.StoreManager.lookup('LatestListings');
@@ -88,7 +91,7 @@ Ext.define('Etsy.controller.Browser', {
         self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
         
         // adding the homepage to the getAppPanel
-		self.getAppPanel().add([self.homePanel, self.categoriesPanel, self.treasuriesPanel, self.favoritesPanel]);
+		self.getAppPanel().add([self.categoriesPanel, self.treasuriesPanel, self.favoritesPanel]);
 
 		// jump to treasuries for easy debugging
 		//self.getAppPanel().setActiveItem(self.treasuriesPanel);
@@ -294,7 +297,15 @@ Ext.define('Etsy.controller.Browser', {
 			},
 			350);
 		} else if (panel == 'categoriesPanel') {
-            self.loadCategoriesPopup(item);
+            // self.loadCategoriesPopup(item);
+			self.getNavPanel().getLayout().setAnimation({
+				type: 'slide',
+				duration: 300,
+				direction: 'left'
+			});
+			setTimeout(function(){
+				self.getNavPanel().setActiveItem(1);	
+			}, 0);
             return false;
 		} else {
 

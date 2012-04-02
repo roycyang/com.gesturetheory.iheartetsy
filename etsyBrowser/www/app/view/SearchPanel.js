@@ -22,8 +22,6 @@ Ext.define('Etsy.view.SearchPanel', {
 		{
 			flex: 1,
 			xtype: 'formpanel',
-			hidden: true,
-
 			items: [{
 				xtype: 'fieldset',
 				title: 'Price Range',
@@ -60,50 +58,7 @@ Ext.define('Etsy.view.SearchPanel', {
 				}]
 			}]
 
-		},
-		{
-		    id: 'categoryNestedList',
-			flex: 1,
-			xtype: 'nestedlist',
-			title: 'Categories',
-			displayField: 'short_name',
-			store: 'Categories',
-			listeners: {
-				itemtap: function(nestedlist, list, index, target, record, e) {
-					// this is the main category
-					if (record.childNodes.length == 0) {
-						var tags = record.get('name') + ',' + record.parentNode.get('name');
-						var category = record.parentNode.parentNode.get('name');
-						console.log('LEVEL 3');
-						console.log('tags are', tags);
-						console.log('category is', category);
-						self.loadListings('tags', record.parentNode.parentNode, record.get('short_name'), tags);
-
-					} else if (!record.parentNode.parentNode) {
-						console.log('LEVEL 1');
-						var category = record.get('name');
-						console.log('category is', category)
-						self.loadListings('category', record);
-					} else {
-						var tags = record.get('name');
-						var category = record.parentNode.get('name');
-						self.loadListings('tags', record.parentNode, record.get('short_name'), tags);
-						console.log('LEVEL 2');
-						console.log('tags are', tags);
-						console.log('category is', category);
-					}
-					// if(!record.parentNode.parentNode){
-					//      self.loadListings('category', record);
-					// }else if(!record.parentNode.parentNode)
-					//     
-					// }
-					// console.log(nestedlist, list, index, target, record);
-					// console.log('record is', record);
-					// self.loadListings('category', record);
-				}
-			}
 		}
-
 		],
 
 	},

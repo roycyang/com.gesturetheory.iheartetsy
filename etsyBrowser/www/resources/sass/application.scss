@@ -1,3 +1,14 @@
+#appPanel {
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform 350ms;
+			
+	.x-layout-card-item {
+
+		background: url(../images/background_x2.png) no-repeat 0 0;
+	}
+	
+}
+
 #fakeHome {
     background: url(../images/homepage.png) no-repeat 0 0;
     background-size: contain;
@@ -8,7 +19,20 @@
 #navPanel {
     background: url(../images/left_rail_background.png) no-repeat 0 0;
     background-size: contain;
-    padding-top: 128px;
+	padding-top: 128px;
+
+	#navList {
+
+	}
+	
+	#categoriesNestedList {
+		.x-toolbar .x-title{ 
+			font-size: 12px;
+			padding: 5px 20px;
+			height: auto;
+		}
+	}
+
 }
 
 #searchPanel {
@@ -464,6 +488,19 @@ overflow: hidden;
     }
 }    
 
+span.count {
+	float: right;
+	background: brown;
+	font-size: 13px;
+	padding: 2px 5px;
+	border-radius: 7px;
+}
+
+span.arrow {
+	float: right;
+	font-size: 13px;
+	padding: 2px 5px;
+}
 .price {
 	font-size: 19px;
 

@@ -1,18 +1,65 @@
+::selection {
+    background: none;
+}
+
 #appPanel {
 	-webkit-transform: translate3d(0, 0, 0);
 	-webkit-transition: -webkit-transform 350ms;
 			
 	.x-layout-card-item {
-/*      background: url(../images/background_x2.png) no-repeat 0 0;*/
+      background: url(../images/background_x2.png) no-repeat 0 0;
+/*background: #fff;*/
 	}
 	
 }
 
-#fakeHome {
-    background: url(../images/homepage.png) no-repeat 0 0;
-    background-size: contain;
-    width: 511px;
-    height: 702px;
+#homePanel {
+
+    #homePanelLeft {
+        background: #f4f2dd;
+        
+        .x-field { 
+            background: none;
+        }
+        
+        #homeSearch{
+            padding: 20px 30px 0;
+            
+
+            .x-component-outer {
+                border: 5px solid #E1DFCC;
+
+                border-radius: 34px;
+                background: #EAE8D5;
+
+                margin: 0; 
+                
+                .x-input-search {
+                    padding: 8px 14px;
+                    font-size: 20px;
+                    height: auto;
+                }
+            }
+        }
+        
+        h4 {
+            font-size: 20px;
+            text-align: center;
+            padding: 30px 0 10px;
+        }
+        
+        .grey-box {
+            background: #eae8d5;
+            border-top: 2px solid #e7e6d2;
+            
+            border-bottom: 2px solid #e7e6d2;
+        }
+    }
+    
+    
+    
+
+
 }
 
 #appPanel {
@@ -133,15 +180,15 @@
     }
 }
 
-#listingsCarousel .product {
+/*#listingsCarousel .product {
     margin: 10px;
-}
+}*/
 
 /* ================== */
 /* = Treasury Items = */
 /* ================== */
 
-#treasuriesCarousel {
+
     .treasury-item {
 		height: 166px;
 		display: inline-block;
@@ -287,7 +334,7 @@
 			display: inline-block;
 		}
     }  
-}
+
 
 
 
@@ -402,7 +449,7 @@ overflow: hidden;
         height: 178px;
         width: 182px;
         padding: 0;
-        margin: 11px 29px;
+        margin: 20px 29px;
         padding: 5px;
 		border: 1px solid #EAE9E1;
         /*-moz-box-shadow: 0 0 5px #888;

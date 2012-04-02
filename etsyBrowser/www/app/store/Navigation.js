@@ -17,7 +17,7 @@ Ext.define('Etsy.store.Navigation', {
        groupDir: 'DESC',
 
        data: [
-           { title: 'Discover <span class="arrow">><span>',  type: 'Navigation', panel: 'homePanel'  },
+           { title: 'Home <span class="arrow">><span>',  type: 'Navigation', panel: 'homePanel'  },
            { title: '<div class="categories-label">Categories <span class="count">31<span></div>',  type: 'Navigation'  , panel: 'categoriesPanel'},
            { title: 'Treasuries <span class="arrow">><span>',  type: 'Navigation'  , panel: 'treasuriesPanel'},
            { title: '<div class="favorites-label">Favorites <span class="count"></span></div>',  type: 'Navigation'  , panel: 'favoritesPanel'},

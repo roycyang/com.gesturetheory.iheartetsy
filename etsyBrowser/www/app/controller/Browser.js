@@ -8,14 +8,18 @@ Ext.define('Etsy.controller.Browser', {
 			//searchResultsPanel: '#searchResultsPanel',
 			navList: '#navList',
 			appPanel: '#appPanel',
+			
+			// home panels
 			homePanel: '#homePanel',
+			homeTreasuriesCarousel: '#homeTreasuriesCarousel',
+			homeCategoriesCarousel: '#homeCategoriesCarousel',
 			categoriesPanel: '#categoriesPanel',
 			browserCarousel: '#browserCarousel',
 			categoriesToolbar: '#categoriesToolbar',
             treasuriesCarousel: '#treasuriesCarousel',
 			favoritesCarousel: '#favoritesCarousel',
 			detailPanel: '#detailPanel',
-			listingsCarousel: 'listingsCarousel',
+			latestListingsCarousel: '#latestListingsCarousel',
 			categoryList: '#categoryList',
 			showNav: 'button[action=showNav]',
 			showSearch: 'button[action=showSearch]',
@@ -49,7 +53,8 @@ Ext.define('Etsy.controller.Browser', {
 			"#globalSearch": {
 				keyup: 'onSearchKeyup',
 			},
-			"#homePanelSearch": {
+			
+			"#homeSearch": {
 				keyup: 'onSearchKeyup',
 			},
 
@@ -75,8 +80,8 @@ Ext.define('Etsy.controller.Browser', {
         // Latest Listings Store for HOME PANEL
         self.latestListingsStore = Ext.data.StoreManager.lookup('LatestListings');
         self.latestListingsStore.load();
-        this.getListingsCarousel().setStore(this.latestListingsStore);
-        // 
+        self.getLatestListingsCarousel().setStore(self.latestListingsStore);
+
         // Listings Store for BROWSER PANEL
         self.listingsStore = Ext.data.StoreManager.lookup('Listings');
         
@@ -86,7 +91,10 @@ Ext.define('Etsy.controller.Browser', {
                 
         // Listings Store for FAVORITES PANEL
         self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
+        self.treasuriesStore.load();
         self.getTreasuriesCarousel().setStore(self.treasuriesStore);
+        self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);
         
         self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
         
@@ -146,9 +154,9 @@ Ext.define('Etsy.controller.Browser', {
 		}
 	},
 
-	toggleSearch: function() {
+	toggleSearch: function(position) {
 		var self = this;
-		if (GLOBAL.expandedNav) {
+		if (GLOBAL.expandedNav || position == 'close') {
 			self.getAppPanel().setZIndex(1000);
 			self.getAppPanel().unmask();
 			$('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
@@ -230,8 +238,9 @@ Ext.define('Etsy.controller.Browser', {
 		if (e.event.keyCode == 13) {
 			self.getAppPanel().setActiveItem(self.categoriesPanel);
 			self.categoriesPanel.setActiveItem(1);
-			self.toggleSearch();
+			self.toggleSearch('close');
 			self.loadListings('keyword', textfield.getValue());
+			self.getNavList().deselectAll();
 		}
 
 	},
@@ -423,6 +432,7 @@ Ext.define('Etsy.controller.Browser', {
 			self.getCategoriesToolbar().setTitle('Search Results for: ' + record);
 			break;
 		}
+		
 		store.load();
 
 		//empty the store before adding the new one

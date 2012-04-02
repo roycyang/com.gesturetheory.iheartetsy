@@ -8,51 +8,26 @@ Ext.define('Etsy.view.Listings', {
         records: null,
 
         tpl: new Ext.XTemplate(
-            '<tpl if="landscape">',
-                '<div class="row landscape">',
+
                     '<tpl for="items">',
-                        '{% if (xindex < 5) { %}',
+                        '{% if (xindex < 13) { %}',
                             '<div class="product" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
                                 '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div><div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-cart">Add to Pinterest</div></div></div>',
                                 '<div class="name">{data.title}</div><div class="price">${data.rounded_price}</div>',
                                 
                             '</div>',
                         '{% } %}',
-                    '</tpl>',
-                '</div>',
-
-                '<div class="row landscape">',
-                    '<tpl for="items">',
-                        '{% if (xindex > 4 && xindex < 9) { %}',
-                            '<div class="product" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
-                                '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div><div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-cart">Add to Pinterest</div></div></div>',
-                                '<div class="name">{data.title}</div><div class="price">${data.rounded_price}</div>',
-                                
-                            '</div>',
-                        '{% } %}',
-                    '</tpl>',
-                '</div>',
-
-                '<div class="row landscape">',
-                    '<tpl for="items">',
-                        '{% if (xindex > 8 && xindex < 13) { %}',
-                            '<div class="product" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
-                                '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div><div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-cart">Add to Pinterest</div></div></div>',
-                                '<div class="name">{data.title}</div><div class="price">${data.rounded_price}</div>',
-                                
-                            '</div>',
-                        '{% } %}',
-                    '</tpl>',
-                '</div>',
-
-            '</tpl>'
+                    '</tpl>'
+                
         )
     },
     
     
     updateRecords: function(newRecords) {
         // console.log('newRecords is', newRecords);
+
         this.setData({
+            count: this.count,
             items: newRecords.items,
             landscape: Ext.Viewport.getOrientation() == "landscape"
         });

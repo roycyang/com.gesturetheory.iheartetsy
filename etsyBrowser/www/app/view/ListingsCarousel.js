@@ -96,13 +96,33 @@ Ext.define('Etsy.view.ListingsCarousel', {
 	},
 
     onTap: function(e) {
-        // console.log('on tap!!!');
+        console.log('on tap!!!');
         var element = Ext.get(e.target),
             store = this.getStore(),
             id;
 
 		// test to see if the target was add to favoirtes or pinterest
 
+        if(Ext.get(e.target).parent('.treasury-item')){
+            element = Ext.get(e.target).parent('.treasury-item');
+            id = element.getAttribute('ref');
+	        // console.log('id is', id);
+	        // console.log('store is', store);
+	        console.log('id is', id);
+	        record = store.getAt(store.findExact('internalId', id));
+	        console.log('record', record);
+	        
+	        self.getAppPanel().setActiveItem(self.categoriesPanel);
+			self.loadListings('treasury', record);
+			setTimeout(function(){
+	            self.getNavList().select(2);
+			}, 350);
+
+			
+			
+            return false;
+        }
+        
 		if (element.hasCls('add-to-favorites')){
 			element = Ext.get(e.target).parent('.product');
 			

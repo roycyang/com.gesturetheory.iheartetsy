@@ -5,15 +5,21 @@
     height: 702px;
 }
 
+#appPanel {
+        -webkit-transition: -webkit-transform 350ms;
+}
+
 #navPanel {
     background: url(../images/left_rail_background.png) no-repeat 0 0;
     background-size: contain;
     padding-top: 128px;
+
 }
 
 #searchPanel {
     background: url(../images/right_rail_background.png) no-repeat 0 0;
     background-size: contain;
+    -webkit-transition: -webkit-transform 350ms;
     
     .x-layout-card-item {
         background: none;

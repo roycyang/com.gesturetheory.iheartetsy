@@ -56,5 +56,13 @@ Ext.application({
         self.mainView.add(Ext.create('Etsy.view.NavPanel'));
         self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
 
+		Ext.define('Ext.overrides.carousel.Indicator', {    
+			override: 'Ext.carousel.Indicator',
+		    
+		    onTap: function(){
+		        console.log('on tap!!!! override');
+		    }
+		});
+
     }
 });

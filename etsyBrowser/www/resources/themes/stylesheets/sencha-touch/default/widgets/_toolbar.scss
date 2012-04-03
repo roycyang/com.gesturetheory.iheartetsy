@@ -38,7 +38,7 @@ $include-toolbar-uis: $include-default-uis !default;
     overflow: hidden;
     position: relative;
 /*    height: $global-row-height;*/
-    height: 65px;
+    height: 47px;
 
     & > * {
       z-index: 1;
@@ -166,6 +166,6 @@ font-size: 20px;
   }
   
   .x-toolbar-dark {
-      background: url(../images/final/app-header-background-1x.png?1) repeat-x 0 0;
+      background: url(../images/final/app-header-background-1x.png?1) repeat-x left top;
   }
 }

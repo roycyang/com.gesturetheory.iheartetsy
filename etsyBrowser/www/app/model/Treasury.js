@@ -24,6 +24,7 @@ Ext.define('Etsy.model.Treasury', {
             'user_avatar_id',
 			'listings',
 			'counts',
+			'comment_count',
             
             {
                 name: 'image_1',

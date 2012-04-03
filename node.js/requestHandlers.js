@@ -33,9 +33,11 @@ function upload(response) {
   response.end();
 }
 
-function art (response, DATA) {
-  
+function art (response, DATA, request) {
+  // var url = request.url;
+  // callback = url.split('=')[1];
   response.writeHead(200, {"Content-Type": "application/json"});
+  // response.write(callback + '(' + DATA.art + ')');
   response.write(DATA.art);
   
   response.end();

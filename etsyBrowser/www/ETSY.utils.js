@@ -3,6 +3,7 @@ ETSY = {
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
 		oauth.post(url, {}, function(data) {
+		    
 			console.log(data);
 			ETSY.updateFavoritesInfo();
 			if (msg) {
@@ -10,8 +11,10 @@ ETSY = {
 			}
 		},
 		function(data) {
-			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+			// ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+		
+
 	},
 	
 	removeFromFavorites: function(id, msg) {
@@ -24,8 +27,9 @@ ETSY = {
 			}
 		},
 		function(data) {
-			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+            // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+
 	},
 	
 	updateFavoritesInfo: function(offset){
@@ -83,7 +87,7 @@ ETSY = {
 			}
 		},
 		function(data) {
-			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+            // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
 	},
 	
@@ -103,7 +107,7 @@ ETSY = {
 			}
 		},
 		function(data) {
-			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+            // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
 	},
 	

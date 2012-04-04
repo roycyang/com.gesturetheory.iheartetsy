@@ -12,7 +12,7 @@ Ext.define('Etsy.view.Listings', {
                     '<tpl for="items">',
                         '{% if (xindex < 13) { %}',
                             '<div class="product" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
-                                '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div><div class="actions"><div class="add-to-favorites">Add to Favorites</div><div class="add-to-cart">Add to Pinterest</div></div></div>',
+                                '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div></div>',
                                 '<div class="name">{data.title}</div><div class="price">${data.rounded_price}</div>',
                                 
                             '</div>',

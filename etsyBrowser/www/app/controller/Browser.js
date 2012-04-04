@@ -19,7 +19,6 @@ Ext.define('Etsy.controller.Browser', {
             treasuriesCarousel: '#treasuriesCarousel',
 			favoritesCarousel: '#favoritesCarousel',
 			detailPanel: '#detailPanel',
-			latestListingsCarousel: '#latestListingsCarousel',
 			categoryList: '#categoryList',
 			showNav: 'button[action=showNav]',
 			showSearch: 'button[action=showSearch]',
@@ -73,8 +72,7 @@ Ext.define('Etsy.controller.Browser', {
         self.favoritesPanel = Ext.create('Etsy.view.FavoritesPanel');
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
         
-        // Latest Listings Store for HOME PANEL
-        self.latestListingsStore = Ext.data.StoreManager.lookup('LatestListings');
+        // all the stores
         self.listingsStore = Ext.data.StoreManager.lookup('Listings');
         self.favoriteListingsStore = Ext.data.StoreManager.lookup('FavoriteListings');
         self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
@@ -97,8 +95,7 @@ Ext.define('Etsy.controller.Browser', {
 	    // load homePanel and then destroy all the other panels
 	    Ext.create('Etsy.view.HomePanel');
 	    self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
-        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);
-        self.getLatestListingsCarousel().setStore(self.latestListingsStore);    
+        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);    
 	    self.getAppPanel().add(self.getHomePanel());
 	    self.getAppPanel().setActiveItem(self.getHomePanel());
 	},
@@ -430,6 +427,7 @@ Ext.define('Etsy.controller.Browser', {
             store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
 			store.getProxy().setExtraParam('keywords', record);
 			self.getCategoriesToolbar().setTitle('Search Results for: ' + record);
+			
 			break;
 		}
 		

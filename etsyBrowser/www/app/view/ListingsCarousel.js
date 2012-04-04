@@ -15,7 +15,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         offsetLimit: 100,
 
         store: null,
-
+        width: 950,
         animation: {
             duration: 350
         },
@@ -77,12 +77,37 @@ Ext.define('Etsy.view.ListingsCarousel', {
             // if(x_dist < 10){
             //     			
             //     		}
+            
+            // if (element.hasCls('add-to-favorites')){
+            //  element = Ext.get(e.target).parent('.product');
+            //  
+            //  $('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+            //             id = Math.abs(element.getAttribute('ref'));
+            //             
+            //  if($('#' + element.id).hasClass('favorite-flag')){
+            // 
+            //  }else{
+            // 
+            //  }
+            //       
+            //  return false;
+            // }
+            
+            var id = Math.abs(element.getAttribute('ref'));
+            var $element = $('#' + element.id);
 			if(y_dist < -10){
-				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,-80px,0)");
+			    if(!$element.hasClass('favorite-flag')){
+			        ETSY.addToFavorites(id);
+                    $element.addClass('favorite-flag');
+			    }
 			}
 
 			if(y_dist >10){
-				$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+			    if($element.hasClass('favorite-flag')){
+			        ETSY.removeFromFavorites(id);
+                    $element.removeClass('favorite-flag');
+			    }
+				
 			}
         }
 
@@ -123,37 +148,37 @@ Ext.define('Etsy.view.ListingsCarousel', {
             return false;
         }
         
-		if (element.hasCls('add-to-favorites')){
-			element = Ext.get(e.target).parent('.product');
-			
-			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-            id = Math.abs(element.getAttribute('ref'));
+        // if (element.hasCls('add-to-favorites')){
+        //  element = Ext.get(e.target).parent('.product');
+        //  
+        //  $('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+        //             id = Math.abs(element.getAttribute('ref'));
+        //             
+        //  if($('#' + element.id).hasClass('favorite-flag')){
+        //      ETSY.removeFromFavorites(id);
+        //              $('#' + element.id).removeClass('favorite-flag');
+        //  }else{
+        //      ETSY.addToFavorites(id);
+        //              $('#' + element.id).addClass('favorite-flag');
+        //  }
+        //       
+        //  return false;
+        // }
+        // 
+        if (element.hasCls('favorite-stamp')){
             
-			if($('#' + element.id).hasClass('favorite-flag')){
-				ETSY.removeFromFavorites(id);
-	            $('#' + element.id).removeClass('favorite-flag');
-			}else{
-				ETSY.addToFavorites(id);
-	            $('#' + element.id).addClass('favorite-flag');
-			}
-			     
-			return false;
-		}
-
-		if (element.hasCls('add-to-cart')){
-			element = Ext.get(e.target).parent('.product');
-			$('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-            id = Math.abs(element.getAttribute('ref'));
-            
-			if($('#' + element.id).hasClass('cart-flag')){
-				ETSY.removeFromCart(id);
-	            $('#' + element.id).removeClass('cart-flag');
-			}else{
-				ETSY.addToCart(id);
-	            $('#' + element.id).addClass('cart-flag');
-			}
-			return false;
-		}
+         var element = Ext.get(e.target).parent('.product');
+         var id = Math.abs(element.getAttribute('ref'));
+                    
+         if($('#' + element.id).hasClass('cart-flag')){
+             ETSY.removeFromCart(id);
+            $('#' + element.id).removeClass('cart-flag');
+         }else{
+             ETSY.addToCart(id);
+            $('#' + element.id).addClass('cart-flag');
+         }
+         return false;
+        }
 		
 		// if not, then set it to the product and open it up!
 

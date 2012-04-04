@@ -41,21 +41,25 @@ Ext.define('Etsy.view.HomePanel', {
             id: 'homePanelLeft',
             xtype: 'container',
             layout: 'vbox',
-            items: [{
+            items: [
+            {
+                html: '<h4>Discover New Products</h4>'
+            },
+            {
 
                 xtype: 'searchfield',
                 id: 'homeSearch',
                 placeHolder: 'Search Etsy'
             },
             {
-                html: '<h4>Categories</h4>'
+                html: '<h4>Browse Categories</h4>'
             },
             {
                 cls: 'grey-box',
                 height: 230,
                 id: 'homeCategoriesCarousel',
                 xtype: 'listingsCarousel',
-                count: 1,
+                count: 2,
                 innerItemConfig: {
                     xclass: 'Etsy.view.Treasuries',
                 }
@@ -68,18 +72,12 @@ Ext.define('Etsy.view.HomePanel', {
                 height: 230,
                 id: 'homeTreasuriesCarousel',
                 xtype: 'listingsCarousel',
-                count: 1,
+                count: 2,
                 innerItemConfig: {
                     xclass: 'Etsy.view.Treasuries'
                 },
             },
             ]
-        },
-        {
-            id: 'latestListingsCarousel',
-            xtype: 'listingsCarousel',
-            flex: 1,
-            count: 6
         }]
     }
 

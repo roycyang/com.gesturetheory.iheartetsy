@@ -4,7 +4,6 @@ Ext.define('Etsy.view.Treasuries', {
 
     config: {
         baseCls: 'treasury-item-wrapper',
-
         records: null,
 
         tpl: new Ext.XTemplate(

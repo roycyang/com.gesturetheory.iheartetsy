@@ -64,7 +64,7 @@ border: 2px solid #78C042;
 @mixin sencha-carousel {
   .x-carousel {
     position: relative;
-    overflow: hidden;
+/*    overflow: hidden;*/
   }
 
   .x-carousel-item {

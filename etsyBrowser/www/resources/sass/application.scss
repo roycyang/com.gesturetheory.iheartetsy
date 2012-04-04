@@ -120,8 +120,19 @@
 }
 
 #detailPanel {
-    background: url(../images/final/product-detail-popup-background-1x.png) no-repeat 0 0;
-    padding: 7px 11px 4px 15px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0.2em 0.6em;
+    overflow: hidden;
+    
+    #detailPanelInfo {
+        background: #F8F8F2 url(../images/detail-title-bar.png) no-repeat 0 0;
+        box-shadow: 0 0 6px 2px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 10;
+    }
+    
+    #detailPanelCarousel .x-carousel {
+        overflow: hidden;
+    }
     
     .x-button {
         height: 70px;
@@ -634,13 +645,13 @@ span.arrow {
             font-size: 20px;
             font-weight: normal;
             color: #333;
-            padding-top: 0;
+            padding: 11px 10px;
             font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
             height: auto;
+            margin-bottom: 0;
+            white-space: nowrap;
             overflow: hidden;
-            padding-bottom: 20px;
-            background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat left bottom;
-            margin-bottom: 20px;            
+            text-overflow: ellipsis;          
         }
 
 
@@ -657,9 +668,9 @@ span.arrow {
         
         .quantity {
             float: left;
-            margin-left: 26px;
+            margin-left: 18px;
             font-size: 12px;
-            margin-top: 5px;
+            margin-top: 8px;
             color: #666;
             margin-bottom: 20px;
         }
@@ -684,9 +695,21 @@ span.arrow {
         }
         
         .price {
-            float: left;
+            font-size: 19px;
+            color: #78C042;
+            line-height: 14px;
+            text-align: right;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: none;
+            padding: 9px 29px 4px 11px;
+            font-family: serif;
+            font-weight: bold;
+            margin-left: 18px;
         }
 
+        
 		.x-button-plain {
 
 		}

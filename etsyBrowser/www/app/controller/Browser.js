@@ -13,10 +13,12 @@ Ext.define('Etsy.controller.Browser', {
 			homePanel: 'homePanel',
 			treasuriesPanel: 'treasuriesPanel',
 			favoritesPanel: 'favoritesPanel',
+			categoryPopupPanel: 'categoryPopupPanel',
+			categoriesPanel: 'categoriesPanel',
+			
 			homeTreasuriesCarousel: '#homeTreasuriesCarousel',
 			homeCategoriesCarousel: '#homeCategoriesCarousel',
-			categoryPopupPanel: 'categoryPopupPanel',
-			categoriesPanel: '#categoriesPanel',
+
 			browserCarousel: '#browserCarousel',
 			categoriesToolbar: '#categoriesToolbar',
             treasuriesCarousel: '#treasuriesCarousel',
@@ -63,17 +65,14 @@ Ext.define('Etsy.controller.Browser', {
         self.mainView.add(Ext.create('Etsy.view.NavPanel'));
         self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
         self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
+        self.detailPanel = Ext.create('Etsy.view.DetailPanel');
         			
 		// initialize the counts
         ETSY.updateCartInfo();
         ETSY.updateFavoritesInfo();
-		
-        self.categoriesPanel = Ext.create('Etsy.view.CategoriesPanel');
-        self.detailPanel = Ext.create('Etsy.view.DetailPanel');
         
         // all the stores
         self.listingsStore = Ext.data.StoreManager.lookup('Listings');
-        self.favoriteListingsStore = Ext.data.StoreManager.lookup('FavoriteListings');
         self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
         self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
 
@@ -177,11 +176,8 @@ Ext.define('Etsy.controller.Browser', {
 		var self = this;
 		console.log('textfield search term is: ', textfield.getValue());
 		if (e.event.keyCode == 13) {
-			self.getAppPanel().setActiveItem(self.categoriesPanel);
-			self.categoriesPanel.setActiveItem(1);
 			self.toggleSearch('close');
 			self.loadListings('keyword', textfield.getValue());
-			self.getNavList().deselectAll();
 		}
 
 	},
@@ -274,10 +270,12 @@ Ext.define('Etsy.controller.Browser', {
 	loadHomePanel: function(){
 	    var self = this;
         self.getAppPanel().removeAll(true);
+        self.getMainToolbar().setTitle('Home');
 	    // load homePanel and then destroy all the other panels
 	    Ext.create('Etsy.view.HomePanel');
+        self.treasuriesStore.load();  
 	    self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
-        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);    
+        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);
 	    self.getAppPanel().add(self.getHomePanel());
 	    self.getAppPanel().setActiveItem(self.getHomePanel());
 	},
@@ -285,15 +283,22 @@ Ext.define('Etsy.controller.Browser', {
     loadListings: function(type, record, name, tags) {
 		// Ext.getCmp('browserFullCarouselButton').show();
 		// Ext.getCmp('browserBackButton').show();
-		var self = this;
+        var self = this;
+        self.getAppPanel().removeAll(true);
+        Ext.create('Etsy.view.CategoriesPanel');
+        self.getAppPanel().add(self.getCategoriesPanel());
+	    self.getAppPanel().setActiveItem(self.getCategoriesPanel());
+            
+            
+            
 		var store = self.listingsStore;
 		switch (type) {
 		case 'category':
-			store.getProxy().setExtraParam('category', record.get('name'));
+			//store.getProxy().setExtraParam('category', record.get('name'));
 			delete self.listingsStore.getProxy()._extraParams.tags;
 			delete self.listingsStore.getProxy()._extraParams.keywords;
 			// resetting the store to use our NODE.JS
-            store.getProxy().setUrl('http://50.74.56.194:8888/art');
+            store.getProxy().setUrl('http://50.74.56.194:8888/categories?category=' + record.get('name'));
 
 			self.getMainToolbar().setTitle(record.get('short_name'));
 			Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
@@ -304,7 +309,7 @@ Ext.define('Etsy.controller.Browser', {
             delete self.listingsStore.getProxy()._extraParams.keywords;
 		    store.getProxy().setExtraParam('tags', tags);
 		    store.getProxy().setExtraParam('category', record.get('name'));
-            store.getProxy().setUrl('http://50.74.56.194:8888/art');
+            store.getProxy().setUrl('http://50.74.56.194:8888/categories');
             self.getNavList().select(1);
             GLOBAL.previousNavItemIndex = 1;
     		// resetting the store to use our NODE.JS
@@ -320,6 +325,7 @@ Ext.define('Etsy.controller.Browser', {
             store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
 			store.getProxy().setExtraParam('keywords', record);
 			self.getMainToolbar().setTitle('Search Results for: ' + record);
+            self.getNavList().deselectAll();
 			GLOBAL.previousNavItemIndex = -1;
 			break;
 		}
@@ -380,8 +386,8 @@ Ext.define('Etsy.controller.Browser', {
 			console.log('listings ids are', listingIds.length);
 			oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6', function(data) {
 				var data = JSON.parse(data.text);
-				var store = self.favoriteListingsStore;
-				self.favoriteListingsStore.removeAll();
+				var store = self.listingsStore;
+				store.removeAll();
 				store.add(data.results);
 				Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
 				self.getFavoritesCarousel().setStore(store);

@@ -143,7 +143,7 @@ Ext.define('Etsy.view.DetailPanel', {
 		},
 		{
 		    xtype: 'container',
-		    hidden: true,
+
 			top: 5,
 			right: 0,
 			height: 630,

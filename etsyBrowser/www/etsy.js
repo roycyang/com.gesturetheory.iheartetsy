@@ -15,7 +15,6 @@ Ext.application({
         'Categories',
         'Navigation',
 		'Treasuries',
-		'FavoriteListings'
     ],
 
     views: [

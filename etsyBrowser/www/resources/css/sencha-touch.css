@@ -350,7 +350,7 @@ input, textarea {
   box-align: center;
   -webkit-box-pack: center;
   box-pack: center;
-  background: rgba(0, 0, 0, 0.5) center center no-repeat;
+  background: rgba(0, 0, 0, 0.7) center center no-repeat;
 }
 /* line 104, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-mask.x-mask-gray {
@@ -5225,7 +5225,7 @@ audio {
 }
 /* line 122, ../themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list .x-list-item.x-item-pressed .x-list-item-label {
-  background: #ffe1d2 none;
+  background: #d24700;
 }
 /* line 128, ../themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label {
@@ -5285,8 +5285,8 @@ audio {
 }
 /* line 196, ../themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list-normal .x-list-item.x-item-pressed .x-list-item-label {
-  border-top-color: #ffe1d2;
-  background-color: #ffe1d2;
+  border-top-color: #d24700;
+  background-color: #d24700;
 }
 /* line 201, ../themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list-normal .x-list-item.x-item-selected .x-list-item-label {

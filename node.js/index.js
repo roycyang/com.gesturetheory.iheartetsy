@@ -20,7 +20,7 @@ handle["/"] = requestHandlers.root;
 handle["/treasuries"] = requestHandlers.treasuries;
 handle["/upload"] = requestHandlers.upload;
 
-handle["/art"] = requestHandlers.art;
+handle["/categories"] = requestHandlers.categories
 
 // =============================================================================================
 // = Equivalent of a CRON job in PHP.  We just run the updater according to the cacheInMinutes =
@@ -38,12 +38,15 @@ server.start(router.route, handle, DATA);
 // = Init function that loads all the caches =
 // ===========================================
 function init() {
-
+    var categories = ["accessories", "art", "bags_and_purses", "bath_and_beauty", "books_and_zines", "candles", "ceramics_and_pottery", "children", "clothing", "crochet", "dolls_and_miniatures", "everything_else", "furniture", "geekery", "glass", "holidays", "housewares", "jewelry", "knitting", "music", "needlecraft", "paper_goods", "patterns", "pets", "plants_and_edibles", "quilts", "supplies", "toys", "vintage", "weddings", "woodworking"];
+    
     compileTreasuries(0);
     compileTreasuries(25);
     compileTreasuries(50);
     compileTreasuries(75);
-    compileArt();
+    for(i = 0; i < categories.length; i++){
+        compileCategories(categories[i]);
+    }
 }
 
 // =================================
@@ -161,27 +164,27 @@ function compileTreasuries(offset) {
     }
 }
 
-function compileArt () {
-  var options, art, request;
+function compileCategories(category) {
+  var options, categoryData, request;
   
-  art = '';
+  categoryData = '';
+ 
   
   options = {
     host: 'openapi.etsy.com',
     port: 80,
-    path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=art&includes=Images:6&limit=100'
+    path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=' + category + '&includes=Images:6&limit=100'
   };
   
   http.get(options, function (response) {
     response.setEncoding("utf8");
     
     response.on('data', function (data) {
-      art += data;
+      categoryData += data;
     });
     
     response.on('end', function () {
-      DATA.art = art;
-      console.log('End art');
+      DATA[category] = categoryData;
     });
   });
 };

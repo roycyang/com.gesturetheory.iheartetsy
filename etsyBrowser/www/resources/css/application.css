@@ -86,113 +86,108 @@
   background-size: contain;
   background: #46250a;
 }
-/* line 102, ../sass/application.scss */
-#navPanel #categoriesNestedList .x-toolbar .x-title {
-  font-size: 12px;
-  padding: 5px 20px;
-  height: auto;
-}
 
-/* line 112, ../sass/application.scss */
+/* line 99, ../sass/application.scss */
 #searchPanel {
   background: url(../images/right_rail_background.png) no-repeat 0 0;
   background-size: contain;
   -webkit-transition: -webkit-transform 350ms;
 }
-/* line 117, ../sass/application.scss */
+/* line 104, ../sass/application.scss */
 #searchPanel .x-layout-card-item {
   background: none;
 }
 
-/* line 122, ../sass/application.scss */
+/* line 109, ../sass/application.scss */
 #detailPanel {
   -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0.2em 0.6em;
   overflow: hidden;
 }
-/* line 126, ../sass/application.scss */
+/* line 113, ../sass/application.scss */
 #detailPanel #detailPanelInfo {
   background: #f8f8f2 url(../images/detail-title-bar.png) no-repeat 0 0;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 10;
 }
-/* line 133, ../sass/application.scss */
+/* line 120, ../sass/application.scss */
 #detailPanel #detailPanelCarousel .x-carousel {
   overflow: hidden;
 }
-/* line 137, ../sass/application.scss */
+/* line 124, ../sass/application.scss */
 #detailPanel .x-button {
   height: 70px;
   background: url(../images/final/product-detail-sprite-1x.png) no-repeat 13px 20px;
 }
-/* line 141, ../sass/application.scss */
+/* line 128, ../sass/application.scss */
 #detailPanel .x-button.active {
   background-position: -87px 20px;
 }
-/* line 145, ../sass/application.scss */
+/* line 132, ../sass/application.scss */
 #detailPanel .x-button.x-button-pressing {
   background-position: -87px 20px;
 }
-/* line 149, ../sass/application.scss */
+/* line 136, ../sass/application.scss */
 #detailPanel .x-button#detailPanelCart {
   background-position: 13px -80px;
 }
-/* line 152, ../sass/application.scss */
+/* line 139, ../sass/application.scss */
 #detailPanel .x-button#detailPanelCart.active {
   background-position: -87px -80px;
 }
-/* line 157, ../sass/application.scss */
+/* line 144, ../sass/application.scss */
 #detailPanel .x-button#detailPanelCart.x-button-pressing {
   background-position: -87px -80px;
 }
-/* line 162, ../sass/application.scss */
+/* line 149, ../sass/application.scss */
 #detailPanel .x-button#detailPanelEmail {
   background-position: 13px -480px;
 }
-/* line 165, ../sass/application.scss */
+/* line 152, ../sass/application.scss */
 #detailPanel .x-button#detailPanelEmail.x-button-pressing {
   background-position: -87px -480px;
 }
-/* line 170, ../sass/application.scss */
+/* line 157, ../sass/application.scss */
 #detailPanel .x-button#detailPanelFacebook {
   background-position: 13px -280px;
 }
-/* line 173, ../sass/application.scss */
+/* line 160, ../sass/application.scss */
 #detailPanel .x-button#detailPanelFacebook.x-button-pressing {
   background-position: -87px -280px;
 }
-/* line 178, ../sass/application.scss */
+/* line 165, ../sass/application.scss */
 #detailPanel .x-button#detailPanelTwitter {
   background-position: 13px -180px;
 }
-/* line 181, ../sass/application.scss */
+/* line 168, ../sass/application.scss */
 #detailPanel .x-button#detailPanelTwitter.x-button-pressing {
   background-position: -87px -180px;
 }
-/* line 189, ../sass/application.scss */
+/* line 176, ../sass/application.scss */
 #detailPanel #detailPanelCarousel {
   background: #fff;
 }
-/* line 191, ../sass/application.scss */
+/* line 178, ../sass/application.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item {
   background: url(../images/loading.gif) no-repeat center center;
   background-size: 10%;
 }
-/* line 195, ../sass/application.scss */
+/* line 182, ../sass/application.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item .image {
-  width: 694px;
-  height: 543px;
+  border: 10px solid #fff;
+  width: 679px;
+  height: 562px;
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
-/* line 205, ../sass/application.scss */
+/* line 193, ../sass/application.scss */
 #detailPanel .detail-panel-image {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
 }
-/* line 210, ../sass/application.scss */
+/* line 198, ../sass/application.scss */
 .fullsize #detailPanel .detail-panel-image {
   background-size: contain;
 }
@@ -203,12 +198,12 @@
 /* ================== */
 /* = Treasury Items = */
 /* ================== */
-/* line 226, ../sass/application.scss */
+/* line 214, ../sass/application.scss */
 #treasuriesPanel .x-innerhtml {
   padding: 24px 0;
 }
 
-/* line 232, ../sass/application.scss */
+/* line 220, ../sass/application.scss */
 .treasury-item {
   height: 166px;
   display: inline-block;
@@ -219,29 +214,29 @@
   vertical-align: top;
   color: #3F3F3F;
 }
-/* line 243, ../sass/application.scss */
+/* line 231, ../sass/application.scss */
 .treasury-item .open .image-wrapper .image-1 {
   top: 10px;
   left: 0;
 }
-/* line 248, ../sass/application.scss */
+/* line 236, ../sass/application.scss */
 .treasury-item .open .image-wrapper .image-2 {
   left: 16px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 254, ../sass/application.scss */
+/* line 242, ../sass/application.scss */
 .treasury-item .open .image-wrapper .image-3 {
   left: 38px;
   top: 11px;
 }
-/* line 259, ../sass/application.scss */
+/* line 247, ../sass/application.scss */
 .treasury-item .open .image-wrapper .image-4 {
   left: 296px;
   -webkit-transform: rotate(4deg);
   top: 14px;
 }
-/* line 266, ../sass/application.scss */
+/* line 254, ../sass/application.scss */
 .treasury-item .image-wrapper {
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -251,47 +246,47 @@
   -webkit-transition: -webkit-transform 350ms, top 350ms, left 350ms;
   -webkit-transform: translate3d(0, 0, 0);
 }
-/* line 276, ../sass/application.scss */
+/* line 264, ../sass/application.scss */
 .treasury-item .image-wrapper.image-1 {
   -webkit-transform: rotate(-5deg);
   top: 10px;
   left: 0;
 }
-/* line 282, ../sass/application.scss */
+/* line 270, ../sass/application.scss */
 .treasury-item .image-wrapper.image-2 {
   left: 16px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 288, ../sass/application.scss */
+/* line 276, ../sass/application.scss */
 .open .treasury-item .image-wrapper.image-2 {
   left: 81px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 294, ../sass/application.scss */
+/* line 282, ../sass/application.scss */
 .treasury-item .image-wrapper.image-3 {
   left: 38px;
   top: 11px;
 }
-/* line 299, ../sass/application.scss */
+/* line 287, ../sass/application.scss */
 .open .treasury-item .image-wrapper.image-3 {
   left: 185px;
   top: 15px;
 }
-/* line 305, ../sass/application.scss */
+/* line 293, ../sass/application.scss */
 .treasury-item .image-wrapper.image-4 {
   left: 61px;
   -webkit-transform: rotate(2deg);
   top: 14px;
 }
-/* line 311, ../sass/application.scss */
+/* line 299, ../sass/application.scss */
 .open .treasury-item .image-wrapper.image-4 {
   left: 296px;
   -webkit-transform: rotate(4deg);
   top: 14px;
 }
-/* line 318, ../sass/application.scss */
+/* line 306, ../sass/application.scss */
 .treasury-item .image-wrapper .image {
   width: 170px;
   height: 135px;
@@ -302,7 +297,7 @@
   background-clip: padding-box;
   /* IOS fix */
 }
-/* line 334, ../sass/application.scss */
+/* line 322, ../sass/application.scss */
 .treasury-item .title {
   font-size: 23px;
   font-family: georgia;
@@ -310,7 +305,7 @@
   height: 54px;
   overflow: hidden;
 }
-/* line 343, ../sass/application.scss */
+/* line 331, ../sass/application.scss */
 .treasury-item .user-avatar {
   width: 35px;
   height: 35px;
@@ -318,23 +313,23 @@
   background-size: contain;
   margin-right: 15px;
 }
-/* line 351, ../sass/application.scss */
+/* line 339, ../sass/application.scss */
 .treasury-item .stats {
   clear: both;
   font-size: 11px;
   padding: 10px 0;
   color: #afafaf;
 }
-/* line 358, ../sass/application.scss */
+/* line 346, ../sass/application.scss */
 .treasury-item .user {
   font-size: 11px;
   padding: 10px 0;
 }
-/* line 361, ../sass/application.scss */
+/* line 349, ../sass/application.scss */
 .treasury-item .user span {
   color: #afafaf;
 }
-/* line 367, ../sass/application.scss */
+/* line 355, ../sass/application.scss */
 .treasury-item .visit-treasury-button {
   padding: 5px 10px;
   background: #079BBE;
@@ -345,7 +340,7 @@
   display: inline-block;
 }
 
-/* line 387, ../sass/application.scss */
+/* line 375, ../sass/application.scss */
 .x-field-search .x-field-input .x-form-field {
   font-family: helvetica;
   font-size: 13px;
@@ -353,7 +348,7 @@
   padding-left: 15px;
 }
 
-/* line 394, ../sass/application.scss */
+/* line 382, ../sass/application.scss */
 .homepage-button {
   background: #fff;
   border: 1px solid #ccc;
@@ -362,27 +357,27 @@
   margin: 20px;
 }
 
-/* line 402, ../sass/application.scss */
+/* line 390, ../sass/application.scss */
 #closeFullBrowserButton .x-button-icon.x-icon-mask {
   background: #fff;
 }
 
-/* line 406, ../sass/application.scss */
+/* line 394, ../sass/application.scss */
 #browserSearchPanel {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(0, -47px, 0);
 }
 
-/* line 414, ../sass/application.scss */
+/* line 402, ../sass/application.scss */
 .large-listings {
   background: #000;
 }
-/* line 417, ../sass/application.scss */
+/* line 405, ../sass/application.scss */
 .large-listings .large-product {
   height: 748px;
   width: 1024px;
 }
-/* line 421, ../sass/application.scss */
+/* line 409, ../sass/application.scss */
 .large-listings .large-product .image {
   height: 748px;
   width: 1024px;
@@ -391,21 +386,21 @@
   background-position: center center;
 }
 
-/* line 432, ../sass/application.scss */
+/* line 420, ../sass/application.scss */
 #browserCarousel .x-mask {
   background: rgba(0, 0, 0, 0) center center no-repeat;
 }
 
-/* line 439, ../sass/application.scss */
+/* line 427, ../sass/application.scss */
 .products .x-innerhtml {
   padding: 24px 0;
 }
-/* line 445, ../sass/application.scss */
+/* line 433, ../sass/application.scss */
 .products .x-dataview-item {
   display: inline-block;
   vertical-align: top;
 }
-/* line 450, ../sass/application.scss */
+/* line 438, ../sass/application.scss */
 .products .favorite-stamp {
   position: absolute;
   bottom: 0;
@@ -418,11 +413,11 @@
   background-position: bottom right;
   background-repeat: no-repeat;
 }
-/* line 465, ../sass/application.scss */
+/* line 453, ../sass/application.scss */
 .products .favorite-flag .favorite-stamp {
   background-image: url(../images/heart_stamp_x2.png);
 }
-/* line 471, ../sass/application.scss */
+/* line 459, ../sass/application.scss */
 .products .cart-flag .cart-stamp {
   position: absolute;
   top: -4px;
@@ -434,7 +429,7 @@
   background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 484, ../sass/application.scss */
+/* line 472, ../sass/application.scss */
 .products .product {
   background: white;
   position: relative;
@@ -452,12 +447,12 @@
   border-radius: 4px;
   font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 }
-/* line 501, ../sass/application.scss */
+/* line 489, ../sass/application.scss */
 .products .product.category {
   margin: 35px;
   float: none;
 }
-/* line 508, ../sass/application.scss */
+/* line 496, ../sass/application.scss */
 .products .product .image-wrapper {
   height: 135px;
   width: 170px;
@@ -467,7 +462,7 @@
   overflow: hidden;
   position: relative;
 }
-/* line 517, ../sass/application.scss */
+/* line 505, ../sass/application.scss */
 .products .product .image-wrapper .image {
   position: relative;
   z-index: 10;
@@ -479,7 +474,7 @@
   -webkit-transition: -webkit-transform 250ms;
   -webkit-transform: translate3d(0, 0, 0);
 }
-/* line 530, ../sass/application.scss */
+/* line 518, ../sass/application.scss */
 .products .product .image-wrapper .actions {
   bottom: 0px;
   left: 0px;
@@ -491,7 +486,7 @@
   background: url(../images/share_background.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 541, ../sass/application.scss */
+/* line 529, ../sass/application.scss */
 .products .product .image-wrapper .actions div {
   text-indent: -10000em;
   float: left;
@@ -499,12 +494,12 @@
   text-align: center;
   height: 100%;
 }
-/* line 558, ../sass/application.scss */
+/* line 546, ../sass/application.scss */
 .products .product .category-name {
   padding: 60px 20px;
   text-align: center;
 }
-/* line 563, ../sass/application.scss */
+/* line 551, ../sass/application.scss */
 .products .product .name {
   margin-top: 4px;
   height: 29px;
@@ -515,7 +510,7 @@
   font-size: 11px;
   overflow: hidden;
 }
-/* line 575, ../sass/application.scss */
+/* line 563, ../sass/application.scss */
 .products .product .price {
   position: absolute;
   right: 5px;
@@ -523,7 +518,7 @@
   width: 52px;
 }
 
-/* line 584, ../sass/application.scss */
+/* line 572, ../sass/application.scss */
 span.count {
   float: right;
   background: brown;
@@ -532,14 +527,14 @@ span.count {
   border-radius: 7px;
 }
 
-/* line 592, ../sass/application.scss */
+/* line 580, ../sass/application.scss */
 span.arrow {
   float: right;
   font-size: 13px;
   padding: 2px 5px;
 }
 
-/* line 597, ../sass/application.scss */
+/* line 585, ../sass/application.scss */
 .price {
   font-size: 19px;
   color: #78C042;
@@ -555,21 +550,21 @@ span.arrow {
   font-family: serif;
   font-weight: bold;
 }
-/* line 614, ../sass/application.scss */
+/* line 602, ../sass/application.scss */
 .price.sold {
   color: red;
   font-size: 14px;
 }
 
-/* line 626, ../sass/application.scss */
+/* line 614, ../sass/application.scss */
 .product-view .x-body {
   overflow: visible;
 }
-/* line 630, ../sass/application.scss */
+/* line 618, ../sass/application.scss */
 .product-view .x-docking-horizontal {
   overflow: hidden;
 }
-/* line 634, ../sass/application.scss */
+/* line 622, ../sass/application.scss */
 .product-view .description {
   background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
   border: none;
@@ -578,7 +573,7 @@ span.arrow {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(323px, 0, 0);
 }
-/* line 643, ../sass/application.scss */
+/* line 631, ../sass/application.scss */
 .product-view .name {
   line-height: 25px;
   font-size: 20px;
@@ -591,8 +586,9 @@ span.arrow {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 679px;
 }
-/* line 659, ../sass/application.scss */
+/* line 648, ../sass/application.scss */
 .product-view .text {
   padding-top: 20px;
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
@@ -601,7 +597,7 @@ span.arrow {
   line-height: 18px;
   padding-bottom: 30px;
 }
-/* line 669, ../sass/application.scss */
+/* line 658, ../sass/application.scss */
 .product-view .quantity {
   float: left;
   margin-left: 18px;
@@ -610,7 +606,7 @@ span.arrow {
   color: #666;
   margin-bottom: 20px;
 }
-/* line 679, ../sass/application.scss */
+/* line 668, ../sass/application.scss */
 .product-view .shipping,
 .product-view .seller {
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
@@ -619,7 +615,7 @@ span.arrow {
   padding: 20px 0;
   color: #666;
 }
-/* line 687, ../sass/application.scss */
+/* line 676, ../sass/application.scss */
 .product-view img {
   /*            background-size: contain;
               background-repeat: no-repeat;
@@ -629,23 +625,15 @@ span.arrow {
   display: block;
   margin: 0 auto;
 }
-/* line 697, ../sass/application.scss */
+/* line 686, ../sass/application.scss */
 .product-view .price {
-  font-size: 19px;
-  color: #78C042;
-  line-height: 14px;
-  text-align: right;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border: none;
-  padding: 9px 29px 4px 11px;
-  font-family: serif;
-  font-weight: bold;
+  float: left;
   margin-left: 18px;
+  margin-top: 2px;
+  padding-right: 23px;
 }
 
-/* line 723, ../sass/application.scss */
+/* line 704, ../sass/application.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -665,25 +653,12 @@ span.arrow {
   text-decoration: none;
 }
 
-/* line 738, ../sass/application.scss */
+/* line 719, ../sass/application.scss */
 .products a {
   margin-top: 0;
 }
 
-/* ======================= */
-/* = Popup Cateogry List = */
-/* ======================= */
-/* line 748, ../sass/application.scss */
-#categoriesNestedList .x-list-normal .x-list-item .x-list-item-label span {
-  display: block;
-  background: url(../images/left_arrow.jpg) no-repeat center right;
-}
-/* line 752, ../sass/application.scss */
-#categoriesNestedList .x-list-normal .x-list-item .x-list-item-label span.x-list-item-leaf {
-  background: url(../images/left_go.jpg) no-repeat center right;
-}
-
-/* line 759, ../sass/application.scss */
+/* line 727, ../sass/application.scss */
 .user-info {
   padding: 20px 20px;
   font-size: 15px;
@@ -691,7 +666,7 @@ span.arrow {
   line-height: 50px;
   overflow: hidden;
 }
-/* line 766, ../sass/application.scss */
+/* line 734, ../sass/application.scss */
 .user-info img {
   height: 50px;
   margin-right: 15px;

@@ -27,23 +27,21 @@ function treasuries(response, DATA) {
     response.end();
 }
 
-function upload(response) {
-  //response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello Upload");
-  response.end();
-}
-
-function art (response, DATA, request) {
-  // var url = request.url;
-  // callback = url.split('=')[1];
+function categories (response, DATA, request) {
+    var url = request.url;
+  category = url.split('=')[1];
+  parsedcategory = category.split('&')[0];
   response.writeHead(200, {"Content-Type": "application/json"});
   // response.write(callback + '(' + DATA.art + ')');
-  response.write(DATA.art);
+  console.log('parsedcategory is' + parsedcategory);
+  if(DATA[parsedcategory]){
+   response.write(DATA[parsedcategory]);     
+  }
+
   
   response.end();
 }
 
 exports.root = root;
 exports.treasuries = treasuries;
-exports.upload = upload;
-exports.art = art;
+exports.categories = categories;

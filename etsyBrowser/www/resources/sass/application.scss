@@ -94,19 +94,6 @@
     background: #46250a;
 
 
-	#navList {
-
-	}
-	
-	#categoriesNestedList {
-		.x-toolbar .x-title{ 
-			font-size: 12px;
-			padding: 5px 20px;
-			height: auto;
-		}
-	}
-
-
 }
 
 #searchPanel {
@@ -193,8 +180,9 @@
             background-size: 10%;
             
             .image {
-				width: 694px;
-				height: 543px;
+                border: 10px solid #fff;
+                width: 679px;
+                height: 562px;
                 background-size: contain;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -651,7 +639,8 @@ span.arrow {
             margin-bottom: 0;
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;          
+            text-overflow: ellipsis;
+            width: 679px;        
         }
 
 
@@ -695,18 +684,10 @@ span.arrow {
         }
         
         .price {
-            font-size: 19px;
-            color: #78C042;
-            line-height: 14px;
-            text-align: right;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border: none;
-            padding: 9px 29px 4px 11px;
-            font-family: serif;
-            font-weight: bold;
+            float: left;
             margin-left: 18px;
+            margin-top: 2px;
+            padding-right: 23px;
         }
 
         
@@ -741,19 +722,6 @@ span.arrow {
 
 
 
-/* ======================= */
-/* = Popup Cateogry List = */
-/* ======================= */
-
-#categoriesNestedList .x-list-normal .x-list-item .x-list-item-label span  {
-    display: block;
-    background: url(../images/left_arrow.jpg) no-repeat center right;
-    
-    &.x-list-item-leaf {
-        background: url(../images/left_go.jpg) no-repeat center right;
-    }
-     
-}
 
 
 .user-info {

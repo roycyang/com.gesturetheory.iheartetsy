@@ -59,8 +59,8 @@ ETSY = {
 			}
 			
 			localStorage['favorites_count'] = data.count;
-			console.log("localStorage['favorites_listing_ids']", localStorage['favorites_listing_ids']);
-			console.log("localStorage['favorites_count']", localStorage['favorites_count']);
+            // console.log("localStorage['favorites_listing_ids']", localStorage['favorites_listing_ids']);
+            // console.log("localStorage['favorites_count']", localStorage['favorites_count']);
 			
 			// update the left rail
 			$('.favorites-label span').html(data.count);
@@ -117,7 +117,7 @@ ETSY = {
 		oauth.get(url, 
 		function(data) {
 		    // adding this to my cart!
-			console.log(JSON.parse(data.text));
+            // console.log(JSON.parse(data.text));
 			var data = JSON.parse(data.text);
 			var listingIds = [];
 			for(i = 0; i < data.results.length; i++){

@@ -33,7 +33,7 @@ $list-zebrastripe: false !default;
  * @var {color} $list-pressed-color
  * Background-color for pressed list rows.
  */
-$list-pressed-color: lighten($active-color, 50%) !default;
+$list-pressed-color: $active-color !default;
 
 /**
  * @var {color} $list-active-color
@@ -120,7 +120,7 @@ $list-disclosure-round-size: 1.5em;
 
       &.x-item-pressed {
         .x-list-item-label {
-          background: $list-pressed-color none;
+          background: $list-pressed-color;
         }
       }
 

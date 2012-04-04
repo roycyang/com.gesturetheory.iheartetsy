@@ -1,6 +1,7 @@
 Ext.define('Etsy.view.HomePanel', {
     extend: 'Ext.Panel',
     alias: 'widget.homePanel',
+    
     requires: ['Etsy.view.Treasuries'],
     config: {
         title: 'Home',
@@ -9,33 +10,7 @@ Ext.define('Etsy.view.HomePanel', {
         layout: {
             type: 'hbox'
         },
-        items: [{
-
-            xtype: 'toolbar',
-            docked: 'top',
-            title: 'Discover Etsy',
-            id: 'homeToolbar',
-            items: [{
-                xtype: 'button',
-                ui: 'plain',
-                action: 'showNav',
-                width: 60,
-                iconCls: 'list',
-                iconMask: true,
-            },
-            {
-                xtype: 'spacer'
-            },
-            {
-                xtype: 'button',
-                ui: 'plain',
-                action: 'showSearch',
-                width: 60,
-                iconCls: 'search',
-                iconMask: true,
-            },
-            ]
-        },
+        items: [
         {
             flex: 1,
             id: 'homePanelLeft',

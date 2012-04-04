@@ -99,10 +99,10 @@ input, textarea {
   @include box-align(center);
   @include box-pack(center);
 
-  background: rgba(0,0,0,.6) center center no-repeat;
+  background: rgba(0,0,0,.2) center center no-repeat;
 
   &.x-mask-gray {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   &.x-mask-transparent {
@@ -116,8 +116,6 @@ input, textarea {
     padding: .4em;
     font-size: .95em;
     font-weight: bold;
-    position: relative;
-    left: 50px;
     @if $include-border-radius { @include border-radius(.5em); }
   }
 

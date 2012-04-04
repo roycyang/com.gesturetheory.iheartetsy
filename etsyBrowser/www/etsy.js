@@ -11,7 +11,6 @@ Ext.application({
     ],
 
     stores: [
-        'LatestListings',
         'Listings',
         'Categories',
         'Navigation',
@@ -31,6 +30,7 @@ Ext.application({
         'TreasuriesPanel',
         'FavoritesPanel',
         'DetailPanel',
+        'CategoryPopupPanel',
         'ListingsCarousel',
         'Listings',
         'FavoriteListingsCarousel',
@@ -44,18 +44,6 @@ Ext.application({
     ],
 
     launch: function() {
-        var self = this;
-        
-        self.mainView = Ext.create('Ext.Panel', {
-            fullscreen: true,
-            height: 748,
-            width: 1024
-        });
-        
-        self.mainView.add(Ext.create('Etsy.view.AppPanel'));
-        self.mainView.add(Ext.create('Etsy.view.NavPanel'));
-        self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
-
 		Ext.define('Ext.overrides.carousel.Indicator', {    
 			override: 'Ext.carousel.Indicator',
 		    

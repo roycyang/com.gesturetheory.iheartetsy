@@ -89,10 +89,10 @@
 }
 
 #navPanel {
-    background: url(../images/left_rail_background.png) no-repeat 0 0;
+/*    background: url(../images/left_rail_background.png) no-repeat 0 0;*/
     background-size: contain;
+    background: #46250a;
 
-	padding-top: 128px;
 
 	#navList {
 
@@ -211,151 +211,158 @@
 /* ================== */
 
 
-    .treasury-item {
-        height: 166px;
-        display: inline-block;
-        position: relative;
-        width: 435px;
-        margin: 20px;
-        padding-left: 280px;
-        vertical-align: top;
-        color: #3F3F3F;
-        
+#treasuriesPanel {
+    .x-innerhtml {
+        padding: 24px 0;
+    }
+}
 
-		.open .image-wrapper .image-1 {
-			top: 10px;
+
+.treasury-item {
+    height: 166px;
+    display: inline-block;
+    position: relative;
+    width: 425px;
+    margin: 25px;
+    padding-left: 270px;
+    vertical-align: top;
+    color: #3F3F3F;
+    
+
+	.open .image-wrapper .image-1 {
+		top: 10px;
+        left: 0;
+	}
+	
+	.open .image-wrapper .image-2 {
+		left: 16px;
+        top: 12px;
+        -webkit-transform: rotate(-1deg);
+	}
+	
+	.open .image-wrapper .image-3 {
+		left: 38px;
+        top: 11px;
+	}
+	
+	.open .image-wrapper .image-4 {
+		left: 296px;
+		-webkit-transform: rotate(4deg);
+		top: 14px;
+	}
+	
+	
+    .image-wrapper {
+        border: 1px solid #ccc;
+        border-radius: 3px;                
+        background-color: white;
+        padding: 3px;
+        position: absolute;
+	    -webkit-transition: -webkit-transform 350ms, top 350ms, left 350ms;
+	    -webkit-transform: translate3d(0, 0, 0);
+
+        
+        &.image-1 {
+            -webkit-transform: rotate(-5deg);
+            top: 10px;
             left: 0;
-		}
-		
-		.open .image-wrapper .image-2 {
-			left: 16px;
+        }
+
+        &.image-2 {
+            left: 16px;
             top: 12px;
             -webkit-transform: rotate(-1deg);
+        }
+			
+		.open &.image-2 {
+			left: 81px;
+			top: 12px;
+			-webkit-transform: rotate(-1deg);
 		}
 		
-		.open .image-wrapper .image-3 {
-			left: 38px;
+        &.image-3 {
+            left: 38px;
             top: 11px;
+        }
+
+		.open &.image-3 {
+			left: 185px;
+			top: 15px;
+
 		}
-		
-		.open .image-wrapper .image-4 {
+
+        &.image-4 {
+            left: 61px;
+            -webkit-transform: rotate(2deg);
+            top: 14px;
+        }
+
+		.open &.image-4 {
 			left: 296px;
 			-webkit-transform: rotate(4deg);
 			top: 14px;
 		}
-		
-		
-        .image-wrapper {
-            border: 1px solid #ccc;
-            border-radius: 3px;                
-            background-color: white;
-            padding: 3px;
-            position: absolute;
-		    -webkit-transition: -webkit-transform 350ms, top 350ms, left 350ms;
-		    -webkit-transform: translate3d(0, 0, 0);
+        
+        
+        .image {
+            width: 170px;
+            height: 135px;
+            background-position: center center;
+            background-repeat: no-repeat;
 
-            
-            &.image-1 {
-                -webkit-transform: rotate(-5deg);
-	            top: 10px;
-	            left: 0;
-            }
+
+
+
+            -webkit-background-clip:padding-box; /* IOS fix */
+            background-clip:padding-box; /* IOS fix */
     
-            &.image-2 {
-                left: 16px;
-                top: 12px;
-                -webkit-transform: rotate(-1deg);
-            }
-  			
-			.open &.image-2 {
-				left: 81px;
-				top: 12px;
-				-webkit-transform: rotate(-1deg);
-			}
-			
-            &.image-3 {
-                left: 38px;
-                top: 11px;
-            }
 
-			.open &.image-3 {
-				left: 185px;
-				top: 15px;
-
-			}
+        }
+    }
     
-            &.image-4 {
-                left: 61px;
-                -webkit-transform: rotate(2deg);
-                top: 14px;
-            }
-
-			.open &.image-4 {
-				left: 296px;
-				-webkit-transform: rotate(4deg);
-				top: 14px;
-			}
-            
-            
-            .image {
-                width: 170px;
-                height: 135px;
-                background-position: center center;
-                background-repeat: no-repeat;
-
-
-
-
-                -webkit-background-clip:padding-box; /* IOS fix */
-                background-clip:padding-box; /* IOS fix */
+    .title {
+        font-size: 23px;
+        font-family: georgia;
+        margin-bottom: 4px;
+        height: 54px;
+        overflow: hidden;
         
+    }
+    
+	.user-avatar {
+		width: 35px;
+		height: 35px;
+		float: left;
+		background-size: contain;
+		margin-right: 15px;
+	}
 
-            }
+	.stats {
+		clear: both;
+		font-size: 11px;
+	    padding: 10px 0;
+		color: #afafaf;
+	}
+	
+    .user {
+		font-size: 11px;
+		padding: 10px 0;
+        span {
+            color: #afafaf;
         }
         
-        .title {
-            font-size: 23px;
-            font-family: georgia;
-            margin-bottom: 4px;
-            height: 54px;
-            overflow: hidden;
-            
-        }
-        
-		.user-avatar {
-			width: 35px;
-			height: 35px;
-			float: left;
-			background-size: contain;
-			margin-right: 15px;
-		}
+    }
 
-		.stats {
-			clear: both;
-			font-size: 11px;
-		    padding: 10px 0;
-			color: #afafaf;
-		}
-		
-        .user {
-			font-size: 11px;
-			padding: 10px 0;
-            span {
-                color: #afafaf;
-            }
-            
-        }
-
-		.visit-treasury-button {
-			padding: 5px 10px;
-			background: #079BBE;
-			border: 1px solid #BCB9A6;
-			border-radius: 3px;
-			color: #EDEDEB;
-			font-size: 13px;
-			display: inline-block;
-		}
-    }  
+	.visit-treasury-button {
+		padding: 5px 10px;
+		background: #079BBE;
+		border: 1px solid #BCB9A6;
+		border-radius: 3px;
+		color: #EDEDEB;
+		font-size: 13px;
+		display: inline-block;
+	}
+}  
 
 
 
@@ -709,4 +716,34 @@ span.arrow {
     margin-top: 0;
 }
 
+
+
+/* ======================= */
+/* = Popup Cateogry List = */
+/* ======================= */
+
+#categoriesNestedList .x-list-normal .x-list-item .x-list-item-label span  {
+    display: block;
+    background: url(../images/left_arrow.jpg) no-repeat center right;
+    
+    &.x-list-item-leaf {
+        background: url(../images/left_go.jpg) no-repeat center right;
+    }
+     
+}
+
+
+.user-info {
+    padding: 20px 20px;
+    font-size: 15px;
+    color: white;
+    line-height: 50px;
+    overflow: hidden;
+    
+    img {
+        height: 50px;
+        margin-right: 15px;
+        float: left;
+    }
+}
 

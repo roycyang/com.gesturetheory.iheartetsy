@@ -127,8 +127,8 @@ ETSY = {
 			}			
 			localStorage['cart_listing_ids'] = listingIds.join();
 			localStorage['cart_count'] = data.count;
-			console.log("localStorage['cart_listing_ids']", localStorage['cart_listing_ids']);
-			console.log("localStorage['cart_count']", localStorage['cart_count']);
+            // console.log("localStorage['cart_listing_ids']", localStorage['cart_listing_ids']);
+            // console.log("localStorage['cart_count']", localStorage['cart_count']);
 			
 			// update the left rail
 			$('.cart-label span').html(data.count);
@@ -145,5 +145,15 @@ ETSY = {
 		} catch(err) {
 			alert(msg);
 		}
-	}
+	},
+	
+	confirm: function(msg, callback) {
+		try {
+			navigator.notification.confirm(msg, callback);
+		}
+		catch(err) {
+			var msg = Ext.Msg.confirm('Confirm', msg, callback);
+			msg.setZIndex(100000000);
+		}
+	},
 }

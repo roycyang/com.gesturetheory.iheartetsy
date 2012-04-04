@@ -350,7 +350,7 @@ input, textarea {
   box-align: center;
   -webkit-box-pack: center;
   box-pack: center;
-  background: rgba(0, 0, 0, 0.6) center center no-repeat;
+  background: rgba(0, 0, 0, 0.2) center center no-repeat;
 }
 /* line 104, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-mask.x-mask-gray {
@@ -368,12 +368,10 @@ input, textarea {
   padding: .4em;
   font-size: .95em;
   font-weight: bold;
-  position: relative;
-  left: 50px;
   -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
 }
-/* line 124, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 122, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-mask .x-loading-spinner-outer {
   display: -webkit-box;
   display: box;
@@ -387,11 +385,11 @@ input, textarea {
   min-width: 8.5em;
   height: 8.5em;
 }
-/* line 135, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 133, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-mask.x-indicator-hidden .x-loading-spinner-outer {
   display: none;
 }
-/* line 140, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 138, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-mask .x-mask-message {
   text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
   -webkit-box-flex: 0 !important;
@@ -399,22 +397,22 @@ input, textarea {
   min-width: 8.5em;
 }
 
-/* line 148, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 146, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-draggable {
   z-index: 1;
 }
 
-/* line 152, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 150, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-dragging {
   opacity: 0.7;
 }
 
-/* line 156, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 154, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-panel-list {
   background-color: white;
 }
 
-/* line 161, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 159, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-html {
   -webkit-user-select: auto;
   -webkit-touch-callout: inherit;
@@ -620,27 +618,27 @@ input, textarea {
 .x-html .loud {
   color: #111111;
 }
-/* line 171, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 169, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-html ul li {
   list-style-type: circle;
 }
-/* line 174, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 172, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-html ol li {
   list-style-type: decimal;
 }
 
-/* line 180, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 178, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-video {
   background-color: #000;
 }
 
-/* line 184, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 182, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-sortable .x-dragging {
   opacity: 1;
   z-index: 5;
 }
 
-/* line 189, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
+/* line 187, ../themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-layout-card-item {
   /*  background: $page-bg-color;*/
   /*background: url(../images/background_x2.png) no-repeat 0 0;*/

@@ -4,7 +4,6 @@ Ext.define('Etsy.store.Categories', {
 
     config :{
         model: 'Etsy.model.Category',
-        autoLoad: false,
         storeId: 'Categories',
         defaultRootProperty: 'items',
         root: {

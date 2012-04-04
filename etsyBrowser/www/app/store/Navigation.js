@@ -17,14 +17,15 @@ Ext.define('Etsy.store.Navigation', {
        groupDir: 'DESC',
 
        data: [
-           { title: 'Home <span class="arrow">><span>',  type: 'Navigation', panel: 'homePanel'  },
-           { title: '<div class="categories-label">Categories <span class="count">31<span></div>',  type: 'Navigation'  , panel: 'categoriesPanel'},
-           { title: 'Treasuries <span class="arrow">><span>',  type: 'Navigation'  , panel: 'treasuriesPanel'},
+           { title: 'Home',  type: 'Navigation', panel: 'homePanel'  },
+           { title: '<div class="categories-label">Categories</div>',  type: 'Navigation'  , panel: 'categoriesPanel'},
+           { title: 'Treasuries',  type: 'Navigation'  , panel: 'treasuriesPanel'},
            { title: '<div class="favorites-label">Favorites <span class="count"></span></div>',  type: 'Navigation'  , panel: 'favoritesPanel'},
            { title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: 'Navigation'  , panel: 'cartPanel'},
-           { title: 'Feedback <span class="arrow">><span>',  type: 'Navigation'  , panel: 'feedback'},
-           { title: 'Art <span class="arrow">><span>',  type: 'Bookmarked Categories'  , panel: 'bookmarkedCategory', short_name: 'Art', name: 'art'},
-           { title: 'Weddings <span class="arrow">><span>',  type: 'Bookmarked Categories', panel: 'bookmarkedCategory', short_name: 'Weddings', name: 'weddings'},
+           { title: 'Feedback',  type: 'Navigation'  , panel: 'feedback'},
+           { title: 'Sign Out',  type: 'Navigation'  , panel: 'signout'},
+           { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'bookmarkedCategory', short_name: 'Art', name: 'art'},
+           { title: 'Weddings',  type: 'Bookmarked Categories', panel: 'bookmarkedCategory', short_name: 'Weddings', name: 'weddings'},
        ]
     }
 

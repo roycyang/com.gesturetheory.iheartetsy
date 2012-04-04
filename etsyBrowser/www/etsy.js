@@ -22,6 +22,7 @@ Ext.application({
         'SearchPanel',
         'NavPanel',
         'AppPanel',
+        'MainToolbar',
 
 		// other panels
         'HomePanel',

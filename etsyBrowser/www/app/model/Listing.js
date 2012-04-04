@@ -58,14 +58,16 @@ Ext.define('Etsy.model.Listing', {
             // type: 'jsonp',
             //url: 'http://openapi.etsy.com/v2/listings/active',
             type: 'ajax',
-            url: 'http://50.74.56.194:8888/art',
+            url: 'http://50.74.56.194:8888/categories',
             
             limitParam: 'limit',
             startParam: 'offset',
             pageParam: false,
             extraParams: {
                 api_key: 'tia49fh9iqjcrukurpbyqtv5',
-				includes: 'Images:6,User'
+				includes: 'Images:6,User',
+				category: 'art',
+				limit: '100'
             },
             reader: {
                 type: 'json',

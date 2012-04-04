@@ -8,7 +8,7 @@ Ext.define('Etsy.controller.Browser', {
 			//searchResultsPanel: '#searchResultsPanel',
 			navList: '#navList',
 			appPanel: '#appPanel',
-			mainToolbar: '#mainToolbar',
+			categoriesToolbar: '#categoriesToolbar',
             //panels
 			homePanel: 'homePanel',
 			treasuriesPanel: 'treasuriesPanel',
@@ -199,7 +199,7 @@ Ext.define('Etsy.controller.Browser', {
 
 	onNavListTap: function(view, index, item, record) {
 		var self = this;
-		var panel = record.get('panel');
+		var panel = record.panel || record.get('panel');
 		if (panel == 'feedback') {
 			try {
 				window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gtcrafted.com");
@@ -246,7 +246,7 @@ Ext.define('Etsy.controller.Browser', {
 			}
 			GLOBAL.previousNavItemIndex = index;
 		}
-		this.toggleNav('closed');
+		this.toggleNav('close');
 	},
 	
 	selectNavListItem: function(){
@@ -270,7 +270,6 @@ Ext.define('Etsy.controller.Browser', {
 	loadHomePanel: function(){
 	    var self = this;
         self.getAppPanel().removeAll(true);
-        self.getMainToolbar().setTitle('Home');
 	    // load homePanel and then destroy all the other panels
 	    Ext.create('Etsy.view.HomePanel');
         self.treasuriesStore.load();  
@@ -286,6 +285,9 @@ Ext.define('Etsy.controller.Browser', {
         var self = this;
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');
+        self.getCategoriesPanel().setMasked({
+			xtype: 'loadmask'
+		});
         self.getAppPanel().add(self.getCategoriesPanel());
 	    self.getAppPanel().setActiveItem(self.getCategoriesPanel());
             
@@ -299,8 +301,7 @@ Ext.define('Etsy.controller.Browser', {
 			delete self.listingsStore.getProxy()._extraParams.keywords;
 			// resetting the store to use our NODE.JS
             store.getProxy().setUrl('http://50.74.56.194:8888/categories?category=' + record.get('name'));
-
-			self.getMainToolbar().setTitle(record.get('short_name'));
+			self.getCategoriesToolbar().setTitle(record.get('short_name'));
 			Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
 			self.getNavList().select(1);
 			GLOBAL.previousNavItemIndex = 1;
@@ -315,7 +316,7 @@ Ext.define('Etsy.controller.Browser', {
     		// resetting the store to use our NODE.JS
             // store.getProxy().setUrl('http://50.74.56.194:8888/art');
             console.log('record is', record);
-    		self.getMainToolbar().setTitle(name);
+    		self.getCategoriesToolbar().setTitle(name);
     		Ext.getCmp('globalSearch').setPlaceHolder('Search ' + name);
 		    break;
 		case 'keyword':
@@ -324,7 +325,7 @@ Ext.define('Etsy.controller.Browser', {
 		    delete self.listingsStore.getProxy()._extraParams.category;
             store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
 			store.getProxy().setExtraParam('keywords', record);
-			self.getMainToolbar().setTitle('Search Results for: ' + record);
+			self.getCategoriesToolbar().setTitle('Search Results for: ' + record);
             self.getNavList().deselectAll();
 			GLOBAL.previousNavItemIndex = -1;
 			break;
@@ -335,9 +336,11 @@ Ext.define('Etsy.controller.Browser', {
 		//empty the store before adding the new one
 		var browserCarouselStore = self.getBrowserCarousel().getStore();
 		if (browserCarouselStore) {
+		    console.log('updating the store in loadlist');
 			// if there is already a store, then it needs to be updated, not set
 			self.getBrowserCarousel().updateStore(store);
 		} else {
+		    console.log('add the store in loadlist');
 			self.getBrowserCarousel().setStore(store);
 		}
 
@@ -351,7 +354,6 @@ Ext.define('Etsy.controller.Browser', {
 	    self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.TreasuriesPanel');
         self.getAppPanel().setActiveItem(self.getTreasuriesPanel());
-	    self.getMainToolbar().setTitle('Hottest Treasuries');
 	    var store = self.treasuriesStore;
 	    store.load();
 
@@ -371,7 +373,6 @@ Ext.define('Etsy.controller.Browser', {
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.FavoritesPanel');    
 		self.getAppPanel().setActiveItem(self.getFavoritesPanel());
-	    self.getMainToolbar().setTitle('Favorites');
 		self.getFavoritesPanel().setMasked({
 			xtype: 'loadmask'
 		});

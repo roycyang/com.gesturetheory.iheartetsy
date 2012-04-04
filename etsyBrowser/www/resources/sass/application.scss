@@ -7,27 +7,43 @@
 	-webkit-transition: -webkit-transform 350ms;
 			
 	.x-layout-card-item {
-      background: url(../images/background_x2.png) repeat 0 0;
+/*      background: url(../images/background_x2.png) repeat 0 0;*/
+background: #f4f2dd;
 /*background: #fff;*/
 	}
 	
 }
 
 #homePanel {
-    
+
     .treasury-item-wrapper div>div:nth-of-type(3){
         display: none
     }
     
+    .x-button-plain {
+        padding: 0;
+    }
+    
     #homePanelLeft {
-        background: #f4f2dd;
+    background: url(../images/home_panel_background.png) repeat-x left bottom !important;
+    
+    .browse-categories {
+        background: url(../images/browse_categories_button_1x.png) no-repeat center top !important;
+        height: 52px;
+    }
+    
+    .hottest-treasuries {
+        background: url(../images/hottest_treasuries_button_1x.png) no-repeat center bottom !important;
+        height: 73px;
+
+    }
         
         .x-field { 
             background: none;
         }
         
         #homeSearch{
-            padding: 0px 230px 0;
+            padding: 27px 315px;
 			
 			.x-field-search .x-field-input .x-form-field {
 			margin-left: 40px;
@@ -211,8 +227,12 @@
 
 
 #treasuriesPanel {
-    .x-innerhtml {
-        padding: 24px 0;
+    
+    #treasuriesCarousel {
+        
+        .x-innerhtml {
+            padding: 24px 0;
+        }
     }
 }
 
@@ -226,6 +246,33 @@
     padding-left: 270px;
     vertical-align: top;
     color: #3F3F3F;
+    
+    &.small-treasury-item {
+        width: 200px;
+        margin: 54px 0 0 37px;
+        padding: 0;
+        
+        .title {
+            font-size: 18px;
+            font-family: georgia;
+            margin-bottom: 4px;
+            height: 54px;
+            overflow: hidden;
+            position: absolute;
+            top: -25px;
+            width: 200px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            left: -2px;
+        }
+        
+        .image-wrapper .image {
+            width: 125px;
+            height: 100px;
+        }
+    }
     
 
 	.open .image-wrapper .image-1 {
@@ -257,9 +304,6 @@
         background-color: white;
         padding: 3px;
         position: absolute;
-	    -webkit-transition: -webkit-transform 350ms, top 350ms, left 350ms;
-	    -webkit-transform: translate3d(0, 0, 0);
-
         
         &.image-1 {
             -webkit-transform: rotate(-5deg);

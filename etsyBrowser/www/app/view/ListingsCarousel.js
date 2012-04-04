@@ -131,17 +131,30 @@ Ext.define('Etsy.view.ListingsCarousel', {
         if(Ext.get(e.target).parent('.treasury-item')){
             element = Ext.get(e.target).parent('.treasury-item');
             id = element.getAttribute('ref');
-	        // console.log('id is', id);
-	        // console.log('store is', store);
-	        console.log('id is', id);
-	        record = store.getAt(store.findExact('internalId', id));
-	        console.log('record', record);
-	        
-	        self.getAppPanel().setActiveItem(self.categoriesPanel);
-			self.loadListings('treasury', record);
-			setTimeout(function(){
-	            self.getNavList().select(2);
-			}, 350);
+            
+            var treasurycarousel = Ext.create('Etsy.view.ListingsCarousel');
+            APP.listingsStore.load();
+            treasurycarousel.setStore(APP.listingsStore);
+            APP.getTreasuriesPanel().add(treasurycarousel);
+            
+            APP.getTreasuriesPanel().getLayout().setAnimation({
+    			type: 'slide',
+    			duration: 300,
+    			direction: 'left'
+    		});
+            APP.getTreasuriesPanel().setActiveItem(treasurycarousel);
+            
+	        // // console.log('id is', id);
+	        //             // console.log('store is', store);
+	        //             console.log('id is', id);
+	        //             record = store.getAt(store.findExact('internalId', id));
+	        //             console.log('record', record);
+	        //             
+	        //             self.getAppPanel().setActiveItem(self.categoriesPanel);
+	        //             self.loadListings('treasury', record);
+	        //             setTimeout(function(){
+	        //                 self.getNavList().select(2);
+	        //             }, 350);
 
 			
 			
@@ -226,9 +239,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         var me = this;
 
         if (newStore.isLoading()) {
-            me.setMasked({
-                xtype: 'loadmask'
-            });
+
             
             // this is when the store updates, we can update the max index.
             newStore.on('refresh', function() {
@@ -251,8 +262,14 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
             // this is when the store loads for the first time
             newStore.on('load', function() {
-                //console.log('\n\n\n\n\n\nin the newstore.load');
-                me.setMasked(false);
+                if(APP.getCategoriesPanel()){
+                    APP.getCategoriesPanel().unmask();
+                }
+                if(APP.getTreasuriesPanel()){
+                    APP.getTreasuriesPanel().unmask();
+                }
+
+
 
                 me.updateStore(newStore);
             }, me, {

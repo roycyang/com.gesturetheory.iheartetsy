@@ -2,21 +2,21 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 	extend: 'Ext.Panel',
 	alias: 'widget.treasuriesPanel',
 	    
-	requires: ['Etsy.view.Treasuries'],
+	requires: ['Etsy.view.TreasuriesCarousel'],
 
 	config: {
 		title: 'Treasuries',
 		id: 'treasuriesPanel',
 		layout: 'card',
 		items: [
+		{
+            xtype: 'maintoolbar',
+            title: 'Treasuries'
+        },
 	    {
             id: 'treasuriesCarousel',
-            xtype: 'listingsCarousel',
-            count: 6,
-            innerItemConfig: {
-                xclass: 'Etsy.view.Treasuries'
-            }
-
+            xtype: 'treasuriesCarousel',
+            count: 6
         }
 		]
 	}

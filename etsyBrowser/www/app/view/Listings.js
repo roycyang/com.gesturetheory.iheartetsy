@@ -25,9 +25,7 @@ Ext.define('Etsy.view.Listings', {
     
     updateRecords: function(newRecords) {
         // console.log('newRecords is', newRecords);
-
         this.setData({
-            count: this.count,
             items: newRecords.items,
             landscape: Ext.Viewport.getOrientation() == "landscape"
         });

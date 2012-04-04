@@ -10,7 +10,7 @@ Ext.define('Etsy.controller.Browser', {
 			appPanel: '#appPanel',
 			
 			// home panels
-			homePanel: '#homePanel',
+			homePanel: 'homePanel',
 			homeTreasuriesCarousel: '#homeTreasuriesCarousel',
 			homeCategoriesCarousel: '#homeCategoriesCarousel',
 			categoriesPanel: '#categoriesPanel',
@@ -25,7 +25,6 @@ Ext.define('Etsy.controller.Browser', {
 			showSearch: 'button[action=showSearch]',
 			categoryNestedList: '#categoryNestedList',
 			
-
 		},
 		control: {
 			showNav: {
@@ -66,45 +65,42 @@ Ext.define('Etsy.controller.Browser', {
 		window.self = this;
 		
 		// initialize the counts
-		ETSY.updateCartInfo();
-		ETSY.updateFavoritesInfo()
-
-		self.homePanel = Ext.create('Etsy.view.HomePanel');
+        ETSY.updateCartInfo();
+        ETSY.updateFavoritesInfo();
+		
         self.categoriesPanel = Ext.create('Etsy.view.CategoriesPanel');
         self.treasuriesPanel = Ext.create('Etsy.view.TreasuriesPanel');
         self.favoritesPanel = Ext.create('Etsy.view.FavoritesPanel');
-
-        // not main views
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
         
         // Latest Listings Store for HOME PANEL
         self.latestListingsStore = Ext.data.StoreManager.lookup('LatestListings');
-        self.latestListingsStore.load();
-        self.getLatestListingsCarousel().setStore(self.latestListingsStore);
-
-        // Listings Store for BROWSER PANEL
         self.listingsStore = Ext.data.StoreManager.lookup('Listings');
-        
-        // Listings Store for FAVORITES PANEL
         self.favoriteListingsStore = Ext.data.StoreManager.lookup('FavoriteListings');
-        self.getFavoritesCarousel().setStore(self.favoriteListingsStore);
-                
-        // Listings Store for FAVORITES PANEL
         self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
-        self.treasuriesStore.load();
-        self.getTreasuriesCarousel().setStore(self.treasuriesStore);
-        self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
-        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);
-        
         self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
-        
-        // adding the homepage to the getAppPanel
-		self.getAppPanel().add([self.homePanel, self.categoriesPanel, self.treasuriesPanel, self.favoritesPanel]);
 
+                
+        // adding the homepage to the getAppPanel
+		
+        //self.getAppPanel().add([self.homePanel, self.categoriesPanel, self.treasuriesPanel, self.favoritesPanel]);
 		// jump to treasuries for easy debugging
 		//self.getAppPanel().setActiveItem(self.treasuriesPanel);
 		
 		//self.getAppPanel().add(self.homePanel);
+		
+		self.loadHomePanel();
+	},
+	
+	loadHomePanel: function(){
+	    var self = this;
+	    // load homePanel and then destroy all the other panels
+	    Ext.create('Etsy.view.HomePanel');
+	    self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+        self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);
+        self.getLatestListingsCarousel().setStore(self.latestListingsStore);    
+	    self.getAppPanel().add(self.getHomePanel());
+	    self.getAppPanel().setActiveItem(self.getHomePanel());
 	},
 	
 
@@ -121,7 +117,7 @@ Ext.define('Etsy.controller.Browser', {
 			}
 
 		})
-		this.toggleNav();
+		self.toggleNav();
 
 	},
 
@@ -324,7 +320,9 @@ Ext.define('Etsy.controller.Browser', {
 			if (panel == "treasuriesPanel") {
 				self.loadTreasuries();
 			}
-			this.getAppPanel().setActiveItem(this[record.get('panel')]);
+			if (panel == "homePanel") {
+				self.loadHomePanel();
+			}
 			GLOBAL.previousNavItemIndex = index;
 		}
 
@@ -370,6 +368,8 @@ Ext.define('Etsy.controller.Browser', {
 				self.favoriteListingsStore.removeAll();
 				store.add(data.results);
 				Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
+                Ext.getCmp('homeSearch').setPlaceHolder('Search Etsy');
+				self.getFavoritesCarousel().setStore(store);
 			    self.getFavoritesCarousel().reset()
 			    
 			    
@@ -377,10 +377,10 @@ Ext.define('Etsy.controller.Browser', {
 			    var storeCount = store.data.length;
                 var max = parseInt(storeCount/12 - 1);
                 var remainder = storeCount % 12;
-                console.log('the store count is', storeCount);
-                console.log('max is', max);
-
-                console.log('remainder', remainder);
+                // console.log('the store count is', storeCount);
+                // console.log('max is', max);
+                // 
+                // console.log('remainder', remainder);
                 if(remainder > 0){
                     max++;
                 }
@@ -449,14 +449,9 @@ Ext.define('Etsy.controller.Browser', {
 			type: 'slide',
 			duration: 300,
 			direction: 'left'
-		});
-        self.getListingsCarousel().setActiveItem(0);
-        
-        self.getListingsCarousel().reset();
-        self.getListingsCarousel().setActiveItem(0);
-		self.getCategoriesPanel().setActiveItem(self.getBrowserCarousel());
-		
-
+		});        
+        self.getBrowserCarousel().reset();
+        self.getBrowserCarousel().setActiveItem(0);
 	},
 
 	// =========================

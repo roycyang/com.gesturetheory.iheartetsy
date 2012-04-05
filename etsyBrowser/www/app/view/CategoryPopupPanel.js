@@ -34,7 +34,9 @@ Ext.define('Etsy.view.CategoryPopupPanel', {
             itemTpl: '<div class="category-item">{short_name}</div>',
 			listeners: {
 				itemtap: function(list, index, target, record, e) {
-                    APP.getCategoryPopupPanel().hide();
+                    setTimeout(function(){
+                        APP.getCategoryPopupPanel().hide();
+                    }, 500);
                     APP.loadListings('category', record);
 				}
 			}

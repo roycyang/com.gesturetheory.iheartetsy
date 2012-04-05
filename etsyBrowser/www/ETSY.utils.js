@@ -1,6 +1,6 @@
 var ETSY = {
-	toggleSignIn: function(){
-		if(localStorage['accessTokenKey']){
+	toggleSignIn: function(signed_in){
+		if(localStorage['accessTokenKey'] || signed_in){
 			var oauth;
 			var options = {
 				consumerKey: 'tia49fh9iqjcrukurpbyqtv5',

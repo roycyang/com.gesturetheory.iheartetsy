@@ -20,7 +20,7 @@ Ext.define('Etsy.view.NavPanel', {
 			{
 				id: 'signUpButton',
 				xtype: 'button',
-				text: 'Sign Up',
+				ui: 'plain',
 				listeners: {
 					tap: function(){
 						ETSY.initAuthorization();

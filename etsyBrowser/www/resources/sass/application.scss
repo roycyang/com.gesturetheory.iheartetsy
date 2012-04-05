@@ -1,11 +1,8 @@
-::selection {
-    background: none;
-}
-
 #appPanel {
 	-webkit-transform: translate3d(0, 0, 0);
 	-webkit-transition: -webkit-transform 350ms;
-			
+	-webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
+	
 	.x-layout-card-item {
 /*      background: url(../images/background_x2.png) repeat 0 0;*/
 background: #f4f2dd;
@@ -109,7 +106,10 @@ background: #f4f2dd;
     background-size: contain;
     background: #46250a;
 
-
+	#signUpButton {
+		height: 90px;
+		background: url(../images/login_button.png) no-repeat 0 0;
+	}
 }
 
 #searchPanel {

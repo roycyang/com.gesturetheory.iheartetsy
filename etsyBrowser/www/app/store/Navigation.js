@@ -23,7 +23,7 @@ Ext.define('Etsy.store.Navigation', {
            { title: '<div class="favorites-label">Favorites <span class="count"></span></div>',  type: 'Navigation'  , panel: 'favoritesPanel'},
            { title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: 'Navigation'  , panel: 'cartPanel'},
            { title: 'Feedback',  type: 'Navigation'  , panel: 'feedback'},
-           { title: 'Sign Out',  type: 'Navigation'  , panel: 'signout'},
+           { title: '<div class="sign-out-link">Sign Out</div>',  type: 'Navigation'  , panel: 'signout'},
            { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'bookmarkedCategory', short_name: 'Art', name: 'art'},
            { title: 'Weddings',  type: 'Bookmarked Categories', panel: 'bookmarkedCategory', short_name: 'Weddings', name: 'weddings'},
        ]

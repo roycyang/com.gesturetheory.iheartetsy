@@ -11,9 +11,23 @@ Ext.define('Etsy.view.NavPanel', {
 		hidden: true,
 		left: 0,
 
-		items: [{
-		    html: '<div class="user-info"><img src="' + GLOBAL.avatar_id + '" />' + GLOBAL.name + '</div>'
-		},{
+		items: [
+			{
+				id: 'userInformation',
+		    	html: '<div class="user-info"><img src="' + GLOBAL.avatar_id + '" />' + localStorage.name + '</div>',
+				hidden: true,
+			},
+			{
+				id: 'signUpButton',
+				xtype: 'button',
+				text: 'Sign Up',
+				listeners: {
+					tap: function(){
+						ETSY.initAuthorization();
+					}
+				}
+			},
+		{
 			xtype: 'list',
 			flex: 1,
 			id: 'navList',

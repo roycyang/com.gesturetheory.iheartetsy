@@ -51,6 +51,8 @@ Ext.define('Etsy.controller.Browser', {
 	},
 	
 	launch: function() {
+		
+
 		window.self = this;
 		window.APP = this;	
 		var self = this;
@@ -78,6 +80,8 @@ Ext.define('Etsy.controller.Browser', {
 
         // adding the homepage to the getAppPanel		
 		self.loadHomePanel();
+		
+		ETSY.toggleSignIn();
 	},
 		
 	toggleNav: function(position) {
@@ -126,42 +130,6 @@ Ext.define('Etsy.controller.Browser', {
 		1000)
 	},
 
-	onLoginTap: function() {
-		var mask = Ext.Viewport.add({
-			masked: {
-				xtype: 'loadmask',
-				message: 'Authorizing app...',
-				zIndex: 10000,
-			}
-		});
-		mask.show();
-		console.log('\n\n\n\n\n\n\n\n\n\nin login tap');
-		var oauth;
-		var localStoreKey = "heart";
-		var options = {
-			consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
-			consumerSecret: '2dvoqadnxo',
-			callbackUrl: 'http://www.etsy.com'
-		};
-
-		oauth = OAuth(options);
-		oauth.get('http://openapi.etsy.com/v2/oauth/request_token?scope=cart_rw favorites_rw', function(data) {
-			setTimeout(function() {
-				GLOBAL.params = $.deparam(data.text);
-				window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url, {
-					showLocationBar: false
-				});
-				mask.hide();
-			},
-			1000);
-		},
-		function(data) {
-			alert('Error : No Authorization');
-			console.log(data.text);
-			//$('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
-		});
-	},
-
 	
 	// ==========
 	// = Search =
@@ -204,14 +172,14 @@ Ext.define('Etsy.controller.Browser', {
 			try {
 				window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gtcrafted.com");
 			} catch(err) {
-				alert('This only works on the iPad');
+				ETSY.alert('This only works on the iPad');
 			}
             self.selectNavListItem();   
 		} else if (panel == 'cartPanel') {
 		    try {
 			    window.plugins.childBrowser.showWebPage("http://www.etsy.com/cart");
 			} catch(err) {
-				alert('This only works on the iPad');
+				ETSY.alert('This only works on the iPad');
 			}
 			
             self.selectNavListItem();

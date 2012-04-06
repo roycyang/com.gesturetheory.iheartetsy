@@ -79,7 +79,8 @@ Ext.define('Etsy.controller.Browser', {
         self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
 
         // adding the homepage to the getAppPanel		
-		self.loadHomePanel();
+		//self.loadHomePanel();
+		self.loadListings('keyword', 'baseball');
 		
 		ETSY.toggleSignIn();
 	},
@@ -304,9 +305,18 @@ Ext.define('Etsy.controller.Browser', {
         var self = this;
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');
-        self.getCategoriesPanel().setMasked({
-			xtype: 'loadmask'
-		});
+        if(type == 'category'){
+              self.getCategoriesPanel().setMasked({
+      			xtype: 'loadmask',
+      			message: 'Loading ' + record.get('short_name') +'...'
+      		});
+        }else{
+              self.getCategoriesPanel().setMasked({
+      			xtype: 'loadmask',
+      			message: 'Loading ' + record +'...'
+      		});
+        }
+
         self.getAppPanel().add(self.getCategoriesPanel());
 	    self.getAppPanel().setActiveItem(self.getCategoriesPanel());
             
@@ -320,7 +330,7 @@ Ext.define('Etsy.controller.Browser', {
 			delete self.listingsStore.getProxy()._extraParams.keywords;
 			// resetting the store to use our NODE.JS
             store.getProxy().setUrl('http://50.74.56.194:8888/categories?category=' + record.get('name'));
-			self.getCategoriesToolbar().setTitle(record.get('short_name'));
+			self.getCategoriesToolbar().setTitle('Category: ' + record.get('short_name'));
 			Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
 			self.getNavList().select(1);
 			GLOBAL.previousNavItemIndex = 1;
@@ -363,7 +373,7 @@ Ext.define('Etsy.controller.Browser', {
 			self.getBrowserCarousel().setStore(store);
 		}
 
-        self.getAppPanel().setActiveItem(self.categoriesPanel);     
+        
         self.getBrowserCarousel().reset();
         self.getBrowserCarousel().setActiveItem(0);
 	},

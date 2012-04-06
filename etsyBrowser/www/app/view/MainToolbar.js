@@ -5,10 +5,10 @@ Ext.define('Etsy.view.MainToolbar', {
     
     config: {
         docked: 'top',
-        items: [{
+        items: [
+		{
             xtype: 'button',
             ui: 'plain',
-            action: 'showNav',
             width: 60,
             iconCls: 'list',
             iconMask: true,
@@ -32,7 +32,6 @@ Ext.define('Etsy.view.MainToolbar', {
         {
             xtype: 'button',
             ui: 'plain',
-            action: 'showSearch',
             width: 60,
             iconCls: 'search',
             iconMask: true,

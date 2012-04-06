@@ -1,6 +1,7 @@
 var ETSY = {
 	toggleSignIn: function(signed_in){
 		if(localStorage['accessTokenKey'] || signed_in){
+			$('body').addClass('signed-in-flag');
 			if(!GLOBAL.oauth){
 				GLOBAL.oauth;
 			}
@@ -19,6 +20,7 @@ var ETSY = {
 			ETSY.updateCartInfo();
 	        ETSY.updateFavoritesInfo();			
 		}else{
+			$('body').removeClass('signed-in-flag');
 			GLOBAL.signed_in = false;
 			Ext.getCmp('userInformation').hide();
 			Ext.getCmp('signUpButton').show();
@@ -63,7 +65,8 @@ var ETSY = {
 
 	},
 	
-	askForSignIn: function(){
+	askForSignIn: function(msg){
+		ETSY.confirm(msg);
 		
 	},
 	addToFavorites: function(id, msg) {

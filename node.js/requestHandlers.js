@@ -27,6 +27,21 @@ function treasuries(response, DATA) {
     response.end();
 }
 
+function treasury(response, DATA, request) {
+  var url = request.url;
+  treasury = url.split('=')[1];
+  parsedtreasury = treasury.split('&')[0];
+  response.writeHead(200, {"Content-Type": "application/json"});
+  // response.write(callback + '(' + DATA.art + ')');
+  console.log('parsedtreasury is\n\n\n\n\n\n\n\n\n\n\n' + parsedtreasury);
+  if(DATA[parsedtreasury]){
+   response.write(DATA[parsedtreasury]);     
+  }
+
+  
+  response.end();
+}
+
 function categories (response, DATA, request) {
     var url = request.url;
   category = url.split('=')[1];
@@ -42,6 +57,9 @@ function categories (response, DATA, request) {
   response.end();
 }
 
+
+
 exports.root = root;
 exports.treasuries = treasuries;
+exports.treasury = treasury;
 exports.categories = categories;

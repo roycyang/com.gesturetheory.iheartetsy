@@ -3,10 +3,15 @@ Ext.define('Etsy.view.CategoriesPanel', {
     alias: 'widget.categoriesPanel',
 	config: {
 		title: 'Categories',
-		iconCls: 'spaces2',
 		id: 'categoriesPanel',
 		layout: 'card',
-		items: [{
+		items: [
+        {
+            xtype: 'maintoolbar',
+            title: 'Categories',
+			id: 'categoriesToolbar'
+        },
+        {
 			id: 'browserCarousel',
 			xtype: 'listingsCarousel',
 		}]

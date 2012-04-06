@@ -1,8 +1,82 @@
-ETSY = {
+var ETSY = {
+	toggleSignIn: function(signed_in){
+		if(localStorage['accessTokenKey'] || signed_in){
+			$('body').addClass('signed-in-flag');
+			if(!GLOBAL.oauth){
+				GLOBAL.oauth;
+			}
+			options = {
+				consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
+				consumerSecret: '2dvoqadnxo',
+		    accessTokenKey: localStorage['accessTokenKey'],
+		    accessTokenSecret: localStorage['accessTokenSecret']
+			};
+			GLOBAL.oauth = OAuth(options);
+			GLOBAL.signed_in = true;
+			Ext.getCmp('userInformation').show();
+			Ext.getCmp('signUpButton').hide();
+			//Ext.getCmp('signUpButton').hide();
+			$('.sign-out-link').parents('.x-list-item').show();
+			ETSY.updateCartInfo();
+	        ETSY.updateFavoritesInfo();			
+		}else{
+			$('body').removeClass('signed-in-flag');
+			GLOBAL.signed_in = false;
+			Ext.getCmp('userInformation').hide();
+			Ext.getCmp('signUpButton').show();
+			$('.sign-out-link').parents('.x-list-item').hide();
+			//Ext.getCmp('signUpButton').show();
+		}
+	},
+	initAuthorization: function(){
+		var mask = Ext.Viewport.add({
+			masked: {
+				xtype: 'loadmask',
+				message: 'Authorizing app...',
+				zIndex: 10000,
+			}
+		});
+		mask.show();
+		console.log('\n\n\n\n\n\n\n\n\n\nin login tap');
+		var oauth;
+		var localStoreKey = "heart";
+		var options = {
+			consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
+			consumerSecret: '2dvoqadnxo',
+			callbackUrl: 'http://www.etsy.com'
+		};
+
+		oauth = OAuth(options);
+		oauth.get('http://openapi.etsy.com/v2/oauth/request_token?scope=cart_rw favorites_rw', function(data) {
+			setTimeout(function() {
+				GLOBAL.params = $.deparam(data.text);
+				window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url, {
+					showLocationBar: false
+				});
+				mask.hide();
+			},
+			1000);
+		},
+		function(data) {
+			alert('Error : No Authorization');
+			console.log(data.text);
+			//$('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
+		});
+
+	},
+	
+	askForSignIn: function(msg){
+		ETSY.confirm(msg);
+		
+	},
 	addToFavorites: function(id, msg) {
+		if(!GLOBAL.signed_in){
+			ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+			return false;
+		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
-		oauth.post(url, {}, function(data) {
+		GLOBAL.oauth.post(url, {}, function(data) {
 		    
 			console.log(data);
 			ETSY.updateFavoritesInfo();
@@ -18,9 +92,12 @@ ETSY = {
 	},
 	
 	removeFromFavorites: function(id, msg) {
+		if(!GLOBAL.signed_in){
+			return false;
+		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id + '?method=DELETE';
-		oauth.post(url, {}, function(data) {
+		GLOBAL.oauth.post(url, {}, function(data) {
 			ETSY.updateFavoritesInfo();
 			if (msg) {
 				ETSY.alert(msg);
@@ -33,6 +110,9 @@ ETSY = {
 	},
 	
 	updateFavoritesInfo: function(offset){
+		if(!GLOBAL.signed_in){
+			return false;
+		}
 		var offset = offset || 0;
 		if(offset){
 			var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100&offset=' + offset;
@@ -40,7 +120,7 @@ ETSY = {
 			var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100';
 		}
 		
-		oauth.get(url, function(data) {
+		GLOBAL.oauth.get(url, function(data) {
 			var data = JSON.parse(data.text);
 			
 			var listingIds = [];
@@ -59,8 +139,8 @@ ETSY = {
 			}
 			
 			localStorage['favorites_count'] = data.count;
-			console.log("localStorage['favorites_listing_ids']", localStorage['favorites_listing_ids']);
-			console.log("localStorage['favorites_count']", localStorage['favorites_count']);
+            // console.log("localStorage['favorites_listing_ids']", localStorage['favorites_listing_ids']);
+            // console.log("localStorage['favorites_count']", localStorage['favorites_count']);
 			
 			// update the left rail
 			$('.favorites-label span').html(data.count);
@@ -73,9 +153,13 @@ ETSY = {
 	},
 
 	addToCart: function(id, msg) {
+		if(!GLOBAL.signed_in){
+			ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+			return false;
+		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
-		oauth.post(url, {
+		GLOBAL.oauth.post(url, {
 			'listing_id': id
 		},
 		function(data) {
@@ -92,10 +176,13 @@ ETSY = {
 	},
 	
 	removeFromCart: function(id, msg) {
+		if(!GLOBAL.signed_in){
+			ETSY.askForSignIn();
+		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts?method=DELETE';
 
-		oauth.post(url, {
+		GLOBAL.oauth.post(url, {
 			'listing_id': id
 		},
 		function(data) {
@@ -112,12 +199,16 @@ ETSY = {
 	},
 	
 	updateCartInfo: function(){
+		if(!GLOBAL.signed_in){
+			ETSY.askForSignIn();
+			return false;
+		}
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
 		
-		oauth.get(url, 
+		GLOBAL.oauth.get(url, 
 		function(data) {
 		    // adding this to my cart!
-			console.log(JSON.parse(data.text));
+            // console.log(JSON.parse(data.text));
 			var data = JSON.parse(data.text);
 			var listingIds = [];
 			for(i = 0; i < data.results.length; i++){

@@ -5,7 +5,6 @@ Ext.define('Etsy.store.Treasuries', {
     ],
 
     config: {
-        autoLoad: true,
         clearOnPageLoad: false,
         model: 'Etsy.model.Treasury',
         storeId: 'Treasuries'

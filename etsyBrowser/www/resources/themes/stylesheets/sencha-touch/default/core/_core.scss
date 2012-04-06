@@ -99,7 +99,7 @@ input, textarea {
   @include box-align(center);
   @include box-pack(center);
 
-  background: rgba(0,0,0,.2) center center no-repeat;
+  background: rgba(0,0,0,.7) center center no-repeat;
 
   &.x-mask-gray {
     background-color: rgba(0, 0, 0, 0.6);

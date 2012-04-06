@@ -15,7 +15,6 @@ Ext.application({
         'Categories',
         'Navigation',
 		'Treasuries',
-		'FavoriteListings'
     ],
 
     views: [
@@ -23,11 +22,13 @@ Ext.application({
         'SearchPanel',
         'NavPanel',
         'AppPanel',
+        'MainToolbar',
 
 		// other panels
         'HomePanel',
         'CategoriesPanel',
         'TreasuriesPanel',
+		'TreasuryPanel',
         'FavoritesPanel',
         'DetailPanel',
         'CategoryPopupPanel',

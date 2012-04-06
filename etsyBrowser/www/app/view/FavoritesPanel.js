@@ -5,7 +5,12 @@ Ext.define('Etsy.view.FavoritesPanel', {
 	config: {
 		id: 'favoritesPanel',
 		layout: 'card',
-		items: [{
+		items: [
+		{
+            xtype: 'maintoolbar',
+            title: 'Favorites'
+        },
+        {
 			id: 'favoritesCarousel',
 			xtype: 'favoriteslistingsCarousel'
 		}]

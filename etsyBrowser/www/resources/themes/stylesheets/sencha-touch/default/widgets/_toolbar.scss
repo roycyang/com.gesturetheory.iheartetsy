@@ -79,6 +79,7 @@ $include-toolbar-uis: $include-default-uis !default;
     max-width: 100%;
 
     .x-innerhtml {
+	max-width: 500px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

@@ -1,33 +1,46 @@
-::selection {
-    background: none;
-}
-
 #appPanel {
 	-webkit-transform: translate3d(0, 0, 0);
 	-webkit-transition: -webkit-transform 350ms;
-			
+	-webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
+	
 	.x-layout-card-item {
-      background: url(../images/background_x2.png) repeat 0 0;
+/*      background: url(../images/background_x2.png) repeat 0 0;*/
+background: #f4f2dd;
 /*background: #fff;*/
 	}
 	
 }
 
 #homePanel {
-    
+
     .treasury-item-wrapper div>div:nth-of-type(3){
         display: none
     }
     
+    .x-button-plain {
+        padding: 0;
+    }
+    
     #homePanelLeft {
-        background: #f4f2dd;
+    background: url(../images/home_panel_background.png) repeat-x left bottom !important;
+    
+    .browse-categories {
+        background: url(../images/browse_categories_button_1x.png) no-repeat center top !important;
+        height: 52px;
+    }
+    
+    .hottest-treasuries {
+        background: url(../images/hottest_treasuries_button_1x.png) no-repeat center bottom !important;
+        height: 73px;
+
+    }
         
         .x-field { 
             background: none;
         }
         
         #homeSearch{
-            padding: 0px 230px 0;
+            padding: 27px 315px;
 			
 			.x-field-search .x-field-input .x-form-field {
 			margin-left: 40px;
@@ -93,20 +106,10 @@
     background-size: contain;
     background: #46250a;
 
-
-	#navList {
-
+	#signUpButton {
+		height: 90px;
+		background: url(../images/login_button.png) no-repeat 0 0;
 	}
-	
-	#categoriesNestedList {
-		.x-toolbar .x-title{ 
-			font-size: 12px;
-			padding: 5px 20px;
-			height: auto;
-		}
-	}
-
-
 }
 
 #searchPanel {
@@ -120,8 +123,19 @@
 }
 
 #detailPanel {
-    background: url(../images/final/product-detail-popup-background-1x.png) no-repeat 0 0;
-    padding: 7px 11px 4px 15px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0.2em 0.6em;
+    overflow: hidden;
+    
+    #detailPanelInfo {
+        background: #F8F8F2 url(../images/detail-title-bar.png) no-repeat 0 0;
+        box-shadow: 0 0 6px 2px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 10;
+    }
+    
+    #detailPanelCarousel .x-carousel {
+        overflow: hidden;
+    }
     
     .x-button {
         height: 70px;
@@ -182,8 +196,9 @@
             background-size: 10%;
             
             .image {
-				width: 694px;
-				height: 543px;
+                border: 10px solid #fff;
+                width: 679px;
+                height: 562px;
                 background-size: contain;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -212,8 +227,12 @@
 
 
 #treasuriesPanel {
-    .x-innerhtml {
-        padding: 24px 0;
+    
+    #treasuriesCarousel {
+        
+        .x-innerhtml {
+            padding: 24px 0;
+        }
     }
 }
 
@@ -227,6 +246,33 @@
     padding-left: 270px;
     vertical-align: top;
     color: #3F3F3F;
+    
+    &.small-treasury-item {
+        width: 200px;
+        margin: 54px 0 0 37px;
+        padding: 0;
+        
+        .title {
+            font-size: 18px;
+            font-family: georgia;
+            margin-bottom: 4px;
+            height: 54px;
+            overflow: hidden;
+            position: absolute;
+            top: -25px;
+            width: 200px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            left: -2px;
+        }
+        
+        .image-wrapper .image {
+            width: 125px;
+            height: 100px;
+        }
+    }
     
 
 	.open .image-wrapper .image-1 {
@@ -258,9 +304,6 @@
         background-color: white;
         padding: 3px;
         position: absolute;
-	    -webkit-transition: -webkit-transform 350ms, top 350ms, left 350ms;
-	    -webkit-transform: translate3d(0, 0, 0);
-
         
         &.image-1 {
             -webkit-transform: rotate(-5deg);
@@ -570,12 +613,26 @@
     }
 }    
 
+#treasuryCarousel .x-innerhtml div:nth-of-type(16) {
+	display: none;
+}
+
+#treasuryCarousel .product {
+	margin: 20px 11px;
+}
+
 span.count {
+	display: none;
 	float: right;
 	background: brown;
 	font-size: 13px;
 	padding: 2px 5px;
 	border-radius: 7px;
+	
+	.signed-in-flag & {
+		display: block;
+	}
+	
 }
 
 span.arrow {
@@ -634,13 +691,14 @@ span.arrow {
             font-size: 20px;
             font-weight: normal;
             color: #333;
-            padding-top: 0;
+            padding: 11px 10px;
             font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
             height: auto;
+            margin-bottom: 0;
+            white-space: nowrap;
             overflow: hidden;
-            padding-bottom: 20px;
-            background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat left bottom;
-            margin-bottom: 20px;            
+            text-overflow: ellipsis;
+            width: 679px;        
         }
 
 
@@ -657,9 +715,9 @@ span.arrow {
         
         .quantity {
             float: left;
-            margin-left: 26px;
+            margin-left: 18px;
             font-size: 12px;
-            margin-top: 5px;
+            margin-top: 8px;
             color: #666;
             margin-bottom: 20px;
         }
@@ -685,8 +743,12 @@ span.arrow {
         
         .price {
             float: left;
+            margin-left: 18px;
+            margin-top: 2px;
+            padding-right: 23px;
         }
 
+        
 		.x-button-plain {
 
 		}
@@ -718,19 +780,6 @@ span.arrow {
 
 
 
-/* ======================= */
-/* = Popup Cateogry List = */
-/* ======================= */
-
-#categoriesNestedList .x-list-normal .x-list-item .x-list-item-label span  {
-    display: block;
-    background: url(../images/left_arrow.jpg) no-repeat center right;
-    
-    &.x-list-item-leaf {
-        background: url(../images/left_go.jpg) no-repeat center right;
-    }
-     
-}
 
 
 .user-info {

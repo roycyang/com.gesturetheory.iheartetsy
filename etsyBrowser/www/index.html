@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title></title>
+  <title>I Heart Etsy</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
 	<meta charset="utf-8">
@@ -11,6 +11,9 @@
 	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
 	-->
 	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+  <script type="text/javascript" charset="utf-8" src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+	
+
   <script type="text/javascript" charset="utf-8" src="oauth.js"></script>
   <script type="text/javascript" charset="utf-8" src="sha1.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova/cordova-1.5.0.js"></script>
@@ -20,26 +23,16 @@
 	<script type="text/javascript" charset="utf-8" src="ETSY.utils.js"></script>
 	<script type="text/javascript" charset="utf-8" src="authorization.js"></script>
 	<script type="text/javascript">
-
 	var GLOBAL = {
 	  version: '1.0',
-	  "accessTokenKey":"d3ffe7f0b9ccc7f3a69ddc409caadd",
-	  "accessTokenSecret":"b6907cc7ab",
-		name: 'Stephanie Someone',
-		avatar_id: 'http://img1.etsystatic.com/iusa_75x75.7616945.jpg'
+		// 	  "accessTokenKey":"d3ffe7f0b9ccc7f3a69ddc409caadd",
+		// 	  "accessTokenSecret":"b6907cc7ab",
+		// name: 'Stephanie Someone',
+		avatar_id: 'http://img1.etsystatic.com/iusa_75x75.7616945.jpg',
+		signed_in: false
 	      
 	};
-  // 474d5d915c8f448b85d8ccf2ea9d84 : 56b02a1450
 	
-	var oauth;
-	var options = {
-		consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
-		consumerSecret: '2dvoqadnxo',
-    accessTokenKey: GLOBAL.accessTokenKey,
-    accessTokenSecret: GLOBAL.accessTokenSecret
-	};
-
-	oauth = OAuth(options);
 
 	// If you want to prevent dragging, uncomment this section
 	/*

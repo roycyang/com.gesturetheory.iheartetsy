@@ -28,6 +28,7 @@ Ext.application({
         'HomePanel',
         'CategoriesPanel',
         'TreasuriesPanel',
+		'TreasuryPanel',
         'FavoritesPanel',
         'DetailPanel',
         'CategoryPopupPanel',

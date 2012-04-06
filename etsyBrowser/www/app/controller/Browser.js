@@ -9,16 +9,18 @@ Ext.define('Etsy.controller.Browser', {
 			navList: '#navList',
 			appPanel: '#appPanel',
 			categoriesToolbar: '#categoriesToolbar',
+			treasuryToolbar: '#treasuryToolbar',
             //panels
 			homePanel: 'homePanel',
 			treasuriesPanel: 'treasuriesPanel',
+			treasuryPanel: 'treasuryPanel',
 			favoritesPanel: 'favoritesPanel',
 			categoryPopupPanel: 'categoryPopupPanel',
 			categoriesPanel: 'categoriesPanel',
 			
 			homeTreasuriesCarousel: '#homeTreasuriesCarousel',
 			homeCategoriesCarousel: '#homeCategoriesCarousel',
-
+			treasuryCarousel: '#treasuryCarousel',
 			browserCarousel: '#browserCarousel',
 			categoriesToolbar: '#categoriesToolbar',
             treasuriesCarousel: '#treasuriesCarousel',
@@ -249,7 +251,54 @@ Ext.define('Etsy.controller.Browser', {
 	    self.getAppPanel().setActiveItem(self.getHomePanel());
 	},
 
+	loadTreasury: function(treasury_id, title) {
+		GLOBAL.panel = 'treasury';
+        var self = this;
+        
+        Ext.create('Etsy.view.TreasuryPanel');
+        self.getTreasuryPanel().setMasked({
+			xtype: 'loadmask'
+		});
+    
+		self.getAppPanel().getLayout().setAnimation({
+			type: 'slide',
+			duration: 300,
+			direction: 'left'
+		});
+
+
+		self.getAppPanel().add(self.getTreasuryPanel());
+	    self.getAppPanel().setActiveItem(self.getTreasuryPanel());
+            
+		var store = self.listingsStore;
+		//store.getProxy().setExtraParam('category', record.get('name'));
+		delete self.listingsStore.getProxy()._extraParams.tags;
+		delete self.listingsStore.getProxy()._extraParams.keywords;
+		// resetting the store to use our NODE.JS
+		store.getProxy().setUrl('http://50.74.56.194:8888/treasury?treasury=' + treasury_id);
+		self.getTreasuryToolbar().setTitle(title);
+		Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
+		
+		store.load();
+
+		//empty the store before adding the new one
+		var treasuryCarouselStore = self.getTreasuryCarousel().getStore();
+		if (treasuryCarouselStore) {
+		    console.log('updating the store in loadlist');
+			// if there is already a store, then it needs to be updated, not set
+			self.getTreasuryCarousel().updateStore(store);
+		} else {
+		    console.log('add the store in loadlist');
+			self.getTreasuryCarousel().setStore(store);
+		}
+
+        self.getAppPanel().setActiveItem(self.categoriesPanel);     
+        self.getTreasuryCarousel().reset();
+        self.getTreasuryCarousel().setActiveItem(0);
+	},
+	
     loadListings: function(type, record, name, tags) {
+		GLOBAL.panel = 'listings';
 		// Ext.getCmp('browserFullCarouselButton').show();
 		// Ext.getCmp('browserBackButton').show();
         var self = this;

@@ -613,12 +613,26 @@ background: #f4f2dd;
     }
 }    
 
+#treasuryCarousel .x-innerhtml div:nth-of-type(16) {
+	display: none;
+}
+
+#treasuryCarousel .product {
+	margin: 20px 11px;
+}
+
 span.count {
+	display: none;
 	float: right;
 	background: brown;
 	font-size: 13px;
 	padding: 2px 5px;
 	border-radius: 7px;
+	
+	.signed-in-flag & {
+		display: block;
+	}
+	
 }
 
 span.arrow {

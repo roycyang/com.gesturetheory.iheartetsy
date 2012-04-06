@@ -3,7 +3,7 @@ var DATA = {
 };
 
 var GLOBAL = {
-    cacheInMinutes: 60
+    cacheInMinutes: 1000
 };
 
 // ======================

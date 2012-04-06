@@ -5,7 +5,6 @@ Ext.define('Etsy.view.HomePanel', {
     requires: ['Etsy.view.Treasuries'],
     config: {
         title: 'Home',
-        iconCls: 'home',
         id: 'homePanel',
         layout: {
             type: 'hbox'

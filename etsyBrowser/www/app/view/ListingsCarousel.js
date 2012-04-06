@@ -39,6 +39,11 @@ Ext.define('Etsy.view.ListingsCarousel', {
             drag : 'onDragItem' 
         });
         
+        this.element.on({
+            scope: this,
+            dragEnd : 'onDragEnd' 
+        });
+        
         
         // this.getStore().on({
         //     scope: this,
@@ -59,8 +64,49 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     },
 
+onDragEnd: function(e){
+  var element = Ext.get(e.target),
+          store = this.getStore(),
+          id;
+
+	var y_dist = e.deltaY;
+	
+
+      if (!element.hasCls('product')) {
+          element = Ext.get(e.target).parent('.product');
+      }
+      
+      if(element && !this.isDragging){
+          // if(x_dist < 10){
+          //     			
+          //     		}
+          
+          // if (element.hasCls('add-to-favorites')){
+          //  element = Ext.get(e.target).parent('.product');
+          //  
+          //  $('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
+          //             id = Math.abs(element.getAttribute('ref'));
+          //             
+          //  if($('#' + element.id).hasClass('favorite-flag')){
+          // 
+          //  }else{
+          // 
+          //  }
+          //       
+          //  return false;
+          // }
+          
+          var id = Math.abs(element.getAttribute('ref'));
+          var $element = $('#' + element.id);
+          
+
+      $element.css({
+        '-webkit-transform': 'translate3d(0, 0, 0)'
+      });
+    }
+},
 	onDragItem: function(e){
-		// console.log('event', e);
+console.log('event', e);
 		var element = Ext.get(e.target),
             store = this.getStore(),
             id;
@@ -95,21 +141,30 @@ Ext.define('Etsy.view.ListingsCarousel', {
             
             var id = Math.abs(element.getAttribute('ref'));
             var $element = $('#' + element.id);
-			if(y_dist < -10){
-			    if(!$element.hasClass('favorite-flag')){
-			        ETSY.addToFavorites(id);
-                    $element.addClass('favorite-flag');
-			    }
-			}
-
-			if(y_dist >10){
-			    if($element.hasClass('favorite-flag')){
-			        ETSY.removeFromFavorites(id);
-                    $element.removeClass('favorite-flag');
-			    }
-				
-			}
-        }
+            
+      if (y_dist < -1) {
+        $element.css({
+          '-webkit-transform': 'translate3d(0, ' + y_dist + 'px, 0)'
+        });
+      }
+      
+            
+      
+      // if(y_dist < -10){
+      //     if(!$element.hasClass('favorite-flag')){
+      //         ETSY.addToFavorites(id);
+      //                     $element.addClass('favorite-flag');
+      //     }
+      // }
+      // 
+      // if(y_dist >10){
+      //     if($element.hasClass('favorite-flag')){
+      //         ETSY.removeFromFavorites(id);
+      //                     $element.removeClass('favorite-flag');
+      //     }
+      //  
+      // }
+    }
 
 		
 

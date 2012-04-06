@@ -77,6 +77,11 @@
 		cb.onLocationChange = function(loc){ 
 			locChanged(loc); 
 		};
+		
+		setTimeout(function() {
+		    navigator.splashscreen.hide();
+		}, 4000);
+		
 
 
 		

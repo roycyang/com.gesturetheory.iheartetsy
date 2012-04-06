@@ -116,6 +116,9 @@
 		438CB5631526548600C9EBA1 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CB5621526548600C9EBA1 /* TwitterPlugin.m */; };
 		438CB565152654F100C9EBA1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438CB564152654F100C9EBA1 /* Twitter.framework */; };
 		438CB567152655F500C9EBA1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438CB566152655F500C9EBA1 /* Accounts.framework */; };
+		43920D76152F762F00791BDC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 43920D75152F762F00791BDC /* Default-Landscape~ipad.png */; };
+		43920D79152F77A900791BDC /* ipad_retina_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43920D78152F77A900791BDC /* ipad_retina_icon.png */; };
+		43920D7B152F77C000791BDC /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 43920D7A152F77C000791BDC /* Default-Landscape@2x~ipad.png */; };
 		43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE14811520F4E50050CFF0 /* EmailComposer.m */; };
 		43DE14851520F4E50050CFF0 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43DE14821520F4E50050CFF0 /* readme.md */; };
 		43DE14881520F5950050CFF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DE14871520F5950050CFF0 /* MessageUI.framework */; };
@@ -307,6 +310,9 @@
 		438CB5621526548600C9EBA1 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
 		438CB564152654F100C9EBA1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		438CB566152655F500C9EBA1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		43920D75152F762F00791BDC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		43920D78152F77A900791BDC /* ipad_retina_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_retina_icon.png; sourceTree = "<group>"; };
+		43920D7A152F77C000791BDC /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		43DE147F1520F4E50050CFF0 /* EmailComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailComposer.h; sourceTree = "<group>"; };
 		43DE14811520F4E50050CFF0 /* EmailComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailComposer.m; sourceTree = "<group>"; };
 		43DE14821520F4E50050CFF0 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
@@ -352,6 +358,9 @@
 		4352FD4B151D1A4400F75C44 = {
 			isa = PBXGroup;
 			children = (
+				43920D7A152F77C000791BDC /* Default-Landscape@2x~ipad.png */,
+				43920D78152F77A900791BDC /* ipad_retina_icon.png */,
+				43920D75152F762F00791BDC /* Default-Landscape~ipad.png */,
 				438CB566152655F500C9EBA1 /* Accounts.framework */,
 				43825E641526053A006B78F6 /* ipad_icon.png */,
 				4352FDB5151D1A5800F75C44 /* www */,
@@ -1000,6 +1009,9 @@
 				436E2DF1152239D800A73595 /* Localizable.strings in Resources */,
 				436E2DF8152239D800A73595 /* FBConnect.bundle in Resources */,
 				43825E651526053A006B78F6 /* ipad_icon.png in Resources */,
+				43920D76152F762F00791BDC /* Default-Landscape~ipad.png in Resources */,
+				43920D79152F77A900791BDC /* ipad_retina_icon.png in Resources */,
+				43920D7B152F77C000791BDC /* Default-Landscape@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1226,7 +1238,7 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "etsyBrowser/etsyBrowser-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					UIKit,
@@ -1258,7 +1270,7 @@
 				);
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "etsyBrowser/etsyBrowser-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					UIKit,

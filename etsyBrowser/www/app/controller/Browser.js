@@ -69,9 +69,7 @@ Ext.define('Etsy.controller.Browser', {
         self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
         self.detailPanel = Ext.create('Etsy.view.DetailPanel');
         			
-		// initialize the counts
-        ETSY.updateCartInfo();
-        ETSY.updateFavoritesInfo();
+
         
         // all the stores
         self.listingsStore = Ext.data.StoreManager.lookup('Listings');
@@ -176,6 +174,10 @@ Ext.define('Etsy.controller.Browser', {
 			}
             self.selectNavListItem();   
 		} else if (panel == 'cartPanel') {
+			if(!GLOBAL.signed_in){
+				ETSY.alert('Not signed in!');
+				return false;
+			}
 		    try {
 			    window.plugins.childBrowser.showWebPage("http://www.etsy.com/cart");
 			} catch(err) {
@@ -187,10 +189,10 @@ Ext.define('Etsy.controller.Browser', {
     	    ETSY.confirm("Are you sure you want to sign out?", function(buttonId) {
 
     			if (buttonId == 'yes' || buttonId == '1') {
-                    console.log('sign them out!')
-    			} else {
-
-    			}
+                    localStorage.removeItem('accessTokenKey');
+				    localStorage.removeItem('accessTokenSecret');
+					ETSY.toggleSignIn();
+    			} 
     		});
 			
             self.selectNavListItem();
@@ -337,6 +339,10 @@ Ext.define('Etsy.controller.Browser', {
 	},
 
 	loadFavorites: function() {
+		if(!GLOBAL.signed_in){
+			ETSY.alert('Not signed in!');
+			return false;
+		}
 		var self = this;
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.FavoritesPanel');    
@@ -345,7 +351,7 @@ Ext.define('Etsy.controller.Browser', {
 			xtype: 'loadmask'
 		});
 
-		oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100', function(data) {
+		GLOBAL.oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100', function(data) {
 
 			var data = JSON.parse(data.text);
 			var listingIds = [];
@@ -353,7 +359,7 @@ Ext.define('Etsy.controller.Browser', {
 				listingIds.push(data.results[i].listing_id);
 			}
 			console.log('listings ids are', listingIds.length);
-			oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6', function(data) {
+			GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6', function(data) {
 				var data = JSON.parse(data.text);
 				var store = self.listingsStore;
 				store.removeAll();

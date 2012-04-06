@@ -1,19 +1,23 @@
 var ETSY = {
 	toggleSignIn: function(signed_in){
 		if(localStorage['accessTokenKey'] || signed_in){
-			var oauth;
-			var options = {
+			if(!GLOBAL.oauth){
+				GLOBAL.oauth;
+			}
+			options = {
 				consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
 				consumerSecret: '2dvoqadnxo',
 		    accessTokenKey: localStorage['accessTokenKey'],
 		    accessTokenSecret: localStorage['accessTokenSecret']
 			};
-			oauth = OAuth(options);
+			GLOBAL.oauth = OAuth(options);
 			GLOBAL.signed_in = true;
 			Ext.getCmp('userInformation').show();
 			Ext.getCmp('signUpButton').hide();
 			//Ext.getCmp('signUpButton').hide();
-			$('.sign-out-link').parents('.x-list-item').show();			
+			$('.sign-out-link').parents('.x-list-item').show();
+			ETSY.updateCartInfo();
+	        ETSY.updateFavoritesInfo();			
 		}else{
 			GLOBAL.signed_in = false;
 			Ext.getCmp('userInformation').hide();
@@ -23,7 +27,6 @@ var ETSY = {
 		}
 	},
 	initAuthorization: function(){
-
 		var mask = Ext.Viewport.add({
 			masked: {
 				xtype: 'loadmask',
@@ -70,7 +73,7 @@ var ETSY = {
 		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
-		oauth.post(url, {}, function(data) {
+		GLOBAL.oauth.post(url, {}, function(data) {
 		    
 			console.log(data);
 			ETSY.updateFavoritesInfo();
@@ -91,7 +94,7 @@ var ETSY = {
 		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id + '?method=DELETE';
-		oauth.post(url, {}, function(data) {
+		GLOBAL.oauth.post(url, {}, function(data) {
 			ETSY.updateFavoritesInfo();
 			if (msg) {
 				ETSY.alert(msg);
@@ -114,7 +117,7 @@ var ETSY = {
 			var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100';
 		}
 		
-		oauth.get(url, function(data) {
+		GLOBAL.oauth.get(url, function(data) {
 			var data = JSON.parse(data.text);
 			
 			var listingIds = [];
@@ -153,7 +156,7 @@ var ETSY = {
 		}
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
-		oauth.post(url, {
+		GLOBAL.oauth.post(url, {
 			'listing_id': id
 		},
 		function(data) {
@@ -176,7 +179,7 @@ var ETSY = {
 		console.log('id is ' + id);
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts?method=DELETE';
 
-		oauth.post(url, {
+		GLOBAL.oauth.post(url, {
 			'listing_id': id
 		},
 		function(data) {
@@ -199,7 +202,7 @@ var ETSY = {
 		}
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
 		
-		oauth.get(url, 
+		GLOBAL.oauth.get(url, 
 		function(data) {
 		    // adding this to my cart!
             // console.log(JSON.parse(data.text));

@@ -28,6 +28,7 @@ var ETSY = {
 			//Ext.getCmp('signUpButton').show();
 		}
 	},
+	
 	initAuthorization: function(){
 		var mask = Ext.Viewport.add({
 			masked: {
@@ -66,12 +67,17 @@ var ETSY = {
 	},
 	
 	askForSignIn: function(msg){
-		ETSY.confirm(msg);
-		
+		ETSY.confirm(msg, function(buttonId) {
+
+		if (buttonId == 'yes' || buttonId == '1') {
+      ETSY.initAuthorization();
+		} 
+	});
 	},
-	addToFavorites: function(id, msg) {
+	
+	addToFavorites: function(id, element) {
 		if(!GLOBAL.signed_in){
-			ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+			ETSY.askForSignIn('You are trying to favorite an item, would you like to sign in?');
 			return false;
 		}
 		console.log('id is ' + id);
@@ -80,18 +86,17 @@ var ETSY = {
 		    
 			console.log(data);
 			ETSY.updateFavoritesInfo();
-			if (msg) {
-				ETSY.alert(msg);
-			}
 		},
 		function(data) {
 			// ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+    // element.removeClass('processing-favorite');
+    element.addClass('favorite-flag');
 		
 
 	},
 	
-	removeFromFavorites: function(id, msg) {
+	removeFromFavorites: function(id, element) {
 		if(!GLOBAL.signed_in){
 			return false;
 		}
@@ -99,13 +104,12 @@ var ETSY = {
 		var url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id + '?method=DELETE';
 		GLOBAL.oauth.post(url, {}, function(data) {
 			ETSY.updateFavoritesInfo();
-			if (msg) {
-				ETSY.alert(msg);
-			}
 		},
 		function(data) {
             // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+    // element.removeClass('processing-favorite');
+    element.addClass('favorite-flag');
 
 	},
 	
@@ -152,7 +156,7 @@ var ETSY = {
 		});
 	},
 
-	addToCart: function(id, msg) {
+	addToCart: function(id, element) {
 		if(!GLOBAL.signed_in){
 			ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
 			return false;
@@ -164,18 +168,16 @@ var ETSY = {
 		},
 		function(data) {
 			ETSY.updateCartInfo();
-		    // adding this to my cart!
-			console.log(data);
-			if (msg) {
-				ETSY.alert(msg);
-			}
+      // adding this to my cart!
 		},
 		function(data) {
             // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+		
+    element.addClass('cart-flag');
 	},
 	
-	removeFromCart: function(id, msg) {
+	removeFromCart: function(id, element) {
 		if(!GLOBAL.signed_in){
 			ETSY.askForSignIn();
 		}
@@ -186,16 +188,14 @@ var ETSY = {
 			'listing_id': id
 		},
 		function(data) {
+	    // adding this to my cart!
 			ETSY.updateCartInfo();
-		    // adding this to my cart!
-			console.log(data);
-			if (msg) {
-				ETSY.alert(msg);
-			}
 		},
 		function(data) {
             // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+		console.log('removing from cart!');
+    element.removeClass('cart-flag');
 	},
 	
 	updateCartInfo: function(){
@@ -234,7 +234,8 @@ var ETSY = {
 		try {
 			navigator.notification.alert(msg);
 		} catch(err) {
-			alert(msg);
+			var msg = Ext.Msg.alert('Alert', msg);
+			msg.setZIndex(100000000);
 		}
 	},
 	

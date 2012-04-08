@@ -661,8 +661,14 @@ span.arrow {
 	    color: red;
 	    font-size: 14px;
 	}
-	
+
+	.cart-pressed-flag & {
+	  background: #78C042;
+	  color: #fff;
+	}
 }
+
+
 
 
 

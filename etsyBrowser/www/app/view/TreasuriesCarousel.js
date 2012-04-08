@@ -13,10 +13,10 @@ Ext.define('Etsy.view.TreasuriesCarousel', {
         var me = this;
 
         if (newStore.isLoading()) {
-            me.setMasked({
-                xtype: 'loadmask',
-                message: 'Loading Treasuries...'
-            });
+            // me.setMasked({
+            //      xtype: 'loadmask',
+            //      message: 'Loading Treasuries...'
+            //  });
             
             // this is when the store updates, we can update the max index.
             // newStore.on('refresh', function() {
@@ -40,7 +40,18 @@ Ext.define('Etsy.view.TreasuriesCarousel', {
             // this is when the store loads for the first time
             newStore.on('load', function() {
                 //console.log('\n\n\n\n\n\nin the newstore.load');
-                me.setMasked(false);
+                // me.setMasked(false);
+                
+                if (APP.getTreasuriesPanel()) {
+                    APP.getTreasuriesPanel().unmask();
+                }
+                
+                if (APP.getHomePanel()) {
+                    APP.getHomePanel().unmask();
+                }
+                if(newStore.data.length == 0){
+                  ETSY.alert('There is a problem connecting, please try again later');
+                }
 
                 me.updateStore(newStore);
             }, me, {

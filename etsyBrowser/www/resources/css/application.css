@@ -611,16 +611,21 @@ span.arrow {
   color: red;
   font-size: 14px;
 }
+/* line 665, ../sass/application.scss */
+.cart-pressed-flag .price {
+  background: #78C042;
+  color: #fff;
+}
 
-/* line 672, ../sass/application.scss */
+/* line 678, ../sass/application.scss */
 .product-view .x-body {
   overflow: visible;
 }
-/* line 676, ../sass/application.scss */
+/* line 682, ../sass/application.scss */
 .product-view .x-docking-horizontal {
   overflow: hidden;
 }
-/* line 680, ../sass/application.scss */
+/* line 686, ../sass/application.scss */
 .product-view .description {
   background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
   border: none;
@@ -629,7 +634,7 @@ span.arrow {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(323px, 0, 0);
 }
-/* line 689, ../sass/application.scss */
+/* line 695, ../sass/application.scss */
 .product-view .name {
   line-height: 25px;
   font-size: 20px;
@@ -644,7 +649,7 @@ span.arrow {
   text-overflow: ellipsis;
   width: 679px;
 }
-/* line 706, ../sass/application.scss */
+/* line 712, ../sass/application.scss */
 .product-view .text {
   padding-top: 20px;
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
@@ -653,7 +658,7 @@ span.arrow {
   line-height: 18px;
   padding-bottom: 30px;
 }
-/* line 716, ../sass/application.scss */
+/* line 722, ../sass/application.scss */
 .product-view .quantity {
   float: left;
   margin-left: 18px;
@@ -662,7 +667,7 @@ span.arrow {
   color: #666;
   margin-bottom: 20px;
 }
-/* line 726, ../sass/application.scss */
+/* line 732, ../sass/application.scss */
 .product-view .shipping,
 .product-view .seller {
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
@@ -671,7 +676,7 @@ span.arrow {
   padding: 20px 0;
   color: #666;
 }
-/* line 734, ../sass/application.scss */
+/* line 740, ../sass/application.scss */
 .product-view img {
   /*            background-size: contain;
               background-repeat: no-repeat;
@@ -681,7 +686,7 @@ span.arrow {
   display: block;
   margin: 0 auto;
 }
-/* line 744, ../sass/application.scss */
+/* line 750, ../sass/application.scss */
 .product-view .price {
   float: left;
   margin-left: 18px;
@@ -689,7 +694,7 @@ span.arrow {
   padding-right: 23px;
 }
 
-/* line 762, ../sass/application.scss */
+/* line 768, ../sass/application.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -709,12 +714,12 @@ span.arrow {
   text-decoration: none;
 }
 
-/* line 777, ../sass/application.scss */
+/* line 783, ../sass/application.scss */
 .products a {
   margin-top: 0;
 }
 
-/* line 785, ../sass/application.scss */
+/* line 791, ../sass/application.scss */
 .user-info {
   padding: 20px 20px;
   font-size: 15px;
@@ -722,7 +727,7 @@ span.arrow {
   line-height: 50px;
   overflow: hidden;
 }
-/* line 792, ../sass/application.scss */
+/* line 798, ../sass/application.scss */
 .user-info img {
   height: 50px;
   margin-right: 15px;

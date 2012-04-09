@@ -4,8 +4,14 @@ Ext.define('Etsy.view.CategoriesPanel', {
     config: {
         title: 'Categories',
         id: 'categoriesPanel',
-        layout: 'hbox',
+        layout: 'vbox',
         items: [
+        {
+          hidden: true,
+            xtype: 'searchfield',
+            id: 'searchSearch',
+            placeHolder: 'Search Etsy'
+        },
         {
             xtype: 'maintoolbar',
             title: 'Categories',
@@ -16,8 +22,9 @@ Ext.define('Etsy.view.CategoriesPanel', {
             id: 'leftArrow',
             width: 46,
             left: 0,
-            top: 320,
-            height: 51,
+            hidden: true,
+            top: 0,
+            height: 701,
             ui: 'plain',
             listeners: {
               tap: function(){
@@ -37,8 +44,8 @@ Ext.define('Etsy.view.CategoriesPanel', {
             right: 0,
             ui: 'plain',
             width: 49,
-            top: 320,
-            height: 51,
+            top: 0,
+            height: 701,
             listeners: {
               tap: function(){
 

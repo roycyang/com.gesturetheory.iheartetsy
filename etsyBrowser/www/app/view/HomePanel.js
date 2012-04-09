@@ -24,7 +24,12 @@ Ext.define('Etsy.view.HomePanel', {
 
                 xtype: 'searchfield',
                 id: 'homeSearch',
-                placeHolder: 'Search Etsy'
+                placeHolder: 'Search Etsy',
+                listeners: {
+                  keyup: function(textfield, e, options){
+                    APP.onSearchKeyup(textfield, e, options);
+                  }
+                }
             },
             {   
                 xtype: 'button',

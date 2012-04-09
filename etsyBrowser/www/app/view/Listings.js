@@ -11,7 +11,7 @@ Ext.define('Etsy.view.Listings', {
           '<tpl for="items">',
               '{% if (xindex < 13) { %}',
                   '<div class="product <tpl if="data.in_cart"> cart-flag</tpl> <tpl if="data.in_favorites"> favorite-flag</tpl>" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
-                      '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div></div>',
+                      '<div class="image" style="background-image:url({data.image.thumb});"></div>',
                       '<div class="name">{data.title}</div>',
   		                '<tpl if="data.state == \'sold_out\'">',
                           '<div class="sold price">SOLD</div>',

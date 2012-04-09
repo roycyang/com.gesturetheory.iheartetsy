@@ -119,6 +119,9 @@ Ext.define('Etsy.view.ListingsCarousel', {
    * @param {Object} event Event object
    */
   onDragItem: function (event) {
+    if(!GLOBAL.signed_in){
+      return false;
+    }
     var $element  = $(event.target),
       store       = this.getStore(),
       yDist       = event.deltaY,
@@ -136,7 +139,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     id = $element.attr('ref');
 
-    if (yDist > 2 && !$element.hasClass('favoriting') && $element && !this.isDragging && this.productDragging === $element.attr('ref')) {
+    if (yDist > 0 && !$element.hasClass('favoriting') && $element && !this.isDragging && this.productDragging === $element.attr('ref')) {
       // Move the element with the drag coords.
       $element.css('-webkit-transform', 'translate3d(0, ' + yDist + 'px, 0)');
 
@@ -171,25 +174,8 @@ Ext.define('Etsy.view.ListingsCarousel', {
       store = this.getStore(),
       title,
       id;
-
-    // test to see if the target was add to favoirtes or pinterest
-    // if (element.hasCls('add-to-favorites')){
-    //  element = Ext.get(e.target).parent('.product');
-    //
-    //  $('#' + element.id + ' .image').css("-webkit-transform", "translate3d(0,0px,0)");
-    //             id = Math.abs(element.getAttribute('ref'));
-    //
-    //  if($('#' + element.id).hasClass('favorite-flag')){
-    //      ETSY.removeFromFavorites(id);
-    //              $('#' + element.id).removeClass('favorite-flag');
-    //  }else{
-    //      ETSY.addToFavorites(id);
-    //              $('#' + element.id).addClass('favorite-flag');
-    //  }
-    //
-    //  return false;
-    // }
-    //
+    
+    // tapped on homepage category item
     if (Ext.get(e.target).parent('.category-index-item')) {
       element = Ext.get(e.target).parent('.category-index-item');
       title = $('#' + element.id + ' .title').html();
@@ -200,29 +186,17 @@ Ext.define('Etsy.view.ListingsCarousel', {
       return false;
     }
     
+    // tapped on a treasury item
     if (Ext.get(e.target).parent('.treasury-item')) {
       element = Ext.get(e.target).parent('.treasury-item');
       title = $('#' + element.id + ' .title').html();
       id = element.getAttribute('rel');
       APP.loadTreasury(id, title);
-
-      // // console.log('id is', id);
-      //             // console.log('store is', store);
-      //             console.log('id is', id);
-      //             record = store.getAt(store.findExact('internalId', id));
-      //             console.log('record', record);
-      //
-      //             self.getAppPanel().setActiveItem(self.categoriesPanel);
-      //             self.loadListings('treasury', record);
-      //             setTimeout(function(){
-      //                 self.getNavList().select(2);
-      //             }, 350);
       return false;
     }
     
-
-
-    if (element.hasCls('favorite-stamp')) {
+    // signed in and tapped on the favorite stamp (price area)
+    if (element.hasCls('favorite-stamp') && GLOBAL.signed_in) {
       var element = Ext.get(e.target).parent('.product'),
         id        = Math.abs(element.getAttribute('ref')),
         $element = $('#' + element.id);
@@ -234,17 +208,17 @@ Ext.define('Etsy.view.ListingsCarousel', {
     // if not, then set it to the product and open it up!
     if (!element.hasCls('product')) {
       element = Ext.get(e.target).parent('.product');
-    }
-
-    // if there actually is an element, then we tapped on a product
-    if (element) {
-      id = Math.abs(element.getAttribute('ref'));
-      // console.log('id is', id);
-      // console.log('store is', store);
-      record = store.getAt(store.findExact('id', id));
-      // console.log('record', record);
-      if (record) {
-        this.fireEvent('itemtap', this, record);
+      
+      // if there actually is an element, then we tapped on a product
+      if (element) {
+        id = Math.abs(element.getAttribute('ref'));
+        // console.log('id is', id);
+        // console.log('store is', store);
+        record = store.getAt(store.findExact('id', id));
+        // console.log('record', record);
+        if (record) {
+          this.fireEvent('itemtap', this, record);
+        }
       }
     }
 
@@ -263,16 +237,30 @@ Ext.define('Etsy.view.ListingsCarousel', {
           var max = parseInt(storeCount / me.getCount());
           setTimeout(function () {
             me.setMaxItemIndex(max - 1);
-          }, 1000);
-
+          }, 100);
+          
+          if(Ext.getCmp('rightArrow')){
+              console.log('active index', me.getActiveIndex());
+              if(me.getActiveIndex() < max){
+                Ext.getCmp('rightArrow').show();
+              }
+          }
+          
           if (storeCount == 100) {
             newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+          }
+          
+          if (storeCount == 0) {
+            ETSY.alert('There are no results! Please try again');
+            APP.loadHomePanel();
+            return false;
           }
         });
       }
 
       // this is when the store loads for the first time
       newStore.on('load', function () {
+        
         if (APP.getCategoriesPanel()) {
           APP.getCategoriesPanel().unmask();
         }
@@ -305,11 +293,30 @@ Ext.define('Etsy.view.ListingsCarousel', {
         store.nextPage();
       }
 
+
       var startIndex = (index) * (count) + 1,
         endIndex     = startIndex + (count - 1),
         max          = parseInt(storeCount / (count));
 
       this.setMaxItemIndex(max - 1);
+      
+      console.log('index is', index, max);
+      if(Ext.getCmp('leftArrow')){
+        if(index == 0){
+          Ext.getCmp('leftArrow').hide();
+        }else{
+          Ext.getCmp('leftArrow').show();
+        } 
+      }
+      
+      if(Ext.getCmp('rightArrow')){
+        if(index == (max - 1)){
+          Ext.getCmp('rightArrow').hide();
+        }else{
+          Ext.getCmp('rightArrow').show();
+        } 
+      }
+
     }
   },
 

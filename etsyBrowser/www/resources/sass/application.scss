@@ -468,28 +468,28 @@
 }
 
 #leftArrow {
-  background: url('../images/left_arrow_off.png') no-repeat 0 0;
+  background: url('../images/left_arrow_off.png') no-repeat left center;
   background-size: contain;
   border-radius: 0;
   
   &.x-button-pressing {
-      background: url('../images/left_arrow_on.png') no-repeat 0 0;
+      background-image: url('../images/left_arrow_on.png');
   }
 }
 
 #rightArrow {
-  background: url('../images/right_arrow_off.png') no-repeat 0 0;
+  background: url('../images/right_arrow_off.png') no-repeat left center;
   background-size: contain;
   border-radius: 0;
   
   &.x-button-pressing {
-      background: url('../images/right_arrow_on.png') no-repeat 0 0;
+      background-image: url('../images/right_arrow_on.png');
   }
 }
 .products {
     
     .x-innerhtml {
-        padding: 45px 0 0 60px;
+        padding: 45px 0 0 72px;
       }
     
 
@@ -541,43 +541,21 @@
         height: 178px;
         width: 182px;
         padding: 0;
-        margin: 0 59px 38px 0;
+        margin: 0 50px 38px 0;
         padding: 5px;
         border: 1px solid #EAE9E1;
-        /*-moz-box-shadow: 0 0 5px #888;
-        -webkit-box-shadow: 0 0 5px#888;
-        box-shadow: 0 0 2px #888;*/
+
         border-radius: 4px;
-		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+		    font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
     
         &.category{
             margin: 35px;
-			float: none;
+			      float: none;
         }
 
-
-
-		.image-wrapper {
+		.image {
 			height: 135px;
 			width: 170px;
-			background-color: black;
-            background-repeat: no-repeat;
-            background-position: 0 0;
-			overflow: hidden;
-			position: relative;
-		
-			.image {
-				position: relative;
-				z-index: 10;
-				height: 135px;
-				width: 170px;
-				background-color: black;
-	            background-repeat: no-repeat;
-	            background-position: 0 0;
-
-			    -webkit-transition: -webkit-transform 250ms;
-			    -webkit-transform: translate3d(0, 0, 0);
-	        }
 
 			.actions {
 				bottom: 0px;

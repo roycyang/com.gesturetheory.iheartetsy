@@ -44,11 +44,6 @@ Ext.define('Etsy.controller.Browser', {
         keyup: 'onSearchKeyup',
       },
 
-      "#homeSearch": {
-        keyup: 'onSearchKeyup',
-      },
-
-
     },
   },
 

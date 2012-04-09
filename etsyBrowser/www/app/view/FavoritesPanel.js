@@ -12,7 +12,7 @@ Ext.define('Etsy.view.FavoritesPanel', {
         },
         {
 			id: 'favoritesCarousel',
-			xtype: 'favoriteslistingsCarousel'
+			xtype: 'listingsCarousel'
 		}]
 	}
 

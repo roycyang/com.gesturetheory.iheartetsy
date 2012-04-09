@@ -28,14 +28,12 @@ Ext.application({
         'HomePanel',
         'CategoriesPanel',
         'TreasuriesPanel',
-		'TreasuryPanel',
+		    'TreasuryPanel',
         'FavoritesPanel',
         'DetailPanel',
         'CategoryPopupPanel',
         'ListingsCarousel',
         'Listings',
-        'FavoriteListingsCarousel',
-        'FavoriteListings'
     ],
 
     name: 'Etsy',

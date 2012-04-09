@@ -1,7 +1,6 @@
 Ext.define('Etsy.view.SmallTreasuries', {
     extend: 'Ext.Component',
     xtype: 'treasuries',
- 
 
     config: {
         baseCls: 'treasury-item-wrapper',

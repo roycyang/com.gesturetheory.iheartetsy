@@ -55,7 +55,12 @@ function completeAuthorization(loc) {
 			} else {
 				name = info.results[0].login_name;
 			}
-			localStorage.setItem('name', name);
+            
+            localStorage.setItem('name', name);
+			if(info.results[0].Profile.image_url_75x75){
+                localStorage.setItem('avatar', info.results[0].Profile.image_url_75x75);    
+			}
+
 
 			// 
 			// console.log(info);

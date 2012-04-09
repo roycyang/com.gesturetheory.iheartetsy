@@ -8,13 +8,11 @@ Ext.define('Etsy.view.NavPanel', {
 		width: 288,
 		height: 748,
 		top: 0,
-		hidden: true,
 		left: 0,
 
 		items: [
 			{
 				id: 'userInformation',
-		    	html: '<div class="user-info"><img src="' + GLOBAL.avatar_id + '" />' + localStorage.name + '</div>',
 				hidden: true,
 			},
 			{

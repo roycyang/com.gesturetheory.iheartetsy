@@ -64,9 +64,9 @@ Ext.define('Etsy.controller.Browser', {
     });
     
     // set up persistent panels
-    self.mainView.add(Ext.create('Etsy.view.AppPanel'));
     self.mainView.add(Ext.create('Etsy.view.NavPanel'));
     self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
+    self.mainView.add(Ext.create('Etsy.view.AppPanel'));
     self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
     self.detailPanel = Ext.create('Etsy.view.DetailPanel');
 

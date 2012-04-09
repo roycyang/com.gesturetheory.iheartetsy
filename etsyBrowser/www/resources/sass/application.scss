@@ -4,9 +4,7 @@
 	-webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
 	
 	.x-layout-card-item {
-/*      background: url(../images/background_x2.png) repeat 0 0;*/
-background: #f4f2dd;
-/*background: #fff;*/
+      background: url(../images/background_x2.png) repeat 0 0;
 	}
 	
 }
@@ -113,8 +111,9 @@ background: #f4f2dd;
 }
 
 #searchPanel {
-    background: url(../images/right_rail_background.png) no-repeat 0 0;
-    background-size: contain;
+/*    background: url(../images/right_rail_background.png) no-repeat 0 0;
+    background-size: contain;*/
+    background: #46250a;
     -webkit-transition: -webkit-transform 350ms;
     
     .x-layout-card-item {

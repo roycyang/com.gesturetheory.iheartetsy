@@ -13,6 +13,8 @@ var ETSY = {
 			};
 			GLOBAL.oauth = OAuth(options);
 			GLOBAL.signed_in = true;
+			
+			Ext.getCmp('userInformation').setHtml('<div class="user-info"><img src="' + localStorage.avatar + '" />' + localStorage.name + '</div>');
 			Ext.getCmp('userInformation').show();
 			Ext.getCmp('signUpButton').hide();
 			//Ext.getCmp('signUpButton').hide();

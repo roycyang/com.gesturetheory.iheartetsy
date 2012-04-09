@@ -9,5 +9,6 @@ Ext.define('Etsy.store.Listings', {
         model: 'Etsy.model.Listing',
         storeId: 'Listings',
         pageSize: 100,
-    }
+    },
+
 });

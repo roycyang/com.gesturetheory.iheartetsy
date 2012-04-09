@@ -25,12 +25,12 @@
 }
 /* line 27, ../sass/application.scss */
 #homePanel #homePanelLeft .browse-categories {
-  background: url(../images/browse_categories_button_1x.png) no-repeat center top !important;
+  background: url(../images/browse_categories_button_1x.png?1) no-repeat center top !important;
   height: 52px;
 }
 /* line 32, ../sass/application.scss */
 #homePanel #homePanelLeft .hottest-treasuries {
-  background: url(../images/hottest_treasuries_button_1x.png) no-repeat center bottom !important;
+  background: url(../images/hottest_treasuries_button_1x.png?1) no-repeat center bottom !important;
   height: 73px;
 }
 /* line 38, ../sass/application.scss */
@@ -647,16 +647,21 @@ span.arrow {
   color: red;
   font-size: 14px;
 }
+/* line 702, ../sass/application.scss */
+.cart-pressed-flag .price {
+  background: #78C042;
+  color: #fff;
+}
 
-/* line 709, ../sass/application.scss */
+/* line 715, ../sass/application.scss */
 .product-view .x-body {
   overflow: visible;
 }
-/* line 713, ../sass/application.scss */
+/* line 719, ../sass/application.scss */
 .product-view .x-docking-horizontal {
   overflow: hidden;
 }
-/* line 717, ../sass/application.scss */
+/* line 723, ../sass/application.scss */
 .product-view .description {
   background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
   border: none;
@@ -665,7 +670,7 @@ span.arrow {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(323px, 0, 0);
 }
-/* line 726, ../sass/application.scss */
+/* line 732, ../sass/application.scss */
 .product-view .name {
   line-height: 25px;
   font-size: 20px;
@@ -680,7 +685,7 @@ span.arrow {
   text-overflow: ellipsis;
   width: 679px;
 }
-/* line 743, ../sass/application.scss */
+/* line 749, ../sass/application.scss */
 .product-view .text {
   padding-top: 20px;
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
@@ -689,7 +694,7 @@ span.arrow {
   line-height: 18px;
   padding-bottom: 30px;
 }
-/* line 753, ../sass/application.scss */
+/* line 759, ../sass/application.scss */
 .product-view .quantity {
   float: left;
   margin-left: 18px;
@@ -698,7 +703,7 @@ span.arrow {
   color: #666;
   margin-bottom: 20px;
 }
-/* line 763, ../sass/application.scss */
+/* line 769, ../sass/application.scss */
 .product-view .shipping,
 .product-view .seller {
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
@@ -707,7 +712,7 @@ span.arrow {
   padding: 20px 0;
   color: #666;
 }
-/* line 771, ../sass/application.scss */
+/* line 777, ../sass/application.scss */
 .product-view img {
   /*            background-size: contain;
               background-repeat: no-repeat;
@@ -717,7 +722,7 @@ span.arrow {
   display: block;
   margin: 0 auto;
 }
-/* line 781, ../sass/application.scss */
+/* line 787, ../sass/application.scss */
 .product-view .price {
   float: left;
   margin-left: 18px;
@@ -725,7 +730,7 @@ span.arrow {
   padding-right: 23px;
 }
 
-/* line 799, ../sass/application.scss */
+/* line 805, ../sass/application.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -745,12 +750,12 @@ span.arrow {
   text-decoration: none;
 }
 
-/* line 814, ../sass/application.scss */
+/* line 820, ../sass/application.scss */
 .products a {
   margin-top: 0;
 }
 
-/* line 822, ../sass/application.scss */
+/* line 828, ../sass/application.scss */
 .user-info {
   padding: 20px 20px;
   font-size: 15px;
@@ -758,7 +763,7 @@ span.arrow {
   line-height: 50px;
   overflow: hidden;
 }
-/* line 829, ../sass/application.scss */
+/* line 835, ../sass/application.scss */
 .user-info img {
   height: 50px;
   margin-right: 15px;

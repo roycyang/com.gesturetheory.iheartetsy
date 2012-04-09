@@ -25,12 +25,12 @@ background: #f4f2dd;
     background: url(../images/home_panel_background.png) repeat-x left bottom !important;
     
     .browse-categories {
-        background: url(../images/browse_categories_button_1x.png) no-repeat center top !important;
+        background: url(../images/browse_categories_button_1x.png?1) no-repeat center top !important;
         height: 52px;
     }
     
     .hottest-treasuries {
-        background: url(../images/hottest_treasuries_button_1x.png) no-repeat center bottom !important;
+        background: url(../images/hottest_treasuries_button_1x.png?1) no-repeat center bottom !important;
         height: 73px;
 
     }
@@ -698,8 +698,14 @@ span.arrow {
 	    color: red;
 	    font-size: 14px;
 	}
-	
+
+	.cart-pressed-flag & {
+	  background: #78C042;
+	  color: #fff;
+	}
 }
+
+
 
 
 

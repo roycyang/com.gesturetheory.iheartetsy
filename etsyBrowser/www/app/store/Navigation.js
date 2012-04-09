@@ -24,8 +24,8 @@ Ext.define('Etsy.store.Navigation', {
            { title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: 'Navigation'  , panel: 'cartPanel'},
            { title: 'Feedback',  type: 'Navigation'  , panel: 'feedback'},
            { title: '<div class="sign-out-link">Sign Out</div>',  type: 'Navigation'  , panel: 'signout'},
-           { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'bookmarkedCategory', short_name: 'Art', name: 'art'},
-           { title: 'Weddings',  type: 'Bookmarked Categories', panel: 'bookmarkedCategory', short_name: 'Weddings', name: 'weddings'},
+           // { title: 'Art',  type: 'Bookmarked Categories'  , panel: 'bookmarkedCategory', short_name: 'Art', name: 'art'},
+           // { title: 'Weddings',  type: 'Bookmarked Categories', panel: 'bookmarkedCategory', short_name: 'Weddings', name: 'weddings'},
        ]
     }
 

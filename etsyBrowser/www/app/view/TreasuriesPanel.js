@@ -5,7 +5,7 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 	requires: ['Etsy.view.TreasuriesCarousel'],
 
 	config: {
-		title: 'Treasuries',
+		title: 'Hottest Treasuries',
 		id: 'treasuriesPanel',
 		layout: 'card',
 		items: [

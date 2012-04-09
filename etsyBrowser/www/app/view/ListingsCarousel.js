@@ -264,7 +264,6 @@ Ext.define('Etsy.view.ListingsCarousel', {
     // console.log('update the store', newStore);
     var me = this;
 
-    if (newStore.isLoading()) {
 
       if (GLOBAL.panel != 'treasury') {
         // this is when the store updates, we can update the max index.
@@ -337,7 +336,9 @@ Ext.define('Etsy.view.ListingsCarousel', {
       return;
     }
 
-    startIndex = index * count;
+        if (!store) {
+            return;
+        }
 
     if (count > 1) {
       endIndex = startIndex + count;
@@ -354,4 +355,5 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     item.setRecords(records);
   }
+
 });

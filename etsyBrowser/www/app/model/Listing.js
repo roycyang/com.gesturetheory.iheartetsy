@@ -16,6 +16,8 @@ Ext.define('Etsy.model.Listing', {
             'url',
 			'price',
 			'state',
+			'in_cart',
+			'in_favorites',
 			
 			{
 	            name: 'rounded_price',

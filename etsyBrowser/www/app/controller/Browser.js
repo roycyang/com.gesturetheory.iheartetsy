@@ -323,9 +323,11 @@ Ext.define('Etsy.controller.Browser', {
     self.getAppPanel().setActiveItem(self.getCategoriesPanel());
 
     var store = self.listingsStore;
-    //store.removeAll();
+    store.removeAll();
+    self.getBrowserCarousel().reset();
     switch (type) {
     case 'category':
+
       //store.getProxy().setExtraParam('category', record.get('name'));
       delete self.listingsStore.getProxy()._extraParams.tags;
       delete self.listingsStore.getProxy()._extraParams.keywords;
@@ -336,19 +338,19 @@ Ext.define('Etsy.controller.Browser', {
       self.getNavList().select(1);
       GLOBAL.previousNavItemIndex = 1;
       break;
-    case 'tags':
-      delete self.listingsStore.getProxy()._extraParams.keywords;
-      store.getProxy().setExtraParam('tags', tags);
-      store.getProxy().setExtraParam('category', record.get('name'));
-      store.getProxy().setUrl('http://50.74.56.194:8888/categories');
-      self.getNavList().select(1);
-      GLOBAL.previousNavItemIndex = 1;
-      // resetting the store to use our NODE.JS
-      // store.getProxy().setUrl('http://50.74.56.194:8888/art');
-      console.log('record is', record);
-      self.getCategoriesToolbar().setTitle(name);
-      Ext.getCmp('globalSearch').setPlaceHolder('Search ' + name);
-      break;
+    // case 'tags':
+    //   delete self.listingsStore.getProxy()._extraParams.keywords;
+    //   store.getProxy().setExtraParam('tags', tags);
+    //   store.getProxy().setExtraParam('category', record.get('name'));
+    //   store.getProxy().setUrl('http://50.74.56.194:8888/categories');
+    //   self.getNavList().select(1);
+    //   GLOBAL.previousNavItemIndex = 1;
+    //   // resetting the store to use our NODE.JS
+    //   // store.getProxy().setUrl('http://50.74.56.194:8888/art');
+    //   console.log('record is', record);
+    //   self.getCategoriesToolbar().setTitle(name);
+    //   Ext.getCmp('globalSearch').setPlaceHolder('Search ' + name);
+    //   break;
     case 'keyword':
       self.getNavList().deselectAll();
       delete self.listingsStore.getProxy()._extraParams.tags;
@@ -356,26 +358,27 @@ Ext.define('Etsy.controller.Browser', {
       store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
       store.getProxy().setExtraParam('keywords', record);
       self.getCategoriesToolbar().setTitle('Search Results for: ' + record);
-      self.getNavList().deselectAll();
       GLOBAL.previousNavItemIndex = -1;
       break;
     }
 
     store.load();
 
-    //empty the store before adding the new one
-    var browserCarouselStore = self.getBrowserCarousel().getStore();
-    if (browserCarouselStore) {
-      // self.getBrowserCarousel().reset();
-      console.log('updating the store in loadlist');
-      // if there is already a store, then it needs to be updated, not set
-      self.getBrowserCarousel().updateStore(store);
-    } else {
-      console.log('add the store in loadlist');
-      self.getBrowserCarousel().setStore(store);
-    }
+    // //empty the store before adding the new one
+    // var browserCarouselStore = self.getBrowserCarousel().getStore();
+    // if (browserCarouselStore) {
+    //   // self.getBrowserCarousel().reset();
+    //   console.log('updating the store in loadlist');
+    //   // if there is already a store, then it needs to be updated, not set
+    //   self.getBrowserCarousel().updateStore(store);
+    // } else {
+    //   console.log('add the store in loadlist');
+    //   self.getBrowserCarousel().setStore(store);
+    // }
+    
+    self.getBrowserCarousel().setStore(store);
 
-    //self.getBrowserCarousel().reset();
+    self.getBrowserCarousel().reset();
     self.getBrowserCarousel().setActiveItem(0);
   },
 

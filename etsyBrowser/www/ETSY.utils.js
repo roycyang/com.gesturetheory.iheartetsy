@@ -84,7 +84,7 @@ var ETSY = {
 	 * @returns True or False if signed in.
 	 * @type Boolean
 	 */
-  addToFavorites: function (id, element) {
+  toggleFavorites: function (id, element) {
     var url;
     
     // Prompt the user and return false if the user is not signed in.
@@ -104,58 +104,33 @@ var ETSY = {
       id = parseInt(id, 10);
     }
     
-    url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
+    if(element.hasClass('favorite-flag')){
+      url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id + '?method=DELETE'; 
+    }else{
+      url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
+    }
     
     GLOBAL.oauth.post(url, {}, function (data) {
       ETSY.updateFavoritesInfo();
-    });
+      if(element.hasClass('favorite-flag')){
+        element.removeClass('favorite-flag'); 
+      }else{
+        element.addClass('favorite-flag'); 
+      }
+    }  ,
+  		function(data) {
+        ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+
+  		});
     
-    // // Run the callback.
-    // if (callback && typeof callback === 'function') {
-    //   callback();
-    // }
-    
-    element.addClass('favorite-flag');
-        
+    // wait until the animation is over before we remove the favoriting flag
+    setTimeout(function(){
+      element.removeClass('favoriting'); 
+    }, 1000);
+            
     return true;
   },
 
-	/**
-	 * Remove an item from the favorites list.
-	 * @param {String|Number} id The items ID number.
-	 * @returns True or false if signed in.
-	 * @type Boolean
-	 */
-  removeFromFavorites: function (id, element) {
-    var url;
-    
-    // Check if the user is signed in.
-    if (!GLOBAL.signed_in) {
-      return false;
-    }
-    
-    // If the id is missing or blank, log a warning.
-    if (!id || id === '') {
-      console.log('removeFromFavorites(): ID cannot be blank.');
-      return false;
-    }
-    
-    // Convert the ID to a number.
-    if (typeof id === 'string') {
-      id = parseInt(id, 10);
-    }
-    
-    url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id + '?method=DELETE';
-    
-    GLOBAL.oauth.post(url, {}, function (data) {
-      ETSY.updateFavoritesInfo();
-    });
-    
-    element.removeClass('favorite-flag');
-    
-    return true;
-  },
-	
 	updateFavoritesInfo: function(offset){
 		if(!GLOBAL.signed_in){
 			return false;
@@ -200,46 +175,34 @@ var ETSY = {
 
 	},
 
-	addToCart: function(id, element) {
-		if(!GLOBAL.signed_in){
-			ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
-			return false;
-		}
-		console.log('id is ' + id);
-		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
-		GLOBAL.oauth.post(url, {
-			'listing_id': id
-		},
-		function(data) {
-			ETSY.updateCartInfo();
-      // adding this to my cart!
-		},
-		function(data) {
-            // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
-		});
-		
-        element.addClass('cart-flag');
-	},
-	
-	removeFromCart: function(id, element) {
-		if(!GLOBAL.signed_in){
-			ETSY.askForSignIn();
-		}
-		console.log('id is ' + id);
-		var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts?method=DELETE';
+	toggleCart: function(id, element) {
+    // if(!GLOBAL.signed_in){
+    //  ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+    //  return false;
+    // }
+    
+    if(element.hasClass('cart-flag')){
+      var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts?method=DELETE';
+    }else{
+      var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
+    }
 
 		GLOBAL.oauth.post(url, {
 			'listing_id': id
 		},
 		function(data) {
-	    // adding this to my cart!
+      // after add success
+      if(element.hasClass('cart-flag')){
+        element.removeClass('cart-flag'); 
+      }else{
+        element.addClass('cart-flag'); 
+      }
 			ETSY.updateCartInfo();
 		},
 		function(data) {
-            // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+      ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+
 		});
-		console.log('removing from cart!');
-        element.removeClass('cart-flag');
 	},
 	
 	updateCartInfo: function(){

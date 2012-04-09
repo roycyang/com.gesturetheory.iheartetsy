@@ -15,7 +15,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
     count: 12,
     offsetLimit: 100,
     store: null,
-    width: 950,
+    width: 1024,
     animation: {
       duration: 350
     },
@@ -102,6 +102,9 @@ Ext.define('Etsy.view.ListingsCarousel', {
         // Remove the animation class once the animation is complete.
         setTimeout(function () {
           $element.removeClass(type);
+          $element.css({
+            '-webkit-transform': 'translate3d(0, 0, 0)'
+          });
         }, timer);
       } else {
         $element.css({
@@ -133,24 +136,31 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     id = $element.attr('ref');
 
-    if ($element && !this.isDragging && this.productDragging === $element.attr('ref')) {
+    if (yDist > 2 && !$element.hasClass('favoriting') && $element && !this.isDragging && this.productDragging === $element.attr('ref')) {
       // Move the element with the drag coords.
       $element.css('-webkit-transform', 'translate3d(0, ' + yDist + 'px, 0)');
 
       // Once the element is raised enough:
       // 1. Trigger a dragend to reset.
       // 2. Add item to favorites list.
-      if (yDist < -30) {
-        this.element.fireEvent('dragend', event, 'bounce');
-        ETSY.addToFavorites(id, $element);
-      }
+      // if (yDist < -30) {
+      //   this.element.fireEvent('dragend', event, 'bounce');
+      //   ETSY.addToFavorites(id, $element);
+      // }
 
       // If the element is lowered:
       // 1. Trigger a dragend.
       // 2. Remove from favorites.
       if (yDist > 30) {
-        this.element.fireEvent('dragend', event, 'quick');
-        ETSY.removeFromFavorites(id, $element);
+        console.log('this.element', this.element);
+        if(!$element.hasClass('favoriting')){
+          console.log('RUNNING ONCE');
+          $element.addClass('favoriting');
+          this.element.fireEvent('dragend', event, 'bounce');
+          ETSY.toggleFavorites(id, $element);
+        }
+
+
       }
     }
   },
@@ -213,15 +223,11 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
 
     if (element.hasCls('favorite-stamp')) {
-
       var element = Ext.get(e.target).parent('.product'),
-        id        = Math.abs(element.getAttribute('ref'));
+        id        = Math.abs(element.getAttribute('ref')),
+        $element = $('#' + element.id);
 
-      if ($('#' + element.id).hasClass('cart-flag')) {
-        ETSY.removeFromCart(id, $('#' + element.id));
-      } else {
-        ETSY.addToCart(id, $('#' + element.id));
-      }
+      ETSY.toggleCart(id, $element);
       return false;
     }
 

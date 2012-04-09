@@ -9,8 +9,8 @@ Ext.define('Etsy.view.Listings', {
 
         tpl: new Ext.XTemplate(
           '<tpl for="items">',
-              '{% if (xindex < 17) { %}',
-                  '<div class="product" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
+              '{% if (xindex < 13) { %}',
+                  '<div class="product <tpl if="data.in_cart"> cart-flag</tpl> <tpl if="data.in_favorites"> favorite-flag</tpl>" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
                       '<div class="image-wrapper"><div class="image" style="background-image:url({data.image.thumb});"></div></div>',
                       '<div class="name">{data.title}</div>',
   		                '<tpl if="data.state == \'sold_out\'">',
@@ -28,11 +28,26 @@ Ext.define('Etsy.view.Listings', {
     
     
     updateRecords: function(newRecords) {
-        // console.log('newRecords is', newRecords);
-        this.setData({
-            items: newRecords.items,
-            landscape: Ext.Viewport.getOrientation() == "landscape"
-        });
+      var items = newRecords.items;
+    
+      // test to see if the items are already in the shopping cart or favorites
+      for(i = 0; i < items.length; i++){
+        var id = items[i].get('id');
+        if(localStorage.cart_listing_ids && localStorage.cart_listing_ids.indexOf(id) != -1){
+          items[i].set('in_cart', true);
+        }
+        if(localStorage.favorites_listing_ids && localStorage.favorites_listing_ids.indexOf(id) != -1){
+          items[i].set('in_favorites', true);
+        }
+      }
+
+      this.setData({
+        items: newRecords.items,
+        landscape: Ext.Viewport.getOrientation() == "landscape"
+      });
+
+
+        
 
     }
 });

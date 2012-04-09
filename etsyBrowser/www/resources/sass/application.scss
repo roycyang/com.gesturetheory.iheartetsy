@@ -463,13 +463,34 @@
     .x-mask {
           background: rgba(0,0,0,0) center center no-repeat;
     }
+    
+
 }
 
+#leftArrow {
+  background: url('../images/left_arrow_off.png') no-repeat 0 0;
+  background-size: contain;
+  border-radius: 0;
+  
+  &.x-button-pressing {
+      background: url('../images/left_arrow_on.png') no-repeat 0 0;
+  }
+}
+
+#rightArrow {
+  background: url('../images/right_arrow_off.png') no-repeat 0 0;
+  background-size: contain;
+  border-radius: 0;
+  
+  &.x-button-pressing {
+      background: url('../images/right_arrow_on.png') no-repeat 0 0;
+  }
+}
 .products {
     
     .x-innerhtml {
-        padding: 24px 0;
-    }
+        padding: 45px 0 0 60px;
+      }
     
 
     
@@ -520,7 +541,7 @@
         height: 178px;
         width: 182px;
         padding: 0;
-        margin: 20px 27px;
+        margin: 0 59px 38px 0;
         padding: 5px;
         border: 1px solid #EAE9E1;
         /*-moz-box-shadow: 0 0 5px #888;
@@ -619,19 +640,19 @@
 
 @-webkit-keyframes product-bounce {
   0% {
-    -webkit-transform: rotate(0) translate3d(0, -30px, 0);
+    -webkit-transform: rotate(0) translate3d(0, 30px, 0);
   }
   
 	25% {
-	  -webkit-transform: rotate(4deg) translate3d(0, 10px, 0);
+	  -webkit-transform: rotate(4deg) translate3d(0, -10px, 0);
 	}
 	
 	50% {
-    -webkit-transform: rotate(-2deg) translate3d(0, -5px, 0);
+    -webkit-transform: rotate(-2deg) translate3d(0, 5px, 0);
 	}
 	
 	100% {
-	  -webkit-transform: rotate(0) translate3d(0, 0, 0);
+	  -webkit-transform: rotate(0) translate3d(0, 0px, 0);
 	}
 }
 
@@ -837,4 +858,6 @@ span.arrow {
         float: left;
     }
 }
+
+
 

@@ -3,6 +3,7 @@ Ext.define('Etsy.view.TreasuriesCarousel', {
     xtype: 'treasuriesCarousel',
     requires: ['Etsy.view.Treasuries'],
     config: {
+        width: 950,
         innerItemConfig: {
             xclass: 'Etsy.view.Treasuries'
         }

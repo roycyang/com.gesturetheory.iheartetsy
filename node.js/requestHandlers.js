@@ -19,11 +19,11 @@ function root(response, DATA) {
 }
 
 function treasuries(response, DATA) {
-  console.log("Request handler 'start' was called.");
-
+    console.log("Request handler 'start' was called.");
     response.writeHead(200, {"Content-Type": "application/json"});
-	
-    response.write(DATA.treasuries);
+    if(DATA.treasuries){
+        response.write(DATA.treasuries);
+    }  
     response.end();
 }
 
@@ -39,6 +39,14 @@ function treasury(response, DATA, request) {
   }
 
   
+  response.end();
+}
+
+function categoriesIndex(response, DATA, request) {
+  response.writeHead(200, {"Content-Type": "application/json"});
+  if(DATA.categoriesIndex){
+   response.write(DATA.categoriesIndex);     
+  }  
   response.end();
 }
 
@@ -63,3 +71,4 @@ exports.root = root;
 exports.treasuries = treasuries;
 exports.treasury = treasury;
 exports.categories = categories;
+exports.categoriesIndex = categoriesIndex;

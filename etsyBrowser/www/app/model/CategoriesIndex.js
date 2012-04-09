@@ -13,43 +13,55 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Etsy.model.Treasury', {
+Ext.define('Etsy.model.CategoriesIndex', {
     extend: 'Ext.data.Model',
 
     config: {
         fields: [
 	        'id',
-            'title',
-            'user_name',
-            'user_avatar_id',
-			'listings',
-			'counts',
-			'comment_count',
-			
-            
+            {
+                name: 'title',
+                convert: function(value, record) { 
+                    return record.data.short_name;
+                }
+            },
+            'listings',
+            'short_name',
+            {
+                name: 'name',
+                convert: function(value, record) { 
+                    return record.data.id;
+                }
+            },
+            {
+                name: 'category_index',
+                convert: function(value, record) { 
+                    return true;
+                }
+            },
             {
                 name: 'image_1',
                 convert: function(value, record) { 
 	                      
-                    return record.data.listings[3].data.image_url
+                    return record.data.listings[3].Images[0].url_170x135
                 }
             },
             {
                 name: 'image_2',
                 convert: function(value, record) {                        
-                    return record.data.listings[2].data.image_url
+                    return record.data.listings[2].Images[0].url_170x135
                 }
             },
             {
                 name: 'image_3',
                 convert: function(value, record) {                        
-                    return record.data.listings[1].data.image_url
+                    return record.data.listings[1].Images[0].url_170x135
                 }
             },
             {
                 name: 'image_4',
                 convert: function(value, record) {                        
-                    return record.data.listings[0].data.image_url
+                    return record.data.listings[0].Images[0].url_170x135
                 }
             },
 
@@ -57,14 +69,7 @@ Ext.define('Etsy.model.Treasury', {
 
         proxy: {
             type: 'ajax',
-            url: 'http://50.74.56.194:8888/treasuries',
-            // limitParam: 'limit',
-            //             startParam: 'offset',
-            //             pageParam: false,
-            //             extraParams: {
-            //                 api_key: 'tia49fh9iqjcrukurpbyqtv5',
-            // 				includes: 'Images:6,User'
-            //             },
+            url: 'http://50.74.56.194:8888/categoriesIndex',
             reader: {
                 type: 'json',
                 rootProperty: 'results'

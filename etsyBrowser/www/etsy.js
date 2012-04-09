@@ -7,7 +7,8 @@ Ext.application({
         'Listing',
         'Category',
         'Navigation',
-		'Treasury'
+		'Treasury',
+        'CategoriesIndex',
     ],
 
     stores: [
@@ -15,25 +16,26 @@ Ext.application({
         'Categories',
         'Navigation',
 		'Treasuries',
+        'CategoriesIndex',
     ],
 
     views: [
 		// core panels
-        'SearchPanel',
-        'NavPanel',
-        'AppPanel',
-        'MainToolbar',
+      'SearchPanel',
+      'NavPanel',
+      'AppPanel',
+      'MainToolbar',
 
-		// other panels
-        'HomePanel',
-        'CategoriesPanel',
-        'TreasuriesPanel',
-		    'TreasuryPanel',
-        'FavoritesPanel',
-        'DetailPanel',
-        'CategoryPopupPanel',
-        'ListingsCarousel',
-        'Listings',
+	    // other panels
+      'HomePanel',
+      'CategoriesPanel',
+      'TreasuriesPanel',
+	    'TreasuryPanel',
+      'FavoritesPanel',
+      'DetailPanel',
+      'CategoryPopupPanel',
+      'ListingsCarousel',
+      'Listings',
     ],
 
     name: 'Etsy',

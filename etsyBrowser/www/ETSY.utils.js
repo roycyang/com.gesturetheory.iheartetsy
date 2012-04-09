@@ -82,7 +82,7 @@ var ETSY = {
 	 * @returns True or False if signed in.
 	 * @type Boolean
 	 */
-  addToFavorites: function (id, callback) {
+  addToFavorites: function (id, element) {
     var url;
     
     // Prompt the user and return false if the user is not signed in.
@@ -108,11 +108,13 @@ var ETSY = {
       ETSY.updateFavoritesInfo();
     });
     
-    // Run the callback.
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
+    // // Run the callback.
+    // if (callback && typeof callback === 'function') {
+    //   callback();
+    // }
     
+    element.addClass('favorite-flag');
+        
     return true;
   },
 
@@ -122,7 +124,7 @@ var ETSY = {
 	 * @returns True or false if signed in.
 	 * @type Boolean
 	 */
-  removeFromFavorites: function (id, callback) {
+  removeFromFavorites: function (id, element) {
     var url;
     
     // Check if the user is signed in.
@@ -147,10 +149,7 @@ var ETSY = {
       ETSY.updateFavoritesInfo();
     });
     
-    // Run the callback.
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
+    element.removeClass('favorite-flag');
     
     return true;
   },
@@ -196,6 +195,7 @@ var ETSY = {
 		function(data) {
 			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
+
 	},
 
 	addToCart: function(id, element) {
@@ -216,7 +216,7 @@ var ETSY = {
             // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
 		
-    element.addClass('cart-flag');
+        element.addClass('cart-flag');
 	},
 	
 	removeFromCart: function(id, element) {
@@ -237,7 +237,7 @@ var ETSY = {
             // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
 		console.log('removing from cart!');
-    element.removeClass('cart-flag');
+        element.removeClass('cart-flag');
 	},
 	
 	updateCartInfo: function(){

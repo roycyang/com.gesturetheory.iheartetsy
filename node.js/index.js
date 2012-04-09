@@ -19,6 +19,7 @@ handle["/"] = requestHandlers.root;
 handle["/treasuries"] = requestHandlers.treasuries;
 handle["/treasury"] = requestHandlers.treasury;
 handle["/categories"] = requestHandlers.categories
+handle["/categoriesIndex"] = requestHandlers.categoriesIndex
 
 // =============================================================================================
 // = Equivalent of a CRON job in PHP.  We just run the updater according to the cacheInMinutes =
@@ -30,22 +31,79 @@ setInterval(function() {
 },
 GLOBAL.cacheInMinutes * 60 * 1000);
 
+GLOBAL.categoriesIndex = {
+    results: []
+}
+
 server.start(router.route, handle, DATA);
 
 // ===========================================
 // = Init function that loads all the caches =
 // ===========================================
 function init() {
-    var categories = ["accessories", "art", "bags_and_purses", "bath_and_beauty", "books_and_zines", "candles", "ceramics_and_pottery", "children", "clothing", "crochet", "dolls_and_miniatures", "everything_else", "furniture", "geekery", "glass", "holidays", "housewares", "jewelry", "knitting", "music", "needlecraft", "paper_goods", "patterns", "pets", "plants_and_edibles", "quilts", "supplies", "toys", "vintage", "weddings", "woodworking"];
-
+    var categories = [{"category_name":"accessories","short_name":"Accessories"},{"category_name":"art","short_name":"Art"},{"category_name":"bags_and_purses","short_name":"Bags and Purses"},{"category_name":"bath_and_beauty","short_name":"Bath and Beauty"},{"category_name":"books_and_zines","short_name":"Books and Zines"},{"category_name":"candles","short_name":"Candles"},{"category_name":"ceramics_and_pottery","short_name":"Ceramics and Pottery"},{"category_name":"children","short_name":"Children"},{"category_name":"clothing","short_name":"Clothing"},{"category_name":"crochet","short_name":"Crochet"},{"category_name":"dolls_and_miniatures","short_name":"Dolls and Miniatures"},{"category_name":"everything_else","short_name":"Everything Else"},{"category_name":"furniture","short_name":"Furniture"},{"category_name":"geekery","short_name":"Geekery"},{"category_name":"glass","short_name":"Glass"},{"category_name":"holidays","short_name":"Holidays"},{"category_name":"housewares","short_name":"Housewares"},{"category_name":"jewelry","short_name":"Jewelry"},{"category_name":"knitting","short_name":"Knitting"},{"category_name":"music","short_name":"Music"},{"category_name":"needlecraft","short_name":"Needlecraft"},{"category_name":"paper_goods","short_name":"Paper Goods"},{"category_name":"patterns","short_name":"Patterns"},{"category_name":"pets","short_name":"Pets"},{"category_name":"plants_and_edibles","short_name":"Plants and Edibles"},{"category_name":"quilts","short_name":"Quilts"},{"category_name":"supplies","short_name":"Supplies"},{"category_name":"toys","short_name":"Toys"},{"category_name":"vintage","short_name":"Vintage"},{"category_name":"weddings","short_name":"Weddings"},{"category_name":"woodworking","short_name":"Woodworking"}];
     compileTreasuries(0);
     compileTreasuries(25);
     compileTreasuries(50);
     compileTreasuries(75);
+    
     for (i = 0; i < categories.length; i++) {
         compileCategories(categories[i]);
+        compileCategorySnapshots(categories[i]);
     }
 }
+
+function compileCategorySnapshots(category) {
+    var options,
+    categoryData,
+    parsedCategoryData;
+    
+    categoryData = '';
+    options = {
+        host: 'openapi.etsy.com',
+        port: 80,
+        path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=' + category.category_name + '&includes=Images:1&limit=4'
+    };
+    
+    http.get(options,
+    function(response) {
+        response.setEncoding("utf8");
+
+        response.on('data',
+        function(data) {
+            categoryData += data;
+        });
+
+        response.on('end',
+        function(data) {
+            
+            parsedCategoryData = JSON.parse(categoryData);
+            var categoryInfo = {
+                title: category.category_name,
+                id: category.category_name,
+                short_name: category.short_name,
+                category_index: true,
+                listings: parsedCategoryData.results
+            };
+            
+            GLOBAL.categoriesIndex.results.push(categoryInfo);
+            console.log('GLOBAL.categoriesIndex.results.length: ' + GLOBAL.categoriesIndex.results.length);
+            if(GLOBAL.categoriesIndex.results.length == 31){
+                DATA['categoriesIndex'] = JSON.stringify(GLOBAL.categoriesIndex);
+                GLOBAL.categoriesIndex.results = [];
+            }
+        });
+    });
+
+    
+
+
+
+
+
+    
+};
+
 
 // =================================
 // = Setting up the Treasury Cache =
@@ -144,7 +202,6 @@ function compileTreasuries(offset) {
             response.on("data",
             function(data) {
                 listData += data;
-
             });
 
 
@@ -211,7 +268,7 @@ function compileCategories(category) {
     options = {
         host: 'openapi.etsy.com',
         port: 80,
-        path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=' + category + '&includes=Images:6&limit=100'
+        path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=' + category.category_name + '&includes=Images:6&limit=100'
     };
 
     http.get(options,
@@ -225,7 +282,7 @@ function compileCategories(category) {
 
         response.on('end',
         function() {
-            DATA[category] = categoryData;
+            DATA[category.category_name] = categoryData;
         });
     });
 };

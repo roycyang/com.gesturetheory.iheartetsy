@@ -10,7 +10,7 @@ Ext.define('Etsy.view.SmallTreasuries', {
 
             '<tpl for="items">',
                 '{% if (xindex < 7) { %}',
-                    '<div class="treasury-item small-treasury-item" rel="{data.id}">',  
+                    '<div class="treasury-item small-treasury-item <tpl if="data.category_index"> category-index-item </tpl>" rel="{data.id}">',  
                         '<div class="title">{data.title}</div>',                    
                         '<div class="image-wrapper image-1"><div class="image" style="background-image: url({data.image_1})"></div></div>',
                         '<div class="image-wrapper image-2"><div class="image" style="background-image: url({data.image_2})"></div></div>',

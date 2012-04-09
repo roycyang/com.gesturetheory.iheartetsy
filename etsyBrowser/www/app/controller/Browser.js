@@ -74,6 +74,7 @@ Ext.define('Etsy.controller.Browser', {
     self.listingsStore = Ext.data.StoreManager.lookup('Listings');
     self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
     self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
+    self.categoryIndexStore = Ext.data.StoreManager.lookup('CategoriesIndex');
 
     // adding the homepage to the getAppPanel		
     self.loadHomePanel();
@@ -241,8 +242,9 @@ Ext.define('Etsy.controller.Browser', {
     // load homePanel and then destroy all the other panels
     Ext.create('Etsy.view.HomePanel');
     self.treasuriesStore.load();
+    self.categoryIndexStore.load();
     self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
-    self.getHomeCategoriesCarousel().setStore(self.treasuriesStore);
+    self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
     self.getAppPanel().add(self.getHomePanel());
     self.getAppPanel().setActiveItem(self.getHomePanel());
     self.getHomePanel().setMasked({
@@ -320,10 +322,8 @@ Ext.define('Etsy.controller.Browser', {
     self.getAppPanel().add(self.getCategoriesPanel());
     self.getAppPanel().setActiveItem(self.getCategoriesPanel());
 
-
-
     var store = self.listingsStore;
-    store.removeAll();
+    //store.removeAll();
     switch (type) {
     case 'category':
       //store.getProxy().setExtraParam('category', record.get('name'));
@@ -331,7 +331,7 @@ Ext.define('Etsy.controller.Browser', {
       delete self.listingsStore.getProxy()._extraParams.keywords;
       // resetting the store to use our NODE.JS
       store.getProxy().setUrl('http://50.74.56.194:8888/categories?category=' + record.get('name'));
-      self.getCategoriesToolbar().setTitle('Category: ' + record.get('short_name'));
+      self.getCategoriesToolbar().setTitle('' + record.get('short_name'));
       Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
       self.getNavList().select(1);
       GLOBAL.previousNavItemIndex = 1;
@@ -366,7 +366,7 @@ Ext.define('Etsy.controller.Browser', {
     //empty the store before adding the new one
     var browserCarouselStore = self.getBrowserCarousel().getStore();
     if (browserCarouselStore) {
-      self.getBrowserCarousel().reset();
+      // self.getBrowserCarousel().reset();
       console.log('updating the store in loadlist');
       // if there is already a store, then it needs to be updated, not set
       self.getBrowserCarousel().updateStore(store);
@@ -375,8 +375,7 @@ Ext.define('Etsy.controller.Browser', {
       self.getBrowserCarousel().setStore(store);
     }
 
-
-    self.getBrowserCarousel().reset();
+    //self.getBrowserCarousel().reset();
     self.getBrowserCarousel().setActiveItem(0);
   },
 

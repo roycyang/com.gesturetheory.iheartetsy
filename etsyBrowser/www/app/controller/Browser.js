@@ -91,7 +91,11 @@ Ext.define('Etsy.controller.Browser', {
       self.getAppPanel().unmask();
       $('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
       GLOBAL.expandedNav = false;
+      setTimeout(function(){
+        self.getNavPanel().hide();
+      }, 350);
     } else {
+      self.getNavPanel().show();
       self.getAppPanel().setZIndex(10000);
       $('#appPanel').css('-webkit-transform', 'translate3d(288px,0,0)');
       GLOBAL.expandedNav = true;
@@ -104,7 +108,11 @@ Ext.define('Etsy.controller.Browser', {
       self.getAppPanel().unmask();
       $('#appPanel').css('-webkit-transform', 'translate3d(0px,0,0)');
       GLOBAL.expandedNav = false;
+      setTimeout(function(){
+        self.getSearchPanel().hide();
+      }, 350);
     } else {
+      self.getSearchPanel().show();
       $('#appPanel').css('-webkit-transform', 'translate3d(-288px,0,0)');
       self.getAppPanel().setZIndex(1000);
       GLOBAL.expandedNav = true;
@@ -113,11 +121,10 @@ Ext.define('Etsy.controller.Browser', {
 
   onSignOutTap: function () {
     var mask = Ext.Viewport.add({
-      masked: {
+
         xtype: 'loadmask',
         message: 'Sign out successful!',
         zIndex: 10000,
-      }
     });
     setTimeout(function () {
       mask.hide();
@@ -190,6 +197,8 @@ Ext.define('Etsy.controller.Browser', {
           localStorage.removeItem('accessTokenKey');
           localStorage.removeItem('accessTokenSecret');
           ETSY.toggleSignIn();
+          APP.onSignOutTap();
+          APP.loadHomePanel();
         }
       });
 

@@ -7,6 +7,7 @@ Ext.define('Etsy.view.NavPanel', {
 		id: 'navPanel',
 		width: 288,
 		height: 748,
+		hidden: true,
 		top: 0,
 		left: 0,
 

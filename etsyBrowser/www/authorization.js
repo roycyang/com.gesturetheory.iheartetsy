@@ -73,6 +73,16 @@ function completeAuthorization(loc) {
 		});
 		
 		window.plugins.childBrowser.close();
+		
+		var mask = Ext.Viewport.add({
+
+        xtype: 'loadmask',
+        message: 'Sign in successful!',
+        zIndex: 10000,
+    });
+    setTimeout(function () {
+      mask.hide();
+    }, 1000)
 	},
 	function(data) {
 

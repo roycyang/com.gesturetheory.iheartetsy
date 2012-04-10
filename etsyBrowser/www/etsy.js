@@ -54,5 +54,11 @@ Ext.application({
             }
         });
 
-    }
+    },
+    
+    eventPublishers: {
+        touchGesture: {
+            moveThrottle: 3
+        }
+    },
 });

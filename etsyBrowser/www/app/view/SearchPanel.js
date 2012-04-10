@@ -3,6 +3,7 @@ Ext.define('Etsy.view.SearchPanel', {
 	config: {
 		layout: 'vbox',
 		id: 'searchPanel',
+		hidden: true,
 		width: 288,
 		height: 748,
 		top: 0,

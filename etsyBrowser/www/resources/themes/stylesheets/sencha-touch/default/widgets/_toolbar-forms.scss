@@ -66,7 +66,7 @@ $toolbar-search-left-padding: 1.67em;
 
     .x-field {
       width: 13em;
-      margin: .5em;
+      margin: 9px 10px 10px;
       min-height: 0;
       border-bottom: 0;
       background: transparent;
@@ -87,7 +87,7 @@ $toolbar-search-left-padding: 1.67em;
     .x-field-number,
     .x-field-search {
       .x-component-outer {
-        @if $include-border-radius { @include border-radius(.3em); }
+        @if $include-border-radius { @include border-radius(.8em); }
         background-color: $toolbar-input-bg;
 
         @if $include-highlights {
@@ -109,8 +109,10 @@ $toolbar-search-left-padding: 1.67em;
       background: transparent;
       min-height: 0;
       -webkit-appearance: none;
-      padding: 0em .3em;
+      padding: 0em 10px;
       margin: 0;
+      font-size: 13px;
+      height: 29px;
 
       &:focus {
         color: $toolbar-input-color;

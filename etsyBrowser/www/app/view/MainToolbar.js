@@ -16,6 +16,7 @@ Ext.define('Etsy.view.MainToolbar', {
                 tap: function() {
                     self.getAppPanel().mask({
                         id: 'appPanelMask',
+                        zIndex: 100000,
                         listeners: {
                             tap: function() {
                                 self.toggleNav();
@@ -52,6 +53,7 @@ Ext.define('Etsy.view.MainToolbar', {
                 tap: function() {
                     self.getAppPanel().mask({
                         id: 'appPanelMask',
+                        zIndex: 100000,
                         listeners: {
                             tap: function() {
                                 self.toggleSearch();

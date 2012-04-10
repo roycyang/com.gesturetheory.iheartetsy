@@ -19,6 +19,8 @@
 		<string>Default-Landscape~ipad.png</string>
 		<string>Default-Landscape~ipad.png</string>
 		<string>Default-Landscape@2x~ipad.png</string>
+		<string>Default-Landscape~ipad.png</string>
+		<string>Default-Landscape@2x~ipad.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -33,6 +35,8 @@
 				<string>ipad_retina_icon.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Landscape@2x~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
 			</array>

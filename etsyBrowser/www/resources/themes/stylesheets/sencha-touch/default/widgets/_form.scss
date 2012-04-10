@@ -132,7 +132,7 @@ $form-scrollable-fields: '.x-field-slider, .x-field-toggle';
 /*      background-color: $form-bg-color;*/
 
       > .x-inner {
-        padding: 1em;
+        /*padding: 1em;*/
       }
     }
   }
@@ -517,23 +517,26 @@ $form-scrollable-fields: '.x-field-slider, .x-field-toggle';
 
   // Ext.form.FieldSet
   .x-form-fieldset {
-    margin: 0 0 1.5em;
+//    margin: 0 0 1.5em;
+margin: 15px 0;
 
     .x-form-label {
       border-top: 1px solid lighten($form-light, 20%);
     }
 
     .x-form-fieldset-inner {
-      border: 1px solid $form-light;
-      background: #fff;
+      border: none;
+      background: none;
       padding: 0;
-      @if $include-border-radius { @include border-radius($form-fieldset-radius); }
+      -webkit-border-radius: 0.4em;
+      border-radius: 0.4em;
       overflow: hidden;
+//      padding: 5px;
     }
 
     //Ext.field.Field
     .x-field {
-      border-bottom: 1px solid $form-light;
+//      border-bottom: 1px solid $form-light;
       background: transparent;
 
       &:first-child {
@@ -553,12 +556,15 @@ $form-scrollable-fields: '.x-field-slider, .x-field-toggle';
   }
 
   .x-form-fieldset-title {
-    @include label;
-    margin: 1em ( $form-spacing + .1em ) .3em;
-/*    color: $form-dark;*/
-    color: #fff;
-    font-weight: bold;
-    white-space: nowrap;
+  //    @include label;
+  //    margin: 1em ( $form-spacing + .1em ) .3em;
+  /*    color: $form-dark;*/
+  //    color: #fff;
+  //    font-weight: bold;
+  //    white-space: nowrap;
+  font-size: 14px;
+  padding: 5px 15px 0;
+  color: #FEFBE3;;
   }
 
   .x-form-fieldset-instructions {

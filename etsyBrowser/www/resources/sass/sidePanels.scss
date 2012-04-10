@@ -76,3 +76,23 @@ span.arrow {
 #searchPanel {
     background: #46250a;
 }
+
+
+#searchPanel {
+  h4 {
+    font-size: 12px;
+    padding: 5px 20px;
+    background: #2E1807;
+    color: #FEFBE3;
+    margin-bottom: 20px;
+  }
+  
+  #searchButton {
+    background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px top;
+    height: 36px;
+    
+    &.x-button-pressing {
+      background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px -37px;
+    }
+  }
+}

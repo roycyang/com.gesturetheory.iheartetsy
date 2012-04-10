@@ -5069,7 +5069,7 @@ audio {
 /* line 67, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field {
   width: 13em;
-  margin: .5em;
+  margin: 9px 10px 10px;
   min-height: 0;
   border-bottom: 0;
   background: transparent;
@@ -5089,8 +5089,8 @@ audio {
 .x-toolbar .x-field-text .x-component-outer,
 .x-toolbar .x-field-number .x-component-outer,
 .x-toolbar .x-field-search .x-component-outer {
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  -webkit-border-radius: 0.8em;
+  border-radius: 0.8em;
   background-color: white;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 0.1em 0, inset rgba(0, 0, 0, 0.5) 0 -0.1em 0, inset rgba(0, 0, 0, 0.5) 0.1em 0 0, inset rgba(0, 0, 0, 0.5) -0.1em 0 0, inset rgba(0, 0, 0, 0.5) 0 0.15em 0.4em;
 }
@@ -5108,44 +5108,46 @@ audio {
   background: transparent;
   min-height: 0;
   -webkit-appearance: none;
-  padding: 0em .3em;
+  padding: 0em 10px;
   margin: 0;
+  font-size: 13px;
+  height: 29px;
 }
-/* line 115, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 117, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-form-field:focus {
   color: black;
 }
-/* line 122, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 124, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select .x-component-outer,
 .x-toolbar .x-field-search .x-component-outer {
   -webkit-border-radius: 0.8em;
   border-radius: 0.8em;
 }
-/* line 128, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 130, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-search .x-field-input {
   background-position: .5em 50%;
 }
-/* line 133, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 135, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select {
   -webkit-box-shadow: none;
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 138, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select .x-form-field {
   height: 1.4em;
 }
-/* line 141, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 143, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select {
   background: transparent;
 }
-/* line 145, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 147, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select .x-component-outer:after {
   right: .4em;
 }
-/* line 151, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 153, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select.x-item-disabled .x-component-outer:after {
   opacity: .6;
 }
-/* line 157, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 159, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select .x-component-outer:before {
   width: 3em;
   border-left: none;
@@ -5158,12 +5160,12 @@ audio {
   -webkit-mask-repeat: repeat-y;
   -webkit-mask-size: 3em 0.05em;
 }
-/* line 172, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 174, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-toolbar .x-field-select .x-input-text {
   color: #fff;
 }
 
-/* line 178, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
+/* line 180, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar-forms.scss */
 .x-android .x-field-search .x-field-input {
   padding-left: .2em !important;
   padding-right: 2.2em !important;
@@ -6057,7 +6059,7 @@ html, body {
 }
 /* line 134, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form .x-scroll-container > .x-inner {
-  padding: 1em;
+  /*padding: 1em;*/
 }
 
 /* line 141, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
@@ -6601,34 +6603,33 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* line 519, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset {
-  margin: 0 0 1.5em;
+  margin: 15px 0;
 }
-/* line 522, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 523, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset .x-form-label {
   border-top: 1px solid white;
 }
-/* line 526, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 527, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset .x-form-fieldset-inner {
-  border: 1px solid #dddddd;
-  background: #fff;
+  border: none;
+  background: none;
   padding: 0;
   -webkit-border-radius: 0.4em;
   border-radius: 0.4em;
   overflow: hidden;
 }
-/* line 535, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 538, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset .x-field {
-  border-bottom: 1px solid #dddddd;
   background: transparent;
 }
-/* line 539, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 542, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset .x-field:first-child {
   -webkit-border-top-left-radius: 0.4em;
   border-top-left-radius: 0.4em;
   -webkit-border-top-right-radius: 0.4em;
   border-top-right-radius: 0.4em;
 }
-/* line 545, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 548, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset .x-field:last-child {
   border-bottom: 0;
   -webkit-border-bottom-left-radius: 0.4em;
@@ -6637,18 +6638,15 @@ input[type="search"]::-webkit-search-cancel-button {
   border-bottom-right-radius: 0.4em;
 }
 
-/* line 555, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 558, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset-title {
-  text-shadow: #fff 0 1px 1px;
-  color: #333333;
-  margin: 1em 0.7em 0.3em;
   /*    color: $form-dark;*/
-  color: #fff;
-  font-weight: bold;
-  white-space: nowrap;
+  font-size: 14px;
+  padding: 5px 15px 0;
+  color: #FEFBE3;
 }
 
-/* line 564, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 570, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset-instructions {
   text-shadow: #fff 0 1px 1px;
   color: #333333;
@@ -6658,7 +6656,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
 }
 
-/* line 573, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 579, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-selectmark-base, .x-field-select .x-component-outer:after {
   content: "";
   position: absolute;
@@ -6672,22 +6670,22 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-top: -0.5em;
 }
 
-/* line 583, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 589, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select {
   position: relative;
 }
-/* line 587, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 593, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select .x-component-outer:after {
   background-color: #dddddd;
   z-index: 2;
 }
-/* line 593, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 599, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select .x-component-outer:before, .x-field-select .x-component-outer:after {
   pointer-events: none;
   position: absolute;
   display: block;
 }
-/* line 599, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 605, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select .x-component-outer:before {
   content: "";
   position: absolute;

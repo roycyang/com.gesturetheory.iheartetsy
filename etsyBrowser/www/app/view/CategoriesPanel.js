@@ -28,7 +28,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
             ui: 'plain',
             listeners: {
               tap: function(){
-                self.getBrowserCarousel().previous();
+                self.getCategoriesCarousel().previous();
                 
               }
             }
@@ -44,13 +44,13 @@ Ext.define('Etsy.view.CategoriesPanel', {
             listeners: {
               tap: function(){
 
-                self.getBrowserCarousel().next();
+                self.getCategoriesCarousel().next();
               }
             }
         },
         {
             flex: 1,
-            id: 'browserCarousel',
+            id: 'categoriesCarousel',
             xtype: 'listingsCarousel',
         }
         ]

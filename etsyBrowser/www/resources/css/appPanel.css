@@ -37,4 +37,5 @@
 /* line 36, ../sass/appPanel.scss */
 #appPanel #appPanelMask {
   background: rgba(0, 0, 0, 0.2);
+  z-index: 10000000 !important;
 }

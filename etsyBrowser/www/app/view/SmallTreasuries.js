@@ -15,7 +15,6 @@ Ext.define('Etsy.view.SmallTreasuries', {
                         '<div class="image-wrapper image-1"><div class="image" style="background-image: url({data.image_1})"></div></div>',
                         '<div class="image-wrapper image-2"><div class="image" style="background-image: url({data.image_2})"></div></div>',
                         '<div class="image-wrapper image-3"><div class="image" style="background-image: url({data.image_3})"></div></div>',
-                        '<div class="image-wrapper image-4"><div class="image" style="background-image: url({data.image_4})"></div></div>',
                     '</div>',
                 '{% } %}',
             '</tpl>'

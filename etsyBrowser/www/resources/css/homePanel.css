@@ -1,0 +1,64 @@
+/* line 1, ../sass/homePanel.scss */
+#homePanel {
+  background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
+}
+/* line 4, ../sass/homePanel.scss */
+#homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(3) {
+  display: none;
+}
+/* line 9, ../sass/homePanel.scss */
+#homePanel .browse-categories, #homePanel .hottest-treasuries {
+  background: url(../images/slices-v2/GeneralApp-white-title-bar-1x.png) no-repeat center 7px !important;
+  height: 67px;
+  line-height: 67px;
+  font-weight: normal;
+}
+/* line 18, ../sass/homePanel.scss */
+#homePanel .x-button-pressing .browse-categories, #homePanel .x-button-pressing .browse-categories {
+  background: url(../images/slices-v2/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
+}
+/* line 22, ../sass/homePanel.scss */
+#homePanel .x-field {
+  background: none;
+}
+/* line 26, ../sass/homePanel.scss */
+#homePanel #homeSearch {
+  padding: 27px 315px 9px;
+}
+/* line 29, ../sass/homePanel.scss */
+#homePanel #homeSearch .x-field-search .x-field-input .x-form-field {
+  margin-left: 40px;
+}
+/* line 33, ../sass/homePanel.scss */
+#homePanel #homeSearch .x-component-outer {
+  border: 5px solid #E1DFCC;
+  border-radius: 34px;
+  background: #EAE8D5;
+  margin: 0;
+}
+/* line 39, ../sass/homePanel.scss */
+#homePanel #homeSearch .x-component-outer .x-input-search {
+  padding: 8px 14px;
+  font-size: 20px;
+  height: auto;
+  margin-left: 45px;
+}
+/* line 46, ../sass/homePanel.scss */
+#homePanel #homeSearch .x-component-outer .x-field-input::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 9px;
+  left: 16px;
+  -webkit-mask-size: 30px;
+  background-color: #CCC;
+  -webkit-mask-repeat: no-repeat;
+  margin-top: 0;
+}
+/* line 61, ../sass/homePanel.scss */
+#homePanel h4 {
+  font-size: 20px;
+  text-align: center;
+  padding: 30px 0 10px;
+}

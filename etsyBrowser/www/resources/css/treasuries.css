@@ -1,0 +1,171 @@
+/* ================== */
+/* = Treasury Items = */
+/* ================== */
+/* line 10, ../sass/treasuries.scss */
+#treasuriesPanel #treasuriesCarousel .x-innerhtml {
+  padding: 24px 0;
+}
+/* line 17, ../sass/treasuries.scss */
+#treasuriesPanel #treasuryCarousel .product {
+  margin: 20px 11px;
+}
+/* line 21, ../sass/treasuries.scss */
+#treasuriesPanel #treasuryCarousel .x-innerhtml div:nth-of-type(17) {
+  display: none;
+}
+/* line 25, ../sass/treasuries.scss */
+#treasuriesPanel #treasuryCarousel .products .x-innerhtml {
+  padding: 24px 0;
+}
+
+/* line 32, ../sass/treasuries.scss */
+.treasury-item {
+  height: 166px;
+  display: inline-block;
+  position: relative;
+  width: 425px;
+  margin: 25px;
+  padding-left: 270px;
+  vertical-align: top;
+  color: #3F3F3F;
+}
+/* line 42, ../sass/treasuries.scss */
+.treasury-item.small-treasury-item {
+  width: 200px;
+  margin: 39px 0 0 37px;
+  padding: 0;
+}
+/* line 47, ../sass/treasuries.scss */
+.treasury-item.small-treasury-item .title {
+  font-size: 23px;
+  font-family: GearedSlabThin;
+  margin-bottom: 4px;
+  height: 54px;
+  overflow: hidden;
+  position: absolute;
+  top: -30px;
+  width: 200px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  left: -2px;
+  line-height: 30px;
+}
+/* line 64, ../sass/treasuries.scss */
+.treasury-item.small-treasury-item .image-wrapper .image {
+  width: 125px;
+  height: 100px;
+}
+/* line 71, ../sass/treasuries.scss */
+.treasury-item .open .image-wrapper .image-1 {
+  top: 10px;
+  left: 0;
+}
+/* line 76, ../sass/treasuries.scss */
+.treasury-item .open .image-wrapper .image-2 {
+  left: 16px;
+  top: 12px;
+  -webkit-transform: rotate(-1deg);
+}
+/* line 82, ../sass/treasuries.scss */
+.treasury-item .open .image-wrapper .image-3 {
+  left: 38px;
+  top: 11px;
+}
+/* line 87, ../sass/treasuries.scss */
+.treasury-item .open .image-wrapper .image-4 {
+  left: 296px;
+  -webkit-transform: rotate(4deg);
+  top: 14px;
+}
+/* line 94, ../sass/treasuries.scss */
+.treasury-item .image-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  padding: 3px;
+  position: absolute;
+}
+/* line 101, ../sass/treasuries.scss */
+.treasury-item .image-wrapper.image-1 {
+  -webkit-transform: rotate(-5deg);
+  top: 10px;
+  left: 0;
+}
+/* line 107, ../sass/treasuries.scss */
+.treasury-item .image-wrapper.image-2 {
+  left: 28px;
+  top: 12px;
+  -webkit-transform: rotate(-1deg);
+}
+/* line 113, ../sass/treasuries.scss */
+.open .treasury-item .image-wrapper.image-2 {
+  left: 81px;
+  top: 12px;
+  -webkit-transform: rotate(-1deg);
+}
+/* line 119, ../sass/treasuries.scss */
+.treasury-item .image-wrapper.image-3 {
+  left: 61px;
+  -webkit-transform: rotate(2deg);
+  top: 14px;
+}
+/* line 125, ../sass/treasuries.scss */
+.open .treasury-item .image-wrapper.image-3 {
+  left: 185px;
+  top: 15px;
+}
+/* line 144, ../sass/treasuries.scss */
+.treasury-item .image-wrapper .image {
+  width: 170px;
+  height: 135px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-clip: padding-box;
+  /* IOS fix */
+  background-clip: padding-box;
+  /* IOS fix */
+}
+/* line 160, ../sass/treasuries.scss */
+.treasury-item .title {
+  font-size: 23px;
+  font-family: GearedSlabThin;
+  margin-bottom: 4px;
+  height: 54px;
+  overflow: hidden;
+}
+/* line 169, ../sass/treasuries.scss */
+.treasury-item .user-avatar {
+  width: 35px;
+  height: 35px;
+  float: left;
+  background-size: contain;
+  margin-right: 15px;
+}
+/* line 177, ../sass/treasuries.scss */
+.treasury-item .stats {
+  clear: both;
+  font-size: 11px;
+  padding: 10px 0;
+  color: #afafaf;
+}
+/* line 184, ../sass/treasuries.scss */
+.treasury-item .user {
+  font-size: 11px;
+  padding: 10px 0;
+}
+/* line 187, ../sass/treasuries.scss */
+.treasury-item .user span {
+  color: #afafaf;
+}
+/* line 193, ../sass/treasuries.scss */
+.treasury-item .visit-treasury-button {
+  padding: 5px 10px;
+  background: #079BBE;
+  border: 1px solid #BCB9A6;
+  border-radius: 3px;
+  color: #EDEDEB;
+  font-size: 13px;
+  display: inline-block;
+}

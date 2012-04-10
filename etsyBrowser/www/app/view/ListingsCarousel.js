@@ -57,6 +57,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
    * @param {Object} event Event object
    */
   trackProduct: function (event) {
+    $('.product').removeClass('cart-pressed-flag');   
     var $element = $(event.target);
 
     if (!$element.hasClass('product')) {

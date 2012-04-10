@@ -16,7 +16,6 @@ Ext.define('Etsy.view.HomePanel', {
         },
         {
             flex: 1,
-            id: 'homePanelLeft',
             xtype: 'container',
             layout: 'vbox',
             items: [
@@ -43,7 +42,7 @@ Ext.define('Etsy.view.HomePanel', {
             },
             {
                 cls: 'grey-box',
-                height: 250,
+                height: 219,
                 id: 'homeCategoriesCarousel',
                 xtype: 'treasuriesCarousel',
                 count: 5,

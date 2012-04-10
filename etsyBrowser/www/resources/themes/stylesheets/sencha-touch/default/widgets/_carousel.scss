@@ -32,11 +32,11 @@ $carousel-track-size: 1.5em !default;
  */
 @mixin sencha-carousel-indicator-ui($ui-label, $color, $gradient, $active-color, $active-gradient) {
   .x-carousel-indicator-#{$ui-label} span {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       background-position: center center;
       text-align: center;
-      margin: 0 0 10px 10px;
+      margin: 0 0 0px 10px;
       border: 1px solid #CCC;
 
     &.x-carousel-indicator-active {
@@ -83,7 +83,7 @@ border: 2px solid #78C042;
     -webkit-box-shadow: none;
 /*    background-color: transparent;
     background-image: none;*/
-/*    background: rgba(255,255,255,0.8);*/
+    background: rgba(255,255,255,0.8)
   }
 
   .x-carousel-indicator {
@@ -104,7 +104,7 @@ border: 2px solid #78C042;
 
   .x-carousel-indicator-horizontal {
     /*height: $carousel-track-size;*/
-	height: 52px;
+	height: 70px;
 	width: 100%;
 /*  background: #EEE;*/
   }

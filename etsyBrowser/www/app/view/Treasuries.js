@@ -16,7 +16,7 @@ Ext.define('Etsy.view.Treasuries', {
                         '<div class="image-wrapper image-1"><div class="image" style="background-image: url({data.image_1})"></div></div>',
                         '<div class="image-wrapper image-2"><div class="image" style="background-image: url({data.image_2})"></div></div>',
                         '<div class="image-wrapper image-3"><div class="image" style="background-image: url({data.image_3})"></div></div>',
-                        '<div class="image-wrapper image-4"><div class="image" style="background-image: url({data.image_4})"></div></div>',
+                        // '<div class="image-wrapper image-4"><div class="image" style="background-image: url({data.image_4})"></div></div>',
                         
                         '<div class="title">{data.title}</div>',   
                         '<div class="user-avatar" style="background-image: url(http://img0.etsystatic.com/iusa_75x75.{data.user_avatar_id}.jpg)"></div>',

@@ -1,0 +1,40 @@
+/* line 1, ../sass/appPanel.scss */
+#appPanel {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 350ms;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+/* line 6, ../sass/appPanel.scss */
+#appPanel .x-layout-card-item {
+  background: url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
+}
+/* line 10, ../sass/appPanel.scss */
+#appPanel .left-nav-button {
+  background: url(../images/slices-v2/HeaderBar-left-menu-button-link-1x.png) no-repeat center center;
+  border-radius: 0;
+}
+/* line 14, ../sass/appPanel.scss */
+#appPanel .left-nav-button.x-button-pressing {
+  background: url(../images/slices-v2/HeaderBar-left-menu-button-active-1x.png) no-repeat center center;
+}
+/* line 19, ../sass/appPanel.scss */
+#appPanel .home-nav-button {
+  background: url(../images/slices-v2/HeaderBar-logo-1x.png) no-repeat center center;
+}
+/* line 22, ../sass/appPanel.scss */
+#appPanel .home-nav-button.x-button-pressing {
+  background: url(../images/slices-v2/HeaderBar-logo-active-1x.png) no-repeat 23px 0px;
+}
+/* line 27, ../sass/appPanel.scss */
+#appPanel .right-nav-button {
+  background: url(../images/slices-v2/HeaderBar-right-menu-button-link-1x.png) no-repeat center center;
+  border-radius: 0;
+}
+/* line 31, ../sass/appPanel.scss */
+#appPanel .right-nav-button.x-button-pressing {
+  background: url(../images/slices-v2/HeaderBar-right-menu-button-active-1x.png) no-repeat center center;
+}
+/* line 36, ../sass/appPanel.scss */
+#appPanel #appPanelMask {
+  background: rgba(0, 0, 0, 0.2);
+}

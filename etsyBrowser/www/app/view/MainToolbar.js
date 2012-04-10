@@ -2,41 +2,42 @@ Ext.define('Etsy.view.MainToolbar', {
     extend: 'Ext.Toolbar',
     alias: 'widget.mainToolbar',
     xtype: 'maintoolbar',
-    
+
     config: {
         docked: 'top',
         items: [
-		{
+        {
             xtype: 'button',
             ui: 'plain',
             width: 60,
             height: 47,
             cls: 'left-nav-button',
             listeners: {
-                tap: function(){
+                tap: function() {
                     self.getAppPanel().mask({
-            			listeners: {
-            				tap: function() {
-            					self.toggleNav();
-            				}
-            			}
-            		})
-            		self.toggleNav();
+                        id: 'appPanelMask',
+                        listeners: {
+                            tap: function() {
+                                self.toggleNav();
+                            },
+                        }
+                    })
+                    self.toggleNav();
                 }
             }
         },
         {
-                xtype: 'button',
-                ui: 'plain',
-                width: 140,
-                height: 47,
-                cls: 'home-nav-button',
-                listeners: {
-                    tap: function(){
-                      APP.loadHomePanel();
-                    }
+            xtype: 'button',
+            ui: 'plain',
+            width: 140,
+            height: 47,
+            cls: 'home-nav-button',
+            listeners: {
+                tap: function() {
+                    APP.loadHomePanel();
                 }
-            },
+            }
+        },
         {
             xtype: 'spacer'
         },
@@ -48,16 +49,16 @@ Ext.define('Etsy.view.MainToolbar', {
             height: 47,
             cls: 'right-nav-button',
             listeners: {
-                tap: function(){
+                tap: function() {
                     self.getAppPanel().mask({
-            			listeners: {
-            				tap: function() {
-            					self.toggleSearch();
-            				}
-            			}
+                        listeners: {
+                            tap: function() {
+                                self.toggleSearch();
+                            }
+                        }
 
-            		})
-            		self.toggleSearch();
+                    })
+                    self.toggleSearch();
                 }
             }
         }]

@@ -99,7 +99,7 @@ input, textarea {
   @include box-align(center);
   @include box-pack(center);
 
-  background: rgba(0,0,0,.7) center center no-repeat;
+  background: rgba(0,0,0,.8) center center no-repeat;
 
   &.x-mask-gray {
     background-color: rgba(0, 0, 0, 0.6);
@@ -110,14 +110,16 @@ input, textarea {
   }
 
   .x-mask-inner {
-    background: rgba(0, 0, 0, .25);
+/*    background: rgba(0, 0, 0, .25);*/
     color: #fff;
     text-align: center;
-    padding: .4em;
+    padding: 25px;
     font-size: .95em;
     font-weight: bold;
     @if $include-border-radius { @include border-radius(.5em); }
   }
+
+
 
   .x-loading-spinner-outer {
     @include display-box;
@@ -127,6 +129,10 @@ input, textarea {
     width: 100%;
     min-width: $min-width;
     height: $min-width;
+    
+    min-width: 8.5em;
+    height: 5.5em;
+    margin-top: -56px;
   }
 
   &.x-indicator-hidden {

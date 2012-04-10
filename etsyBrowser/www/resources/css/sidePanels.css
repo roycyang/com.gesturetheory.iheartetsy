@@ -1,0 +1,73 @@
+/* line 1, ../sass/sidePanels.scss */
+#navPanel {
+  background: #46250a url(../images/slices-v2/LeftNav-top-background-1x.png) no-repeat top left;
+}
+/* line 4, ../sass/sidePanels.scss */
+#navPanel #signUpButton {
+  height: 92px;
+}
+/* line 8, ../sass/sidePanels.scss */
+#navPanel #signUpButton.x-button-pressing .promo-user-info span.sign-in {
+  text-decoration: underline;
+}
+/* line 16, ../sass/sidePanels.scss */
+#navPanel .user-info {
+  color: #FEFBE3;
+  padding: 20px 20px;
+  font-size: 15px;
+  line-height: 56px;
+  overflow: hidden;
+}
+/* line 26, ../sass/sidePanels.scss */
+#navPanel .promo-user-info {
+  color: #FEFBE3;
+  padding: 20px 20px;
+  font-size: 15px;
+  line-height: 20px;
+  overflow: hidden;
+}
+/* line 33, ../sass/sidePanels.scss */
+#navPanel .promo-user-info span.desc {
+  display: block;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 120%;
+  margin-top: 5px;
+  font-weight: 300;
+}
+/* line 43, ../sass/sidePanels.scss */
+#navPanel img {
+  height: 56px;
+  margin-right: 15px;
+  float: left;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  background-color: white;
+  padding: 3px;
+}
+
+/* line 54, ../sass/sidePanels.scss */
+span.count {
+  display: none;
+  float: right;
+  background: #331b07;
+  font-size: 13px;
+  padding: 2px 5px;
+  border-radius: 7px;
+}
+/* line 62, ../sass/sidePanels.scss */
+.signed-in-flag span.count {
+  display: block;
+}
+
+/* line 68, ../sass/sidePanels.scss */
+span.arrow {
+  float: right;
+  font-size: 13px;
+  padding: 2px 5px;
+}
+
+/* line 75, ../sass/sidePanels.scss */
+#searchPanel {
+  background: #46250a;
+}

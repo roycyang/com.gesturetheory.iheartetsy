@@ -1,47 +1,39 @@
 Ext.define('Etsy.view.CategoryPopupPanel', {
-	extend: 'Ext.Panel',
+    extend: 'Ext.Panel',
     alias: 'widget.categoryPopupPanel',
-	config: {
-		zIndex: 1000000000,
-		centered: true,
-		width: 600,
-		height: 651,
-		modal: true,
-		hideOnMaskTap: true,
-		hidden: true,
-		layout: 'card',
-		items: [{
+    config: {
+        zIndex: 1000000000,
+        centered: true,
+        width: 576,
+        height: 651,
+        modal: true,
+        hideOnMaskTap: true,
+        hidden: true,
+        layout: 'card',
+        items: [{
 
             xtype: 'toolbar',
             docked: 'top',
             title: 'Categories',
-            items: [{
-                xtype: 'button',
-                ui: 'cancel',
-                text: 'Cancel',
-                listeners: {
-                    tap: function(){
-                        APP.getCategoryPopupPanel().hide();
-                    }
-                }
-                }]
-            },
-            {
-			id: 'categoryList',
-			xtype: 'list',
-			title: 'Categories',
-			store: 'Categories',
+        },
+        {
+            id: 'categoryList',
+            xtype: 'list',
+            title: 'Categories',
+            store: 'Categories',
             itemTpl: '<div class="category-item">{short_name}</div>',
-			listeners: {
-				itemtap: function(list, index, target, record, e) {
-                    setTimeout(function(){
+            listeners: {
+                itemtap: function(list, index, target, record, e) {
+                    setTimeout(function() {
                         APP.getCategoryPopupPanel().hide();
-                    }, 500);
+                    },
+                    500);
                     APP.loadListings('category', record);
-				}
-			}
-		}],
+                }
+            }
+        }
+        ],
 
-	},
+    },
 
 });

@@ -23,39 +23,35 @@ Ext.define('Etsy.view.SearchPanel', {
 			xtype: 'formpanel',
 			items: [{
 				xtype: 'fieldset',
-				title: 'Price Range',
+				title: 'Price',
 				items: [{
-					label: 'From',
 					xtype: 'numberfield',
+					placeHolder: 'From'
 
 				},
 
 				{
-					label: 'To',
 					xtype: 'numberfield',
+	        placeHolder: 'Top'
 
 				}]
 			},
 			{
 				xtype: 'fieldset',
-				title: 'Sort by',
-				items: [{
-					xtype: 'selectfield',
-					label: 'Field',
-					options: [{
-						text: 'Most Recent',
-						value: 'first'
-					},
-					{
-						text: 'Highest Price',
-						value: 'second'
-					},
-					{
-						text: 'Lowest Price',
-						value: 'third'
-					}]
-				}]
-			}]
+				title: 'Location',
+				items: [
+				{
+					xtype: 'textfield',
+	        placeHolder: 'Country, city or zip'
+
+				}
+				]
+			},
+			{
+				xtype: 'button',
+        text: 'Search'
+			}
+			]
 
 		}
 		],

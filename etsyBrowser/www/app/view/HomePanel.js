@@ -45,7 +45,7 @@ Ext.define('Etsy.view.HomePanel', {
                 height: 219,
                 id: 'homeCategoriesCarousel',
                 xtype: 'treasuriesCarousel',
-                count: 5,
+                count: 4,
                 innerItemConfig: {
                     xclass: 'Etsy.view.SmallTreasuries'
                 },
@@ -65,7 +65,7 @@ Ext.define('Etsy.view.HomePanel', {
                 height: 230,
                 id: 'homeTreasuriesCarousel',
                 xtype: 'treasuriesCarousel',
-                count: 5,
+                count: 4,
                 innerItemConfig: {
                     xclass: 'Etsy.view.SmallTreasuries'
                 },

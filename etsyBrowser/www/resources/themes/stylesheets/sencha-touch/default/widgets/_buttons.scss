@@ -240,6 +240,37 @@ $include-button-highlights: $include-highlights !default;
       }
     }
   }
+  
+  // Plain buttons automatically use a margin trick to have a
+  // wide gradial glow for pressed state.
+  .x-button.x-button-none,
+  .x-toolbar .x-button.x-button-none {
+    background: none;
+    border: 0 none;
+    min-height: 0;
+    text-shadow: none;
+    line-height: auto;
+    height: auto;
+    padding: 0;
+
+    & > * {
+      overflow: visible;
+    }
+
+    .x-button-icon {
+      -webkit-mask-size: $toolbar-icon-size;
+      width: $toolbar-icon-size;
+      height: $toolbar-icon-size;
+    }
+
+    &.x-button-pressing, &.x-button-pressed {
+      background: none;
+    }
+    
+    .x-button-label {
+      text-align: left;
+    }
+  }
 
   // SegmentedButtons
   .x-segmentedbutton .x-button {

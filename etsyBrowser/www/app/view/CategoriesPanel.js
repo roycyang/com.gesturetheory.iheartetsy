@@ -19,7 +19,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
         },
         {
             xtype: 'button',
-            id: 'leftArrow',
+            cls: 'leftArrow',
             width: 46,
             left: 0,
             hidden: true,
@@ -34,13 +34,8 @@ Ext.define('Etsy.view.CategoriesPanel', {
             }
         },
         {
-            flex: 1,
-            id: 'browserCarousel',
-            xtype: 'listingsCarousel',
-        },
-        {
             xtype: 'button',
-            id: 'rightArrow',
+            cls: 'rightArrow',
             right: 0,
             ui: 'plain',
             width: 49,
@@ -52,7 +47,13 @@ Ext.define('Etsy.view.CategoriesPanel', {
                 self.getBrowserCarousel().next();
               }
             }
-        }]
+        },
+        {
+            flex: 1,
+            id: 'browserCarousel',
+            xtype: 'listingsCarousel',
+        }
+        ]
     }
 
 });

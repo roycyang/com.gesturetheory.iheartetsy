@@ -43,23 +43,17 @@ Ext.define('Etsy.model.CategoriesIndex', {
                 name: 'image_1',
                 convert: function(value, record) { 
 	                      
-                    return record.data.listings[3].Images[0].url_170x135
+                    return record.data.listings[2].Images[0].url_170x135
                 }
             },
             {
                 name: 'image_2',
                 convert: function(value, record) {                        
-                    return record.data.listings[2].Images[0].url_170x135
-                }
-            },
-            {
-                name: 'image_3',
-                convert: function(value, record) {                        
                     return record.data.listings[1].Images[0].url_170x135
                 }
             },
             {
-                name: 'image_4',
+                name: 'image_3',
                 convert: function(value, record) {                        
                     return record.data.listings[0].Images[0].url_170x135
                 }

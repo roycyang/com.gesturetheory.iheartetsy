@@ -18,6 +18,7 @@ Ext.define('Etsy.model.Listing', {
 			'state',
 			'in_cart',
 			'in_favorites',
+			'category_path',
 			
 			{
 	            name: 'rounded_price',
@@ -68,7 +69,6 @@ Ext.define('Etsy.model.Listing', {
             extraParams: {
                 api_key: 'tia49fh9iqjcrukurpbyqtv5',
 				includes: 'Images:6,User',
-				category: 'art',
 				limit: '100'
             },
             reader: {

@@ -3,7 +3,7 @@
   background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
 }
 /* line 4, ../sass/homePanel.scss */
-#homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(3) {
+#homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(5) {
   display: none;
 }
 /* line 9, ../sass/homePanel.scss */
@@ -14,7 +14,7 @@
   font-weight: normal;
 }
 /* line 18, ../sass/homePanel.scss */
-#homePanel .x-button-pressing .browse-categories, #homePanel .x-button-pressing .browse-categories {
+#homePanel .x-button-pressing .browse-categories, #homePanel .x-button-pressing .hottest-treasuries {
   background: url(../images/slices-v2/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
 }
 /* line 22, ../sass/homePanel.scss */

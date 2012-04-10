@@ -100,7 +100,7 @@
 }
 /* line 6, ../sass/appPanel.scss */
 #appPanel .x-layout-card-item {
-  background: url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
+  background: #fdf9df url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
 }
 /* line 10, ../sass/appPanel.scss */
 #appPanel .left-nav-button {
@@ -138,7 +138,7 @@
   background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
 }
 /* line 4, ../sass/homePanel.scss */
-#homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(3) {
+#homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(5) {
   display: none;
 }
 /* line 9, ../sass/homePanel.scss */
@@ -151,7 +151,7 @@
 }
 /* line 18, ../sass/homePanel.scss */
 #homePanel .x-button-pressing .browse-categories,
-#homePanel .x-button-pressing .browse-categories {
+#homePanel .x-button-pressing .hottest-treasuries {
   background: url(../images/slices-v2/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
 }
 /* line 22, ../sass/homePanel.scss */
@@ -221,15 +221,16 @@
   overflow: hidden;
 }
 /* line 26, ../sass/sidePanels.scss */
-#navPanel .promo-user-info {
+#navPanel .x-button-label {
   color: #FEFBE3;
   padding: 20px 20px;
   font-size: 15px;
   line-height: 20px;
   overflow: hidden;
+  white-space: normal;
 }
-/* line 33, ../sass/sidePanels.scss */
-#navPanel .promo-user-info span.desc {
+/* line 34, ../sass/sidePanels.scss */
+#navPanel .x-button-label span.desc {
   display: block;
   font-size: 11px;
   font-style: italic;
@@ -237,7 +238,7 @@
   margin-top: 5px;
   font-weight: 300;
 }
-/* line 43, ../sass/sidePanels.scss */
+/* line 44, ../sass/sidePanels.scss */
 #navPanel img {
   height: 56px;
   margin-right: 15px;
@@ -248,7 +249,7 @@
   padding: 3px;
 }
 
-/* line 54, ../sass/sidePanels.scss */
+/* line 55, ../sass/sidePanels.scss */
 span.count {
   display: none;
   float: right;
@@ -257,42 +258,42 @@ span.count {
   padding: 2px 5px;
   border-radius: 7px;
 }
-/* line 62, ../sass/sidePanels.scss */
+/* line 63, ../sass/sidePanels.scss */
 .signed-in-flag span.count {
   display: block;
 }
 
-/* line 68, ../sass/sidePanels.scss */
+/* line 69, ../sass/sidePanels.scss */
 span.arrow {
   float: right;
   font-size: 13px;
   padding: 2px 5px;
 }
 
-/* line 75, ../sass/sidePanels.scss */
+/* line 76, ../sass/sidePanels.scss */
 #searchPanel {
   background: #46250a;
 }
 
 /* line 5, ../sass/carousel.scss */
-#leftArrow {
+#appPanel .leftArrow {
   background: url("../images/left_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
 /* line 10, ../sass/carousel.scss */
-#leftArrow.x-button-pressing {
+#appPanel .leftArrow.x-button-pressing {
   background-image: url("../images/left_arrow_on.png");
 }
 
 /* line 19, ../sass/carousel.scss */
-#rightArrow {
+#appPanel .rightArrow {
   background: url("../images/right_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
 /* line 24, ../sass/carousel.scss */
-#rightArrow.x-button-pressing {
+#appPanel .rightArrow.x-button-pressing {
   background-image: url("../images/right_arrow_on.png");
 }
 
@@ -602,20 +603,21 @@ span.arrow {
 #treasuriesPanel #treasuriesCarousel .x-innerhtml {
   padding: 24px 0;
 }
-/* line 17, ../sass/treasuries.scss */
-#treasuriesPanel #treasuryCarousel .product {
+
+/* line 20, ../sass/treasuries.scss */
+#treasuryPanel #treasuryCarousel .product {
   margin: 20px 11px;
 }
-/* line 21, ../sass/treasuries.scss */
-#treasuriesPanel #treasuryCarousel .x-innerhtml div:nth-of-type(17) {
+/* line 24, ../sass/treasuries.scss */
+#treasuryPanel #treasuryCarousel .x-innerhtml div:nth-of-type(17) {
   display: none;
 }
-/* line 25, ../sass/treasuries.scss */
-#treasuriesPanel #treasuryCarousel .products .x-innerhtml {
+/* line 28, ../sass/treasuries.scss */
+#treasuryPanel #treasuryCarousel .products .x-innerhtml {
   padding: 24px 0;
 }
 
-/* line 32, ../sass/treasuries.scss */
+/* line 35, ../sass/treasuries.scss */
 .treasury-item {
   height: 166px;
   display: inline-block;
@@ -626,13 +628,13 @@ span.arrow {
   vertical-align: top;
   color: #3F3F3F;
 }
-/* line 42, ../sass/treasuries.scss */
+/* line 45, ../sass/treasuries.scss */
 .treasury-item.small-treasury-item {
   width: 200px;
   margin: 39px 0 0 37px;
   padding: 0;
 }
-/* line 47, ../sass/treasuries.scss */
+/* line 50, ../sass/treasuries.scss */
 .treasury-item.small-treasury-item .title {
   font-size: 23px;
   font-family: GearedSlabThin;
@@ -648,35 +650,36 @@ span.arrow {
   text-overflow: ellipsis;
   left: -2px;
   line-height: 30px;
+  margin: 0;
 }
-/* line 64, ../sass/treasuries.scss */
+/* line 68, ../sass/treasuries.scss */
 .treasury-item.small-treasury-item .image-wrapper .image {
   width: 125px;
   height: 100px;
 }
-/* line 71, ../sass/treasuries.scss */
+/* line 75, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-1 {
   top: 10px;
   left: 0;
 }
-/* line 76, ../sass/treasuries.scss */
+/* line 80, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-2 {
   left: 16px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 82, ../sass/treasuries.scss */
+/* line 86, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-3 {
   left: 38px;
   top: 11px;
 }
-/* line 87, ../sass/treasuries.scss */
+/* line 91, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-4 {
   left: 296px;
   -webkit-transform: rotate(4deg);
   top: 14px;
 }
-/* line 94, ../sass/treasuries.scss */
+/* line 98, ../sass/treasuries.scss */
 .treasury-item .image-wrapper {
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -684,36 +687,36 @@ span.arrow {
   padding: 3px;
   position: absolute;
 }
-/* line 101, ../sass/treasuries.scss */
+/* line 105, ../sass/treasuries.scss */
 .treasury-item .image-wrapper.image-1 {
   -webkit-transform: rotate(-5deg);
   top: 10px;
   left: 0;
 }
-/* line 107, ../sass/treasuries.scss */
+/* line 111, ../sass/treasuries.scss */
 .treasury-item .image-wrapper.image-2 {
   left: 28px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 113, ../sass/treasuries.scss */
+/* line 117, ../sass/treasuries.scss */
 .open .treasury-item .image-wrapper.image-2 {
   left: 81px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 119, ../sass/treasuries.scss */
+/* line 123, ../sass/treasuries.scss */
 .treasury-item .image-wrapper.image-3 {
   left: 61px;
   -webkit-transform: rotate(2deg);
   top: 14px;
 }
-/* line 125, ../sass/treasuries.scss */
+/* line 129, ../sass/treasuries.scss */
 .open .treasury-item .image-wrapper.image-3 {
   left: 185px;
   top: 15px;
 }
-/* line 144, ../sass/treasuries.scss */
+/* line 148, ../sass/treasuries.scss */
 .treasury-item .image-wrapper .image {
   width: 170px;
   height: 135px;
@@ -724,39 +727,49 @@ span.arrow {
   background-clip: padding-box;
   /* IOS fix */
 }
-/* line 160, ../sass/treasuries.scss */
+/* line 164, ../sass/treasuries.scss */
 .treasury-item .title {
   font-size: 23px;
   font-family: GearedSlabThin;
   margin-bottom: 4px;
-  height: 54px;
+  height: 34px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 20px;
 }
-/* line 169, ../sass/treasuries.scss */
+/* line 176, ../sass/treasuries.scss */
 .treasury-item .user-avatar {
   width: 35px;
   height: 35px;
   float: left;
   background-size: contain;
-  margin-right: 15px;
+  margin-right: 10px;
+  background: white;
+  padding: 3px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
 }
-/* line 177, ../sass/treasuries.scss */
+/* line 188, ../sass/treasuries.scss */
 .treasury-item .stats {
   clear: both;
   font-size: 11px;
   padding: 10px 0;
   color: #afafaf;
 }
-/* line 184, ../sass/treasuries.scss */
+/* line 195, ../sass/treasuries.scss */
 .treasury-item .user {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 11px;
   padding: 10px 0;
 }
-/* line 187, ../sass/treasuries.scss */
+/* line 201, ../sass/treasuries.scss */
 .treasury-item .user span {
   color: #afafaf;
 }
-/* line 193, ../sass/treasuries.scss */
+/* line 207, ../sass/treasuries.scss */
 .treasury-item .visit-treasury-button {
   padding: 5px 10px;
   background: #079BBE;
@@ -765,6 +778,10 @@ span.arrow {
   color: #EDEDEB;
   font-size: 13px;
   display: inline-block;
+}
+/* line 218, ../sass/treasuries.scss */
+.treasury-item.pressed .visit-treasury-button {
+  background: #06667d;
 }
 
 /* line 10, ../sass/application.scss */

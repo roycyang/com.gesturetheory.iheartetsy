@@ -28,6 +28,7 @@ Ext.define('Etsy.model.Treasury', {
         {
             name: 'image_3',
             convert: function(value, record) {
+                
                 return record.data.listings[0].data.image_url
             }
         }

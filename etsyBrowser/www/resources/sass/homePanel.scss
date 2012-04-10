@@ -1,7 +1,7 @@
 #homePanel {
   background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
     
-  .treasury-item-wrapper div.x-innerhtml>div:nth-of-type(3){
+  .treasury-item-wrapper div.x-innerhtml>div:nth-of-type(5){
     display: none
   }
 
@@ -15,7 +15,7 @@
   }
   
   .x-button-pressing   .browse-categories,
-    .x-button-pressing   .browse-categories {
+  .x-button-pressing   .hottest-treasuries {
     background: url(../images/slices-v2/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
   }
 

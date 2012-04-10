@@ -51,6 +51,7 @@ Ext.define('Etsy.view.MainToolbar', {
             listeners: {
                 tap: function() {
                     self.getAppPanel().mask({
+                        id: 'appPanelMask',
                         listeners: {
                             tap: function() {
                                 self.toggleSearch();

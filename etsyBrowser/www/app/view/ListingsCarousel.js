@@ -45,11 +45,20 @@ Ext.define('Etsy.view.ListingsCarousel', {
     if (element.hasCls('favorite-stamp')) {
         element = Ext.get(e.target).parent('.product');
        $('#' + element.id).addClass('cart-pressed-flag');
+       return false;
     }
+    
+    
+    if(element = Ext.get(e.target).parent('.treasury-item')){
+      var parent = Ext.get(e.target).parent('.treasury-item')
+      $('#' + parent.id).addClass('pressed');
+    }
+
   },
 
   onTouchEtsyItemEnd: function (e) {
 	  $('.product').removeClass('cart-pressed-flag');   
+    $('.treasury-item').removeClass('pressed');   
   },
 
   /**
@@ -57,6 +66,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
    * @param {Object} event Event object
    */
   trackProduct: function (event) {
+    $('.treasury-item').removeClass('pressed');   
     $('.product').removeClass('cart-pressed-flag');   
     var $element = $(event.target);
 
@@ -156,9 +166,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       // 1. Trigger a dragend.
       // 2. Remove from favorites.
       if (yDist > 30) {
-        console.log('this.element', this.element);
         if(!$element.hasClass('favoriting')){
-          console.log('RUNNING ONCE');
           $element.addClass('favoriting');
           this.element.fireEvent('dragend', event, 'bounce');
           ETSY.toggleFavorites(id, $element);
@@ -240,27 +248,37 @@ Ext.define('Etsy.view.ListingsCarousel', {
             me.setMaxItemIndex(max - 1);
           }, 100);
           
-          if(Ext.getCmp('rightArrow')){
-              console.log('active index', me.getActiveIndex());
-              if(me.getActiveIndex() < max){
-                Ext.getCmp('rightArrow').show();
-              }
+          
+          if(me.getActiveIndex() < max){
+            $('.rightArrow').show();
+          }else{
+            $('.rightArrow').hide();
           }
           
           if (storeCount == 100) {
             newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
           }
           
-          if (storeCount == 0) {
-            ETSY.alert('There are no results! Please try again');
-            APP.loadHomePanel();
-            return false;
-          }
         });
       }
 
       // this is when the store loads for the first time
       newStore.on('load', function () {
+        console.log('in store load');
+        var storeCount = newStore.data.length;
+        var max = parseInt(storeCount / me.getCount());
+        setTimeout(function () {
+          me.setMaxItemIndex(max - 1);
+        }, 100);
+        
+        
+        if(me.getActiveIndex() < max){
+          $('.rightArrow').show();
+        }else{
+          $('.rightArrow').hide();
+        }
+        
+        
         
         if (APP.getCategoriesPanel()) {
           APP.getCategoriesPanel().unmask();
@@ -271,60 +289,79 @@ Ext.define('Etsy.view.ListingsCarousel', {
         if (APP.getTreasuryPanel()) {
           APP.getTreasuryPanel().unmask();
         }
+        
+        if (APP.getSearchResultsPanel()) {
+          APP.getSearchResultsPanel().unmask();
+        }
 
         me.updateStore(newStore);
       }, me, {
         single: true
       });
     } else {
+      console.log('store is not laoding');
       me.reset();
+      
+      var storeCount = newStore.data.length;
+      var max = parseInt(storeCount / me.getCount());
+      setTimeout(function () {
+        me.setMaxItemIndex(max - 1);
+      }, 100);
+      
+      
+      if(me.getActiveIndex() < max){
+        $('.rightArrow').show();
+      }else{
+        $('.rightArrow').hide();
+      }
 
     }
   },
 
   onActiveItemChange: function (carousel, newItem, oldItem) {
-    if (GLOBAL.panel != 'treasury') {
-      var index     = carousel.getActiveIndex(),
-        count       = this.getCount(),
-        offsetLimit = this.getOffsetLimit(),
-        store       = this.getStore(),
-        storeCount  = store.getCount();
+    try{
+      if (GLOBAL.panel != 'treasury') {
+        var index     = carousel.getActiveIndex(),
+          count       = this.getCount(),
+          offsetLimit = this.getOffsetLimit(),
+          store       = this.getStore(),
+          storeCount  = store.getCount();
 
-      if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
-        store.nextPage();
-      }
+        if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
+          store.nextPage();
+        }
 
-      console.log('storeCount is', storeCount);
-      console.log('count is', count);
-      var startIndex = (index) * (count) + 1,
-        endIndex     = startIndex + (count - 1),
-        max          = parseInt((storeCount-1) / (count));
+        console.log('storeCount is', storeCount);
+        console.log('count is', count);
+        var startIndex = (index) * (count) + 1,
+          endIndex     = startIndex + (count - 1),
+          max          = parseInt((storeCount-1) / (count));
 
-      // favorites panel needs to show exact amount of items, hence fuzzy math
-      if(GLOBAL.panel != 'favorites'){
-        this.setMaxItemIndex(max - 1);  
-      }else{
-        this.setMaxItemIndex(max);
-      }
-  
-      console.log('index is', index, max);
-      if(Ext.getCmp('leftArrow')){
+        // favorites panel needs to show exact amount of items, hence fuzzy math
+        if(GLOBAL.panel != 'favorites' && GLOBAL.panel != 'home'){
+          this.setMaxItemIndex(max - 1);  
+        }else{
+          this.setMaxItemIndex(max);
+        }
+
+        console.log('index', storeCount, index, max);
         if(index == 0){
-          Ext.getCmp('leftArrow').hide();
+          $('.leftArrow').hide();
         }else{
-          Ext.getCmp('leftArrow').show();
-        } 
-      }
-      
-      if(Ext.getCmp('rightArrow')){
-        if(index == (max)){
-          Ext.getCmp('rightArrow').hide();
-        }else{
-          Ext.getCmp('rightArrow').show();
-        } 
-      }
+          $('.leftArrow').show();
+        }
 
+        if(index == (max-1) || storeCount < 13){
+          $('.rightArrow').hide();
+        }else{
+          $('.rightArrow').show();
+        }
+
+      }
+    }catch(err){
+      console.log('error', err);
     }
+    
   },
 
   onItemIndexChange: function (me, item, index) {

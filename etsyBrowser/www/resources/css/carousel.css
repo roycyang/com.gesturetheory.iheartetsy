@@ -1,22 +1,22 @@
 /* line 5, ../sass/carousel.scss */
-#leftArrow {
+#appPanel .leftArrow {
   background: url("../images/left_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
 /* line 10, ../sass/carousel.scss */
-#leftArrow.x-button-pressing {
+#appPanel .leftArrow.x-button-pressing {
   background-image: url("../images/left_arrow_on.png");
 }
 
 /* line 19, ../sass/carousel.scss */
-#rightArrow {
+#appPanel .rightArrow {
   background: url("../images/right_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
 /* line 24, ../sass/carousel.scss */
-#rightArrow.x-button-pressing {
+#appPanel .rightArrow.x-button-pressing {
   background-image: url("../images/right_arrow_on.png");
 }
 

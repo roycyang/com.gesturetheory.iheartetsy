@@ -6,7 +6,7 @@
 }
 /* line 6, ../sass/appPanel.scss */
 #appPanel .x-layout-card-item {
-  background: url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
+  background: #fdf9df url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
 }
 /* line 10, ../sass/appPanel.scss */
 #appPanel .left-nav-button {

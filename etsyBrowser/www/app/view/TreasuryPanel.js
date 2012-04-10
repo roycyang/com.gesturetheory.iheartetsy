@@ -2,7 +2,7 @@ Ext.define('Etsy.view.TreasuryPanel', {
     extend: 'Ext.Panel',
     alias: 'widget.treasuryPanel',
     config: {
-        id: 'treasuriesPanel',
+        id: 'treasuryPanel',
         items: [
         {
             xtype: 'toolbar',

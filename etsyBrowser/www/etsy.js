@@ -13,6 +13,7 @@ Ext.application({
 
     stores: [
     'Listings',
+    'ResultsListings',
     'Categories',
     'Navigation',
     'Treasuries',
@@ -31,6 +32,7 @@ Ext.application({
     'CategoriesPanel',
     'TreasuriesPanel',
     'TreasuryPanel',
+    'SearchResultsPanel',
     'DetailPanel',
     'CategoryPopupPanel',
     'ListingsCarousel',

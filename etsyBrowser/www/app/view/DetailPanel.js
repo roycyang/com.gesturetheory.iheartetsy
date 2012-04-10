@@ -203,43 +203,47 @@ Ext.define('Etsy.view.DetailPanel', {
 
 	},
 	
-	onDragItem: function(e){
-		// console.log('event', e);
-		var element = Ext.get(e.target);
-		
-		var y_dist = e.deltaY;
-		
-		var x_dist = e.deltaX;
-
-        if (!element.hasCls('description')) {
-            element = Ext.get(e.target).parent('.description');
-        }
-        
-        if(element && !Ext.getCmp('detailPanelCarousel').isDragging && $('#scrollingDescription .x-scroll-indicator-y').css('opacity') == '0'){
-			console.log('should be dragging');
-			if(x_dist < -10){
-			    console.log('swipe open');
-				$('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
-				GLOBAL.isInfoDisplayed = true;
-			}
-
-			if(x_dist >10){
-				$('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
-				GLOBAL.isInfoDisplayed = false;
-			}
-        }
-
-		
-
-		//console.log($('#' + element.id));
-		
-
-		//id = Math.abs(element.getAttribute('ref'));
-		// console.log('the element being swiped is', element);
-	},
-	
+	// onDragItem: function(e){
+	//     // console.log('event', e);
+	//     var element = Ext.get(e.target);
+	//     
+	//     var y_dist = e.deltaY;
+	//     
+	//     var x_dist = e.deltaX;
+	// 
+	//         if (!element.hasCls('description')) {
+	//             element = Ext.get(e.target).parent('.description');
+	//         }
+	//         
+	//         if(element && !Ext.getCmp('detailPanelCarousel').isDragging && $('#scrollingDescription .x-scroll-indicator-y').css('opacity') == '0'){
+	//       console.log('should be dragging');
+	//       if(x_dist < -10){
+	//           console.log('swipe open');
+	//         $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
+	//         GLOBAL.isInfoDisplayed = true;
+	//       }
+	// 
+	//       if(x_dist >10){
+	//         $('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
+	//         GLOBAL.isInfoDisplayed = false;
+	//       }
+	//         }
+	// 
+	//     
+	// 
+	//     //console.log($('#' + element.id));
+	//     
+	// 
+	//     //id = Math.abs(element.getAttribute('ref'));
+	//     // console.log('the element being swiped is', element);
+	//   },
+	//   
 
 	onTap: function(e) {
+	  if(Ext.get(e.target).parent('.description-inner-wrapper')){
+	    var element = Ext.get(e.target).parent('.description-inner-wrapper)');
+	    return false;
+	  }
 		// tapping on an image
 		if(Ext.get(e.target).parent('.x-carousel-indicator')){
 			var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);

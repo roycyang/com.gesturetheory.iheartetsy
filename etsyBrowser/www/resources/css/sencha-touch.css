@@ -3823,36 +3823,73 @@ audio {
   background-image: linear-gradient(#e6e6e6, #f2f2f2 10%, #ffffff 65%, #ffffff);
 }
 
-/* line 245, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+/* line 247, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+.x-button.x-button-none,
+.x-toolbar .x-button.x-button-none {
+  background: none;
+  border: 0 none;
+  min-height: 0;
+  text-shadow: none;
+  line-height: auto;
+  height: auto;
+  padding: 0;
+}
+/* line 256, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+.x-button.x-button-none > *,
+.x-toolbar .x-button.x-button-none > * {
+  overflow: visible;
+}
+/* line 260, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+.x-button.x-button-none .x-button-icon,
+.x-toolbar .x-button.x-button-none .x-button-icon {
+  -webkit-mask-size: 1.4em;
+  width: 1.4em;
+  height: 1.4em;
+}
+/* line 266, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+.x-button.x-button-none.x-button-pressing, .x-button.x-button-none.x-button-pressed,
+.x-toolbar .x-button.x-button-none.x-button-pressing,
+.x-toolbar .x-button.x-button-none.x-button-pressed {
+  background: none;
+}
+/* line 270, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+.x-button.x-button-none .x-button-label, .x-button.x-button-none .x-hasbadge .x-badge, .x-hasbadge .x-button.x-button-none .x-badge,
+.x-toolbar .x-button.x-button-none .x-button-label,
+.x-toolbar .x-button.x-button-none .x-hasbadge .x-badge, .x-hasbadge
+.x-toolbar .x-button.x-button-none .x-badge {
+  text-align: left;
+}
+
+/* line 276, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
 .x-segmentedbutton .x-button {
   margin: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-/* line 251, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+/* line 282, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
 .x-segmentedbutton .x-button.x-first {
   -webkit-border-top-left-radius: 0.4em;
   border-top-left-radius: 0.4em;
   -webkit-border-bottom-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
 }
-/* line 254, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+/* line 285, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
 .x-segmentedbutton .x-button.x-last {
   -webkit-border-top-right-radius: 0.4em;
   border-top-right-radius: 0.4em;
   -webkit-border-bottom-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
 }
-/* line 259, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+/* line 290, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
 .x-segmentedbutton .x-button:not(:first-child) {
   border-left: 0;
 }
 
-/* line 270, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+/* line 301, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
 .x-hasbadge {
   overflow: visible;
 }
-/* line 272, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
+/* line 303, ../themes/stylesheets/sencha-touch/default/widgets/_buttons.scss */
 .x-hasbadge .x-badge {
   -webkit-background-clip: padding;
   background-clip: padding-box;

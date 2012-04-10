@@ -21,7 +21,8 @@ $list-bg-color: #f7f7f7 !default;
  * Optionally disable all list gradients, text-shadows, and box-shadows. Useful for CSS debugging,
  * non-performant browsers, or minimalist designs.
  */
-$include-list-highlights: $include-highlights !default;
+/*$include-list-highlights: $include-highlights !default;*/
+$include-list-highlights: false !default;
 
 /**
  * @var {boolean} $list-zebrastripe
@@ -126,9 +127,12 @@ $list-disclosure-round-size: 1.5em;
 
       &.x-item-selected {
         .x-list-item-label {
-          @include background-gradient($list-active-color, $list-active-gradient);
-          @include color-by-background($list-active-color);
-          @include bevel-by-background($list-active-color);
+/*          @include background-gradient($list-active-color, $list-active-gradient);*/
+background: #954300;
+/*          @include color-by-background($list-active-color);
+          @include bevel-by-background($list-active-color);*/
+/*          border-top: 1px solid #ae9e85;
+          border-bottom: 1px solid #ae9e85;*/
         }
       }
     }
@@ -189,7 +193,7 @@ $list-disclosure-round-size: 1.5em;
       }
 
       &:first-child .x-list-item-label {
-        border-top: 0;
+/*        border-top: 0;*/
       }
 
       @if $include-list-highlights {

@@ -10,8 +10,8 @@ Ext.define('Etsy.view.MainToolbar', {
             xtype: 'button',
             ui: 'plain',
             width: 60,
-            iconCls: 'list',
-            iconMask: true,
+            height: 47,
+            cls: 'left-nav-button',
             listeners: {
                 tap: function(){
                     self.getAppPanel().mask({
@@ -26,6 +26,18 @@ Ext.define('Etsy.view.MainToolbar', {
             }
         },
         {
+                xtype: 'button',
+                ui: 'plain',
+                width: 140,
+                height: 47,
+                cls: 'home-nav-button',
+                listeners: {
+                    tap: function(){
+                      APP.loadHomePanel();
+                    }
+                }
+            },
+        {
             xtype: 'spacer'
         },
 
@@ -33,8 +45,8 @@ Ext.define('Etsy.view.MainToolbar', {
             xtype: 'button',
             ui: 'plain',
             width: 60,
-            iconCls: 'search',
-            iconMask: true,
+            height: 47,
+            cls: 'right-nav-button',
             listeners: {
                 tap: function(){
                     self.getAppPanel().mask({

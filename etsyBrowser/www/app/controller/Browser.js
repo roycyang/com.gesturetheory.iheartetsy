@@ -244,7 +244,7 @@ Ext.define('Etsy.controller.Browser', {
     self.getAppPanel().setActiveItem(self.getHomePanel());
     self.getHomePanel().setMasked({
       xtype: 'loadmask',
-      message: 'Loading latest...',
+      message: 'Loading Home...',
     });
   },
 
@@ -407,9 +407,10 @@ Ext.define('Etsy.controller.Browser', {
     }
     var self = this;
     self.getAppPanel().removeAll(true);
-    Ext.create('Etsy.view.FavoritesPanel');
-    self.getAppPanel().setActiveItem(self.getFavoritesPanel());
-    self.getFavoritesPanel().setMasked({
+    Ext.create('Etsy.view.CategoriesPanel');
+    self.getAppPanel().setActiveItem(self.getCategoriesPanel());
+    self.getCategoriesToolbar().setTitle('Favorites');
+    self.getCategoriesPanel().setMasked({
       xtype: 'loadmask',
       message: 'Loading Favorites...'
     });
@@ -428,8 +429,8 @@ Ext.define('Etsy.controller.Browser', {
         store.removeAll();
         store.add(data.results);
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
-        self.getFavoritesCarousel().setStore(store);
-        self.getFavoritesCarousel().reset()
+        self.getBrowserCarousel().setStore(store);
+        self.getBrowserCarousel().reset()
 
 
 
@@ -445,11 +446,11 @@ Ext.define('Etsy.controller.Browser', {
         }
         console.log('max is', max);
         setTimeout(function () {
-          self.getFavoritesCarousel().setMaxItemIndex(max);
+          self.getBrowserCarousel().setMaxItemIndex(max);
         }, 1000);
 
-        self.getFavoritesCarousel().setActiveItem(0);
-        self.getFavoritesPanel().unmask();
+        self.getBrowserCarousel().setActiveItem(0);
+        self.getCategoriesPanel().unmask();
       });
     });
   }

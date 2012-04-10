@@ -1,19 +1,19 @@
 Ext.define('Etsy.view.FavoritesPanel', {
-	extend: 'Ext.Panel',
-	alias: 'widget.favoritesPanel',
+    extend: 'Ext.Panel',
+    alias: 'widget.favoritesPanel',
 
-	config: {
-		id: 'favoritesPanel',
-		layout: 'card',
-		items: [
-		{
+    config: {
+        id: 'favoritesPanel',
+        layout: 'card',
+        items: [
+        {
             xtype: 'maintoolbar',
             title: 'Favorites'
         },
         {
-			id: 'favoritesCarousel',
-			xtype: 'listingsCarousel'
-		}]
-	}
+            id: 'favoritesCarousel',
+            xtype: 'listingsCarousel'
+        }]
+    }
 
 });

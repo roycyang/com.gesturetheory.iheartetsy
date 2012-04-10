@@ -79,7 +79,11 @@ $include-toolbar-uis: $include-default-uis !default;
     max-width: 100%;
 
     .x-innerhtml {
-	max-width: 500px;
+      color: #fdfae1;
+      font-family: GearedSlabThin;
+    	max-width: 500px;
+    	font-size: 28px;
+      line-height: 52px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -167,6 +171,6 @@ font-size: 20px;
   }
   
   .x-toolbar-dark {
-      background: url(../images/final/app-header-background-1x.png?1) repeat-x left top;
+      background: url(../images/slices-v2/HeaderBar-background-texture-1x.png) repeat-x left top;
   }
 }

@@ -34,7 +34,7 @@ Ext.define('Etsy.view.HomePanel', {
             {   
                 xtype: 'button',
                 ui: 'plain',
-                html: '<div class="browse-categories"></div>',
+                html: '<div class="browse-categories">Browse Categories</div>',
                 listeners: {
                     tap: function(){
                         APP.onNavListTap(null, null, null, {'panel': 'categoriesPanel'});
@@ -43,7 +43,7 @@ Ext.define('Etsy.view.HomePanel', {
             },
             {
                 cls: 'grey-box',
-                height: 230,
+                height: 250,
                 id: 'homeCategoriesCarousel',
                 xtype: 'treasuriesCarousel',
                 count: 4,
@@ -54,7 +54,7 @@ Ext.define('Etsy.view.HomePanel', {
             {
                 xtype: 'button',
                 ui: 'plain',
-                html: '<div class="hottest-treasuries"></div>',
+                html: '<div class="hottest-treasuries">Hottest Treasuries</div>',
                 listeners: {
                     tap: function(){
                         APP.onNavListTap(null, null, null, {'panel': 'treasuriesPanel'});

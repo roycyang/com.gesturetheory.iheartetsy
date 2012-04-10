@@ -4641,6 +4641,7 @@ audio {
 }
 /* line 81, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-title .x-innerhtml {
+  font-weight: normal;
   color: #fdfae1;
   font-family: GearedSlabThin;
   max-width: 500px;
@@ -4653,7 +4654,7 @@ audio {
 }
 
 /*    @include sencha-toolbar-ui('dark', darken($toolbar-base-color, 10%));*/
-/* line 128, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 129, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark {
   background-color: #da662b;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1c4ad), color-stop(2%, #df7c49), color-stop(100%, #c05721));
@@ -4676,7 +4677,7 @@ audio {
         border-left-color: $toolbar-border-color;
       }*/
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 137, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
@@ -4767,18 +4768,18 @@ audio {
   background-image: -webkit-linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
   background-image: linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
 }
-/* line 167, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 168, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark .x-form-label {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
 }
 
-/* line 173, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 174, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark {
   background: url(../images/slices-v2/HeaderBar-background-texture-1x.png) repeat-x left top;
 }
 
-/* line 128, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 129, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light {
   background: #2E1807;
   /*    &.x-docked-top {
@@ -4797,7 +4798,7 @@ audio {
         border-left-color: $toolbar-border-color;
       }*/
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 137, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
@@ -4836,18 +4837,18 @@ audio {
   background-image: -webkit-linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
   background-image: linear-gradient(#904119, #a64b1d 10%, #bb5521 65%, #be5621);
 }
-/* line 167, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 168, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-light .x-form-label {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
 }
 
-/* line 173, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 174, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark {
   background: url(../images/slices-v2/HeaderBar-background-texture-1x.png) repeat-x left top;
 }
 
-/* line 128, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 129, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral {
   background-color: #e0e0e0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f2f2f2), color-stop(100%, #cecece));
@@ -4870,7 +4871,7 @@ audio {
         border-left-color: $toolbar-border-color;
       }*/
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 137, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
@@ -4909,18 +4910,18 @@ audio {
   background-image: -webkit-linear-gradient(#b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd);
   background-image: linear-gradient(#b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd);
 }
-/* line 167, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 168, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-neutral .x-form-label {
   color: black;
   text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
 }
 
-/* line 173, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 174, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark {
   background: url(../images/slices-v2/HeaderBar-background-texture-1x.png) repeat-x left top;
 }
 
-/* line 128, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 129, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey {
   background-color: #333333;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #808080), color-stop(2%, #454545), color-stop(100%, #212121));
@@ -4943,7 +4944,7 @@ audio {
         border-left-color: $toolbar-border-color;
       }*/
 }
-/* line 136, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 137, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey .x-title {
   /*      @include color-by-background($color);*/
   color: #fff;
@@ -4982,18 +4983,18 @@ audio {
   background-image: -webkit-linear-gradient(#050505, #121212 10%, #1f1f1f 65%, #202020);
   background-image: linear-gradient(#050505, #121212 10%, #1f1f1f 65%, #202020);
 }
-/* line 167, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 168, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark-grey .x-form-label {
   color: white;
   text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
 }
 
-/* line 173, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 174, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-toolbar-dark {
   background: url(../images/slices-v2/HeaderBar-background-texture-1x.png) repeat-x left top;
 }
 
-/* line 103, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
+/* line 104, ../themes/stylesheets/sencha-touch/default/widgets/_toolbar.scss */
 .x-navigation-bar .x-container {
   overflow: visible;
 }

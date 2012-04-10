@@ -9,7 +9,7 @@ Ext.define('Etsy.view.Listings', {
 
         tpl: new Ext.XTemplate(
           '<tpl for="items">',
-              '{% if (xindex < 13) { %}',
+              '{% if (xindex < 16) { %}',
                   '<div class="product <tpl if="data.in_cart"> cart-flag</tpl> <tpl if="data.in_favorites"> favorite-flag</tpl>" ref="{data.id}"><div class="favorite-stamp"></div><div class="cart-stamp"></div>',
                       '<div class="image" style="background-image:url({data.image.thumb});"></div>',
                       '<div class="name">{data.title}</div>',

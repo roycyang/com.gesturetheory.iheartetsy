@@ -4,54 +4,53 @@ Ext.Loader.setConfig({
 
 Ext.application({
     models: [
-        'Listing',
-        'Category',
-        'Navigation',
-		'Treasury',
-        'CategoriesIndex',
+    'Listing',
+    'Category',
+    'Navigation',
+    'Treasury',
+    'CategoriesIndex',
     ],
 
     stores: [
-        'Listings',
-        'Categories',
-        'Navigation',
-		'Treasuries',
-        'CategoriesIndex',
+    'Listings',
+    'Categories',
+    'Navigation',
+    'Treasuries',
+    'CategoriesIndex',
     ],
 
     views: [
-		// core panels
-      'SearchPanel',
-      'NavPanel',
-      'AppPanel',
-      'MainToolbar',
+    // core panels
+    'SearchPanel',
+    'NavPanel',
+    'AppPanel',
+    'MainToolbar',
 
-	    // other panels
-      'HomePanel',
-      'CategoriesPanel',
-      'TreasuriesPanel',
-	    'TreasuryPanel',
-      'FavoritesPanel',
-      'DetailPanel',
-      'CategoryPopupPanel',
-      'ListingsCarousel',
-      'Listings',
+    // other panels
+    'HomePanel',
+    'CategoriesPanel',
+    'TreasuriesPanel',
+    'TreasuryPanel',
+    'DetailPanel',
+    'CategoryPopupPanel',
+    'ListingsCarousel',
+    'Listings',
     ],
 
     name: 'Etsy',
 
     controllers: [
-        'Browser'
+    'Browser'
     ],
 
     launch: function() {
-		Ext.define('Ext.overrides.carousel.Indicator', {    
-			override: 'Ext.carousel.Indicator',
-		    
-		    onTap: function(){
-		        console.log('on tap!!!! override');
-		    }
-		});
+        Ext.define('Ext.overrides.carousel.Indicator', {
+            override: 'Ext.carousel.Indicator',
+
+            onTap: function() {
+                console.log('on tap!!!! override');
+            }
+        });
 
     }
 });

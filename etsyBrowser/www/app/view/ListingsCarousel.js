@@ -229,7 +229,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
     var me = this;
 
     if (newStore.isLoading()) {
-      if (GLOBAL.panel != 'treasury') {
+      if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
         // this is when the store updates, we can update the max index.
         newStore.on('refresh', function () {
           // console.log('\n\n\n\n\n\n\nNewStore', newStore.data.length);
@@ -293,13 +293,19 @@ Ext.define('Etsy.view.ListingsCarousel', {
         store.nextPage();
       }
 
-
+      console.log('storeCount is', storeCount);
+      console.log('count is', count);
       var startIndex = (index) * (count) + 1,
         endIndex     = startIndex + (count - 1),
-        max          = parseInt(storeCount / (count));
+        max          = parseInt((storeCount-1) / (count));
 
-      this.setMaxItemIndex(max - 1);
-      
+      // favorites panel needs to show exact amount of items, hence fuzzy math
+      if(GLOBAL.panel != 'favorites'){
+        this.setMaxItemIndex(max - 1);  
+      }else{
+        this.setMaxItemIndex(max);
+      }
+  
       console.log('index is', index, max);
       if(Ext.getCmp('leftArrow')){
         if(index == 0){
@@ -310,7 +316,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       }
       
       if(Ext.getCmp('rightArrow')){
-        if(index == (max - 1)){
+        if(index == (max)){
           Ext.getCmp('rightArrow').hide();
         }else{
           Ext.getCmp('rightArrow').show();

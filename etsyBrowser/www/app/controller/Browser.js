@@ -405,6 +405,7 @@ Ext.define('Etsy.controller.Browser', {
       ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
       return false;
     }
+    GLOBAL.panel = 'favorites';
     var self = this;
     self.getAppPanel().removeAll(true);
     Ext.create('Etsy.view.CategoriesPanel');
@@ -422,6 +423,11 @@ Ext.define('Etsy.controller.Browser', {
       for (i = 0; i < data.results.length; i++) {
         listingIds.push(data.results[i].listing_id);
       }
+      if(listingIds.length == 0){
+        self.getBrowserCarousel().reset();
+        self.getCategoriesPanel().unmask();
+        return false;
+      }
       console.log('listings ids are', listingIds.length);
       GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6', function (data) {
         var data = JSON.parse(data.text);
@@ -431,23 +437,6 @@ Ext.define('Etsy.controller.Browser', {
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
         self.getBrowserCarousel().setStore(store);
         self.getBrowserCarousel().reset()
-
-
-
-        var storeCount = store.data.length;
-        var max = parseInt(storeCount / 12 - 1);
-        var remainder = storeCount % 12;
-        // console.log('the store count is', storeCount);
-        // console.log('max is', max);
-        // 
-        // console.log('remainder', remainder);
-        if (remainder > 0) {
-          max++;
-        }
-        console.log('max is', max);
-        setTimeout(function () {
-          self.getBrowserCarousel().setMaxItemIndex(max);
-        }, 1000);
 
         self.getBrowserCarousel().setActiveItem(0);
         self.getCategoriesPanel().unmask();

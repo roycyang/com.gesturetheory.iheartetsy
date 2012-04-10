@@ -35,7 +35,7 @@ var ETSY = {
 		var mask = Ext.Viewport.add({
 			masked: {
 				xtype: 'loadmask',
-				message: 'Authorizing app...',
+				message: 'Linking App',
 				zIndex: 10000,
 			}
 		});
@@ -46,7 +46,7 @@ var ETSY = {
 		var options = {
 			consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
 			consumerSecret: '2dvoqadnxo',
-			callbackUrl: 'http://www.etsy.com'
+			callbackUrl: 'https://www.etsy.com/cart'
 		};
 
 		oauth = OAuth(options);

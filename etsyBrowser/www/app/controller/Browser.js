@@ -120,17 +120,8 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   onSignOutTap: function () {
-    var mask = Ext.Viewport.add({
-
-        xtype: 'loadmask',
-        message: 'Sign out successful!',
-        zIndex: 10000,
-    });
-    setTimeout(function () {
-      mask.hide();
-    }, 1000)
+    ETSY.alert('You have successfully signed out. Come back soon!');
   },
-
 
   // ==========
   // = Search =
@@ -199,6 +190,7 @@ Ext.define('Etsy.controller.Browser', {
           ETSY.toggleSignIn();
           APP.onSignOutTap();
           APP.loadHomePanel();
+          GLOBAL.second_signin = false;
         }
       });
 

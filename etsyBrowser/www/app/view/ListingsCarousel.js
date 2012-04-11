@@ -48,16 +48,23 @@ Ext.define('Etsy.view.ListingsCarousel', {
        return false;
     }
     
-    
     if(element = Ext.get(e.target).parent('.treasury-item')){
       var parent = Ext.get(e.target).parent('.treasury-item')
       $('#' + parent.id).addClass('pressed');
+      return false;
+    }
+    
+    element = Ext.get(e.target).parent('.product');
+    
+    if(element){
+      $('#' + element.id).addClass('product-pressed-flag');
     }
 
   },
 
   onTouchEtsyItemEnd: function (e) {
-	  $('.product').removeClass('cart-pressed-flag');   
+	  $('.product').removeClass('cart-pressed-flag'); 
+	  $('.product').removeClass('product-pressed-flag');   
     $('.treasury-item').removeClass('pressed');   
   },
 
@@ -66,8 +73,10 @@ Ext.define('Etsy.view.ListingsCarousel', {
    * @param {Object} event Event object
    */
   trackProduct: function (event) {
-    $('.treasury-item').removeClass('pressed');   
-    $('.product').removeClass('cart-pressed-flag');   
+	  $('.product').removeClass('cart-pressed-flag'); 
+	  $('.product').removeClass('product-pressed-flag');   
+    $('.treasury-item').removeClass('pressed');
+    
     var $element = $(event.target);
 
     if (!$element.hasClass('product')) {
@@ -138,11 +147,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       yDist       = event.deltaY,
       xDist       = event.deltaX,
       id;
-
-    
-    // remove the press state
-    $('.product').removeClass('cart-pressed-flag');
-    
+     
     // Set the correct element if the target is a child of .product
     if (!$element.hasClass('product')) {
       $element = $element.parents('.product');
@@ -178,7 +183,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
   },
 
   onTap: function (e) {
-    console.log('on tap!!!');
+
     var element = Ext.get(e.target),
       store = this.getStore(),
       title,

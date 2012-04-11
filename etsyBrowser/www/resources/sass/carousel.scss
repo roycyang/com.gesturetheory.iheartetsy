@@ -79,6 +79,10 @@
     border: 1px solid #EAE9E1;
     border-radius: 4px;
 
+    &.product-pressed-flag {
+      background: #eee;
+    }
+    
     .image {
 			height: 135px;
 			width: 170px;

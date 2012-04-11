@@ -62,12 +62,13 @@ p.desc {
   }
   
   .x-title .x-innerhtml {
-    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-1x.png) no-repeat top right;
+    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-2x.png) no-repeat top right;
     padding: 0 55px;
     height: 62px;
+    background-size: contain;
   }
   .bookmarked .x-innerhtml {
-    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-1x.png) no-repeat top right;
+    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-2x.png) no-repeat top right;
   }
   
 }

@@ -354,24 +354,25 @@ p.desc {
 }
 /* line 64, ../sass/carousel.scss */
 #categoriesPanel .x-title .x-innerhtml {
-  background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-1x.png) no-repeat top right;
+  background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-2x.png) no-repeat top right;
   padding: 0 55px;
   height: 62px;
+  background-size: contain;
 }
-/* line 69, ../sass/carousel.scss */
+/* line 70, ../sass/carousel.scss */
 #categoriesPanel .bookmarked .x-innerhtml {
-  background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-1x.png) no-repeat top right;
+  background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-2x.png) no-repeat top right;
 }
 
-/* line 76, ../sass/carousel.scss */
+/* line 77, ../sass/carousel.scss */
 .products .x-innerhtml {
   padding: 45px 0 0 72px;
 }
-/* line 80, ../sass/carousel.scss */
+/* line 81, ../sass/carousel.scss */
 .products .x-innerhtml div:nth-of-type(13) {
   display: none;
 }
-/* line 85, ../sass/carousel.scss */
+/* line 86, ../sass/carousel.scss */
 .products .favorite-stamp {
   position: absolute;
   bottom: 0;
@@ -384,11 +385,11 @@ p.desc {
   background-position: bottom right;
   background-repeat: no-repeat;
 }
-/* line 98, ../sass/carousel.scss */
+/* line 99, ../sass/carousel.scss */
 .products .favorite-flag .favorite-stamp {
   background-image: url(../images/heart_stamp_x2.png);
 }
-/* line 102, ../sass/carousel.scss */
+/* line 103, ../sass/carousel.scss */
 .products .cart-flag .cart-stamp {
   position: absolute;
   top: -4px;
@@ -400,7 +401,7 @@ p.desc {
   background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 114, ../sass/carousel.scss */
+/* line 115, ../sass/carousel.scss */
 .products .product {
   background: white;
   position: relative;
@@ -414,16 +415,16 @@ p.desc {
   border: 1px solid #EAE9E1;
   border-radius: 4px;
 }
-/* line 127, ../sass/carousel.scss */
+/* line 128, ../sass/carousel.scss */
 .products .product.product-pressed-flag .name {
   color: #D24700;
 }
-/* line 131, ../sass/carousel.scss */
+/* line 132, ../sass/carousel.scss */
 .products .product .image {
   height: 135px;
   width: 170px;
 }
-/* line 136, ../sass/carousel.scss */
+/* line 137, ../sass/carousel.scss */
 .products .product .name {
   margin-top: 6px;
   height: 27px;
@@ -434,7 +435,7 @@ p.desc {
   font-size: 11px;
   overflow: hidden;
 }
-/* line 147, ../sass/carousel.scss */
+/* line 148, ../sass/carousel.scss */
 .products .product .price {
   position: absolute;
   right: 5px;
@@ -442,35 +443,35 @@ p.desc {
   width: 52px;
 }
 
-/* line 156, ../sass/carousel.scss */
+/* line 157, ../sass/carousel.scss */
 .product-bounce {
   -webkit-transition-property: all;
   -webkit-animation: product-bounce 1s 1;
 }
 
 @-webkit-keyframes product-bounce {
-  /* line 162, ../sass/carousel.scss */
+  /* line 163, ../sass/carousel.scss */
   0% {
     -webkit-transform: rotate(0) translate3d(0, 30px, 0);
   }
 
-  /* line 166, ../sass/carousel.scss */
+  /* line 167, ../sass/carousel.scss */
   25% {
     -webkit-transform: rotate(4deg) translate3d(0, -10px, 0);
   }
 
-  /* line 170, ../sass/carousel.scss */
+  /* line 171, ../sass/carousel.scss */
   50% {
     -webkit-transform: rotate(-2deg) translate3d(0, 5px, 0);
   }
 
-  /* line 174, ../sass/carousel.scss */
+  /* line 175, ../sass/carousel.scss */
   100% {
     -webkit-transform: rotate(0) translate3d(0, 0px, 0);
   }
 }
 
-/* line 179, ../sass/carousel.scss */
+/* line 180, ../sass/carousel.scss */
 .quick-bounce {
   -webkit-transition-property: all;
   -webkit-transition-duration: .5s;

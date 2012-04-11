@@ -7,7 +7,6 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 	config: {
 		title: 'Hottest Treasuries',
 		id: 'treasuriesPanel',
-		layout: 'card',
 		items: [
 		{
             xtype: 'maintoolbar',

@@ -369,5 +369,5 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     item.setRecords(records);
   }
-
+  
 });

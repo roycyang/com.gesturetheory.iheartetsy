@@ -18,6 +18,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
                 text: 'back',
                 listeners: {
                     tap: function() {
+                        Ext.Ajax.abortAll();
                         self.getAppPanel().getLayout().setAnimation({
                             type: 'slide',
                             duration: 300,

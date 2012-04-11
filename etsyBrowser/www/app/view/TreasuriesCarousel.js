@@ -48,7 +48,10 @@ Ext.define('Etsy.view.TreasuriesCarousel', {
                 }
                 
                 if (APP.getHomePanel()) {
+                  setTimeout(function(){
                     APP.getHomePanel().unmask();
+                  },1000);
+
                 }
 
 

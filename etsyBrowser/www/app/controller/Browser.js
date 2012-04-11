@@ -270,6 +270,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadHomePanel: function () {
+    Ext.Ajax.abortAll();
     GLOBAL.panel = 'home';
     GLOBAL.searchCategory = null;
     Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
@@ -279,8 +280,9 @@ Ext.define('Etsy.controller.Browser', {
 
     // load homePanel and then destroy all the other panels
     Ext.create('Etsy.view.HomePanel');
-    self.treasuriesStore.load();
     self.categoryIndexStore.load();
+    self.treasuriesStore.load();
+
     self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
     self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
     self.getAppPanel().add(self.getHomePanel());
@@ -298,6 +300,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadTreasury: function (treasury_id, title) {
+    Ext.Ajax.abortAll();
     GLOBAL.panel = 'treasury';
     var self = this;
 
@@ -346,6 +349,7 @@ Ext.define('Etsy.controller.Browser', {
   },
   
   loadSearch: function (keyword, category) {
+    Ext.Ajax.abortAll();
     GLOBAL.panel = 'searchResults';
     var self = this;
 
@@ -353,6 +357,7 @@ Ext.define('Etsy.controller.Browser', {
     var store = self.resultsListingsStore;
     store.removeAll(true);
     store.suspendEvents();
+
     store.resumeEvents();
     
     Ext.create('Etsy.view.SearchResultsPanel');
@@ -406,6 +411,7 @@ Ext.define('Etsy.controller.Browser', {
     
     // this wipes out all the pending events and then resumes
     self.listingsStore.suspendEvents();
+    Ext.Ajax.abortAll();
     self.listingsStore.resumeEvents();
     
     self.getAppPanel().removeAll(true);
@@ -452,6 +458,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadTreasuries: function () {
+    Ext.Ajax.abortAll();
     var self = this;
     self.getAppPanel().removeAll(true);
     Ext.create('Etsy.view.TreasuriesPanel');
@@ -479,6 +486,7 @@ Ext.define('Etsy.controller.Browser', {
       ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
       return false;
     }
+    Ext.Ajax.abortAll();
     GLOBAL.panel = 'favorites';
     var self = this;
     self.getAppPanel().removeAll(true);

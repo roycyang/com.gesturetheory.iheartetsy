@@ -76,10 +76,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
     },
     
     onTap: function (e) {
-
       var element = Ext.get(e.target);
-
-      console.log('element is', element);
       // tapped on homepage category item
       if (element.parent('.x-title')) {
         

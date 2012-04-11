@@ -238,53 +238,30 @@ Ext.define('Etsy.view.ListingsCarousel', {
   },
 
   updateStore: function (newStore) {
-    console.log('update the store', newStore);
+    console.log('called updateStore');
     var me = this;
 
     if (newStore.isLoading()) {
+      console.log('in newStore.isLoading()');
       if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
         // this is when the store updates, we can update the max index.
         newStore.on('refresh', function () {
-          // console.log('\n\n\n\n\n\n\nNewStore', newStore.data.length);
-          var storeCount = newStore.data.length;
-          var max = parseInt(storeCount / me.getCount());
-          setTimeout(function () {
-            me.setMaxItemIndex(max - 1);
-          }, 100);
-          
-          
-          if(me.getActiveIndex() < max){
-            $('.rightArrow').show();
-          }else{
-            $('.rightArrow').hide();
+          var storeCount = newStore.getCount();
+          if(storeCount){
+            me.adjustAfterLoading(me, newStore);          
+            if (storeCount == 100) {
+              // after calling refresh, we need to reset it... strange bug!
+              me.reset();
+              newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+            }
           }
-          
-          if (storeCount == 100) {
-            newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
-          }
-          
-
-          
         });
       }
 
       // this is when the store loads for the first time
       newStore.on('load', function () {
         console.log('in store load');
-        var storeCount = newStore.data.length;
-        var max = parseInt(storeCount / me.getCount());
-        
-        // a delay to make sure that it gets set correctly, timing is wierd
-        setTimeout(function () {
-          me.setMaxItemIndex(max - 1);
-        }, 100);
-        
-        // if there more panels, we show the right arrow
-        if(me.getActiveIndex() < max){
-          $('.rightArrow').show();
-        }else{
-          $('.rightArrow').hide();
-        }
+        me.adjustAfterLoading(me, newStore);
         
         // step through and unhide the various panels
         if (APP.getCategoriesPanel()) {
@@ -299,7 +276,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         
         if (APP.getSearchResultsPanel()) {
           APP.getSearchResultsPanel().unmask();
-          if(storeCount == 0){
+          if(newStore.getCount() == 0){
             Ext.getCmp('noResultsMessage').show();
             Ext.getCmp('searchResultsCarousel').hide();
             $('.rightArrow').hide();
@@ -311,74 +288,55 @@ Ext.define('Etsy.view.ListingsCarousel', {
         single: true
       });
     } else {
-      console.log('store has already loaded!');
+      console.log('NOT in newStore.isLoading()');
       me.reset();
-      
-      var storeCount = newStore.data.length;
-      var max = parseInt(storeCount / me.getCount());
-      setTimeout(function () {
-        me.setMaxItemIndex(max - 1);
-      }, 100);
-      
-      
-      if(me.getActiveIndex() < max){
-        $('.rightArrow').show();
-      }else{
-        $('.rightArrow').hide();
-      }
-      
-      
-
-
+      me.adjustAfterLoading(me, newStore);
     }
+  },
+  
+  adjustAfterLoading: function(me, newStore){
+    var storeCount = newStore.data.length;
+    var max  = parseInt((storeCount-1) / (me.getCount()));
+
+    // favorites panel needs to show exact amount of items, hence fuzzy math
+    if(GLOBAL.panel != 'favorites' && GLOBAL.panel != 'home'){
+      max = max - 1;
+    }
+    
+    me.setMaxItemIndex(max);
+    if(me.getActiveIndex() < max){
+      $('.rightArrow').show();
+    }else{
+      $('.rightArrow').hide();
+    }
+    
+    if(me.getActiveIndex() == 0){
+      $('.leftArrow').hide();
+    }else{
+      $('.leftArrow').show();
+    }
+    
   },
 
   onActiveItemChange: function (carousel, newItem, oldItem) {
-    try{
-      if (GLOBAL.panel != 'treasury') {
-        var index     = carousel.getActiveIndex(),
-          count       = this.getCount(),
-          offsetLimit = this.getOffsetLimit(),
-          store       = this.getStore(),
-          storeCount  = store.getCount();
+    // tests to see if we should try to load in another set of items from the Etsy API
+    // and then calls adjustAfterLoading which makes sure we adjust the arrows and the max items
+    console.log('called onActiveItemChange');
 
-        if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
-          store.nextPage();
-        }
+    var index     = carousel.getActiveIndex(),
+      count       = this.getCount(),
+      offsetLimit = this.getOffsetLimit(),
+      store       = this.getStore(),
+      storeCount  = store.getCount();
 
-        console.log('storeCount is', storeCount);
-        console.log('count is', count);
-        var startIndex = (index) * (count) + 1,
-          endIndex     = startIndex + (count - 1),
-          max          = parseInt((storeCount-1) / (count));
-
-        // favorites panel needs to show exact amount of items, hence fuzzy math
-        if(GLOBAL.panel != 'favorites' && GLOBAL.panel != 'home'){
-          this.setMaxItemIndex(max - 1);  
-        }else{
-          this.setMaxItemIndex(max);
-        }
-
-        console.log('index', storeCount, index, max);
-        if(index == 0){
-          $('.leftArrow').hide();
-        }else{
-          $('.leftArrow').show();
-        }
-
-        if(index == (max-1) || storeCount < 13){
-          $('.rightArrow').hide();
-        }else{
-          $('.rightArrow').show();
-        }
-        
-
-
+    if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
+      if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
+        console.log('calling store.nextPage');
+        store.nextPage();
       }
-    }catch(err){
-      console.log('error', err);
     }
     
+    carousel.adjustAfterLoading(carousel, store);    
   },
 
   onItemIndexChange: function (me, item, index) {

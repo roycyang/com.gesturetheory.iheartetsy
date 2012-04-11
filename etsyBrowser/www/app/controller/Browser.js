@@ -450,9 +450,7 @@ Ext.define('Etsy.controller.Browser', {
     // load the store, then set the store, the refresh the carousel
     store.load();
     self.getCategoriesCarousel().setStore(store);
-    self.getCategoriesCarousel().reset();
-    self.getCategoriesCarousel().setActiveItem(0);
-    self.getCategoriesCarousel().reset();
+
   },
 
   loadTreasuries: function () {

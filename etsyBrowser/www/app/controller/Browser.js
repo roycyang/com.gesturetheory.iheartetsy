@@ -279,7 +279,7 @@ Ext.define('Etsy.controller.Browser', {
     delete self.listingsStore.getProxy()._extraParams.tags;
     delete self.listingsStore.getProxy()._extraParams.keywords;
     // resetting the store to use our NODE.JS
-    store.getProxy().setUrl('http://50.74.56.194:8888/treasury?treasury=' + treasury_id);
+    store.getProxy().setUrl(GLOBAL.api + 'treasury?treasury=' + treasury_id);
     self.getTreasuryToolbar().setTitle(title);
     GLOBAL.searchCategory = null;
     Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
@@ -377,8 +377,8 @@ Ext.define('Etsy.controller.Browser', {
       delete self.listingsStore.getProxy()._extraParams.tags;
       delete self.listingsStore.getProxy()._extraParams.keywords;
       // resetting the store to use our NODE.JS
-      store.getProxy().setUrl('http://50.74.56.194:8888/categories?category=' + record.get('name'));
-      console.log('http://50.74.56.194:8888/categories?category=' + record.get('name'));
+      store.getProxy().setUrl(GLOBAL.api + 'categories?category=' + record.get('name'));
+      console.log(GLOBAL.api + 'categories?category=' + record.get('name'));
       self.getCategoriesToolbar().setTitle(record.get('short_name'));
       
       GLOBAL.searchCategory = {
@@ -394,11 +394,11 @@ Ext.define('Etsy.controller.Browser', {
     //   delete self.listingsStore.getProxy()._extraParams.keywords;
     //   store.getProxy().setExtraParam('tags', tags);
     //   store.getProxy().setExtraParam('category', record.get('name'));
-    //   store.getProxy().setUrl('http://50.74.56.194:8888/categories');
+    //   store.getProxy().setUrl(GLOBAL.api + 'categories');
     //   self.getNavList().select(1);
     //   GLOBAL.previousNavItemIndex = 1;
     //   // resetting the store to use our NODE.JS
-    //   // store.getProxy().setUrl('http://50.74.56.194:8888/art');
+    //   // store.getProxy().setUrl(GLOBAL.api + 'art');
     //   console.log('record is', record);
     //   self.getCategoriesToolbar().setTitle(name);
     //   Ext.getCmp('globalSearch').setPlaceHolder('Search ' + name);

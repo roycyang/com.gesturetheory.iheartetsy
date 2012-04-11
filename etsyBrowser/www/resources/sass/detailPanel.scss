@@ -7,14 +7,109 @@
   .favorite-flag {
     background: url(../images/slices-v2/ProductDetail-favorite-stamp-1x.png) no-repeat left top;
   }
+  
+  .description-inner-wrapper {
+    overflow: hidden;
+  }
     
     #detailPanelInfo {
-//        background: #F8F8F2 url(../images/detail-title-bar.png) no-repeat 0 0;
         position: relative;
         z-index: 10;
-        
         background: url('../images/slices-v2/ProductDetail-title-bar-shadow-1x.png') no-repeat left bottom;
     }
+    
+    .x-body {
+        overflow: visible;
+    }
+    
+    .x-docking-horizontal {
+        overflow: hidden;
+    }
+
+	.description {
+        background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
+        border: none;
+        padding: 20px 20px 20px 65px;
+        background-size: initial;
+        -webkit-transition: -webkit-transform 350ms;
+        -webkit-transform: translate3d(323px, 0, 0);
+}
+
+    .name {
+        line-height: 25px;
+        font-size: 20px;
+        font-weight: normal;
+        color: #333;
+        padding: 11px 10px;
+        height: auto;
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 500px;        
+    }
+
+
+    
+    .text {
+        padding-top: 20px;
+        background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
+        
+        font-size:14px;
+        color: #aaa;
+        line-height: 18px;
+        padding-bottom: 30px;
+    }
+    
+    .quantity {
+        float: left;
+        margin-left: 18px;
+        font-size: 12px;
+        margin-top: 8px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    
+    .shipping,
+    .seller {
+        background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
+        clear: both;
+        font-size: 12px;
+        padding: 20px 0;
+        color: #666;
+    }
+
+    img {
+/*            background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;*/
+	padding: 3px;
+	border: 1px solid #EAEAEA;
+	display: block;
+	margin: 0 auto;
+    }
+    
+    .price {
+      float: left;
+      margin-left: 18px;
+      margin-top: 2px;
+      padding-right: 41px;
+      background-image: url(../images/slices-v2/ProductDetail-cart-button-link-1x.png?4);
+      background-repeat: no-repeat;
+      background-position: top right;
+      height: 27px;
+      border-radius: 5px;
+      padding-left: 7px;
+      
+
+      
+    }
+
+    
+    .cart-flag .price {
+      background-image: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4);
+    }
+    
     
     #detailPanelCarousel .x-carousel {
         overflow: hidden;
@@ -89,96 +184,10 @@
 
 
 
-.product-view {
+
     
-        .x-body {
-            overflow: visible;
-        }
         
-        .x-docking-horizontal {
-            overflow: hidden;
-        }
-	
-    	.description {
-            background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
-            border: none;
-            padding: 20px 20px 20px 65px;
-            background-size: initial;
-            -webkit-transition: -webkit-transform 350ms;
-            -webkit-transform: translate3d(323px, 0, 0);
-		}
-		
-        .name {
-            line-height: 25px;
-            font-size: 20px;
-            font-weight: normal;
-            color: #333;
-            padding: 11px 10px;
-            height: auto;
-            margin-bottom: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 500px;        
-        }
 
-
-        
-        .text {
-            padding-top: 20px;
-            background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
-            
-            font-size:14px;
-            color: #aaa;
-            line-height: 18px;
-            padding-bottom: 30px;
-        }
-        
-        .quantity {
-            float: left;
-            margin-left: 18px;
-            font-size: 12px;
-            margin-top: 8px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .shipping,
-        .seller {
-            background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
-            clear: both;
-            font-size: 12px;
-            padding: 20px 0;
-            color: #666;
-        }
-
-        img {
-/*            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center center;*/
-			padding: 3px;
-			border: 1px solid #EAEAEA;
-			display: block;
-			margin: 0 auto;
-        }
-        
-        .price {
-          float: left;
-          margin-left: 18px;
-          margin-top: 2px;
-          padding-right: 41px;
-          background: url(../images/slices-v2/ProductDetail-cart-button-link-1x.png?4) no-repeat top right;
-          height: 27px;
-          border-radius: 5px;
-          padding-left: 7px;
-        }
-
-        
-        .cart-flag .price {
-          background: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4) no-repeat top right;
-        }
-
-}
 
 
 

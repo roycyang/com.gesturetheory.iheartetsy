@@ -63,7 +63,7 @@ Ext.define('Etsy.model.CategoriesIndex', {
 
         proxy: {
             type: 'ajax',
-            url: 'http://50.74.56.194:8888/categoriesIndex',
+            url: GLOBAL.api + 'categoriesIndex',
             reader: {
                 type: 'json',
                 rootProperty: 'results'

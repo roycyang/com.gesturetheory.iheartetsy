@@ -6,37 +6,35 @@
 @import 'detailPanel';
 @import 'treasuries';
 
-
-.x-field-search .x-field-input .x-form-field {
-  font-size: 13px;
-  height: 29px;
-	padding-left: 15px;
-} 
-	
 .price {
-	font-size: 19px;
-
-	color: #78C042;
-	line-height: 14px;
-	text-align: right;
-
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	border: 1px solid #DADAD6;
-	padding: 5px 5px 4px;
-	border-radius: 3px;
-	background: rgba(203, 203, 197, 0.1);
+  color: #78C042;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #DADAD6;
+  padding: 5px 5px 4px;
+  border-radius: 3px;
+  background: rgba(203, 203, 197, 0.1);
   font-family: abril;
   font-weight: normal;
+  font-size: 17px;
+  line-height: 17px;
+
     
   &.sold {
-	    color: red;
-	    font-size: 14px;
+    background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
+    text-indent: -10000px;
+    text-align: left;
+    
+    .cart-pressed-flag & {
+      background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
+    }
 	}
 
 	.cart-pressed-flag & {
-	  background: #78C042;
+	  background-color: #78C042;
 	  color: #fff;
 	}
+
 }

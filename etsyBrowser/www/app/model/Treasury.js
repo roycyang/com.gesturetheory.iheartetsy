@@ -36,7 +36,7 @@ Ext.define('Etsy.model.Treasury', {
 
         proxy: {
             type: 'ajax',
-            url: 'http://50.74.56.194:8888/treasuries',
+            url: GLOBAL.api + 'treasuries',
             reader: {
                 type: 'json',
                 rootProperty: 'results'

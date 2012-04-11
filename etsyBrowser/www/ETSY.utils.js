@@ -84,7 +84,7 @@ var ETSY = {
 	 * @returns True or False if signed in.
 	 * @type Boolean
 	 */
-  toggleFavorites: function (id, element) {
+  toggleFavorites: function (id, element, detailPanel) {
     var url;
     
     // Prompt the user and return false if the user is not signed in.
@@ -106,16 +106,24 @@ var ETSY = {
     
     if(element.hasClass('favorite-flag')){
       url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id + '?method=DELETE'; 
+      localStorage.favorites_listing_ids = localStorage.favorites_listing_ids.replace(id, 'DELETED');      
     }else{
       url = 'http://openapi.etsy.com/v2/users/__SELF__/favorites/listings/' + id;
+      localStorage.favorites_listing_ids = localStorage.favorites_listing_ids + ',' + id;
     }
     
     GLOBAL.oauth.post(url, {}, function (data) {
       ETSY.updateFavoritesInfo();
       if(element.hasClass('favorite-flag')){
         element.removeClass('favorite-flag'); 
+        if(detailPanel){
+          $('.product[ref=' + id + ']').removeClass('favorite-flag'); 
+        }
       }else{
         element.addClass('favorite-flag'); 
+        if(detailPanel){
+          $('.product[ref=' + id + ']').addClass('favorite-flag'); 
+        }
       }
     }  ,
   		function(data) {
@@ -175,16 +183,25 @@ var ETSY = {
 
 	},
 
-	toggleCart: function(id, element) {
-    // if(!GLOBAL.signed_in){
-    //  ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
-    //  return false;
-    // }
+	toggleCart: function(id, element, detailPanel) {
+	  // if the item is sold, we cannot add it to the cart
+    if(element.hasClass('sold-flag')){
+      return false;
+    }
     
+    // if the user is not signed in, they will be prompted to sign in
+    if(!GLOBAL.signed_in){
+     ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+     return false;
+    }
+    
+    // test to see if the item is in the cart or not
     if(element.hasClass('cart-flag')){
       var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts?method=DELETE';
+      localStorage.cart_listing_ids = localStorage.cart_listing_ids.replace(id, 'DELETED');
     }else{
       var url = 'http://openapi.etsy.com/v2/users/__SELF__/carts';
+      localStorage.cart_listing_ids = localStorage.cart_listing_ids + ',' + id;
     }
 
 		GLOBAL.oauth.post(url, {
@@ -194,8 +211,14 @@ var ETSY = {
       // after add success
       if(element.hasClass('cart-flag')){
         element.removeClass('cart-flag'); 
+        if(detailPanel){
+          $('.product[ref=' + id + ']').removeClass('cart-flag'); 
+        }
       }else{
         element.addClass('cart-flag'); 
+        if(detailPanel){
+          $('.product[ref=' + id + ']').addClass('cart-flag'); 
+        }
       }
 			ETSY.updateCartInfo();
 		},

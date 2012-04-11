@@ -461,6 +461,9 @@ $form-scrollable-fields: '.x-field-slider, .x-field-toggle';
       }
       .x-form-field {
         margin-left: $toolbar-search-left-padding - 0.67em;
+        font-size: 13px;
+        height: 29px;
+      	padding-left: 15px;
       }
     }
   }

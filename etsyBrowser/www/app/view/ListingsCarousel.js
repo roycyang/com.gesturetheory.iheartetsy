@@ -185,12 +185,11 @@ Ext.define('Etsy.view.ListingsCarousel', {
       id;
     
     // tapped on homepage category item
-    if (Ext.get(e.target).parent('.category-index-item')) {
-      element = Ext.get(e.target).parent('.category-index-item');
+    if (element.parent('.category-index-item')) {
+      element = element.parent('.category-index-item');
       title = $('#' + element.id + ' .title').html();
       id = element.getAttribute('rel');
       record = store.getAt(store.findExact('id', id));
-      console.log('record is', record);
       APP.loadListings('category', record);
       return false;
     }

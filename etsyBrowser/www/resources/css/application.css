@@ -438,89 +438,25 @@ span.arrow {
   background: url(../images/slices-v2/ProductDetail-favorite-stamp-1x.png) no-repeat left top;
 }
 /* line 11, ../sass/detailPanel.scss */
+#detailPanel .description-inner-wrapper {
+  overflow: hidden;
+}
+/* line 15, ../sass/detailPanel.scss */
 #detailPanel #detailPanelInfo {
   position: relative;
   z-index: 10;
   background: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png") no-repeat left bottom;
 }
-/* line 19, ../sass/detailPanel.scss */
-#detailPanel #detailPanelCarousel .x-carousel {
-  overflow: hidden;
-}
-/* line 23, ../sass/detailPanel.scss */
-#detailPanel .x-button {
-  height: 87px;
-  background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 30px;
-}
-/* line 27, ../sass/detailPanel.scss */
-#detailPanel .x-button.active {
-  background-position: -87px 30px;
-}
-/* line 31, ../sass/detailPanel.scss */
-#detailPanel .x-button.x-button-pressing {
-  background-position: -87px 30px;
-}
-/* line 36, ../sass/detailPanel.scss */
-#detailPanel .x-button#detailPanelEmail {
-  background-position: 13px -470px;
-}
-/* line 39, ../sass/detailPanel.scss */
-#detailPanel .x-button#detailPanelEmail.x-button-pressing {
-  background-position: -87px -470px;
-}
-/* line 44, ../sass/detailPanel.scss */
-#detailPanel .x-button#detailPanelFacebook {
-  background-position: 13px -270px;
-}
-/* line 47, ../sass/detailPanel.scss */
-#detailPanel .x-button#detailPanelFacebook.x-button-pressing {
-  background-position: -87px -270px;
-}
-/* line 52, ../sass/detailPanel.scss */
-#detailPanel .x-button#detailPanelTwitter {
-  background-position: 13px -170px;
-}
-/* line 55, ../sass/detailPanel.scss */
-#detailPanel .x-button#detailPanelTwitter.x-button-pressing {
-  background-position: -87px -170px;
-}
-/* line 63, ../sass/detailPanel.scss */
-#detailPanel #detailPanelCarousel {
-  overflow: hidden;
-}
-/* line 65, ../sass/detailPanel.scss */
-#detailPanel #detailPanelCarousel .x-carousel-item {
-  background: url(../images/loading.gif) no-repeat center center;
-}
-/* line 69, ../sass/detailPanel.scss */
-#detailPanel #detailPanelCarousel .x-carousel-item .image {
-  width: 768px;
-  height: 552px;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-/* line 79, ../sass/detailPanel.scss */
-#detailPanel .detail-panel-image {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-}
-/* line 84, ../sass/detailPanel.scss */
-.fullsize #detailPanel .detail-panel-image {
-  background-size: contain;
-}
-
-/* line 94, ../sass/detailPanel.scss */
-.product-view .x-body {
+/* line 21, ../sass/detailPanel.scss */
+#detailPanel .x-body {
   overflow: visible;
 }
-/* line 98, ../sass/detailPanel.scss */
-.product-view .x-docking-horizontal {
+/* line 25, ../sass/detailPanel.scss */
+#detailPanel .x-docking-horizontal {
   overflow: hidden;
 }
-/* line 102, ../sass/detailPanel.scss */
-.product-view .description {
+/* line 29, ../sass/detailPanel.scss */
+#detailPanel .description {
   background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
   border: none;
   padding: 20px 20px 20px 65px;
@@ -528,8 +464,8 @@ span.arrow {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(323px, 0, 0);
 }
-/* line 111, ../sass/detailPanel.scss */
-.product-view .name {
+/* line 38, ../sass/detailPanel.scss */
+#detailPanel .name {
   line-height: 25px;
   font-size: 20px;
   font-weight: normal;
@@ -542,8 +478,8 @@ span.arrow {
   text-overflow: ellipsis;
   width: 500px;
 }
-/* line 127, ../sass/detailPanel.scss */
-.product-view .text {
+/* line 54, ../sass/detailPanel.scss */
+#detailPanel .text {
   padding-top: 20px;
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
   font-size: 14px;
@@ -551,8 +487,8 @@ span.arrow {
   line-height: 18px;
   padding-bottom: 30px;
 }
-/* line 137, ../sass/detailPanel.scss */
-.product-view .quantity {
+/* line 64, ../sass/detailPanel.scss */
+#detailPanel .quantity {
   float: left;
   margin-left: 18px;
   font-size: 12px;
@@ -560,42 +496,111 @@ span.arrow {
   color: #666;
   margin-bottom: 20px;
 }
-/* line 147, ../sass/detailPanel.scss */
-.product-view .shipping,
-.product-view .seller {
+/* line 74, ../sass/detailPanel.scss */
+#detailPanel .shipping,
+#detailPanel .seller {
   background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
   clear: both;
   font-size: 12px;
   padding: 20px 0;
   color: #666;
 }
-/* line 155, ../sass/detailPanel.scss */
-.product-view img {
+/* line 82, ../sass/detailPanel.scss */
+#detailPanel img {
   /*            background-size: contain;
-              background-repeat: no-repeat;
-              background-position: center center;*/
+          background-repeat: no-repeat;
+          background-position: center center;*/
   padding: 3px;
   border: 1px solid #EAEAEA;
   display: block;
   margin: 0 auto;
 }
-/* line 165, ../sass/detailPanel.scss */
-.product-view .price {
+/* line 92, ../sass/detailPanel.scss */
+#detailPanel .price {
   float: left;
   margin-left: 18px;
   margin-top: 2px;
   padding-right: 41px;
-  background: url(../images/slices-v2/ProductDetail-cart-button-link-1x.png?4) no-repeat top right;
+  background-image: url(../images/slices-v2/ProductDetail-cart-button-link-1x.png?4);
+  background-repeat: no-repeat;
+  background-position: top right;
   height: 27px;
   border-radius: 5px;
   padding-left: 7px;
 }
-/* line 177, ../sass/detailPanel.scss */
-.product-view .cart-flag .price {
-  background: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4) no-repeat top right;
+/* line 109, ../sass/detailPanel.scss */
+#detailPanel .cart-flag .price {
+  background-image: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4);
+}
+/* line 114, ../sass/detailPanel.scss */
+#detailPanel #detailPanelCarousel .x-carousel {
+  overflow: hidden;
+}
+/* line 118, ../sass/detailPanel.scss */
+#detailPanel .x-button {
+  height: 87px;
+  background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 30px;
+}
+/* line 122, ../sass/detailPanel.scss */
+#detailPanel .x-button.active {
+  background-position: -87px 30px;
+}
+/* line 126, ../sass/detailPanel.scss */
+#detailPanel .x-button.x-button-pressing {
+  background-position: -87px 30px;
+}
+/* line 131, ../sass/detailPanel.scss */
+#detailPanel .x-button#detailPanelEmail {
+  background-position: 13px -470px;
+}
+/* line 134, ../sass/detailPanel.scss */
+#detailPanel .x-button#detailPanelEmail.x-button-pressing {
+  background-position: -87px -470px;
+}
+/* line 139, ../sass/detailPanel.scss */
+#detailPanel .x-button#detailPanelFacebook {
+  background-position: 13px -270px;
+}
+/* line 142, ../sass/detailPanel.scss */
+#detailPanel .x-button#detailPanelFacebook.x-button-pressing {
+  background-position: -87px -270px;
+}
+/* line 147, ../sass/detailPanel.scss */
+#detailPanel .x-button#detailPanelTwitter {
+  background-position: 13px -170px;
+}
+/* line 150, ../sass/detailPanel.scss */
+#detailPanel .x-button#detailPanelTwitter.x-button-pressing {
+  background-position: -87px -170px;
+}
+/* line 158, ../sass/detailPanel.scss */
+#detailPanel #detailPanelCarousel {
+  overflow: hidden;
+}
+/* line 160, ../sass/detailPanel.scss */
+#detailPanel #detailPanelCarousel .x-carousel-item {
+  background: url(../images/loading.gif) no-repeat center center;
+}
+/* line 164, ../sass/detailPanel.scss */
+#detailPanel #detailPanelCarousel .x-carousel-item .image {
+  width: 768px;
+  height: 552px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/* line 174, ../sass/detailPanel.scss */
+#detailPanel .detail-panel-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+/* line 179, ../sass/detailPanel.scss */
+.fullsize #detailPanel .detail-panel-image {
+  background-size: contain;
 }
 
-/* line 189, ../sass/detailPanel.scss */
+/* line 198, ../sass/detailPanel.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -803,18 +808,9 @@ span.arrow {
   background: #06667d;
 }
 
-/* line 10, ../sass/application.scss */
-.x-field-search .x-field-input .x-form-field {
-  font-size: 13px;
-  height: 29px;
-  padding-left: 15px;
-}
-
-/* line 16, ../sass/application.scss */
+/* line 9, ../sass/application.scss */
 .price {
-  font-size: 19px;
   color: #78C042;
-  line-height: 14px;
   text-align: right;
   white-space: nowrap;
   overflow: hidden;
@@ -825,14 +821,21 @@ span.arrow {
   background: rgba(203, 203, 197, 0.1);
   font-family: abril;
   font-weight: normal;
+  font-size: 17px;
+  line-height: 17px;
 }
-/* line 33, ../sass/application.scss */
+/* line 25, ../sass/application.scss */
 .price.sold {
-  color: red;
-  font-size: 14px;
+  background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
+  text-indent: -10000px;
+  text-align: left;
 }
-/* line 38, ../sass/application.scss */
+/* line 30, ../sass/application.scss */
+.cart-pressed-flag .price.sold {
+  background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
+}
+/* line 35, ../sass/application.scss */
 .cart-pressed-flag .price {
-  background: #78C042;
+  background-color: #78C042;
   color: #fff;
 }

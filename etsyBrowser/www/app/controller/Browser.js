@@ -202,6 +202,12 @@ Ext.define('Etsy.controller.Browser', {
         if (buttonId == 'yes' || buttonId == '1') {
           localStorage.removeItem('accessTokenKey');
           localStorage.removeItem('accessTokenSecret');
+          localStorage.removeItem('favorites_count');
+          localStorage.removeItem('favorites_listing_ids');
+          localStorage.removeItem('cart_count');
+          localStorage.removeItem('cart_listing_ids');
+          localStorage.removeItem('name');
+          localStorage.removeItem('avatar');
           ETSY.toggleSignIn();
           APP.onSignOutTap();
           APP.loadHomePanel();
@@ -252,6 +258,9 @@ Ext.define('Etsy.controller.Browser', {
 
   loadHomePanel: function () {
     GLOBAL.panel = 'home';
+    GLOBAL.searchCategory = null;
+    Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
+    
     var self = this;
     self.getAppPanel().removeAll(true);
 

@@ -70,7 +70,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
            // touchend: 'onTouchEnd',
        });
        
-       if(GLOBAL.panel == "categories" && APP.navigationStore.findExact('name', GLOBAL.searchCategory.name) != -1){
+       if(GLOBAL.panel == "listings" && APP.navigationStore.findExact('name', GLOBAL.searchCategory.name) != -1){
          Ext.getCmp('categoriesToolbar').element.down('.x-title').addCls('bookmarked');
        }
     },

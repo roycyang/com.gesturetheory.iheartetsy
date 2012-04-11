@@ -207,6 +207,7 @@ Ext.define('Etsy.view.DetailPanel', {
 
     onTap: function(e) {
       if (Ext.get(e.target).parent('.description-inner-wrapper')) {
+        console.log('should be going to ETSY.toggleCart');
           ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
           return false;
       }

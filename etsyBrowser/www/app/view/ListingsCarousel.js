@@ -42,7 +42,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
   onTouchEtsyItemStart: function (e) {
     // console.log('touch event', e);
     var element = Ext.get(e.target);   
-    if (element.hasCls('favorite-stamp')) {
+    if (element.hasCls('favorite-stamp') && GLOBAL.signed_in) {
         element = Ext.get(e.target).parent('.product');
        $('#' + element.id).addClass('cart-pressed-flag');
        return false;
@@ -263,6 +263,8 @@ Ext.define('Etsy.view.ListingsCarousel', {
             newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
           }
           
+
+          
         });
       }
 
@@ -271,19 +273,20 @@ Ext.define('Etsy.view.ListingsCarousel', {
         console.log('in store load');
         var storeCount = newStore.data.length;
         var max = parseInt(storeCount / me.getCount());
+        
+        // a delay to make sure that it gets set correctly, timing is wierd
         setTimeout(function () {
           me.setMaxItemIndex(max - 1);
         }, 100);
         
-        
+        // if there more panels, we show the right arrow
         if(me.getActiveIndex() < max){
           $('.rightArrow').show();
         }else{
           $('.rightArrow').hide();
         }
         
-        
-        
+        // step through and unhide the various panels
         if (APP.getCategoriesPanel()) {
           APP.getCategoriesPanel().unmask();
         }
@@ -296,6 +299,11 @@ Ext.define('Etsy.view.ListingsCarousel', {
         
         if (APP.getSearchResultsPanel()) {
           APP.getSearchResultsPanel().unmask();
+          if(storeCount == 0){
+            Ext.getCmp('noResultsMessage').show();
+            Ext.getCmp('searchResultsCarousel').hide();
+            $('.rightArrow').hide();
+          }
         }
 
         me.updateStore(newStore);
@@ -303,7 +311,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         single: true
       });
     } else {
-      console.log('store is not laoding');
+      console.log('store has already loaded!');
       me.reset();
       
       var storeCount = newStore.data.length;
@@ -318,6 +326,9 @@ Ext.define('Etsy.view.ListingsCarousel', {
       }else{
         $('.rightArrow').hide();
       }
+      
+      
+
 
     }
   },
@@ -360,6 +371,8 @@ Ext.define('Etsy.view.ListingsCarousel', {
         }else{
           $('.rightArrow').show();
         }
+        
+
 
       }
     }catch(err){

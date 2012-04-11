@@ -2,7 +2,9 @@ Ext.define('Etsy.view.SearchResultsPanel', {
     extend: 'Ext.Panel',
     alias: 'widget.searchResultsPanel',
     config: {
+        title: 'Search Results',
         id: 'searchResultsPanel',
+        layout: 'vbox',
         items: [
         {
             xtype: 'toolbar',
@@ -23,7 +25,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
                         });
                         APP.getAppPanel().setActiveItem(0);
                         setTimeout(function() {
-                            APP.getSearchResultsPanel().destroy();
+                            APP.getSearchResultsPanel().destroy(true);
                         },
                         500);
                     }
@@ -36,10 +38,17 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             ]
         },
         {
+            flex: 1,
             id: 'searchResultsCarousel',
             xtype: 'listingsCarousel',
             width: 1024,
             count: 12
+        },
+        {
+            flex: 1,
+            hidden: true,
+            id: 'noResultsMessage',
+            html: '<h1>There were no results.  Please try again!<h1>'
         },
         {
             xtype: 'button',
@@ -72,6 +81,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
               }
             }
         },
+
         ]
     }
 

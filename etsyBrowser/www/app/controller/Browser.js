@@ -352,10 +352,14 @@ Ext.define('Etsy.controller.Browser', {
 
     store.load();
 
+
     self.getSearchResultsCarousel().setStore(store);
 
     self.getSearchResultsCarousel().reset();
     self.getSearchResultsCarousel().setActiveItem(0);
+    
+   console.log('store.getCount', store.getCount());
+
   },
   
   loadListings: function (type, record, name, tags) {
@@ -500,6 +504,10 @@ Ext.define('Etsy.controller.Browser', {
       if(listingIds.length == 0){
         self.getCategoriesCarousel().reset();
         self.getCategoriesPanel().unmask();
+        Ext.getCmp('noFavoritesMessage').show();
+        Ext.getCmp('categoriesCarousel').hide();
+        $('.rightArrow').hide();
+        
         return false;
       }
 
@@ -512,7 +520,7 @@ Ext.define('Etsy.controller.Browser', {
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
         self.getCategoriesCarousel().setStore(store);
         self.getCategoriesCarousel().reset()
-
+        
         self.getCategoriesCarousel().setActiveItem(0);
         self.getCategoriesPanel().unmask();
       });

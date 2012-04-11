@@ -52,6 +52,12 @@ Ext.define('Etsy.view.CategoriesPanel', {
             flex: 1,
             id: 'categoriesCarousel',
             xtype: 'listingsCarousel',
+        },
+        {
+            flex: 1,
+            hidden: true,
+            id: 'noFavoritesMessage',
+            html: '<h1>You have no favorites. <br/>Swipe the thumbnail of an item down to favorite it.<h1>'
         }
         ]
     },
@@ -64,7 +70,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
            // touchend: 'onTouchEnd',
        });
        
-       if(APP.navigationStore.findExact('name', GLOBAL.searchCategory.name) != -1){
+       if(GLOBAL.panel == "categories" && APP.navigationStore.findExact('name', GLOBAL.searchCategory.name) != -1){
          Ext.getCmp('categoriesToolbar').element.down('.x-title').addCls('bookmarked');
        }
     },

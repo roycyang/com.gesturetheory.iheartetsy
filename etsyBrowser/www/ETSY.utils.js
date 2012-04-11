@@ -265,7 +265,7 @@ var ETSY = {
 			navigator.notification.alert(msg);
 		} catch(err) {
 			var msg = Ext.Msg.alert('Alert', msg);
-			msg.setZIndex(100000000);
+			msg.setZIndex(1000000000000000);
 		}
 	},
 	
@@ -275,7 +275,7 @@ var ETSY = {
 		}
 		catch(err) {
 			var msg = Ext.Msg.confirm('Confirm', msg, callback);
-			msg.setZIndex(100000000);
+			msg.setZIndex(1000000000000000);
 		}
 	},
 }

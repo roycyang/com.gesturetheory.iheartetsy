@@ -68044,52 +68044,57 @@ Ext.define('Ext.carousel.Infinite', {
     },
 
     rebuildInnerIndexes: function(activeIndex) {
-        var indexToItem = this.innerIndexToItem,
-            idToIndex = this.innerIdToIndex,
-            items = this.innerItems.slice(),
-            ln = items.length,
-            bufferSize = this.getBufferSize(),
-            maxIndex = this.getMaxItemIndex(),
-            changedIndexes = [],
-            i, oldIndex, index, id, item;
+        try{
+          var indexToItem = this.innerIndexToItem,
+              idToIndex = this.innerIdToIndex,
+              items = this.innerItems.slice(),
+              ln = items.length,
+              bufferSize = this.getBufferSize(),
+              maxIndex = this.getMaxItemIndex(),
+              changedIndexes = [],
+              i, oldIndex, index, id, item;
 
 
-        if (activeIndex === undefined) {
-            this.innerIndexToItem = indexToItem = {};
-            this.innerIdToIndex = idToIndex = {};
+          if (activeIndex === undefined) {
+              this.innerIndexToItem = indexToItem = {};
+              this.innerIdToIndex = idToIndex = {};
 
-            for (i = 0; i < ln; i++) {
-                item = items[i];
-                id = item.getId();
-                idToIndex[id] = i;
-                indexToItem[i] = item;
-                this.fireEvent('itemindexchange', this, item, i, -1);
-            }
+              for (i = 0; i < ln; i++) {
+                  item = items[i];
+                  id = item.getId();
+                  idToIndex[id] = i;
+                  indexToItem[i] = item;
+                  this.fireEvent('itemindexchange', this, item, i, -1);
+              }
+          }
+          else {
+              for (i = activeIndex - bufferSize; i <= activeIndex + bufferSize; i++) {
+                  if (i >= 0 && i <= maxIndex) {
+                      if (indexToItem.hasOwnProperty(i)) {
+                          Ext.Array.remove(items, indexToItem[i]);
+                          continue;
+                      }
+                      changedIndexes.push(i);
+                  }
+              }
+
+              for (i = 0,ln = changedIndexes.length; i < ln; i++) {
+                  item = items[i];
+                  id = item.getId();
+                  index = changedIndexes[i];
+                  oldIndex = idToIndex[id];
+
+                  delete indexToItem[oldIndex];
+
+                  idToIndex[id] = index;
+                  indexToItem[index] = item;
+                  this.fireEvent('itemindexchange', this, item, index, oldIndex);
+              }
+          }
+        }catch(err){
+          console.log(err);
         }
-        else {
-            for (i = activeIndex - bufferSize; i <= activeIndex + bufferSize; i++) {
-                if (i >= 0 && i <= maxIndex) {
-                    if (indexToItem.hasOwnProperty(i)) {
-                        Ext.Array.remove(items, indexToItem[i]);
-                        continue;
-                    }
-                    changedIndexes.push(i);
-                }
-            }
-
-            for (i = 0,ln = changedIndexes.length; i < ln; i++) {
-                item = items[i];
-                id = item.getId();
-                index = changedIndexes[i];
-                oldIndex = idToIndex[id];
-
-                delete indexToItem[oldIndex];
-
-                idToIndex[id] = index;
-                indexToItem[index] = item;
-                this.fireEvent('itemindexchange', this, item, index, oldIndex);
-            }
-        }
+        
     },
 
     reset: function() {

@@ -57,7 +57,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
             flex: 1,
             hidden: true,
             id: 'noFavoritesMessage',
-            html: '<h1>You have no favorites. <br/>Swipe the thumbnail of an item down to favorite it.<h1>'
+            html: '<h1>Let\'s add some favorites!</h1><p class="desc">Swipe the thumbnail of an item down to favorite it.</p><div class="no-favorites-messaging"></div>'
         }
         ]
     },

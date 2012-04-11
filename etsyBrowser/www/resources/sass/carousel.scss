@@ -28,15 +28,48 @@
 
 
 h1 {
-  padding: 250px 200px;
-  font-size: 32px;
+  padding: 91px 200px 0;
+  font-size: 28px;
   text-align: center;
 }
 
+p.desc {
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+}
 
+.no-favorites-messaging {
+  background: url(../images/slices-v2/Favorites-no-items-2x.png) no-repeat 0 0;
+  background-size: contain;
+  width: 430px;
+  height: 430px;
+  margin: 0 auto;
+}
 
-#categoriesPanel .bookmarked .x-innerhtml  {
-  color: #D24700;
+.no-search-results-messaging {
+  background: url(../images/slices-v2/Results-no-items-2x.png) no-repeat 0 0;
+  background-size: contain;
+  width: 430px;
+  height: 430px;
+  margin: 0 auto;
+}
+
+#categoriesPanel {
+  
+  .favorites .x-title .x-innerhtml {
+    background: none;
+  }
+  
+  .x-title .x-innerhtml {
+    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-1x.png) no-repeat top right;
+    padding: 0 55px;
+    height: 62px;
+  }
+  .bookmarked .x-innerhtml {
+    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-1x.png) no-repeat top right;
+  }
+  
 }
 
 .products {    

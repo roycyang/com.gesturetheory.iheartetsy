@@ -1,7 +1,23 @@
 #detailPanel {
   background: url(../images/slices-v2/ProductDetail-background-1x.png) no-repeat 0 0;
-  overflow: hidden;
+
   padding: 7px 11px 4px 15px;
+  
+  #detailPanelInfo {
+    background: url(../images/slices-v2/ProductDetail-title-bar-shadow-2x.png) no-repeat left bottom;
+    background-size: contain;
+  }
+  
+  #detailPanelMainInfo {
+    background: #fffef4;
+    background-size: contain;
+  }
+  
+  #detailPanelMoreInfo {
+    background: #fffef4 url(../images/slices-v2/ProductDetail-long-divider-2x.png) no-repeat left top;
+    padding: 20px 10px 20px 20px;
+        background-size: contain;
+  }
   
   
   .favorite-flag {
@@ -10,12 +26,19 @@
   
   .description-inner-wrapper {
     overflow: hidden;
-  }
     
-    #detailPanelInfo {
-        position: relative;
-        z-index: 10;
-        background: url('../images/slices-v2/ProductDetail-title-bar-shadow-1x.png') no-repeat left bottom;
+  }
+  
+  #detailPanelSpacer {
+    background: url(../images/slices-v2/ProductDetail-horizontal-divider-1x.png) no-repeat left top;
+  }
+  
+
+    
+    #detailPanelInfoButton {
+      background: url(../images/slices-v2/ProductDetail-info-tab-link-2x.png) no-repeat 0 0;
+      background-size: contain;
+      border-radius: 0 
     }
     
     .x-body {
@@ -36,29 +59,29 @@
 }
 
     .name {
-        line-height: 25px;
-        font-size: 20px;
-        font-weight: normal;
-        color: #333;
-        padding: 11px 10px;
-        height: auto;
-        margin-bottom: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 500px;        
+      line-height: 25px;
+      font-size: 22px;
+      font-weight: normal;
+      color: #000000;
+      padding: 13px 17px 8px;
+      height: auto;
+      margin-bottom: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 500px;
+      text-shadow: 1px 1px white;       
     }
 
 
     
     .text {
-        padding-top: 20px;
-        background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
-        
+         
         font-size:14px;
-        color: #aaa;
+        color: #000000;
         line-height: 18px;
         padding-bottom: 30px;
+        padding-right: 20px;
     }
     
     .quantity {
@@ -68,15 +91,21 @@
         margin-top: 8px;
         color: #666;
         margin-bottom: 20px;
+        padding-right: 20px;
     }
     
-    .shipping,
     .seller {
-        background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
-        clear: both;
+        background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat left bottom;
+
         font-size: 12px;
-        padding: 20px 0;
-        color: #666;
+        padding: 0 0 20px 0;
+        margin-bottom: 20px;
+        color: #000000;
+    }
+    
+    .shipping {
+        font-size: 12px;
+        color: #000000;
     }
 
     img {
@@ -115,40 +144,42 @@
         overflow: hidden;
     }
     
+
+    
     .x-button {
         height: 87px;
-        background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 30px;
+        background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 25px;
         
         &.active {
-            background-position: -87px 30px;
+            background-position: -87px 25px;
         }
         
         &.x-button-pressing {
-            background-position: -87px 30px;
+            background-position: -87px 25px;
         }
         
         
         &#detailPanelEmail {
-            background-position: 13px -470px;
+            background-position: 13px -475px;
             
             &.x-button-pressing {
-                background-position: -87px -470px;
+                background-position: -87px -475px;
             }
         }
         
         &#detailPanelFacebook {
-            background-position: 13px -270px;
+            background-position: 13px -275px;
             
             &.x-button-pressing {
-                background-position: -87px -270px;
+                background-position: -87px -275px;
             }
         }
         
         &#detailPanelTwitter {
-            background-position: 13px -170px;
+            background-position: 13px -175px;
             
             &.x-button-pressing {
-                background-position: -87px -170px;
+                background-position: -87px -175px;
             }
         }
         

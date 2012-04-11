@@ -8,7 +8,10 @@ Ext.define('Etsy.controller.Browser', {
       navList: '#navList',
       appPanel: '#appPanel',
       
-            
+      // instructions panel
+      
+      instructionsPanel: 'instructionsPanel',
+      
       // home panel
       homePanel: 'homePanel',
       homeTreasuriesCarousel: '#homeTreasuriesCarousel',
@@ -72,6 +75,12 @@ Ext.define('Etsy.controller.Browser', {
     self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
     self.detailPanel = Ext.create('Etsy.view.DetailPanel');
 
+    if(!localStorage.hasSeenInstructions){
+      self.mainView.add(Ext.create('Etsy.view.InstructionsPanel'));
+      localStorage.hasSeenInstructions = true;
+    }
+
+
     // all the stores
     self.listingsStore = Ext.data.StoreManager.lookup('Listings');
     self.resultsListingsStore = Ext.data.StoreManager.lookup('ResultsListings');
@@ -88,7 +97,8 @@ Ext.define('Etsy.controller.Browser', {
           { name: 'd', title: '<div class="favorites-label">Favorites <span class="count"></span></div>',  type: ''  , panel: 'favoritesPanel'},
           { name: 'e', title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: ''  , panel: 'cartPanel'},
           { name: 'f', title: 'Feedback',  type: ''  , panel: 'feedback'},
-          { name: 'g', title: '<div class="sign-out-link">Sign Out</div>',  type: ''  , panel: 'signout'}
+          { name: 'g', title: 'Instructions',  type: ''  , panel: 'instructions'},
+          { name: 'h', title: '<div class="sign-out-link">Sign Out</div>',  type: ''  , panel: 'signout'}
       );
       localStorage.hasLoaded = true;
     }
@@ -163,7 +173,7 @@ Ext.define('Etsy.controller.Browser', {
   // ================================
   onListingTap: function (view, record) {
     console.log('**on onListingTap!');
-
+    Ext.getCmp('detailPanelMoreInfo').hide();
     this.detailPanel.setData(record.data);
 
     if (!this.detailPanel.getParent()) {
@@ -183,10 +193,13 @@ Ext.define('Etsy.controller.Browser', {
         ETSY.alert('This only works on the iPad');
       }
       self.selectNavListItem();
+    } else if (panel == 'instructions') {
+      self.loadInstructions();
+      self.selectNavListItem();
     } else if (panel == 'cartPanel') {
       if (!GLOBAL.signed_in) {
         ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
-
+        self.selectNavListItem();
         return false;
       }
       try {
@@ -277,6 +290,12 @@ Ext.define('Etsy.controller.Browser', {
       message: 'Loading Home',
     });
   },
+  
+  loadInstructions: function(){
+    self.mainView.add(Ext.create('Etsy.view.InstructionsPanel', {
+      hideOnMaskTap: true
+    }));
+  },
 
   loadTreasury: function (treasury_id, title) {
     GLOBAL.panel = 'treasury';
@@ -325,11 +344,17 @@ Ext.define('Etsy.controller.Browser', {
     self.getTreasuryCarousel().reset();
     self.getTreasuryCarousel().setActiveItem(0);
   },
-
+  
   loadSearch: function (keyword, category) {
     GLOBAL.panel = 'searchResults';
     var self = this;
 
+    // this wipes out all the pending events and then resumes
+    var store = self.resultsListingsStore;
+    store.removeAll(true);
+    store.suspendEvents();
+    store.resumeEvents();
+    
     Ext.create('Etsy.view.SearchResultsPanel');
     self.getSearchResultsPanel().setMasked({
       xtype: 'loadmask',
@@ -345,8 +370,8 @@ Ext.define('Etsy.controller.Browser', {
     self.getAppPanel().add(self.getSearchResultsPanel());
     self.getAppPanel().setActiveItem(self.getSearchResultsPanel());
 
-    var store = self.resultsListingsStore;
-    store.removeAll(true);
+
+
     if(category){
       store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
       store.getProxy().setExtraParam('keywords', keyword);
@@ -378,6 +403,11 @@ Ext.define('Etsy.controller.Browser', {
       name: record.get('name')
     };
     var self = this;
+    
+    // this wipes out all the pending events and then resumes
+    self.listingsStore.suspendEvents();
+    self.listingsStore.resumeEvents();
+    
     self.getAppPanel().removeAll(true);
     Ext.create('Etsy.view.CategoriesPanel');
     if (type == 'category') {
@@ -401,60 +431,19 @@ Ext.define('Etsy.controller.Browser', {
     var store = self.listingsStore;
     store.removeAll(true);
     self.getCategoriesCarousel().reset();
-    
-    
-    switch (type) {
-    case 'category':
-      delete self.listingsStore.getProxy()._extraParams.tags;
-      delete self.listingsStore.getProxy()._extraParams.keywords;
-      // resetting the store to use our NODE.JS
-      store.getProxy().setUrl(GLOBAL.api + 'categories?category=' + record.get('name'));
-      console.log(GLOBAL.api + 'categories?category=' + record.get('name'));
-      self.getCategoriesToolbar().setTitle(record.get('short_name'));
-      
 
-      
-      Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
-      self.getNavList().select(1);
-      GLOBAL.previousNavItemIndex = 1;
-      break;
-    // case 'tags':
-    //   delete self.listingsStore.getProxy()._extraParams.keywords;
-    //   store.getProxy().setExtraParam('tags', tags);
-    //   store.getProxy().setExtraParam('category', record.get('name'));
-    //   store.getProxy().setUrl(GLOBAL.api + 'categories');
-    //   self.getNavList().select(1);
-    //   GLOBAL.previousNavItemIndex = 1;
-    //   // resetting the store to use our NODE.JS
-    //   // store.getProxy().setUrl(GLOBAL.api + 'art');
-    //   console.log('record is', record);
-    //   self.getCategoriesToolbar().setTitle(name);
-    //   Ext.getCmp('globalSearch').setPlaceHolder('Search ' + name);
-    //   break;
-    case 'keyword':
-      self.getNavList().deselectAll();
-      delete self.listingsStore.getProxy()._extraParams.tags;
-      delete self.listingsStore.getProxy()._extraParams.category;
-      store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
-      store.getProxy().setExtraParam('keywords', record);
-      self.getCategoriesToolbar().setTitle('Search Results for: ' + record);
-      GLOBAL.previousNavItemIndex = -1;
-      break;
-    }
-
-
-
-    // //empty the store before adding the new one
-    // var categoriesCarouselStore = self.getCategoriesCarousel().getStore();
-    // if (categoriesCarouselStore) {
-    //   // self.getCategoriesCarousel().reset();
-    //   console.log('updating the store in loadlist');
-    //   // if there is already a store, then it needs to be updated, not set
-    //   self.getCategoriesCarousel().updateStore(store);
-    // } else {
-    //   console.log('add the store in loadlist');
-    //   self.getCategoriesCarousel().setStore(store);
-    // }
+    delete self.listingsStore.getProxy()._extraParams.tags;
+    delete self.listingsStore.getProxy()._extraParams.keywords;
+    // resetting the store to use our NODE.JS
+    store.getProxy().setUrl(GLOBAL.api + 'categories?categories=' + record.get('name'));
+    delete self.listingsStore.getProxy()._extraParams.categories;
+    console.log(GLOBAL.api + 'categories?category=' + record.get('name'));
+    self.getCategoriesToolbar().setTitle(record.get('short_name'));
+    $('#categoriesToolbar').removeClass('favorites');
+        
+    Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
+    self.getNavList().select(1);
+    GLOBAL.previousNavItemIndex = 1;
     
     // load the store, then set the store, the refresh the carousel
     store.load();
@@ -495,6 +484,7 @@ Ext.define('Etsy.controller.Browser', {
     self.getAppPanel().removeAll(true);
     Ext.create('Etsy.view.CategoriesPanel');
     self.getAppPanel().setActiveItem(self.getCategoriesPanel());
+    $('#categoriesToolbar').addClass('favorites');
     self.getCategoriesToolbar().setTitle('Favorites');
     self.getCategoriesPanel().setMasked({
       xtype: 'loadmask',

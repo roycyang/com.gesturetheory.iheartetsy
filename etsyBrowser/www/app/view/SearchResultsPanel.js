@@ -48,7 +48,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             flex: 1,
             hidden: true,
             id: 'noResultsMessage',
-            html: '<h1>There were no results.  Please try again!<h1>'
+            html: '<h1>No Search Results</h1><p class="desc">Hit the back button to try again!</p><div class="no-search-results-messaging"></div>'
         },
         {
             xtype: 'button',

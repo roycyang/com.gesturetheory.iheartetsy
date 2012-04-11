@@ -247,14 +247,13 @@ Ext.define('Etsy.view.ListingsCarousel', {
         // this is when the store updates, we can update the max index.
         newStore.on('refresh', function () {
           var storeCount = newStore.getCount();
-          if(storeCount){
             me.adjustAfterLoading(me, newStore);          
-            if (storeCount == 100) {
-              // after calling refresh, we need to reset it... strange bug!
-              me.reset();
-              newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+            newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+            console.log('\n\n\n\n\nnew store proxy', newStore.getProxy());
+            if(GLOBAL.panel == 'listings'){
+              newStore.getProxy().setExtraParam('category', GLOBAL.searchCategory.name);
             }
-          }
+            
         });
       }
 
@@ -323,20 +322,25 @@ Ext.define('Etsy.view.ListingsCarousel', {
     // and then calls adjustAfterLoading which makes sure we adjust the arrows and the max items
     console.log('called onActiveItemChange');
 
-    var index     = carousel.getActiveIndex(),
-      count       = this.getCount(),
-      offsetLimit = this.getOffsetLimit(),
-      store       = this.getStore(),
-      storeCount  = store.getCount();
+    try{
+      var index     = carousel.getActiveIndex(),
+        count       = this.getCount(),
+        offsetLimit = this.getOffsetLimit(),
+        store       = this.getStore(),
+        storeCount  = store.getCount();
 
-    if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
-      if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
-        console.log('calling store.nextPage');
-        store.nextPage();
+      if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
+        if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
+          console.log('calling store.nextPage');
+          store.nextPage();
+        }
       }
+
+      carousel.adjustAfterLoading(carousel, store);
+    }catch(err){
+      console.log('error: ', err);
     }
     
-    carousel.adjustAfterLoading(carousel, store);    
   },
 
   onItemIndexChange: function (me, item, index) {

@@ -127,7 +127,7 @@ var ETSY = {
       }
     }  ,
   		function(data) {
-        ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+//        ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 
   		});
     
@@ -178,7 +178,7 @@ var ETSY = {
 
 		},
 		function(data) {
-			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+			// ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
 
 	},
@@ -223,7 +223,7 @@ var ETSY = {
 			ETSY.updateCartInfo();
 		},
 		function(data) {
-      ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+      // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 
 		});
 	},
@@ -255,7 +255,7 @@ var ETSY = {
 			$('.cart-label span').html(data.count);
 		},
 		function(data) {
-			ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
+			// ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
 		});
 		
 	},

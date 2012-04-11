@@ -35,7 +35,7 @@ $include-toolbar-uis: $include-default-uis !default;
 
   .x-toolbar {
     padding: 0 $toolbar-spacing;
-    overflow: hidden;
+//    overflow: hidden;
     position: relative;
 /*    height: $global-row-height;*/
     height: 47px;

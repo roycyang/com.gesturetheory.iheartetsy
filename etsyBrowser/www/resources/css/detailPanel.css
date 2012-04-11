@@ -1,32 +1,51 @@
 /* line 1, ../sass/detailPanel.scss */
 #detailPanel {
   background: url(../images/slices-v2/ProductDetail-background-1x.png) no-repeat 0 0;
-  overflow: hidden;
   padding: 7px 11px 4px 15px;
 }
-/* line 7, ../sass/detailPanel.scss */
+/* line 6, ../sass/detailPanel.scss */
+#detailPanel #detailPanelInfo {
+  background: url(../images/slices-v2/ProductDetail-title-bar-shadow-2x.png) no-repeat left bottom;
+  background-size: contain;
+}
+/* line 11, ../sass/detailPanel.scss */
+#detailPanel #detailPanelMainInfo {
+  background: #fffef4;
+  background-size: contain;
+}
+/* line 16, ../sass/detailPanel.scss */
+#detailPanel #detailPanelMoreInfo {
+  background: #fffef4 url(../images/slices-v2/ProductDetail-long-divider-2x.png) no-repeat left top;
+  padding: 20px 10px 20px 20px;
+  background-size: contain;
+}
+/* line 23, ../sass/detailPanel.scss */
 #detailPanel .favorite-flag {
   background: url(../images/slices-v2/ProductDetail-favorite-stamp-1x.png) no-repeat left top;
 }
-/* line 11, ../sass/detailPanel.scss */
+/* line 27, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper {
   overflow: hidden;
 }
-/* line 15, ../sass/detailPanel.scss */
-#detailPanel #detailPanelInfo {
-  position: relative;
-  z-index: 10;
-  background: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png") no-repeat left bottom;
+/* line 32, ../sass/detailPanel.scss */
+#detailPanel #detailPanelSpacer {
+  background: url(../images/slices-v2/ProductDetail-horizontal-divider-1x.png) no-repeat left top;
 }
-/* line 21, ../sass/detailPanel.scss */
+/* line 38, ../sass/detailPanel.scss */
+#detailPanel #detailPanelInfoButton {
+  background: url(../images/slices-v2/ProductDetail-info-tab-link-2x.png) no-repeat 0 0;
+  background-size: contain;
+  border-radius: 0;
+}
+/* line 44, ../sass/detailPanel.scss */
 #detailPanel .x-body {
   overflow: visible;
 }
-/* line 25, ../sass/detailPanel.scss */
+/* line 48, ../sass/detailPanel.scss */
 #detailPanel .x-docking-horizontal {
   overflow: hidden;
 }
-/* line 29, ../sass/detailPanel.scss */
+/* line 52, ../sass/detailPanel.scss */
 #detailPanel .description {
   background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
   border: none;
@@ -35,30 +54,30 @@
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(323px, 0, 0);
 }
-/* line 38, ../sass/detailPanel.scss */
+/* line 61, ../sass/detailPanel.scss */
 #detailPanel .name {
   line-height: 25px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: normal;
-  color: #333;
-  padding: 11px 10px;
+  color: #000000;
+  padding: 13px 17px 8px;
   height: auto;
   margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 500px;
+  text-shadow: 1px 1px white;
 }
-/* line 54, ../sass/detailPanel.scss */
+/* line 78, ../sass/detailPanel.scss */
 #detailPanel .text {
-  padding-top: 20px;
-  background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
   font-size: 14px;
-  color: #aaa;
+  color: #000000;
   line-height: 18px;
   padding-bottom: 30px;
+  padding-right: 20px;
 }
-/* line 64, ../sass/detailPanel.scss */
+/* line 87, ../sass/detailPanel.scss */
 #detailPanel .quantity {
   float: left;
   margin-left: 18px;
@@ -66,16 +85,22 @@
   margin-top: 8px;
   color: #666;
   margin-bottom: 20px;
+  padding-right: 20px;
 }
-/* line 74, ../sass/detailPanel.scss */
-#detailPanel .shipping, #detailPanel .seller {
-  background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
-  clear: both;
+/* line 97, ../sass/detailPanel.scss */
+#detailPanel .seller {
+  background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat left bottom;
   font-size: 12px;
-  padding: 20px 0;
-  color: #666;
+  padding: 0 0 20px 0;
+  margin-bottom: 20px;
+  color: #000000;
 }
-/* line 82, ../sass/detailPanel.scss */
+/* line 106, ../sass/detailPanel.scss */
+#detailPanel .shipping {
+  font-size: 12px;
+  color: #000000;
+}
+/* line 111, ../sass/detailPanel.scss */
 #detailPanel img {
   /*            background-size: contain;
           background-repeat: no-repeat;
@@ -85,7 +110,7 @@
   display: block;
   margin: 0 auto;
 }
-/* line 92, ../sass/detailPanel.scss */
+/* line 121, ../sass/detailPanel.scss */
 #detailPanel .price {
   float: left;
   margin-left: 18px;
@@ -98,60 +123,60 @@
   border-radius: 5px;
   padding-left: 7px;
 }
-/* line 109, ../sass/detailPanel.scss */
+/* line 138, ../sass/detailPanel.scss */
 #detailPanel .cart-flag .price {
   background-image: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4);
 }
-/* line 114, ../sass/detailPanel.scss */
+/* line 143, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel {
   overflow: hidden;
 }
-/* line 118, ../sass/detailPanel.scss */
+/* line 149, ../sass/detailPanel.scss */
 #detailPanel .x-button {
   height: 87px;
-  background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 30px;
+  background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 25px;
 }
-/* line 122, ../sass/detailPanel.scss */
+/* line 153, ../sass/detailPanel.scss */
 #detailPanel .x-button.active {
-  background-position: -87px 30px;
+  background-position: -87px 25px;
 }
-/* line 126, ../sass/detailPanel.scss */
+/* line 157, ../sass/detailPanel.scss */
 #detailPanel .x-button.x-button-pressing {
-  background-position: -87px 30px;
+  background-position: -87px 25px;
 }
-/* line 131, ../sass/detailPanel.scss */
+/* line 162, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelEmail {
-  background-position: 13px -470px;
+  background-position: 13px -475px;
 }
-/* line 134, ../sass/detailPanel.scss */
+/* line 165, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelEmail.x-button-pressing {
-  background-position: -87px -470px;
+  background-position: -87px -475px;
 }
-/* line 139, ../sass/detailPanel.scss */
+/* line 170, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelFacebook {
-  background-position: 13px -270px;
+  background-position: 13px -275px;
 }
-/* line 142, ../sass/detailPanel.scss */
+/* line 173, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelFacebook.x-button-pressing {
-  background-position: -87px -270px;
+  background-position: -87px -275px;
 }
-/* line 147, ../sass/detailPanel.scss */
+/* line 178, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelTwitter {
-  background-position: 13px -170px;
+  background-position: 13px -175px;
 }
-/* line 150, ../sass/detailPanel.scss */
+/* line 181, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelTwitter.x-button-pressing {
-  background-position: -87px -170px;
+  background-position: -87px -175px;
 }
-/* line 158, ../sass/detailPanel.scss */
+/* line 189, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel {
   overflow: hidden;
 }
-/* line 160, ../sass/detailPanel.scss */
+/* line 191, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item {
   /*            background: url(../images/loading.gif) no-repeat center center;*/
 }
-/* line 164, ../sass/detailPanel.scss */
+/* line 195, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item .image {
   width: 768px;
   height: 552px;
@@ -159,18 +184,18 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
-/* line 174, ../sass/detailPanel.scss */
+/* line 205, ../sass/detailPanel.scss */
 #detailPanel .detail-panel-image {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
 }
-/* line 179, ../sass/detailPanel.scss */
+/* line 210, ../sass/detailPanel.scss */
 .fullsize #detailPanel .detail-panel-image {
   background-size: contain;
 }
 
-/* line 198, ../sass/detailPanel.scss */
+/* line 229, ../sass/detailPanel.scss */
 .product-view a:link, .product-view a:active, .product-view a:visited,
 .products a:link,
 .products a:active,

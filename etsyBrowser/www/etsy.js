@@ -26,6 +26,7 @@ Ext.application({
     'NavPanel',
     'AppPanel',
     'MainToolbar',
+    'InstructionsPanel',
 
     // other panels
     'HomePanel',

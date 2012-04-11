@@ -22,10 +22,10 @@
 		api: 'http://50.74.56.194:8888/'  
 	};
 	
-	localStorage.accessTokenKey = "d3ffe7f0b9ccc7f3a69ddc409caadd";
-	localStorage.accessTokenSecret = "b6907cc7ab";
-	localStorage.avatar = "http://www.etsy.com/images/avatars/default_avatar_75px.png";
-	localStorage.name = "Roy Yang"
+	// localStorage.accessTokenKey = "d3ffe7f0b9ccc7f3a69ddc409caadd";
+	// localStorage.accessTokenSecret = "b6907cc7ab";
+	// localStorage.avatar = "http://www.etsy.com/images/avatars/default_avatar_75px.png";
+	// localStorage.name = "Roy Yang"
 	// 
 	// If you want to prevent dragging, uncomment this section
 	/*
@@ -46,13 +46,26 @@
 	}
 	*/
 	
+
 	function onBodyLoad() 
 	{		
 		document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("online", onOnline, false);
+		document.addEventListener("offline", onOffline, false);
 		//initializeCart();
     // initUserCustomization();
     // initCart();
     // initFavorites();
+	}
+	
+	function onOnline()
+	{
+		$('.offline-mask').hide();
+	}
+	
+	function onOffline()
+	{	
+		$('.offline-mask').show();
 	}
 	
 	/* When this function is called, Cordova has been initialized and is ready to roll */
@@ -89,5 +102,6 @@
 
   </head>
   <body onload="onBodyLoad()">
+	<div class="offline-mask"></div>
   </body>
 </html>

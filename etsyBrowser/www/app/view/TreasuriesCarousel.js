@@ -50,9 +50,7 @@ Ext.define('Etsy.view.TreasuriesCarousel', {
                 if (APP.getHomePanel()) {
                     APP.getHomePanel().unmask();
                 }
-                if(newStore.data.length == 0){
-                  ETSY.alert('There is a problem connecting, please try again later');
-                }
+
 
                 me.updateStore(newStore);
             }, me, {

@@ -20,92 +20,167 @@ Ext.define('Etsy.view.DetailPanel', {
 
         items: [
         {
+            top: 0,
+            left: 0,
+            zIndex: 1000,
             id: 'detailPanelInfo',
-            height: 110,
-            layout: 'hbox',
+            layout: 'vbox',
+            padding: '0 0 20px 0',
             defaults: {
-                flex: 1,
-                ui: 'plain',
+              flex: 1
             },
             items: [
+
             {
-                width: 500,
-                id: 'top-meta-info',
-                tpl: new Ext.XTemplate(
-                '<div class="description-inner-wrapper <tpl if="in_cart"> cart-flag</tpl> <tpl if="in_favorites"> favorite-flag</tpl>">',
-                '<div class="name">{title}</div>',
-                '<tpl if="state == \'sold_out\'">',
-                '<div class="sold price">SOLD</div>',
-                '</tpl>',
-                '<tpl if="state == \'active\'">',
-                '<div class="price">${price}</div>',
-                '</tpl>',
-                '<div class="quantity">Only {quantity} available</div>',
-                '</div>'
-                )
-            },
-            {
-                xtype: 'spacer',
-                width: 40,
-            },
-            {
-                id: 'detailPanelHeart',
-                xtype: 'button',
-                listeners: {
-                    tap: function(e) {
-                        ETSY.toggleFavorites(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
-                    }
-                }
-            },
-            {
-                id: 'detailPanelEmail',
-                xtype: 'button',
-                listeners: {
-                    tap: function() {
-                        console.log('e is', GLOBAL.newData);
-                        try {
-                            window.plugins.emailComposer.showEmailComposer('Check out this great Etsy item!', 'I have discovered this great item from the I Heart Etsy iPad app.  \n\nYou can see it at:\n\n ' + GLOBAL.newData.url, null);
-                        } catch(err) {
-                            alert('This only works on the iPad');
+              id: 'detailPanelMainInfo',
+                height: 90,
+                width: 768,
+                layout: 'hbox',
+                defaults: {
+                    flex: 1,
+                    ui: 'plain',
+                },
+                items: [
+                {
+                    width: 500,
+                    id: 'top-meta-info',
+                    tpl: new Ext.XTemplate(
+                    '<div class="description-inner-wrapper <tpl if="in_cart"> cart-flag</tpl> <tpl if="in_favorites"> favorite-flag</tpl>">',
+                    '<div class="name">{title}</div>',
+                    '<tpl if="state == \'sold_out\'">',
+                    '<div class="sold price">SOLD</div>',
+                    '</tpl>',
+                    '<tpl if="state == \'active\'">',
+                    '<div class="price">${price}</div>',
+                    '</tpl>',
+                    '<div class="quantity">Only {quantity} available</div>',
+                    '</div>'
+                    )
+                },
+                {
+                    xtype: 'spacer',
+                    width: 40,
+                },
+                {
+                    top: 18,
+                    right: -77,
+                    width: 77,
+                    height: 51,
+                    id: 'detailPanelInfoButton',
+                    xtype: 'button',
+                    listeners: {
+                        tap: function(e) {
+                            if(Ext.getCmp('detailPanelMoreInfo').isHidden()){
+                              // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
+                              //   type: 'fadeIn',
+                              //   duration: 300,
+                              //   direction: 'down'
+                              // })
+                              Ext.getCmp('detailPanelMoreInfo').show();
+                            }else{
+                              Ext.getCmp('detailPanelMoreInfo').hide();
+                            }
                         }
                     }
-                }
-            },
-            {
-                id: 'detailPanelFacebook',
-                xtype: 'button',
-                listeners: {
-                    tap: function() {
-                        ETSY.alert('Wire up the facebook!');
-                    }
-                }
-            },
-            {
-                id: 'detailPanelTwitter',
-                xtype: 'button',
-                listeners: {
-                    tap: function() {
-                        try {
-                            window.plugins.twitter.composeTweet(
-                            function(s) {
-                                console.log('success')
-                            },
-                            function(e) {},
-                            'Check out this item from the I Heart Etsy iPad app:',
-                            {
-                                imageAttach: GLOBAL.newData.image.thumb,
-                                urlAttach: GLOBAL.newData.url,
-
-                            });
-                        } catch(err) {
-                            ETSY.alert('This only works in iPad');
+                },
+                {
+                    id: 'detailPanelHeart',
+                    xtype: 'button',
+                    listeners: {
+                        tap: function(e) {
+                            ETSY.toggleFavorites(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
                         }
-
                     }
+                },
+                {
+                    xtype: 'spacer',
+                    width: 1,
+                    id: 'detailPanelSpacer'
+                },
+                {
+                    id: 'detailPanelEmail',
+                    xtype: 'button',
+                    listeners: {
+                        tap: function() {
+                            console.log('e is', GLOBAL.newData);
+                            try {
+                                window.plugins.emailComposer.showEmailComposer('Check out this great Etsy item!', 'I have discovered this great item from the I Heart Etsy iPad app.  \n\nYou can see it at:\n\n ' + GLOBAL.newData.url, null);
+                            } catch(err) {
+                                alert('This only works on the iPad');
+                            }
+                        }
+                    }
+                },
+                {
+                    id: 'detailPanelFacebook',
+                    xtype: 'button',
+                    listeners: {
+                        tap: function() {
+                            ETSY.alert('Wire up the facebook!');
+                        }
+                    }
+                },
+                {
+                    id: 'detailPanelTwitter',
+                    xtype: 'button',
+                    listeners: {
+                        tap: function() {
+                            try {
+                                window.plugins.twitter.composeTweet(
+                                function(s) {
+                                    console.log('success')
+                                },
+                                function(e) {},
+                                'Check out this item from the I Heart Etsy iPad app:',
+                                {
+                                    imageAttach: GLOBAL.newData.image.thumb,
+                                    urlAttach: GLOBAL.newData.url,
+
+                                });
+                            } catch(err) {
+                                ETSY.alert('This only works in iPad');
+                            }
+
+                        }
+                    }
+
                 }
-
-
+                ]
             },
+            {
+                height: 300,
+                id: 'detailPanelMoreInfo',
+                hidden: true,
+                xtype: 'container',
+                layout: 'hbox',
+                defaults: {
+                  flex: 1
+                },
+                 items: [{
+                    flex: 1,
+                     id: 'meta-info',
+                     tpl: new Ext.XTemplate(
+                         '<div class="description-inner-wrapper">',
+                             '<div class="seller">ANOTHER API CALL FOR USER INFORMATION</div>',
+                             '<div class="shipping">ANOTHER API CALL FOR SHIPPING INFORMATION</div>',
+                          '</div>'
+                     )
+                 },
+                 {
+                     flex: 1,
+                     id: 'scrollingDescription',
+                     tpl: new Ext.XTemplate(
+                         '<div class="description-inner-wrapper">',
+                                 '<div class="text">{description}</div>',
+                                '</div>'
+                     ),
+                   scrollable: {
+                       direction: 'vertical',
+                       directionLock: true
+                     }
+                 }]
+            },
+
             ]
         },
         {
@@ -117,57 +192,9 @@ Ext.define('Etsy.view.DetailPanel', {
             width: 768,
             id: 'detailPanelCarousel',
             defaults: {
-                // height: 640,
-                // width: 694,
                 }
         },
-        // {
-        //        xtype: 'container',
-        //
-        //      top: 5,
-        //      right: 0,
-        //      height: 630,
-        //      width: 370,
-        //      floating: true,
-        //      layout: 'vbox',
-        //
-        //             id: 'info-main-wrapper',
-        //
-        //      cls: 'description',
-        //      items: [{
-        //
-        //          id: 'meta-info',
-        //          tpl: new Ext.XTemplate(
-        //              '<div class="description-inner-wrapper">',
-        //                  '<div class="name">{title}</div>',
-        //                         '<tpl if="state == \'sold_out\'">',
-        //                             '<div class="sold price">SOLD</div>',
-        //                         '</tpl>',
-        //                         '<tpl if="state == \'active\'">',
-        //                             '<div class="price">${price}</div>',
-        //                         '</tpl>',
-        //                  '<div class="quantity">Only {quantity} available</div>',
-        //                  '<div class="seller">ANOTHER API CALL FOR USER INFORMATION</div>',
-        //                  '<div class="shipping">ANOTHER API CALL FOR SHIPPING INFORMATION</div>',
-        //                     '</div>'
-        //          )
-        //      },
-        //      {
-        //          flex: 1,
-        //          id: 'scrollingDescription',
-        //          tpl: new Ext.XTemplate(
-        //              '<div class="description-inner-wrapper">',
-        //                      '<div class="text">{description}</div>',
-        //                     '</div>'
-        //          ),
-        //        scrollable: {
-        //            direction: 'vertical',
-        //            directionLock: true
-        //          }
-        //      }]
-        //
-        //
-        //    }
+
         ],
     },
 
@@ -180,7 +207,6 @@ Ext.define('Etsy.view.DetailPanel', {
         //         image.element.dom.style.backgroundSize = "contain";
         //     }
         // });
-
         this.element.on({
             scope: this,
             tap: 'onTap',
@@ -193,7 +219,7 @@ Ext.define('Etsy.view.DetailPanel', {
     onTouchEnd: function(e) {
         $('.description-inner-wrapper').removeClass('cart-pressed-flag');
     },
-    
+
     onTouchMove: function(e) {
         $('.description-inner-wrapper').removeClass('cart-pressed-flag');
     },
@@ -206,31 +232,31 @@ Ext.define('Etsy.view.DetailPanel', {
     },
 
     onTap: function(e) {
-      if (Ext.get(e.target).parent('.description-inner-wrapper')) {
-        console.log('should be going to ETSY.toggleCart');
-          ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
-          return false;
-      }
+        if (Ext.get(e.target).parent('.description-inner-wrapper')) {
+            console.log('should be going to ETSY.toggleCart');
+            ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
+            return false;
+        }
 
-      // tapping on an image
-      if (Ext.get(e.target).parent('.x-carousel-indicator')) {
-          var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);
-          console.log('index is', index);
-          setTimeout(function() {
-              Ext.getCmp('detailPanelCarousel').setActiveItem(index);
-          },
-          100);
+        // tapping on an image
+        if (Ext.get(e.target).parent('.x-carousel-indicator')) {
+            var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);
+            console.log('index is', index);
+            setTimeout(function() {
+                Ext.getCmp('detailPanelCarousel').setActiveItem(index);
+            },
+            100);
 
-          return false;
-      } else {
-          if (GLOBAL.isInfoDisplayed) {
-              $('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
-              GLOBAL.isInfoDisplayed = false;
-          } else {
-              $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
-              GLOBAL.isInfoDisplayed = true;
-          }
-      }
+            return false;
+        } else {
+            if (GLOBAL.isInfoDisplayed) {
+                $('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
+                GLOBAL.isInfoDisplayed = false;
+            } else {
+                $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
+                GLOBAL.isInfoDisplayed = true;
+            }
+        }
     },
 
     updateData: function(newData) {
@@ -261,12 +287,12 @@ Ext.define('Etsy.view.DetailPanel', {
             });
             thumbnailsArray.push(images[i].url_75x75);
         }
-        
+
         // if there is only one item, remove the indicator
-        if(images.length == 1){
-          carousel.setIndicator(false);
-        }else{
-          carousel.setIndicator(true);
+        if (images.length == 1) {
+            carousel.setIndicator(false);
+        } else {
+            carousel.setIndicator(true);
         }
         carousel.add(imageArray);
         carousel.setActiveItem(0);
@@ -279,8 +305,8 @@ Ext.define('Etsy.view.DetailPanel', {
         100)
 
 
-        // Ext.getCmp('scrollingDescription').setData(newData);
-        //         Ext.getCmp('meta-info').setData(newData);
+        Ext.getCmp('scrollingDescription').setData(newData);
+        Ext.getCmp('meta-info').setData(newData);
         Ext.getCmp('top-meta-info').setData(newData);
     }
 });

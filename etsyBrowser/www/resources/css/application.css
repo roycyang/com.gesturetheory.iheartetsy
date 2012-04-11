@@ -87,62 +87,62 @@
   font-weight: 700;
 }
 
-/* line 97, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/fonts.scss */
+/* line 97, ../sass/fonts.scss */
 .tk-proxima-nova {
   font-family: "proxima-nova",sans-serif;
 }
 
-/* line 1, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 1, ../sass/appPanel.scss */
 #appPanel {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transition: -webkit-transform 350ms;
   -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
 }
-/* line 6, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 6, ../sass/appPanel.scss */
 #appPanel .x-layout-card-item {
   background: #fdf9df url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
 }
-/* line 10, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 10, ../sass/appPanel.scss */
 #appPanel .left-nav-button {
   background: url(../images/slices-v2/HeaderBar-left-menu-button-link-1x.png) no-repeat center center;
   border-radius: 0;
 }
-/* line 14, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 14, ../sass/appPanel.scss */
 #appPanel .left-nav-button.x-button-pressing {
   background: url(../images/slices-v2/HeaderBar-left-menu-button-active-1x.png) no-repeat center center;
 }
-/* line 19, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 19, ../sass/appPanel.scss */
 #appPanel .home-nav-button {
   background: url(../images/slices-v2/HeaderBar-logo-1x.png) no-repeat center center;
 }
-/* line 22, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 22, ../sass/appPanel.scss */
 #appPanel .home-nav-button.x-button-pressing {
   background: url(../images/slices-v2/HeaderBar-logo-active-1x.png) no-repeat 23px 0px;
 }
-/* line 27, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 27, ../sass/appPanel.scss */
 #appPanel .right-nav-button {
   background: url(../images/slices-v2/HeaderBar-right-menu-button-link-1x.png) no-repeat center center;
   border-radius: 0;
 }
-/* line 31, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 31, ../sass/appPanel.scss */
 #appPanel .right-nav-button.x-button-pressing {
   background: url(../images/slices-v2/HeaderBar-right-menu-button-active-1x.png) no-repeat center center;
 }
-/* line 36, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/appPanel.scss */
+/* line 36, ../sass/appPanel.scss */
 #appPanel #appPanelMask {
   background: rgba(0, 0, 0, 0.2);
   z-index: 10000000 !important;
 }
 
-/* line 1, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 1, ../sass/homePanel.scss */
 #homePanel {
   background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
 }
-/* line 4, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 4, ../sass/homePanel.scss */
 #homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(5) {
   display: none;
 }
-/* line 9, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 9, ../sass/homePanel.scss */
 #homePanel .browse-categories,
 #homePanel .hottest-treasuries {
   background: url(../images/slices-v2/GeneralApp-white-title-bar-1x.png) no-repeat center 7px !important;
@@ -150,38 +150,38 @@
   line-height: 67px;
   font-weight: normal;
 }
-/* line 18, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 18, ../sass/homePanel.scss */
 #homePanel .x-button-pressing .browse-categories,
 #homePanel .x-button-pressing .hottest-treasuries {
   background: url(../images/slices-v2/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
 }
-/* line 22, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 22, ../sass/homePanel.scss */
 #homePanel .x-field {
   background: none;
 }
-/* line 26, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 26, ../sass/homePanel.scss */
 #homePanel #homeSearch {
   padding: 27px 315px 9px;
 }
-/* line 29, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 29, ../sass/homePanel.scss */
 #homePanel #homeSearch .x-field-search .x-field-input .x-form-field {
   margin-left: 40px;
 }
-/* line 33, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 33, ../sass/homePanel.scss */
 #homePanel #homeSearch .x-component-outer {
   border: 5px solid #E1DFCC;
   border-radius: 34px;
   background: #EAE8D5;
   margin: 0;
 }
-/* line 39, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 39, ../sass/homePanel.scss */
 #homePanel #homeSearch .x-component-outer .x-input-search {
   padding: 8px 14px;
   font-size: 20px;
   height: auto;
   margin-left: 45px;
 }
-/* line 46, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 46, ../sass/homePanel.scss */
 #homePanel #homeSearch .x-component-outer .x-field-input::before {
   content: "";
   position: absolute;
@@ -194,26 +194,26 @@
   -webkit-mask-repeat: no-repeat;
   margin-top: 0;
 }
-/* line 61, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/homePanel.scss */
+/* line 61, ../sass/homePanel.scss */
 #homePanel h4 {
   font-size: 20px;
   text-align: center;
   padding: 30px 0 10px;
 }
 
-/* line 1, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 1, ../sass/sidePanels.scss */
 #navPanel {
   background: #46250a url(../images/slices-v2/LeftNav-top-background-1x.png) no-repeat top left;
 }
-/* line 4, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 4, ../sass/sidePanels.scss */
 #navPanel #signUpButton {
   height: 92px;
 }
-/* line 8, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 8, ../sass/sidePanels.scss */
 #navPanel #signUpButton.x-button-pressing .promo-user-info span.sign-in {
   text-decoration: underline;
 }
-/* line 16, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 16, ../sass/sidePanels.scss */
 #navPanel .user-info {
   color: #FEFBE3;
   padding: 20px 20px;
@@ -221,7 +221,7 @@
   line-height: 56px;
   overflow: hidden;
 }
-/* line 26, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 26, ../sass/sidePanels.scss */
 #navPanel .x-button-label {
   color: #FEFBE3;
   padding: 20px 20px;
@@ -230,7 +230,7 @@
   overflow: hidden;
   white-space: normal;
 }
-/* line 34, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 34, ../sass/sidePanels.scss */
 #navPanel .x-button-label span.desc {
   display: block;
   font-size: 11px;
@@ -239,7 +239,7 @@
   margin-top: 5px;
   font-weight: 300;
 }
-/* line 44, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 44, ../sass/sidePanels.scss */
 #navPanel img {
   height: 56px;
   margin-right: 15px;
@@ -250,7 +250,7 @@
   padding: 3px;
 }
 
-/* line 55, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 55, ../sass/sidePanels.scss */
 span.count {
   display: none;
   float: right;
@@ -259,24 +259,24 @@ span.count {
   padding: 2px 5px;
   border-radius: 7px;
 }
-/* line 63, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 63, ../sass/sidePanels.scss */
 .signed-in-flag span.count {
   display: block;
 }
 
-/* line 69, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 69, ../sass/sidePanels.scss */
 span.arrow {
   float: right;
   font-size: 13px;
   padding: 2px 5px;
 }
 
-/* line 76, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 76, ../sass/sidePanels.scss */
 #searchPanel {
   background: #46250a;
 }
 
-/* line 82, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 82, ../sass/sidePanels.scss */
 #searchPanel h4 {
   font-size: 12px;
   padding: 5px 20px;
@@ -284,59 +284,94 @@ span.arrow {
   color: #FEFBE3;
   margin-bottom: 20px;
 }
-/* line 90, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 90, ../sass/sidePanels.scss */
 #searchPanel #searchButton {
   background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px top;
   height: 36px;
 }
-/* line 94, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/sidePanels.scss */
+/* line 94, ../sass/sidePanels.scss */
 #searchPanel #searchButton.x-button-pressing {
   background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px -37px;
 }
 
-/* line 5, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 5, ../sass/carousel.scss */
 #appPanel .leftArrow {
   background: url("../images/left_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
-/* line 10, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 10, ../sass/carousel.scss */
 #appPanel .leftArrow.x-button-pressing {
   background-image: url("../images/left_arrow_on.png");
 }
 
-/* line 19, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 19, ../sass/carousel.scss */
 #appPanel .rightArrow {
   background: url("../images/right_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
-/* line 24, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 24, ../sass/carousel.scss */
 #appPanel .rightArrow.x-button-pressing {
   background-image: url("../images/right_arrow_on.png");
 }
 
-/* line 30, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 30, ../sass/carousel.scss */
 h1 {
-  padding: 250px 200px;
-  font-size: 32px;
+  padding: 91px 200px 0;
+  font-size: 28px;
   text-align: center;
 }
 
-/* line 38, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
-#categoriesPanel .bookmarked .x-innerhtml {
-  color: #D24700;
+/* line 36, ../sass/carousel.scss */
+p.desc {
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
 }
 
-/* line 43, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 42, ../sass/carousel.scss */
+.no-favorites-messaging {
+  background: url(../images/slices-v2/Favorites-no-items-2x.png) no-repeat 0 0;
+  background-size: contain;
+  width: 430px;
+  height: 430px;
+  margin: 0 auto;
+}
+
+/* line 50, ../sass/carousel.scss */
+.no-search-results-messaging {
+  background: url(../images/slices-v2/Results-no-items-2x.png) no-repeat 0 0;
+  background-size: contain;
+  width: 430px;
+  height: 430px;
+  margin: 0 auto;
+}
+
+/* line 60, ../sass/carousel.scss */
+#categoriesPanel .favorites .x-title .x-innerhtml {
+  background: none;
+}
+/* line 64, ../sass/carousel.scss */
+#categoriesPanel .x-title .x-innerhtml {
+  background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-1x.png) no-repeat top right;
+  padding: 0 55px;
+  height: 62px;
+}
+/* line 69, ../sass/carousel.scss */
+#categoriesPanel .bookmarked .x-innerhtml {
+  background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-1x.png) no-repeat top right;
+}
+
+/* line 76, ../sass/carousel.scss */
 .products .x-innerhtml {
   padding: 45px 0 0 72px;
 }
-/* line 47, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 80, ../sass/carousel.scss */
 .products .x-innerhtml div:nth-of-type(13) {
   display: none;
 }
-/* line 52, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 85, ../sass/carousel.scss */
 .products .favorite-stamp {
   position: absolute;
   bottom: 0;
@@ -349,11 +384,11 @@ h1 {
   background-position: bottom right;
   background-repeat: no-repeat;
 }
-/* line 65, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 98, ../sass/carousel.scss */
 .products .favorite-flag .favorite-stamp {
   background-image: url(../images/heart_stamp_x2.png);
 }
-/* line 69, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 102, ../sass/carousel.scss */
 .products .cart-flag .cart-stamp {
   position: absolute;
   top: -4px;
@@ -365,7 +400,7 @@ h1 {
   background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 81, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 114, ../sass/carousel.scss */
 .products .product {
   background: white;
   position: relative;
@@ -379,16 +414,16 @@ h1 {
   border: 1px solid #EAE9E1;
   border-radius: 4px;
 }
-/* line 94, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 127, ../sass/carousel.scss */
 .products .product.product-pressed-flag .name {
   color: #D24700;
 }
-/* line 98, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 131, ../sass/carousel.scss */
 .products .product .image {
   height: 135px;
   width: 170px;
 }
-/* line 103, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 136, ../sass/carousel.scss */
 .products .product .name {
   margin-top: 6px;
   height: 27px;
@@ -399,7 +434,7 @@ h1 {
   font-size: 11px;
   overflow: hidden;
 }
-/* line 114, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 147, ../sass/carousel.scss */
 .products .product .price {
   position: absolute;
   right: 5px;
@@ -407,35 +442,35 @@ h1 {
   width: 52px;
 }
 
-/* line 123, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 156, ../sass/carousel.scss */
 .product-bounce {
   -webkit-transition-property: all;
   -webkit-animation: product-bounce 1s 1;
 }
 
 @-webkit-keyframes product-bounce {
-  /* line 129, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+  /* line 162, ../sass/carousel.scss */
   0% {
     -webkit-transform: rotate(0) translate3d(0, 30px, 0);
   }
 
-  /* line 133, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+  /* line 166, ../sass/carousel.scss */
   25% {
     -webkit-transform: rotate(4deg) translate3d(0, -10px, 0);
   }
 
-  /* line 137, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+  /* line 170, ../sass/carousel.scss */
   50% {
     -webkit-transform: rotate(-2deg) translate3d(0, 5px, 0);
   }
 
-  /* line 141, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+  /* line 174, ../sass/carousel.scss */
   100% {
     -webkit-transform: rotate(0) translate3d(0, 0px, 0);
   }
 }
 
-/* line 146, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/carousel.scss */
+/* line 179, ../sass/carousel.scss */
 .quick-bounce {
   -webkit-transition-property: all;
   -webkit-transition-duration: .5s;
@@ -443,35 +478,54 @@ h1 {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 1, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 1, ../sass/detailPanel.scss */
 #detailPanel {
   background: url(../images/slices-v2/ProductDetail-background-1x.png) no-repeat 0 0;
-  overflow: hidden;
   padding: 7px 11px 4px 15px;
 }
-/* line 7, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 6, ../sass/detailPanel.scss */
+#detailPanel #detailPanelInfo {
+  background: url(../images/slices-v2/ProductDetail-title-bar-shadow-2x.png) no-repeat left bottom;
+  background-size: contain;
+}
+/* line 11, ../sass/detailPanel.scss */
+#detailPanel #detailPanelMainInfo {
+  background: #fffef4;
+  background-size: contain;
+}
+/* line 16, ../sass/detailPanel.scss */
+#detailPanel #detailPanelMoreInfo {
+  background: #fffef4 url(../images/slices-v2/ProductDetail-long-divider-2x.png) no-repeat left top;
+  padding: 20px 10px 20px 20px;
+  background-size: contain;
+}
+/* line 23, ../sass/detailPanel.scss */
 #detailPanel .favorite-flag {
   background: url(../images/slices-v2/ProductDetail-favorite-stamp-1x.png) no-repeat left top;
 }
-/* line 11, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 27, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper {
   overflow: hidden;
 }
-/* line 15, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
-#detailPanel #detailPanelInfo {
-  position: relative;
-  z-index: 10;
-  background: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png") no-repeat left bottom;
+/* line 32, ../sass/detailPanel.scss */
+#detailPanel #detailPanelSpacer {
+  background: url(../images/slices-v2/ProductDetail-horizontal-divider-1x.png) no-repeat left top;
 }
-/* line 21, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 38, ../sass/detailPanel.scss */
+#detailPanel #detailPanelInfoButton {
+  background: url(../images/slices-v2/ProductDetail-info-tab-link-2x.png) no-repeat 0 0;
+  background-size: contain;
+  border-radius: 0;
+}
+/* line 44, ../sass/detailPanel.scss */
 #detailPanel .x-body {
   overflow: visible;
 }
-/* line 25, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 48, ../sass/detailPanel.scss */
 #detailPanel .x-docking-horizontal {
   overflow: hidden;
 }
-/* line 29, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 52, ../sass/detailPanel.scss */
 #detailPanel .description {
   background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
   border: none;
@@ -480,30 +534,30 @@ h1 {
   -webkit-transition: -webkit-transform 350ms;
   -webkit-transform: translate3d(323px, 0, 0);
 }
-/* line 38, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 61, ../sass/detailPanel.scss */
 #detailPanel .name {
   line-height: 25px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: normal;
-  color: #333;
-  padding: 11px 10px;
+  color: #000000;
+  padding: 13px 17px 8px;
   height: auto;
   margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 500px;
+  text-shadow: 1px 1px white;
 }
-/* line 54, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 78, ../sass/detailPanel.scss */
 #detailPanel .text {
-  padding-top: 20px;
-  background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
   font-size: 14px;
-  color: #aaa;
+  color: #000000;
   line-height: 18px;
   padding-bottom: 30px;
+  padding-right: 20px;
 }
-/* line 64, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 87, ../sass/detailPanel.scss */
 #detailPanel .quantity {
   float: left;
   margin-left: 18px;
@@ -511,17 +565,22 @@ h1 {
   margin-top: 8px;
   color: #666;
   margin-bottom: 20px;
+  padding-right: 20px;
 }
-/* line 74, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
-#detailPanel .shipping,
+/* line 97, ../sass/detailPanel.scss */
 #detailPanel .seller {
-  background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat top left;
-  clear: both;
+  background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat left bottom;
   font-size: 12px;
-  padding: 20px 0;
-  color: #666;
+  padding: 0 0 20px 0;
+  margin-bottom: 20px;
+  color: #000000;
 }
-/* line 82, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 106, ../sass/detailPanel.scss */
+#detailPanel .shipping {
+  font-size: 12px;
+  color: #000000;
+}
+/* line 111, ../sass/detailPanel.scss */
 #detailPanel img {
   /*            background-size: contain;
           background-repeat: no-repeat;
@@ -531,7 +590,7 @@ h1 {
   display: block;
   margin: 0 auto;
 }
-/* line 92, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 121, ../sass/detailPanel.scss */
 #detailPanel .price {
   float: left;
   margin-left: 18px;
@@ -544,60 +603,60 @@ h1 {
   border-radius: 5px;
   padding-left: 7px;
 }
-/* line 109, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 138, ../sass/detailPanel.scss */
 #detailPanel .cart-flag .price {
   background-image: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4);
 }
-/* line 114, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 143, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel {
   overflow: hidden;
 }
-/* line 118, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 149, ../sass/detailPanel.scss */
 #detailPanel .x-button {
   height: 87px;
-  background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 30px;
+  background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 25px;
 }
-/* line 122, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 153, ../sass/detailPanel.scss */
 #detailPanel .x-button.active {
-  background-position: -87px 30px;
+  background-position: -87px 25px;
 }
-/* line 126, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 157, ../sass/detailPanel.scss */
 #detailPanel .x-button.x-button-pressing {
-  background-position: -87px 30px;
+  background-position: -87px 25px;
 }
-/* line 131, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 162, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelEmail {
-  background-position: 13px -470px;
+  background-position: 13px -475px;
 }
-/* line 134, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 165, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelEmail.x-button-pressing {
-  background-position: -87px -470px;
+  background-position: -87px -475px;
 }
-/* line 139, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 170, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelFacebook {
-  background-position: 13px -270px;
+  background-position: 13px -275px;
 }
-/* line 142, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 173, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelFacebook.x-button-pressing {
-  background-position: -87px -270px;
+  background-position: -87px -275px;
 }
-/* line 147, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 178, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelTwitter {
-  background-position: 13px -170px;
+  background-position: 13px -175px;
 }
-/* line 150, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 181, ../sass/detailPanel.scss */
 #detailPanel .x-button#detailPanelTwitter.x-button-pressing {
-  background-position: -87px -170px;
+  background-position: -87px -175px;
 }
-/* line 158, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 189, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel {
   overflow: hidden;
 }
-/* line 160, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 191, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item {
   /*            background: url(../images/loading.gif) no-repeat center center;*/
 }
-/* line 164, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 195, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item .image {
   width: 768px;
   height: 552px;
@@ -605,18 +664,18 @@ h1 {
   background-position: center center;
   background-repeat: no-repeat;
 }
-/* line 174, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 205, ../sass/detailPanel.scss */
 #detailPanel .detail-panel-image {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
 }
-/* line 179, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 210, ../sass/detailPanel.scss */
 .fullsize #detailPanel .detail-panel-image {
   background-size: contain;
 }
 
-/* line 198, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/detailPanel.scss */
+/* line 229, ../sass/detailPanel.scss */
 .product-view a:link,
 .product-view a:active,
 .product-view a:visited,
@@ -639,25 +698,25 @@ h1 {
 /* ================== */
 /* = Treasury Items = */
 /* ================== */
-/* line 10, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 10, ../sass/treasuries.scss */
 #treasuriesPanel #treasuriesCarousel .x-innerhtml {
   padding: 24px 0;
 }
 
-/* line 20, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 20, ../sass/treasuries.scss */
 #treasuryPanel #treasuryCarousel .product {
   margin: 20px 11px;
 }
-/* line 24, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 24, ../sass/treasuries.scss */
 #treasuryPanel #treasuryCarousel .x-innerhtml div:nth-of-type(17) {
   display: none;
 }
-/* line 28, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 28, ../sass/treasuries.scss */
 #treasuryPanel #treasuryCarousel .products .x-innerhtml {
   padding: 24px 0;
 }
 
-/* line 35, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 35, ../sass/treasuries.scss */
 .treasury-item {
   height: 166px;
   display: inline-block;
@@ -668,13 +727,13 @@ h1 {
   vertical-align: top;
   color: #3F3F3F;
 }
-/* line 45, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 45, ../sass/treasuries.scss */
 .treasury-item.small-treasury-item {
   width: 200px;
   margin: 39px 0 0 37px;
   padding: 0;
 }
-/* line 50, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 50, ../sass/treasuries.scss */
 .treasury-item.small-treasury-item .title {
   font-size: 23px;
   font-family: GearedSlabThin;
@@ -692,34 +751,34 @@ h1 {
   line-height: 30px;
   margin: 0;
 }
-/* line 68, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 68, ../sass/treasuries.scss */
 .treasury-item.small-treasury-item .image-wrapper .image {
   width: 125px;
   height: 100px;
 }
-/* line 75, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 75, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-1 {
   top: 10px;
   left: 0;
 }
-/* line 80, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 80, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-2 {
   left: 16px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 86, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 86, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-3 {
   left: 38px;
   top: 11px;
 }
-/* line 91, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 91, ../sass/treasuries.scss */
 .treasury-item .open .image-wrapper .image-4 {
   left: 296px;
   -webkit-transform: rotate(4deg);
   top: 14px;
 }
-/* line 98, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 98, ../sass/treasuries.scss */
 .treasury-item .image-wrapper {
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -727,36 +786,36 @@ h1 {
   padding: 3px;
   position: absolute;
 }
-/* line 105, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 105, ../sass/treasuries.scss */
 .treasury-item .image-wrapper.image-1 {
   -webkit-transform: rotate(-5deg);
   top: 10px;
   left: 0;
 }
-/* line 111, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 111, ../sass/treasuries.scss */
 .treasury-item .image-wrapper.image-2 {
   left: 28px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 117, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 117, ../sass/treasuries.scss */
 .open .treasury-item .image-wrapper.image-2 {
   left: 81px;
   top: 12px;
   -webkit-transform: rotate(-1deg);
 }
-/* line 123, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 123, ../sass/treasuries.scss */
 .treasury-item .image-wrapper.image-3 {
   left: 61px;
   -webkit-transform: rotate(2deg);
   top: 14px;
 }
-/* line 129, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 129, ../sass/treasuries.scss */
 .open .treasury-item .image-wrapper.image-3 {
   left: 185px;
   top: 15px;
 }
-/* line 148, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 148, ../sass/treasuries.scss */
 .treasury-item .image-wrapper .image {
   width: 170px;
   height: 135px;
@@ -767,7 +826,7 @@ h1 {
   background-clip: padding-box;
   /* IOS fix */
 }
-/* line 164, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 164, ../sass/treasuries.scss */
 .treasury-item .title {
   font-size: 23px;
   font-family: GearedSlabThin;
@@ -778,7 +837,7 @@ h1 {
   white-space: nowrap;
   margin-top: 20px;
 }
-/* line 176, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 176, ../sass/treasuries.scss */
 .treasury-item .user-avatar {
   width: 35px;
   height: 35px;
@@ -790,14 +849,14 @@ h1 {
   border: 1px solid #CCC;
   border-radius: 5px;
 }
-/* line 188, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 188, ../sass/treasuries.scss */
 .treasury-item .stats {
   clear: both;
   font-size: 11px;
   padding: 10px 0;
   color: #afafaf;
 }
-/* line 195, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 195, ../sass/treasuries.scss */
 .treasury-item .user {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -805,11 +864,11 @@ h1 {
   font-size: 11px;
   padding: 10px 0;
 }
-/* line 201, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 201, ../sass/treasuries.scss */
 .treasury-item .user span {
   color: #afafaf;
 }
-/* line 207, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 207, ../sass/treasuries.scss */
 .treasury-item .visit-treasury-button {
   padding: 5px 10px;
   background: #079BBE;
@@ -819,16 +878,27 @@ h1 {
   font-size: 13px;
   display: inline-block;
 }
-/* line 219, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 219, ../sass/treasuries.scss */
 .treasury-item.pressed .title {
   color: #D24700;
 }
-/* line 223, /Users/roycyang/github/heart-for-etsy/etsyBrowser/www/resources/sass/treasuries.scss */
+/* line 223, ../sass/treasuries.scss */
 .treasury-item.pressed .visit-treasury-button {
   background: #06667d;
 }
 
 /* line 9, ../sass/application.scss */
+.offline-mask {
+  display: none;
+  position: absolute;
+  z-index: 1000000;
+  width: 1024px;
+  height: 748px;
+  background: url(../images/slices-v2/waiting-for-internet.png) no-repeat 0 0;
+  background-size: contain;
+}
+
+/* line 19, ../sass/application.scss */
 .price {
   color: #78C042;
   text-align: right;
@@ -841,21 +911,130 @@ h1 {
   background: rgba(203, 203, 197, 0.1);
   font-family: abril;
   font-weight: normal;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 17px;
 }
-/* line 25, ../sass/application.scss */
+/* line 35, ../sass/application.scss */
 .price.sold {
   background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
   text-indent: -10000px;
   text-align: left;
 }
-/* line 30, ../sass/application.scss */
+/* line 40, ../sass/application.scss */
 .cart-pressed-flag .price.sold {
   background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
 }
-/* line 35, ../sass/application.scss */
+/* line 45, ../sass/application.scss */
 .cart-pressed-flag .price {
   background-color: #78C042;
   color: #fff;
+}
+
+/* line 52, ../sass/application.scss */
+#instructionPanel {
+  background-size: contain;
+  background: url(../images/instructions/background-2x.png) no-repeat 0 0;
+  /* line 51, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 56, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 61, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 68, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 78, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 85, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 94, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 99, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 34, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 37, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 34, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+  /* line 37, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
+}
+/* line 56, ../sass/application.scss */
+#instructionPanel #instructionCarousel {
+  overflow: hidden;
+}
+/* line 63, ../sass/application.scss */
+#instructionPanel .x-carousel {
+  position: relative;
+  overflow: hidden;
+}
+/* line 69, ../sass/application.scss */
+#instructionPanel .x-carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* line 75, ../sass/application.scss */
+#instructionPanel .x-carousel-item > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* line 82, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator {
+  padding: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+}
+/* line 92, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator {
+  -webkit-box-flex: 1;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  box-align: center;
+}
+/* line 102, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator span {
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  margin: 0.2em;
+}
+/* line 112, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator-horizontal {
+  height: 1.5em;
+  width: 100%;
+}
+/* line 118, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator-vertical {
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  width: 1.5em;
+  height: 100%;
+}
+/* line 126, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator-light span {
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: none;
+}
+/* line 131, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator-light span.x-carousel-indicator-active {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-image: none;
+}
+/* line 138, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator-dark span {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: none;
+}
+/* line 143, ../sass/application.scss */
+#instructionPanel .x-carousel-indicator-dark span.x-carousel-indicator-active {
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: none;
+  background-color: #bf1e2e;
+  border: 2px solid #bf1e2e;
+}
+
+/* line 150, ../sass/application.scss */
+.instruction-panel {
+  width: 559px;
+  height: 655px;
+  margin: 0 auto;
+  background-size: contain;
 }

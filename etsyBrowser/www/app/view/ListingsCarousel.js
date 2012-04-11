@@ -243,7 +243,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     if (newStore.isLoading()) {
       console.log('in newStore.isLoading()');
-      if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
+      if (GLOBAL.panel == 'listings' && GLOBAL.panel == 'searchResults') {
         // this is when the store updates, we can update the max index.
         newStore.on('refresh', function () {
           var storeCount = newStore.getCount();
@@ -266,11 +266,21 @@ Ext.define('Etsy.view.ListingsCarousel', {
         if (APP.getCategoriesPanel()) {
           APP.getCategoriesPanel().unmask();
         }
+        
         if (APP.getTreasuriesPanel()) {
           APP.getTreasuriesPanel().unmask();
         }
+        
         if (APP.getTreasuryPanel()) {
           APP.getTreasuryPanel().unmask();
+        }
+        
+        if (APP.getTreasuriesPanel()) {
+            APP.getTreasuriesPanel().unmask();
+        }
+        
+        if (APP.getHomePanel()) {
+            APP.getHomePanel().unmask();
         }
         
         if (APP.getSearchResultsPanel()) {

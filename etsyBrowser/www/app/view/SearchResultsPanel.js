@@ -15,7 +15,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
                 xtype: 'button',
                 cls: 'back-button',
                 ui: 'back',
-                text: 'back',
+                text: 'Back',
                 listeners: {
                     tap: function() {
                         Ext.Ajax.abortAll();
@@ -49,7 +49,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             flex: 1,
             hidden: true,
             id: 'noResultsMessage',
-            html: '<h1>No Search Results</h1><p class="desc">Hit the back button to try again!</p><div class="no-search-results-messaging"></div>'
+            html: '<h1>No Search Results</h1><p class="desc">Tap the back button to try again.</p><div class="no-search-results-messaging"></div>'
         },
         {
             xtype: 'button',

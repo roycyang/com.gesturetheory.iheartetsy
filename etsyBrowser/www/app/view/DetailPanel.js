@@ -180,115 +180,63 @@ Ext.define('Etsy.view.DetailPanel', {
         //         image.element.dom.style.backgroundSize = "contain";
         //     }
         // });
-        //  this.element.on({
-        //     scope: this,
-        //     tap: 'onTap'
-        // });
-        //         Ext.getCmp('info-main-wrapper').element.on({
-        //             scope: this,
-        //             drag: 'onDragItem'
-        //         });
-        //
-        //
-        // Ext.getCmp('info-main-wrapper').element.on({
-        //  scope: this,
-        //  tap: 'onTap'
-        // });
 
-
-
-        Ext.getCmp('detailPanelInfo').element.on({
+        this.element.on({
             scope: this,
             tap: 'onTap',
             touchstart: 'onTouchStart',
             touchmove: 'onTouchMove',
+            touchend: 'onTouchEnd',
         });
-
-
     },
 
-    // onDragItem: function(e){
-    //     // console.log('event', e);
-    //     var element = Ext.get(e.target);
-    //
-    //     var y_dist = e.deltaY;
-    //
-    //     var x_dist = e.deltaX;
-    //
-    //         if (!element.hasCls('description')) {
-    //             element = Ext.get(e.target).parent('.description');
-    //         }
-    //
-    //         if(element && !Ext.getCmp('detailPanelCarousel').isDragging && $('#scrollingDescription .x-scroll-indicator-y').css('opacity') == '0'){
-    //       console.log('should be dragging');
-    //       if(x_dist < -10){
-    //           console.log('swipe open');
-    //         $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
-    //         GLOBAL.isInfoDisplayed = true;
-    //       }
-    //
-    //       if(x_dist >10){
-    //         $('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
-    //         GLOBAL.isInfoDisplayed = false;
-    //       }
-    //         }
-    //
-    //
-    //
-    //     //console.log($('#' + element.id));
-    //
-    //
-    //     //id = Math.abs(element.getAttribute('ref'));
-    //     // console.log('the element being swiped is', element);
-    //   },
-    //
+    onTouchEnd: function(e) {
+        $('.description-inner-wrapper').removeClass('cart-pressed-flag');
+    },
+    
     onTouchMove: function(e) {
         $('.description-inner-wrapper').removeClass('cart-pressed-flag');
     },
+
     onTouchStart: function(e) {
         if (Ext.get(e.target).parent('.description-inner-wrapper')) {
             $('.description-inner-wrapper').addClass('cart-pressed-flag');
             return false;
         }
     },
+
     onTap: function(e) {
-      $('.description-inner-wrapper').removeClass('cart-pressed-flag');
-        if (Ext.get(e.target).parent('.description-inner-wrapper')) {
-            ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
-            return false;
-        }
+      if (Ext.get(e.target).parent('.description-inner-wrapper')) {
+          ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
+          return false;
+      }
 
-        // tapping on an image
-        if (Ext.get(e.target).parent('.x-carousel-indicator')) {
-            var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);
-            console.log('index is', index);
-            setTimeout(function() {
-                Ext.getCmp('detailPanelCarousel').setActiveItem(index);
-            },
-            100);
+      // tapping on an image
+      if (Ext.get(e.target).parent('.x-carousel-indicator')) {
+          var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);
+          console.log('index is', index);
+          setTimeout(function() {
+              Ext.getCmp('detailPanelCarousel').setActiveItem(index);
+          },
+          100);
 
-            return false;
-        } else {
-            if (GLOBAL.isInfoDisplayed) {
-                $('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
-                GLOBAL.isInfoDisplayed = false;
-            } else {
-                $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
-                GLOBAL.isInfoDisplayed = true;
-            }
-        }
-
+          return false;
+      } else {
+          if (GLOBAL.isInfoDisplayed) {
+              $('#info-main-wrapper').css('-webkit-transform', 'translate3d(323px,0,0)');
+              GLOBAL.isInfoDisplayed = false;
+          } else {
+              $('#info-main-wrapper').css('-webkit-transform', 'translate3d(0px,0,0)');
+              GLOBAL.isInfoDisplayed = true;
+          }
+      }
     },
 
     updateData: function(newData) {
         GLOBAL.newData = newData;
-        console.log('newData is', newData);
-        var image = this.down('image');
+
         var carousel = Ext.getCmp('detailPanelCarousel');
         carousel.removeAll();
-
-
-
 
         // test to see if the items are already in the shopping cart or favorites
         var id = newData.id;
@@ -299,6 +247,7 @@ Ext.define('Etsy.view.DetailPanel', {
             newData.in_favorites = true;
         }
 
+        // set up the carousel
         var images = newData.Images;
         var imageArray = [];
         var thumbnailsArray = [];
@@ -311,9 +260,13 @@ Ext.define('Etsy.view.DetailPanel', {
             });
             thumbnailsArray.push(images[i].url_75x75);
         }
-        // if(images.length == 1){
-        // 	carousel.disable();
-        // }
+        
+        // if there is only one item, remove the indicator
+        if(images.length == 1){
+          carousel.setIndicator(false);
+        }else{
+          carousel.setIndicator(true);
+        }
         carousel.add(imageArray);
         carousel.setActiveItem(0);
 

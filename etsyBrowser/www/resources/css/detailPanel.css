@@ -149,7 +149,7 @@
 }
 /* line 160, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item {
-  background: url(../images/loading.gif) no-repeat center center;
+  /*            background: url(../images/loading.gif) no-repeat center center;*/
 }
 /* line 164, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item .image {

@@ -316,15 +316,20 @@ span.arrow {
   background-image: url("../images/right_arrow_on.png");
 }
 
-/* line 31, ../sass/carousel.scss */
+/* line 30, ../sass/carousel.scss */
+#categoriesPanel .bookmarked .x-innerhtml {
+  color: #D24700;
+}
+
+/* line 35, ../sass/carousel.scss */
 .products .x-innerhtml {
   padding: 45px 0 0 72px;
 }
-/* line 35, ../sass/carousel.scss */
+/* line 39, ../sass/carousel.scss */
 .products .x-innerhtml div:nth-of-type(13) {
   display: none;
 }
-/* line 40, ../sass/carousel.scss */
+/* line 44, ../sass/carousel.scss */
 .products .favorite-stamp {
   position: absolute;
   bottom: 0;
@@ -337,11 +342,11 @@ span.arrow {
   background-position: bottom right;
   background-repeat: no-repeat;
 }
-/* line 53, ../sass/carousel.scss */
+/* line 57, ../sass/carousel.scss */
 .products .favorite-flag .favorite-stamp {
   background-image: url(../images/heart_stamp_x2.png);
 }
-/* line 57, ../sass/carousel.scss */
+/* line 61, ../sass/carousel.scss */
 .products .cart-flag .cart-stamp {
   position: absolute;
   top: -4px;
@@ -353,7 +358,7 @@ span.arrow {
   background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 69, ../sass/carousel.scss */
+/* line 73, ../sass/carousel.scss */
 .products .product {
   background: white;
   position: relative;
@@ -367,16 +372,16 @@ span.arrow {
   border: 1px solid #EAE9E1;
   border-radius: 4px;
 }
-/* line 82, ../sass/carousel.scss */
-.products .product.product-pressed-flag {
-  background: #eee;
-}
 /* line 86, ../sass/carousel.scss */
+.products .product.product-pressed-flag .name {
+  color: #D24700;
+}
+/* line 90, ../sass/carousel.scss */
 .products .product .image {
   height: 135px;
   width: 170px;
 }
-/* line 91, ../sass/carousel.scss */
+/* line 95, ../sass/carousel.scss */
 .products .product .name {
   margin-top: 6px;
   height: 27px;
@@ -387,7 +392,7 @@ span.arrow {
   font-size: 11px;
   overflow: hidden;
 }
-/* line 102, ../sass/carousel.scss */
+/* line 106, ../sass/carousel.scss */
 .products .product .price {
   position: absolute;
   right: 5px;
@@ -395,35 +400,35 @@ span.arrow {
   width: 52px;
 }
 
-/* line 111, ../sass/carousel.scss */
+/* line 115, ../sass/carousel.scss */
 .product-bounce {
   -webkit-transition-property: all;
   -webkit-animation: product-bounce 1s 1;
 }
 
 @-webkit-keyframes product-bounce {
-  /* line 117, ../sass/carousel.scss */
+  /* line 121, ../sass/carousel.scss */
   0% {
     -webkit-transform: rotate(0) translate3d(0, 30px, 0);
   }
 
-  /* line 121, ../sass/carousel.scss */
+  /* line 125, ../sass/carousel.scss */
   25% {
     -webkit-transform: rotate(4deg) translate3d(0, -10px, 0);
   }
 
-  /* line 125, ../sass/carousel.scss */
+  /* line 129, ../sass/carousel.scss */
   50% {
     -webkit-transform: rotate(-2deg) translate3d(0, 5px, 0);
   }
 
-  /* line 129, ../sass/carousel.scss */
+  /* line 133, ../sass/carousel.scss */
   100% {
     -webkit-transform: rotate(0) translate3d(0, 0px, 0);
   }
 }
 
-/* line 134, ../sass/carousel.scss */
+/* line 138, ../sass/carousel.scss */
 .quick-bounce {
   -webkit-transition-property: all;
   -webkit-transition-duration: .5s;
@@ -583,7 +588,7 @@ span.arrow {
 }
 /* line 160, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item {
-  background: url(../images/loading.gif) no-repeat center center;
+  /*            background: url(../images/loading.gif) no-repeat center center;*/
 }
 /* line 164, ../sass/detailPanel.scss */
 #detailPanel #detailPanelCarousel .x-carousel-item .image {
@@ -807,7 +812,11 @@ span.arrow {
   font-size: 13px;
   display: inline-block;
 }
-/* line 218, ../sass/treasuries.scss */
+/* line 219, ../sass/treasuries.scss */
+.treasury-item.pressed .title {
+  color: #D24700;
+}
+/* line 223, ../sass/treasuries.scss */
 .treasury-item.pressed .visit-treasury-button {
   background: #06667d;
 }

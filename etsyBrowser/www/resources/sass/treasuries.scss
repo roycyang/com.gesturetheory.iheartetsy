@@ -215,6 +215,11 @@
 	}
 	
 	&.pressed {
+	  
+	  .title {
+	    color: #D24700;
+	  }
+	   
 	  .visit-treasury-button {
       background: #06667d;
     }

@@ -181,7 +181,11 @@
   font-size: 13px;
   display: inline-block;
 }
-/* line 218, ../sass/treasuries.scss */
+/* line 219, ../sass/treasuries.scss */
+.treasury-item.pressed .title {
+  color: #D24700;
+}
+/* line 223, ../sass/treasuries.scss */
 .treasury-item.pressed .visit-treasury-button {
   background: #06667d;
 }

@@ -54,6 +54,54 @@ Ext.define('Etsy.view.CategoriesPanel', {
             xtype: 'listingsCarousel',
         }
         ]
+    },
+    initialize: function(){
+      this.element.on({
+           scope: this,
+           tap: 'onTap',
+           // touchstart: 'onTouchStart',
+           // touchmove: 'onTouchMove',
+           // touchend: 'onTouchEnd',
+       });
+       
+       if(APP.navigationStore.findExact('name', GLOBAL.searchCategory.name) != -1){
+         Ext.getCmp('categoriesToolbar').element.down('.x-title').addCls('bookmarked');
+       }
+    },
+    
+    onTap: function (e) {
+
+      var element = Ext.get(e.target);
+
+      console.log('element is', element);
+      // tapped on homepage category item
+      if (element.parent('.x-title')) {
+        
+        var element = element.parent('.x-title');
+        if(element.hasCls('bookmarked')){
+          var index = APP.navigationStore.findExact('name', GLOBAL.searchCategory.name);
+          APP.navigationStore.removeAt(index);
+          element.removeCls('bookmarked');
+        }else{
+          // add the category to bookmark
+
+          var item = { 
+            title: GLOBAL.searchCategory.short_name,  
+            type: 'Bookmarked Categories', 
+            panel: 'bookmarkedCategory', 
+            short_name: GLOBAL.searchCategory.short_name, 
+            name: GLOBAL.searchCategory.name
+          };
+          
+
+          APP.navigationStore.add(item);
+          element.addCls('bookmarked');
+        }
+        
+        
+        console.log('sweet!');
+        return false;
+      }
     }
 
 });

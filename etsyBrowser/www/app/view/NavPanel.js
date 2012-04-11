@@ -37,10 +37,15 @@ Ext.define('Etsy.view.NavPanel', {
 
 			itemTpl: '<div class="contact">{title}</div>',
 			store: 'Navigation',
-			grouped: true,
+      grouped: true,
 			listeners: {
 				initialize: function() {
-					this.select(0);
+          try{
+            this.select(0);
+          }catch(err){
+            
+          }
+
 				}
 			}
 		}],

@@ -78,6 +78,21 @@ Ext.define('Etsy.controller.Browser', {
     self.treasuriesStore = Ext.data.StoreManager.lookup('Treasuries');
     self.categoriesStore = Ext.data.StoreManager.lookup('Categories');
     self.categoryIndexStore = Ext.data.StoreManager.lookup('CategoriesIndex');
+    self.navigationStore = Ext.data.StoreManager.lookup('Navigation');
+    
+    if(!localStorage.hasLoaded){
+      self.navigationStore.add(
+          { name: 'a', title: 'Home', type: '', panel: 'homePanel'  },
+          { name: 'b', title: '<div class="categories-label">Categories</div>',  type: ''  , panel: 'categoriesPanel'},
+          { name: 'c', title: 'Treasuries',  type: ''  , panel: 'treasuriesPanel'},
+          { name: 'd', title: '<div class="favorites-label">Favorites <span class="count"></span></div>',  type: ''  , panel: 'favoritesPanel'},
+          { name: 'e', title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: ''  , panel: 'cartPanel'},
+          { name: 'f', title: 'Feedback',  type: ''  , panel: 'feedback'},
+          { name: 'g', title: '<div class="sign-out-link">Sign Out</div>',  type: ''  , panel: 'signout'}
+      );
+      localStorage.hasLoaded = true;
+    }
+
 
     // adding the homepage to the getAppPanel		
     self.loadHomePanel();
@@ -345,7 +360,10 @@ Ext.define('Etsy.controller.Browser', {
   
   loadListings: function (type, record, name, tags) {
     GLOBAL.panel = 'listings';
-
+    GLOBAL.searchCategory = {
+      short_name: record.get('short_name'),
+      name: record.get('name')
+    };
     var self = this;
     self.getAppPanel().removeAll(true);
     Ext.create('Etsy.view.CategoriesPanel');
@@ -381,10 +399,7 @@ Ext.define('Etsy.controller.Browser', {
       console.log(GLOBAL.api + 'categories?category=' + record.get('name'));
       self.getCategoriesToolbar().setTitle(record.get('short_name'));
       
-      GLOBAL.searchCategory = {
-        short_name: record.get('short_name'),
-        name: record.get('name')
-      };
+
       
       Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
       self.getNavList().select(1);

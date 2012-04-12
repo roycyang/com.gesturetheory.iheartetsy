@@ -174,6 +174,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
         if(!$element.hasClass('favoriting')){
           $element.addClass('favoriting');
           this.element.fireEvent('dragend', event, 'bounce');
+          ETSY.trackEvent('actions', 'favoriting', 'from index panel');
           ETSY.toggleFavorites(id, $element);
         }
 
@@ -213,7 +214,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       var element = Ext.get(e.target).parent('.product'),
         id        = Math.abs(element.getAttribute('ref')),
         $element = $('#' + element.id);
-
+      ETSY.trackEvent('actions', 'add to cart', 'from index panel');
       ETSY.toggleCart(id, $element);
       return false;
     }
@@ -338,6 +339,10 @@ Ext.define('Etsy.view.ListingsCarousel', {
         offsetLimit = this.getOffsetLimit(),
         store       = this.getStore(),
         storeCount  = store.getCount();
+        
+        if(index > 1){
+          ETSY.trackPageviews(GLOBAL.google_last_url + "/" + index, true); 
+        }
 
         console.log('storeCount', storeCount);
         console.log('count', count)

@@ -71,6 +71,7 @@ Ext.define('Etsy.view.DetailPanel', {
                     listeners: {
                         tap: function(e) {
                             if(Ext.getCmp('detailPanelMoreInfo').isHidden()){
+                              ETSY.trackEvent('actions', 'show info', 'from detail panel');
                               // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
                               //   type: 'fadeIn',
                               //   duration: 300,
@@ -79,6 +80,7 @@ Ext.define('Etsy.view.DetailPanel', {
                               Ext.getCmp('detailPanelMoreInfo').show();
                             }else{
                               Ext.getCmp('detailPanelMoreInfo').hide();
+                              ETSY.trackEvent('actions', 'hide info', 'from detail panel');
                             }
                         }
                     }
@@ -88,6 +90,7 @@ Ext.define('Etsy.view.DetailPanel', {
                     xtype: 'button',
                     listeners: {
                         tap: function(e) {
+                          ETSY.trackEvent('actions', 'favoriting', 'from detail panel');
                           var $elem = $('.description-inner-wrapper');
                           if(!$elem.hasClass('favoriting')){
                             $elem.addClass('favoriting');
@@ -106,6 +109,7 @@ Ext.define('Etsy.view.DetailPanel', {
                     xtype: 'button',
                     listeners: {
                         tap: function() {
+                          ETSY.trackEvent('share', 'email');
                             console.log('e is', GLOBAL.newData);
                             try {
                                 window.plugins.emailComposer.showEmailComposer('Check out this great Etsy item!', 'I have discovered this great item from the I Heart Etsy iPad app.  \n\nYou can see it at:\n\n ' + GLOBAL.newData.url, null);
@@ -120,6 +124,7 @@ Ext.define('Etsy.view.DetailPanel', {
                     xtype: 'button',
                     listeners: {
                         tap: function() {
+                          ETSY.trackEvent('share', 'facebook');
                             ETSY.alert('Wire up the facebook!');
                         }
                     }
@@ -129,6 +134,7 @@ Ext.define('Etsy.view.DetailPanel', {
                     xtype: 'button',
                     listeners: {
                         tap: function() {
+                          ETSY.trackEvent('share', 'twitter');
                             try {
                                 window.plugins.twitter.composeTweet(
                                 function(s) {
@@ -239,12 +245,14 @@ Ext.define('Etsy.view.DetailPanel', {
     onTap: function(e) {
         if (Ext.get(e.target).parent('.description-inner-wrapper')) {
             console.log('should be going to ETSY.toggleCart');
+            ETSY.trackEvent('actions', 'add to cart', 'from detail panel');
             ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
             return false;
         }
 
         // tapping on an image
         if (Ext.get(e.target).parent('.x-carousel-indicator')) {
+            ETSY.trackEvent('actions', 'go to thumbnail', 'from detail panel');
             var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);
             console.log('index is', index);
             setTimeout(function() {

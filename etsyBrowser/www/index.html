@@ -13,6 +13,9 @@
   <script type="text/javascript" charset="utf-8" src="cordova/EmailComposer.js"></script>
   <script type="text/javascript" charset="utf-8" src="cordova/TwitterPlugin.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova/ChildBrowser.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>	
+	
+
 	<script type="text/javascript" charset="utf-8" src="ETSY.utils.js"></script>
 	<script type="text/javascript" charset="utf-8" src="authorization.js"></script>
 	<script type="text/javascript">
@@ -87,6 +90,11 @@
 		setTimeout(function() {
 		    navigator.splashscreen.hide();
 		}, 3000);
+		
+		// after device ready, create a local alias and start the tracker with your own id.
+    GLOBAL.googleAnalytics = window.plugins.googleAnalyticsPlugin;
+    GLOBAL.googleAnalytics.startTrackerWithAccountID("UA-30797223-1");
+    ETSY.trackPageviews("/application/launch/"); 
 	}
 	  </script>
   

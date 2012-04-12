@@ -26,10 +26,10 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>GoogleAnalyticsPlugin</key>
+		<string>GoogleAnalyticsPlugin</string>
 		<key>com.phonegap.twitter</key>
 		<string>TwitterPlugin</string>
-		<key>ShareKitPlugin</key>
-		<string>ShareKitPlugin</string>
 		<key>org.apache.cordova.EmailComposer</key>
 		<string>EmailComposer</string>
 		<key>ChildBrowserCommand</key>

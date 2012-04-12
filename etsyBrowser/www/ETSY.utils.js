@@ -1,4 +1,30 @@
 var ETSY = {
+  trackPageviews: function(url, dontRecord){
+    if(!dontRecord){
+      GLOBAL.google_last_url = url;
+    }
+    console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
+    try{
+      GLOBAL.googleAnalytics.trackPageview(url);
+    }catch(err){
+      console.log('error is: ' + err);
+    }
+  },
+  
+  trackEvent: function(category, action, title, value){
+    console.log('\n\n\n\n\n\ntracked event is: ' + category + ', ' + action + ', ' + title + '\n\n\n\n\n');
+    try{
+      value = value || 1;
+      title = title || "";
+      GLOBAL.googleAnalytics.trackEvent(category, action, title, value);
+      //googleAnalytics.trackEvent("Videos","Play","Take On Me: Literal Video Version",1);
+      
+    }catch(err){
+      console.log('error is: ' + err);
+    }
+    
+  },
+
 	toggleSignIn: function(signed_in){
 		if(localStorage['accessTokenKey'] || signed_in){
 			$('body').addClass('signed-in-flag');
@@ -32,6 +58,7 @@ var ETSY = {
 	},
 	
 	initAuthorization: function(){
+    ETSY.trackPageviews("/signing_in", true); 
 		var mask = Ext.Viewport.add({
 			masked: {
 				xtype: 'loadmask',
@@ -115,11 +142,14 @@ var ETSY = {
     GLOBAL.oauth.post(url, {}, function (data) {
       ETSY.updateFavoritesInfo();
       if(element.hasClass('favorite-flag')){
+        ETSY.trackEvent('actions', 'unfavoriting');
         element.removeClass('favorite-flag'); 
         if(detailPanel){
+          
           $('.product[ref=' + id + ']').removeClass('favorite-flag'); 
         }
       }else{
+        ETSY.trackEvent('actions', 'favoriting');
         element.addClass('favorite-flag'); 
         if(detailPanel){
           $('.product[ref=' + id + ']').addClass('favorite-flag'); 
@@ -209,11 +239,13 @@ var ETSY = {
 		function(data) {
       // after add success
       if(element.hasClass('cart-flag')){
+        ETSY.trackEvent('actions', 'remove from cart');
         element.removeClass('cart-flag'); 
         if(detailPanel){
           $('.product[ref=' + id + ']').removeClass('cart-flag'); 
         }
       }else{
+        ETSY.trackEvent('actions', 'add to cart');
         element.addClass('cart-flag'); 
         if(detailPanel){
           $('.product[ref=' + id + ']').addClass('cart-flag'); 

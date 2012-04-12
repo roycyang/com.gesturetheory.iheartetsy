@@ -243,7 +243,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     if (newStore.isLoading()) {
       console.log('in newStore.isLoading()');
-      if (GLOBAL.panel == 'listings' && GLOBAL.panel == 'searchResults') {
+      if (GLOBAL.panel == 'listings' || GLOBAL.panel == 'searchResults') {
         // this is when the store updates, we can update the max index.
         newStore.on('refresh', function () {
           var storeCount = newStore.getCount();
@@ -339,6 +339,10 @@ Ext.define('Etsy.view.ListingsCarousel', {
         store       = this.getStore(),
         storeCount  = store.getCount();
 
+        console.log('storeCount', storeCount);
+        console.log('count', count)
+        console.log('offsetLimit', offsetLimit);
+        
       if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
         if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
           console.log('calling store.nextPage');

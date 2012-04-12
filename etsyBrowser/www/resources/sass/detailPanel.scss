@@ -31,7 +31,6 @@ $midgray: #666;
 ---------------------------------- */
 @mixin retina-image($img) {
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    background-size: 100%;
     background-image: url($img);
   }
 }
@@ -163,8 +162,9 @@ $midgray: #666;
     height: 27px;
     padding: 0 41px 0 7px;
     background: top right no-repeat;
+    border: 1px solid #DADAD6;
     
-    @include border-radius(5px);
+    @include border-radius(3px);
     @include bg-image('ProductDetail-cart-button-link');
   }
   
@@ -185,6 +185,7 @@ $midgray: #666;
     margin: 0 10px;
     padding: 0;
     background: left center no-repeat transparent;
+    background-size: auto 100%;
     
     &.x-button-pressing {
       background-position: right center;

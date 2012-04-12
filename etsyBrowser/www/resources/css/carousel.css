@@ -79,8 +79,8 @@ p.desc {
 /* line 86, ../sass/carousel.scss */
 .products .favorite-stamp {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1px;
+  right: 1px;
   width: 77px;
   height: 57px;
   background-size: contain;
@@ -110,12 +110,12 @@ p.desc {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  height: 178px;
+  height: 179px;
   width: 182px;
   padding: 0;
   margin: 0 50px 38px 0;
-  padding: 5px;
-  background: url(../images/slices-v2/product-container-1x.png) no-repeat 0 0;
+  padding: 6px;
+  background: url(../images/slices-v2/Product-container-1x.png) no-repeat 0 0;
 }
 /* line 130, ../sass/carousel.scss */
 .products .product.product-pressed-flag .name {
@@ -140,9 +140,9 @@ p.desc {
 /* line 150, ../sass/carousel.scss */
 .products .product .price {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  width: 52px;
+  right: 7px;
+  bottom: 7px;
+  width: 46px;
 }
 
 /* line 159, ../sass/carousel.scss */

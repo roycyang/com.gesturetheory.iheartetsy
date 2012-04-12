@@ -8120,24 +8120,53 @@ p.desc {
 #instructionPanel #instructionCarousel {
   overflow: hidden;
 }
-/* line 68, ../sass/application.scss */
+/* line 64, ../sass/application.scss */
+#instructionPanel #instructionCarousel .instruction-panel {
+  width: 559px;
+  height: 655px;
+  margin: 0 auto;
+  background-size: contain;
+}
+/* line 71, ../sass/application.scss */
+#instructionPanel #instructionCarousel #panel5 {
+  background-image: url(../images/instructions/slide_5.png);
+}
+/* line 73, ../sass/application.scss */
+#instructionPanel #instructionCarousel #panel5 #instr-sign-up-button {
+  background: url(../images/instructions/Sign-in-button-2x.png) no-repeat 0 0;
+  background-size: contain;
+}
+/* line 77, ../sass/application.scss */
+#instructionPanel #instructionCarousel #panel5 #instr-sign-up-button.x-button-pressing {
+  background: url(../images/instructions/Sign-in-button-active-2x.png) no-repeat 0 0;
+}
+/* line 82, ../sass/application.scss */
+#instructionPanel #instructionCarousel #panel5 #instr-app-button {
+  background: url(../images/instructions/Use-app-button-2x.png) no-repeat 0 0;
+  background-size: contain;
+}
+/* line 86, ../sass/application.scss */
+#instructionPanel #instructionCarousel #panel5 #instr-app-button.x-button-pressing {
+  background: url(../images/instructions/Use-app-button-active-2x.png) no-repeat 0 0;
+}
+/* line 98, ../sass/application.scss */
 #instructionPanel .x-carousel {
   position: relative;
   overflow: hidden;
 }
-/* line 74, ../sass/application.scss */
+/* line 104, ../sass/application.scss */
 #instructionPanel .x-carousel-item {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 80, ../sass/application.scss */
+/* line 110, ../sass/application.scss */
 #instructionPanel .x-carousel-item > * {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 87, ../sass/application.scss */
+/* line 117, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator {
   padding: 0;
   -webkit-border-radius: 0;
@@ -8146,7 +8175,7 @@ p.desc {
   background-color: transparent;
   background-image: none;
 }
-/* line 97, ../sass/application.scss */
+/* line 127, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator {
   -webkit-box-flex: 1;
   display: -webkit-box;
@@ -8156,7 +8185,7 @@ p.desc {
   -webkit-box-align: center;
   box-align: center;
 }
-/* line 107, ../sass/application.scss */
+/* line 137, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator span {
   display: block;
   width: 0.5em;
@@ -8165,45 +8194,37 @@ p.desc {
   border-radius: 0.25em;
   margin: 0.2em;
 }
-/* line 117, ../sass/application.scss */
+/* line 147, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-horizontal {
   height: 1.5em;
   width: 100%;
 }
-/* line 123, ../sass/application.scss */
+/* line 153, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-vertical {
   -webkit-box-orient: vertical;
   box-orient: vertical;
   width: 1.5em;
   height: 100%;
 }
-/* line 131, ../sass/application.scss */
+/* line 161, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-light span {
   background-color: rgba(255, 255, 255, 0.1);
   background-image: none;
 }
-/* line 136, ../sass/application.scss */
+/* line 166, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-light span.x-carousel-indicator-active {
   background-color: rgba(255, 255, 255, 0.3);
   background-image: none;
 }
-/* line 143, ../sass/application.scss */
+/* line 173, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-dark span {
   background-color: rgba(0, 0, 0, 0.1);
   background-image: none;
 }
-/* line 148, ../sass/application.scss */
+/* line 178, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-dark span.x-carousel-indicator-active {
   background-color: rgba(0, 0, 0, 0.3);
   background-image: none;
   background-color: #bf1e2e;
   border: 2px solid #bf1e2e;
-}
-
-/* line 155, ../sass/application.scss */
-.instruction-panel {
-  width: 559px;
-  height: 655px;
-  margin: 0 auto;
-  background-size: contain;
 }

@@ -8,7 +8,7 @@ Ext.define('Etsy.model.Category', {
 
         proxy: {
             type: 'ajax',
-            url: 'top_categories.json'
+            url: 'js/top_categories.json'
         },
 
     }

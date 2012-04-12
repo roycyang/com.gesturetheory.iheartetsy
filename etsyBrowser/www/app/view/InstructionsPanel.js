@@ -40,13 +40,16 @@ Ext.define('Etsy.view.InstructionsPanel', {
               },
               {
                 xtype: 'container',
+                id: 'panel5',
+                cls: 'instruction-panel',
                 items: [{
-                  height: 180,
-                  width: 180,
-                  top: 300,
+                  height: 177,
+                  width: 177,
+                  top: 255,
                   left: 50,
+                  id: 'instr-sign-up-button',
                   xtype: 'button',
-                  text: 'sign up',
+                  ui: 'plain',
                   listeners: {
                     tap: function(){
                       APP.getInstructionsPanel().destroy();
@@ -55,12 +58,13 @@ Ext.define('Etsy.view.InstructionsPanel', {
                   }
                 },
                 {
-                  height: 180,
-                   width: 180,
-                   top: 300,
+                  height: 177,
+                   width: 177,
+                   top: 255,
                    right: 50,
+                  id: 'instr-app-button',
                   xtype: 'button',
-                  text: 'use app',
+                  ui: 'plain',
                   listeners: {
                     tap: function(){
                       APP.getInstructionsPanel().destroy();

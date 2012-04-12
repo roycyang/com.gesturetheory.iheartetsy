@@ -107,6 +107,7 @@ Ext.define('Etsy.controller.Browser', {
     self.loadHomePanel();
 
     ETSY.toggleSignIn();
+    ETSY.preloadImages();
     // ETSY.toggleFacebookSignIn();
   },
 

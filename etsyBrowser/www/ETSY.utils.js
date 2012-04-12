@@ -128,7 +128,6 @@ var ETSY = {
     }  ,
   		function(data) {
 //        ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
-
   		});
     
     // wait until the animation is over before we remove the favoriting flag

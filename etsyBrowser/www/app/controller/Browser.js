@@ -270,7 +270,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadHomePanel: function () {
-    Ext.Ajax.abortAll();
+    //Ext.Ajax.abortAll();
     GLOBAL.panel = 'home';
     GLOBAL.searchCategory = null;
     Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
@@ -486,9 +486,16 @@ Ext.define('Etsy.controller.Browser', {
       ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
       return false;
     }
-    Ext.Ajax.abortAll();
+    
     GLOBAL.panel = 'favorites';
     var self = this;
+    
+    // this wipes out all the pending events and then resumes
+    self.listingsStore.suspendEvents();
+    Ext.Ajax.abortAll();
+    self.listingsStore.resumeEvents();
+    
+
     self.getAppPanel().removeAll(true);
     Ext.create('Etsy.view.CategoriesPanel');
     self.getAppPanel().setActiveItem(self.getCategoriesPanel());
@@ -506,6 +513,7 @@ Ext.define('Etsy.controller.Browser', {
       for (i = 0; i < data.results.length; i++) {
         listingIds.push(data.results[i].listing_id);
       }
+      console.log('in favorrites listingIds', listingIds, listingIds.length)
       if(listingIds.length == 0){
         self.getCategoriesCarousel().reset();
         self.getCategoriesPanel().unmask();

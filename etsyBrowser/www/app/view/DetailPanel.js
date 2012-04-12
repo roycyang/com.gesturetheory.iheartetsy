@@ -88,7 +88,11 @@ Ext.define('Etsy.view.DetailPanel', {
                     xtype: 'button',
                     listeners: {
                         tap: function(e) {
-                            ETSY.toggleFavorites(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
+                          var $elem = $('.description-inner-wrapper');
+                          if(!$elem.hasClass('favoriting')){
+                            $elem.addClass('favoriting');
+                            ETSY.toggleFavorites(GLOBAL.newData.id, $elem, true);
+                          }
                         }
                     }
                 },
@@ -160,7 +164,7 @@ Ext.define('Etsy.view.DetailPanel', {
                     flex: 1,
                      id: 'meta-info',
                      tpl: new Ext.XTemplate(
-                         '<div class="description-inner-wrapper">',
+                         '<div class="left-wrapper">',
                              '<div class="seller">ANOTHER API CALL FOR USER INFORMATION</div>',
                              '<div class="shipping">ANOTHER API CALL FOR SHIPPING INFORMATION</div>',
                           '</div>'
@@ -170,7 +174,7 @@ Ext.define('Etsy.view.DetailPanel', {
                      flex: 1,
                      id: 'scrollingDescription',
                      tpl: new Ext.XTemplate(
-                         '<div class="description-inner-wrapper">',
+                         '<div class="right-wrapper">',
                                  '<div class="text">{description}</div>',
                                 '</div>'
                      ),
@@ -225,7 +229,8 @@ Ext.define('Etsy.view.DetailPanel', {
     },
 
     onTouchStart: function(e) {
-        if (Ext.get(e.target).parent('.description-inner-wrapper')) {
+        var element = Ext.get(e.target);
+        if (element.hasCls('price')) {
             $('.description-inner-wrapper').addClass('cart-pressed-flag');
             return false;
         }
@@ -269,9 +274,13 @@ Ext.define('Etsy.view.DetailPanel', {
         var id = newData.id;
         if (localStorage.cart_listing_ids && localStorage.cart_listing_ids.indexOf(id) != -1) {
             newData.in_cart = true;
+        }else{
+            newData.in_cart = false;
         }
         if (localStorage.favorites_listing_ids && localStorage.favorites_listing_ids.indexOf(id) != -1) {
             newData.in_favorites = true;
+        }else{
+            newData.in_favorites = false;
         }
 
         // set up the carousel

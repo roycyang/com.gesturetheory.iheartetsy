@@ -1,9 +1,13 @@
 @import 'compass/css3';
+@import "compass/utilities/general/clearfix";
 
 $img-path: '../images/slices-v2/';
 
 $tan: #fffef4;
+$lightgray: #ededeb;
+$gray: #afafaf;
 $midgray: #666;
+$green: #78c042;
 
 @mixin bs($bs: border-box) {
   @include box-sizing($bs);
@@ -28,11 +32,15 @@ $midgray: #666;
     
     Reference: http://www.stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
     
+    @param $img Path to a high-res image.
+    
 ---------------------------------- */
 @mixin retina-image($img) {
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    background-image: url($img);
-  }
+//  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+//    background-image: url($img);
+//  }
+  
+  background-image: url($img);
 }
 
 
@@ -62,6 +70,7 @@ $midgray: #666;
 #detailPanel {
   padding: 7px 11px 4px 15px;
   background: no-repeat;
+  background-size: 100%;
   
   @include bg-image('ProductDetail-background');
   
@@ -117,6 +126,7 @@ $midgray: #666;
 /* Vertical divider line in the title bar. */
 #detailPanelSpacer {
   background: left top no-repeat;
+  background-size: 100%;
   
   @include bg-image('ProductDetail-vertical-divider');
 }
@@ -142,7 +152,7 @@ $midgray: #666;
   
   /* Wrapper for detail elements. */
   .description-inner-wrapper {
-    padding: 13px 18px 20px 18px;
+    padding: 13px 18px 14px 18px;
     
     @include bs;
   }
@@ -161,13 +171,24 @@ $midgray: #666;
     float: left;
     height: 27px;
     padding: 0 41px 0 7px;
-    background: top right no-repeat;
+    color: $green;
+    background: top right no-repeat $tan;
+    background-size: auto 100%;
     border: 1px solid #DADAD6;
     
+    @include box-shadow(0 0 10px 0 rgba(black, .1));
     @include border-radius(3px);
     @include bg-image('ProductDetail-cart-button-link');
+    
+    &:hover {
+      cursor: pointer;
+    }
+    
+    &:active {
+      background: darken($tan, 5%);
+    }
   }
-  
+
   .quantity {
     float: left;
     margin: 0 0 0 18px;
@@ -252,6 +273,7 @@ $midgray: #666;
 #detailPanelMoreInfo {
   padding: 20px 10px 20px 20px;
   background: left top no-repeat $tan;
+  background-size: 100%;
   
   @include bg-image('ProductDetail-long-divider');
   
@@ -261,6 +283,7 @@ $midgray: #666;
     font-size: 12px;
     color: black;
     background: left bottom no-repeat;
+    background-size: 100%;
     
     @include bg-image('product-detail-popup-seller-panel-divider', '../images/final/');
   }
@@ -268,6 +291,42 @@ $midgray: #666;
   .shipping {
     font-size: 12px;
     color: black;
+    
+    .table-header {
+      @include pie-clearfix;
+      
+      div {
+        float: left;
+        width: 33.333%;
+      }
+      
+      span {
+        @include inline-block;
+        
+        padding: 5px;
+        color: $gray;
+        background: $lightgray;
+        border: 1px solid darken($lightgray, 2%);
+        
+        @include bs;
+        @include border-radius(5px);
+      }
+    }
+    
+    .table-content {
+      li {
+        @include pie-clearfix;
+        
+        margin: 5px 0;
+      }
+      
+      div {
+        @include inline-block;
+        
+        float: left;
+        width: 33.333%;
+      }
+    }
   }
   
   /*

@@ -7,22 +7,19 @@ Ext.define('Etsy.view.DetailPanel',
     xtype: 'listing',
     alias: 'widget.detailPanel',
     requires: ['Ext.Img'],
-
     config: {
-
-        id: 'detailPanel',
-        cls: 'product-view',
-        zIndex: 1000000000,
-        centered: true,
-        width: 794,
-        height: 651,
-        modal: true,
-        hideOnMaskTap: true,
-        scrollable: false,
-        layout: {
-            type: 'vbox'
-        },
-
+      id: 'detailPanel',
+      cls: 'product-view',
+      zIndex: 1000000000,
+      centered: true,
+      width: 794,
+      height: 651,
+      modal: true,
+      hideOnMaskTap: true,
+      scrollable: false,
+      layout: {
+        type: 'vbox'
+      },
       items: [
         {
           top: 0,
@@ -136,7 +133,7 @@ Ext.define('Etsy.view.DetailPanel',
 
                     }
                   }
-                },
+                }
 
                 // {
                 //     id: 'detailPanelTwitter',
@@ -193,71 +190,77 @@ Ext.define('Etsy.view.DetailPanel',
                 //     }
                 // 
                 // }
-                ]
+              ] // items
             },
             {
-                height: 300,
-                id: 'detailPanelMoreInfo',
-                hidden: true,
-                xtype: 'container',
-                layout: 'hbox',
-                defaults: {
-                  flex: 1
+              height: 300,
+              id: 'detailPanelMoreInfo',
+              hidden: true,
+              xtype: 'container',
+              layout: 'hbox',
+              defaults: {
+                flex: 1
+              },
+              items: [
+                {
+                  flex: 1,
+                  id: 'meta-info',
+                  tpl: new Ext.XTemplate(
+                    '<div class="left-wrapper">',
+                      '<div class="seller">login {User.login_name} feedback count: {User.feedback_info.count} feedback score: {User.feedback_info.score}</div>',
+                        '<div class="shipping">',
+                          '<header class="table-header">',
+                            '<div><span>Ship to</span></div>',
+                            '<div><span>Cost</span></div>',
+                            '<div><span>With another item</span></div>',
+                          '</header>',
+                          '<ul class="table-content">',
+                            '<tpl for="ShippingInfo">',
+                              '<li>',
+                                '<div>{destination_country_name}</div>',
+                                '<div>{primary_cost}</div>',
+                                '<div>{currency_code}</div>',
+                              '</li>',
+                            '</tpl>',
+                          '</ul>',
+                        '</div>',
+                      '</div>',
+                    '</div>'
+                  )
                 },
-                 items: [{
-                    flex: 1,
-                     id: 'meta-info',
-                     tpl: new Ext.XTemplate(
-                         '<div class="left-wrapper">',
-                             '<div class="seller">login {User.login_name} feedback count: {User.feedback_info.count} feedback score: {User.feedback_info.score}</div>',
-                             '<div class="shipping">',
-                               '<tpl for="ShippingInfo">',
-                                 '{destination_country_name}<br/>',
-                                 '{primary_cost}<br/>',
-                                 '{currency_code}<br/>',
-                               '</tpl>',
-                             '</div>',
-                          '</div>'
-                     )
-                 },
-                 {
-                     flex: 1,
-                     id: 'scrollingDescription',
-                     tpl: new Ext.XTemplate(
-                         '<div class="right-wrapper">',
-
-                                 '<div class="text">{parsed_description}</div>',
-                                '</div>'
-
-                     ),
-                   scrollable: {
-                       direction: 'vertical',
-                       directionLock: true
-                     }
-                 }]
+                {
+                  flex: 1,
+                  id: 'scrollingDescription',
+                  tpl: new Ext.XTemplate(
+                    '<div class="right-wrapper">',
+                      '<div class="text">{parsed_description}</div>',
+                    '</div>'
+                  ),
+                  scrollable: {
+                    direction: 'vertical',
+                    directionLock: true
+                  }
+                }
+              ] // items
             },
-
-            ]
+          ]
         },
         {
-
-            xtype: 'carousel',
-            bottom: 0,
-            left: 0,
-            height: 552,
-            width: 768,
-            id: 'detailPanelCarousel',
-            defaults: {
-                }
+          xtype: 'carousel',
+          bottom: 0,
+          left: 0,
+          height: 552,
+          width: 768,
+          id: 'detailPanelCarousel',
+          defaults: {}
         },
-
-        ],
-        listeners: {
-          erased: function(){
-            APP.getDetailPanel().destroy();
-            console.log('destroyed the detail panel!');
-          }
+      ],
+      listeners: {
+        erased: function () {
+          APP.getDetailPanel().destroy();
+          console.log('destroyed the detail panel!');
         }
+      }
     },
 
     initialize: function() {

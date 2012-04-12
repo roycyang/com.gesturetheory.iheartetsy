@@ -489,7 +489,6 @@ Ext.define('Etsy.controller.Browser', {
     
     GLOBAL.panel = 'favorites';
     var self = this;
-    
     // this wipes out all the pending events and then resumes
     self.listingsStore.suspendEvents();
     Ext.Ajax.abortAll();
@@ -526,6 +525,7 @@ Ext.define('Etsy.controller.Browser', {
 
       GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6', function (data) {
         var data = JSON.parse(data.text);
+        console.log('data.results', data.results);
         var store = self.listingsStore;
         // removes the items in the store and doesn't fire any events
         store.removeAll(true);

@@ -30,7 +30,8 @@ $midgray: #666;
     
 ---------------------------------- */
 @mixin retina-image($img) {
-  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    background-size: 100%;
     background-image: url($img);
   }
 }
@@ -136,6 +137,10 @@ $midgray: #666;
 #detailPanelMainInfo {
   background: $tan;
   
+  .x-inner {
+    width: 100%;
+  }
+  
   /* Wrapper for detail elements. */
   .description-inner-wrapper {
     padding: 13px 18px 20px 18px;
@@ -150,7 +155,7 @@ $midgray: #666;
     color: black;
     text-shadow: 1px 1px white;
     
-    @include ellipses(500px);
+    @include ellipses(100%);
   }
   
   .price {
@@ -175,45 +180,49 @@ $midgray: #666;
     Sharing tools.
   */
   .x-button {
-    height: 87px;
-    background: 13px 25px no-repeat;
-    @include bg-image('product-detail-sprite', '../images/final/');
-    
-    /* Favorite button. */
-    &.active {
-      background-position: -87px 25px;
-    }
+    width: 32px;
+    height: 90px;
+    margin: 0 10px;
+    padding: 0;
+    background: left center no-repeat transparent;
     
     &.x-button-pressing {
-      background-position: -87px 25px;
+      background-position: right center;
+    }
+    
+    /* Favorite button. */
+    &#detailPanelHeart {
+      @include bg-image('ProductDetail-favorite-button-sprite');
+      
+      background-position: right center;
+      
+      &.active {
+        background-position: right center;
+      }
+      
+      &.x-button-pressing {
+        background-position: center center;
+      }
     }
     
     /* Email sharing. */      
     &#detailPanelEmail {
-      background-position: 13px -475px;
-        
-      &.x-button-pressing {
-        background-position: -87px -475px;
-      }
+      @include bg-image('ProductDetail-email-button-sprite');
     }
     
-    /* Facebook sharing. */
+    /* Facebook sharing. */  
     &#detailPanelFacebook {
-      background-position: 13px -275px;
-  
-      &.x-button-pressing {
-        background-position: -87px -275px;
-      }
+      @include bg-image('ProductDetail-facebook-button-sprite');
     }
     
     /* Twitter sharing. */
     &#detailPanelTwitter {
-      background-position: 13px -175px;
-    
-      &.x-button-pressing {
-        background-position: -87px -175px;
-      }
+      @include bg-image('ProductDetail-twitter-button-sprite');
     }
+  }
+
+  #detailPanelSpacer {
+    margin: 0 10px;
   }
 }
 

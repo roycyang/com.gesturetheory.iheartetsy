@@ -7544,20 +7544,21 @@ p.desc {
 /*
   Main detail panel container.
 */
-/* line 62, ../sass/detailPanel.scss */
+/* line 63, ../sass/detailPanel.scss */
 #detailPanel {
   padding: 7px 11px 4px 15px;
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-background-1x.png");
   /* Wrapper for product title and buy button. */
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 62, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 63, ../sass/detailPanel.scss */
   #detailPanel {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-background-2x.png");
   }
 }
-/* line 69, ../sass/detailPanel.scss */
+/* line 70, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper {
   overflow: hidden;
   /* Favorite stamp. */
@@ -7565,38 +7566,40 @@ p.desc {
     When an item is in the cart, mark the button as active.
   */
 }
-/* line 73, ../sass/detailPanel.scss */
+/* line 74, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper.favorite-flag {
   background: left top no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 73, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 74, ../sass/detailPanel.scss */
   #detailPanel .description-inner-wrapper.favorite-flag {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-2x.png");
   }
 }
-/* line 82, ../sass/detailPanel.scss */
+/* line 83, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper.cart-flag .price {
   background-image: url("../images/slices-v2/ProductDetail-cart-button-active-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 82, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 83, ../sass/detailPanel.scss */
   #detailPanel .description-inner-wrapper.cart-flag .price {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-cart-button-active-2x.png");
   }
 }
 
 /* Photo carousel. */
-/* line 89, ../sass/detailPanel.scss */
+/* line 90, ../sass/detailPanel.scss */
 #detailPanelCarousel {
   overflow: hidden;
 }
-/* line 92, ../sass/detailPanel.scss */
+/* line 93, ../sass/detailPanel.scss */
 #detailPanelCarousel .x-carousel {
   overflow: hidden;
 }
-/* line 97, ../sass/detailPanel.scss */
+/* line 98, ../sass/detailPanel.scss */
 #detailPanelCarousel .x-carousel-item .image {
   width: 768px;
   height: 552px;
@@ -7604,26 +7607,27 @@ p.desc {
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 106, ../sass/detailPanel.scss */
+/* line 107, ../sass/detailPanel.scss */
 #detailPanelCarousel .detail-panel-image {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 111, ../sass/detailPanel.scss */
+/* line 112, ../sass/detailPanel.scss */
 .fullsize #detailPanelCarousel .detail-panel-image {
   background-size: contain;
 }
 
 /* Vertical divider line in the title bar. */
-/* line 118, ../sass/detailPanel.scss */
+/* line 119, ../sass/detailPanel.scss */
 #detailPanelSpacer {
   background: left top no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-vertical-divider-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 118, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 119, ../sass/detailPanel.scss */
   #detailPanelSpacer {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-vertical-divider-2x.png");
   }
 }
@@ -7633,20 +7637,21 @@ p.desc {
   
   Contains the title, sharing tools and price information.
 */
-/* line 129, ../sass/detailPanel.scss */
+/* line 130, ../sass/detailPanel.scss */
 #detailPanelInfo {
   background: left bottom no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 129, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 130, ../sass/detailPanel.scss */
   #detailPanelInfo {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-2x.png");
   }
 }
 
 /* Containing element for product details. */
-/* line 136, ../sass/detailPanel.scss */
+/* line 137, ../sass/detailPanel.scss */
 #detailPanelMainInfo {
   background: #fffef4;
   /* Wrapper for detail elements. */
@@ -7655,24 +7660,28 @@ p.desc {
   */
 }
 /* line 140, ../sass/detailPanel.scss */
+#detailPanelMainInfo .x-inner {
+  width: 100%;
+}
+/* line 145, ../sass/detailPanel.scss */
 #detailPanelMainInfo .description-inner-wrapper {
   padding: 13px 18px 20px 18px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 146, ../sass/detailPanel.scss */
+/* line 151, ../sass/detailPanel.scss */
 #detailPanelMainInfo .name {
   margin-bottom: 10px;
   font-size: 22px;
   font-weight: 400;
   color: black;
   text-shadow: 1px 1px white;
-  width: 500px;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 156, ../sass/detailPanel.scss */
+/* line 161, ../sass/detailPanel.scss */
 #detailPanelMainInfo .price {
   float: left;
   height: 27px;
@@ -7682,13 +7691,14 @@ p.desc {
   border-radius: 5px;
   background-image: url("../images/slices-v2/ProductDetail-cart-button-link-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 156, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 161, ../sass/detailPanel.scss */
   #detailPanelMainInfo .price {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-cart-button-link-2x.png");
   }
 }
-/* line 166, ../sass/detailPanel.scss */
+/* line 171, ../sass/detailPanel.scss */
 #detailPanelMainInfo .quantity {
   float: left;
   margin: 0 0 0 18px;
@@ -7696,53 +7706,78 @@ p.desc {
   font-size: 12px;
   line-height: 27px;
 }
-/* line 177, ../sass/detailPanel.scss */
+/* line 182, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button {
-  height: 87px;
-  background: 13px 25px no-repeat;
-  background-image: url("../images/final/product-detail-sprite-1x.png");
+  width: 32px;
+  height: 90px;
+  margin: 0 10px;
+  padding: 0;
+  background: left center no-repeat transparent;
   /* Favorite button. */
   /* Email sharing. */
   /* Facebook sharing. */
   /* Twitter sharing. */
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 177, ../sass/detailPanel.scss */
-  #detailPanelMainInfo .x-button {
-    background-image: url("../images/final/product-detail-sprite-2x.png");
+/* line 189, ../sass/detailPanel.scss */
+#detailPanelMainInfo .x-button.x-button-pressing {
+  background-position: right center;
+}
+/* line 194, ../sass/detailPanel.scss */
+#detailPanelMainInfo .x-button#detailPanelHeart {
+  background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-1x.png");
+  background-position: right center;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 194, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelHeart {
+    background-size: 100%;
+    background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png");
   }
 }
-/* line 183, ../sass/detailPanel.scss */
-#detailPanelMainInfo .x-button.active {
-  background-position: -87px 25px;
+/* line 199, ../sass/detailPanel.scss */
+#detailPanelMainInfo .x-button#detailPanelHeart.active {
+  background-position: right center;
 }
-/* line 187, ../sass/detailPanel.scss */
-#detailPanelMainInfo .x-button.x-button-pressing {
-  background-position: -87px 25px;
+/* line 203, ../sass/detailPanel.scss */
+#detailPanelMainInfo .x-button#detailPanelHeart.x-button-pressing {
+  background-position: center center;
 }
-/* line 192, ../sass/detailPanel.scss */
+/* line 209, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelEmail {
-  background-position: 13px -475px;
+  background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-1x.png");
 }
-/* line 195, ../sass/detailPanel.scss */
-#detailPanelMainInfo .x-button#detailPanelEmail.x-button-pressing {
-  background-position: -87px -475px;
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 209, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelEmail {
+    background-size: 100%;
+    background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png");
+  }
 }
-/* line 201, ../sass/detailPanel.scss */
+/* line 214, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelFacebook {
-  background-position: 13px -275px;
+  background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-1x.png");
 }
-/* line 204, ../sass/detailPanel.scss */
-#detailPanelMainInfo .x-button#detailPanelFacebook.x-button-pressing {
-  background-position: -87px -275px;
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 214, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelFacebook {
+    background-size: 100%;
+    background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png");
+  }
 }
-/* line 210, ../sass/detailPanel.scss */
+/* line 219, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelTwitter {
-  background-position: 13px -175px;
+  background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-1x.png");
 }
-/* line 213, ../sass/detailPanel.scss */
-#detailPanelMainInfo .x-button#detailPanelTwitter.x-button-pressing {
-  background-position: -87px -175px;
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 219, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelTwitter {
+    background-size: 100%;
+    background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png");
+  }
+}
+/* line 224, ../sass/detailPanel.scss */
+#detailPanelMainInfo #detailPanelSpacer {
+  margin: 0 10px;
 }
 
 /*
@@ -7750,26 +7785,28 @@ p.desc {
   
   Chained selector for higher specificity.
 */
-/* line 225, ../sass/detailPanel.scss */
+/* line 234, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button {
   background: no-repeat;
   border-radius: 0;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-link-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 225, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 234, ../sass/detailPanel.scss */
   #detailPanelInfoButton.x-button {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png");
   }
 }
-/* line 231, ../sass/detailPanel.scss */
+/* line 240, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button.x-button-pressing {
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-active-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 231, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 240, ../sass/detailPanel.scss */
   #detailPanelInfoButton.x-button.x-button-pressing {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png");
   }
 }
@@ -7778,7 +7815,7 @@ p.desc {
   Extra info panel for an item.
   Hidden by default.
 */
-/* line 242, ../sass/detailPanel.scss */
+/* line 251, ../sass/detailPanel.scss */
 #detailPanelMoreInfo {
   padding: 20px 10px 20px 20px;
   background: left top no-repeat #fffef4;
@@ -7787,13 +7824,14 @@ p.desc {
     Container for description text.
   */
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 242, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 251, ../sass/detailPanel.scss */
   #detailPanelMoreInfo {
+    background-size: 100%;
     background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png");
   }
 }
-/* line 248, ../sass/detailPanel.scss */
+/* line 257, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller {
   margin-bottom: 20px;
   padding: 0 0 20px 0;
@@ -7802,22 +7840,23 @@ p.desc {
   background: left bottom no-repeat;
   background-image: url("../images/final/product-detail-popup-seller-panel-divider-1x.png");
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* line 248, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 257, ../sass/detailPanel.scss */
   #detailPanelMoreInfo .seller {
+    background-size: 100%;
     background-image: url("../images/final/product-detail-popup-seller-panel-divider-2x.png");
   }
 }
-/* line 258, ../sass/detailPanel.scss */
+/* line 267, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping {
   font-size: 12px;
   color: black;
 }
-/* line 266, ../sass/detailPanel.scss */
+/* line 275, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .x-scroll-scroller {
   width: 100%;
 }
-/* line 270, ../sass/detailPanel.scss */
+/* line 279, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .text {
   padding: 0 20px 30px 0;
   font-size: 14px;

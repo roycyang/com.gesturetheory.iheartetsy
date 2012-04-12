@@ -28,7 +28,7 @@
 	<dict>
 		<key>GoogleAnalyticsPlugin</key>
 		<string>GoogleAnalyticsPlugin</string>
-		<key>com.phonegap.twitter</key>
+		<key>org.apache.cordova.twitter</key>
 		<string>TwitterPlugin</string>
 		<key>org.apache.cordova.EmailComposer</key>
 		<string>EmailComposer</string>

@@ -48,7 +48,6 @@
 		4375EABA151F78BC00E416BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAF151F78BC00E416BF /* README.txt */; };
 		4375EABB151F78BC00E416BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAB0151F78BC00E416BF /* README.md */; };
 		43825E651526053A006B78F6 /* ipad_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43825E641526053A006B78F6 /* ipad_icon.png */; };
-		438CB5631526548600C9EBA1 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 438CB5621526548600C9EBA1 /* TwitterPlugin.m */; };
 		438CB565152654F100C9EBA1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438CB564152654F100C9EBA1 /* Twitter.framework */; };
 		438CB567152655F500C9EBA1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438CB566152655F500C9EBA1 /* Accounts.framework */; };
 		43920D76152F762F00791BDC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 43920D75152F762F00791BDC /* Default-Landscape~ipad.png */; };
@@ -60,6 +59,7 @@
 		43B0FCA21536789300159DDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43B0FC9E1536789300159DDB /* README.md */; };
 		43B0FCA4153678B500159DDB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FCA3153678B500159DDB /* CFNetwork.framework */; };
 		43B0FCA7153680BF00159DDB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FCA5153678C700159DDB /* libsqlite3.0.dylib */; };
+		43B0FCAB15368E3900159DDB /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FCAA15368E3900159DDB /* TwitterPlugin.m */; };
 		43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE14811520F4E50050CFF0 /* EmailComposer.m */; };
 		43DE14851520F4E50050CFF0 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43DE14821520F4E50050CFF0 /* readme.md */; };
 		43DE14881520F5950050CFF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DE14871520F5950050CFF0 /* MessageUI.framework */; };
@@ -115,8 +115,6 @@
 		4375EAAF151F78BC00E416BF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4375EAB0151F78BC00E416BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		43825E641526053A006B78F6 /* ipad_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_icon.png; sourceTree = "<group>"; };
-		438CB5611526548600C9EBA1 /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
-		438CB5621526548600C9EBA1 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
 		438CB564152654F100C9EBA1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		438CB566152655F500C9EBA1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		43920D75152F762F00791BDC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -130,6 +128,8 @@
 		43B0FC9E1536789300159DDB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		43B0FCA3153678B500159DDB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		43B0FCA5153678C700159DDB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		43B0FCA915368E3900159DDB /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
+		43B0FCAA15368E3900159DDB /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
 		43DE147F1520F4E50050CFF0 /* EmailComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailComposer.h; sourceTree = "<group>"; };
 		43DE14811520F4E50050CFF0 /* EmailComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailComposer.m; sourceTree = "<group>"; };
 		43DE14821520F4E50050CFF0 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
@@ -326,8 +326,8 @@
 		4352FDAC151D1A4400F75C44 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				43B0FCA815368E1700159DDB /* Twitter */,
 				43B0FC971536789300159DDB /* GoogleAnalytics */,
-				438CB55F1526547C00C9EBA1 /* Twitter */,
 				43DE147E1520F4E50050CFF0 /* EmailComposer */,
 				4375EAA2151F78BC00E416BF /* ChildBrowser */,
 				4352FDAD151D1A4400F75C44 /* README */,
@@ -361,15 +361,6 @@
 			path = FBConnectExample;
 			sourceTree = "<group>";
 		};
-		438CB55F1526547C00C9EBA1 /* Twitter */ = {
-			isa = PBXGroup;
-			children = (
-				438CB5611526548600C9EBA1 /* TwitterPlugin.h */,
-				438CB5621526548600C9EBA1 /* TwitterPlugin.m */,
-			);
-			name = Twitter;
-			sourceTree = "<group>";
-		};
 		43B0FC971536789300159DDB /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +380,15 @@
 				43B0FC9D1536789300159DDB /* libGoogleAnalytics.a */,
 			);
 			path = GoogSDK;
+			sourceTree = "<group>";
+		};
+		43B0FCA815368E1700159DDB /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				43B0FCA915368E3900159DDB /* TwitterPlugin.h */,
+				43B0FCAA15368E3900159DDB /* TwitterPlugin.m */,
+			);
+			name = Twitter;
 			sourceTree = "<group>";
 		};
 		43DE147E1520F4E50050CFF0 /* EmailComposer */ = {
@@ -516,9 +516,9 @@
 				4375EAB5151F78BC00E416BF /* ChildBrowserViewController.m in Sources */,
 				4375EAB8151F78BC00E416BF /* FBConnect.js in Sources */,
 				43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */,
-				438CB5631526548600C9EBA1 /* TwitterPlugin.m in Sources */,
 				43B0FC9F1536789300159DDB /* GoogleAnalyticsPlugin.js in Sources */,
 				43B0FCA01536789300159DDB /* GoogleAnalyticsPlugin.m in Sources */,
+				43B0FCAB15368E3900159DDB /* TwitterPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

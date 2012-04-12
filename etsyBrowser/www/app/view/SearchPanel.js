@@ -83,7 +83,7 @@ Ext.define('Etsy.view.SearchPanel', {
             var keyword = Ext.getCmp('globalSearch').getValue();
             
             if(!keyword){
-              ETSY.alert('Please enter a keyword');
+              ETSY.alert('Please enter a keyword', 'Error');
               return false;
             }
             self.toggleSearch('close');

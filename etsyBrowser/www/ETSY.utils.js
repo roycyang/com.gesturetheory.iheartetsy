@@ -122,7 +122,7 @@ var ETSY = {
 		if (buttonId == 'yes' || buttonId == '1') {
       ETSY.initAuthorization();
 		} 
-	});
+	  }, 'Sign In');
 	},
 	
 	/**
@@ -312,21 +312,21 @@ var ETSY = {
 		
 	},
 
-	alert: function(msg) {
+	alert: function(msg, title) {
 		try {
-			navigator.notification.alert(msg);
+			navigator.notification.alert(msg, title);
 		} catch(err) {
-			var msg = Ext.Msg.alert('Alert', msg);
+			var msg = Ext.Msg.alert(title, msg);
 			msg.setZIndex(1000000000000000);
 		}
 	},
 	
-	confirm: function(msg, callback) {
+	confirm: function(msg, callback, title) {
 		try {
-			navigator.notification.confirm(msg, callback);
+			navigator.notification.confirm(msg, callback, title);
 		}
 		catch(err) {
-			var msg = Ext.Msg.confirm('Confirm', msg, callback);
+			var msg = Ext.Msg.confirm(title, msg, callback);
 			msg.setZIndex(1000000000000000);
 		}
 	},

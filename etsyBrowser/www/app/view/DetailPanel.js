@@ -130,45 +130,60 @@ Ext.define('Etsy.view.DetailPanel', {
                     }
                 },
                 // {
-                //                     id: 'detailPanelTwitter',
-                //                     xtype: 'button',
-                //                     listeners: {
-                //                         tap: function() {
-                //                           ETSY.trackEvent('share', 'twitter');
+                //     id: 'detailPanelTwitter',
+                //     xtype: 'button',
+                //     listeners: {
+                //         tap: function() {
+                //           // ETSY.trackEvent('share', 'twitter');
                 // 
-                //                            //  window.plugins.twitter.isTwitterSetup(function(r){
-                //                            //      console.log("twitter configured? " + r);
-                //                            //  });
-                //                            //                            
-                //                             try {
-                //                               window.plugins.twitter.isTwitterAvailable(function(r){
-                //                                    if(r == 1){
-                //                                      window.plugins.twitter.composeTweet(
-                //                                      function(s) {
-                //                                          console.log('success')
-                //                                      },
-                //                                      function(e) {
-                //                                        console.log("tweet failure: " + e);
-                //                                      },
-                //                                      'Check out this item from the I Heart Etsy iPad app!',
-                //                                      {
-                //                                          imageAttach: GLOBAL.newData.image.thumb,
-                //                                          urlAttach: GLOBAL.newData.url,
+                //           
+                //             window.plugins.twitter.isTwitterSetup(function(r){
+                //                 console.log("twitter configured? " + r);
+                //             });
+                //             // window.plugins.twitter.isTwitterAvailable(function(r){
+                //             //     console.log("twitter available? " + r);
+                //             // });
+                //             
+                //              // window.plugins.twitter.composeTweet(
+                //              // function(s) {
+                //              //     console.log('success')
+                //              // },
+                //              // function(e) {
+                //              //   console.log("tweet failure: " + e);
+                //              // },
+                //              // 'Check out this item from the I Heart Etsy iPad app!',
+                //              // {
+                //              //     imageAttach: GLOBAL.newData.image.thumb,
+                //              //     urlAttach: GLOBAL.newData.url,
+                //              // 
+                //              // });
+                //                                       
+                //             // window.plugins.twitter.isTwitterAvailable(function(r){
+                //             //                              console.log("twitter available? " + r);
+                //             //                                 // if(r == 1){
+                //             //                                 //                                    window.plugins.twitter.composeTweet(
+                //             //                                 //                                    function(s) {
+                //             //                                 //                                        console.log('success')
+                //             //                                 //                                    },
+                //             //                                 //                                    function(e) {
+                //             //                                 //                                      console.log("tweet failure: " + e);
+                //             //                                 //                                    },
+                //             //                                 //                                    'Check out this item from the I Heart Etsy iPad app!',
+                //             //                                 //                                    {
+                //             //                                 //                                        imageAttach: GLOBAL.newData.image.thumb,
+                //             //                                 //                                        urlAttach: GLOBAL.newData.url,
+                //             //                                 // 
+                //             //                                 //                                    });
+                //             //                                 //                    
+                //             //                                 //                                  }else{
+                //             //                                 //                                    ETSY.alert('Sorry but this only works with iOS 5');
+                //             //                                 //                                  }
+                //             //                             });
                 // 
-                //                                      });
-                //                                      
-                //                                    }else{
-                //                                      ETSY.alert('Sorry but this only works with iOS 5');
-                //                                    }
-                //                                });
-                //                             } catch(err) {
-                //                                 ETSY.alert('This only works in iPad');
-                //                             }
+                //         }
+                //     }
                 // 
-                //                         }
-                //                     }
-                // 
-                //                 }
+                // }
                 ]
             },
             {

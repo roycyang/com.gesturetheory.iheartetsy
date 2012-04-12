@@ -11,7 +11,7 @@
 	<key>EnableViewportScale</key>
 	<false/>
 	<key>AutoHideSplashScreen</key>
-	<true/>
+	<false/>
 	<key>ShowSplashScreenSpinner</key>
 	<true/>
 	<key>MediaPlaybackRequiresUserAction</key>
@@ -26,41 +26,41 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
-		<key>ChildBrowserCommand</key>
-		<string>ChildBrowserCommand</string>
-		<key>org.apache.cordova.EmailComposer</key>
-		<string>EmailComposer</string>
-		<key>GoogleAnalyticsPlugin</key>
-		<string>GoogleAnalyticsPlugin</string>
 		<key>org.apache.cordova.facebook.Connect</key>
 		<string>FacebookConnectPlugin</string>
-		<key>Compass</key>
-		<string>CDVLocation</string>
-		<key>Accelerometer</key>
+		<key>GoogleAnalyticsPlugin</key>
+		<string>GoogleAnalyticsPlugin</string>
+		<key>org.apache.cordova.twitter</key>
+		<string>TwitterPlugin</string>
+		<key>org.apache.cordova.EmailComposer</key>
+		<string>EmailComposer</string>
+		<key>ChildBrowserCommand</key>
+		<string>ChildBrowserCommand</string>
+		<key>org.apache.cordova.accelerometer</key>
 		<string>CDVAccelerometer</string>
-		<key>Camera</key>
+		<key>org.apache.cordova.camera</key>
 		<string>CDVCamera</string>
-		<key>NetworkStatus</key>
+		<key>org.apache.cordova.connection</key>
 		<string>CDVConnection</string>
-		<key>Contacts</key>
+		<key>org.apache.cordova.contacts</key>
 		<string>CDVContacts</string>
-		<key>Debug Console</key>
+		<key>org.apache.cordova.debugconsole</key>
 		<string>CDVDebugConsole</string>
-		<key>File</key>
+		<key>org.apache.cordova.file</key>
 		<string>CDVFile</string>
-		<key>FileTransfer</key>
+		<key>org.apache.cordova.filetransfer</key>
 		<string>CDVFileTransfer</string>
-		<key>Geolocation</key>
+		<key>org.apache.cordova.geolocation</key>
 		<string>CDVLocation</string>
-		<key>Notification</key>
+		<key>org.apache.cordova.notification</key>
 		<string>CDVNotification</string>
-		<key>Media</key>
+		<key>org.apache.cordova.media</key>
 		<string>CDVSound</string>
-		<key>Capture</key>
+		<key>org.apache.cordova.mediacapture</key>
 		<string>CDVCapture</string>
-		<key>SplashScreen</key>
+		<key>org.apache.cordova.splashscreen</key>
 		<string>CDVSplashScreen</string>
-		<key>Battery</key>
+		<key>org.apache.cordova.battery</key>
 		<string>CDVBattery</string>
 	</dict>
 </dict>

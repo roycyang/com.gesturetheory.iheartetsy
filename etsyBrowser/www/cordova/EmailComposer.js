@@ -32,7 +32,7 @@ EmailComposer.prototype.showEmailComposer = function(subject,body,toRecipients,c
 	if(bIsHTML)
 		args.bIsHTML = bIsHTML;
 
-  Cordova.exec(null, null, "org.apache.cordova.emailComposer", "showEmailComposer", [args]);
+  cordova.exec(null, null, "org.apache.cordova.emailComposer", "showEmailComposer", [args]);
 }
 
 // this will be forever known as the orch-func -jm
@@ -47,7 +47,7 @@ EmailComposer.prototype._didFinishWithResult = function(res) {
 
 
 
-Cordova.addConstructor(function()  {
+cordova.addConstructor(function()  {
 	if(!window.plugins)
 	{
 		window.plugins = {};

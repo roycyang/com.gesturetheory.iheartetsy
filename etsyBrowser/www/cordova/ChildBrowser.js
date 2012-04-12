@@ -39,18 +39,18 @@ ChildBrowser._onJSCallback = function(js,loc)
 // Show a webpage, will result in a callback to onLocationChange
 ChildBrowser.prototype.showWebPage = function(loc)
 {
-	Cordova.exec("ChildBrowserCommand.showWebPage", loc);
+	cordova.exec("ChildBrowserCommand.showWebPage", loc);
 };
 // close the browser, will NOT result in close callback
 ChildBrowser.prototype.close = function()
 {
-	Cordova.exec("ChildBrowserCommand.close");
+	cordova.exec("ChildBrowserCommand.close");
 };
 // Not Implemented
 ChildBrowser.prototype.jsExec = function(jsString)
 {
 // Not Implemented!!
-//Cordova.exec("ChildBrowserCommand.jsExec",jsString);
+//cordova.exec("ChildBrowserCommand.jsExec",jsString);
 };
 // Note: this plugin does NOT install itself, call this method some time after deviceready to install it
 // it will be returned, and also available globally from window.plugins.childBrowser

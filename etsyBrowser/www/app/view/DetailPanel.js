@@ -5,22 +5,23 @@ Ext.define('Etsy.view.DetailPanel',
   {
     extend: 'Ext.Container',
     xtype: 'listing',
-    id: 'detailPanel',
-
+    alias: 'widget.detailPanel',
     requires: ['Ext.Img'],
 
     config: {
-      cls: 'product-view',
-      zIndex: 1000000000,
-      centered: true,
-      width: 794,
-      height: 651,
-      modal: true,
-      hideOnMaskTap: true,
-      scrollable: false,
-      layout: {
-        type: 'vbox'
-      },
+
+        id: 'detailPanel',
+        cls: 'product-view',
+        zIndex: 1000000000,
+        centered: true,
+        width: 794,
+        height: 651,
+        modal: true,
+        hideOnMaskTap: true,
+        scrollable: false,
+        layout: {
+            type: 'vbox'
+        },
 
       items: [
         {
@@ -132,6 +133,7 @@ Ext.define('Etsy.view.DetailPanel',
                     tap: function () {
                       ETSY.trackEvent('share', 'facebook');
                       ETSY.facebookWallPost();
+
                     }
                   }
                 },
@@ -250,6 +252,12 @@ Ext.define('Etsy.view.DetailPanel',
         },
 
         ],
+        listeners: {
+          erased: function(){
+            APP.getDetailPanel().destroy();
+            console.log('destroyed the detail panel!');
+          }
+        }
     },
 
     initialize: function() {
@@ -320,7 +328,6 @@ Ext.define('Etsy.view.DetailPanel',
         GLOBAL.newData = newData;
 
         var carousel = Ext.getCmp('detailPanelCarousel');
-        carousel.removeAll();
 
         // test to see if the items are already in the shopping cart or favorites
         var id = newData.id;
@@ -364,7 +371,6 @@ Ext.define('Etsy.view.DetailPanel',
             });
         },
         100)
-
 
         Ext.getCmp('scrollingDescription').setData(newData);
         Ext.getCmp('meta-info').setData(newData);

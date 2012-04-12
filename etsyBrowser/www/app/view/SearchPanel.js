@@ -33,12 +33,13 @@ Ext.define('Etsy.view.SearchPanel', {
 			}]
 		},
 		{
-		  html: '<h4>Advanced Search</h4>'
+		  html: '<h4>Advanced Filters</h4>'
 		},
 		{
 			flex: 1,
 			xtype: 'formpanel',
 			cls: 'x-toolbar',
+			scrollable: false,
 
 			items: [{
 				xtype: 'fieldset',
@@ -48,13 +49,15 @@ Ext.define('Etsy.view.SearchPanel', {
   			},
 				items: [{
 					xtype: 'numberfield',
-					placeHolder: 'From'
+					placeHolder: 'From',
+					id: 'minPriceField',
 
 				},
 
 				{
 					xtype: 'numberfield',
-	        placeHolder: 'To'
+	        placeHolder: 'To',
+	        id: 'maxPriceField',
 
 				}]
 			},
@@ -66,6 +69,7 @@ Ext.define('Etsy.view.SearchPanel', {
   			},
 				items: [
 				{
+				  id: 'locationField',
 					xtype: 'textfield',
 	        placeHolder: 'Country, city or zip'
 
@@ -73,24 +77,31 @@ Ext.define('Etsy.view.SearchPanel', {
 				]
 			},
 			{
-			  width: '100%',
 				xtype: 'button',
+				width: 107,
+				height: 37,
 				ui: 'none',
 				id: 'searchButton',
         listeners: {
           tap: function(textfield, e, options){
 
             var keyword = Ext.getCmp('globalSearch').getValue();
-            
+            var minPrice =  Ext.getCmp('minPriceField').getValue();
+            var maxPrice =  Ext.getCmp('maxPriceField').getValue();
             if(!keyword){
               ETSY.alert('Please enter a keyword', 'Error');
               return false;
             }
+            if(minPrice > maxPrice){
+              ETSY.alert('The minimum price cannot be larger than the maximum price', 'Error');
+              return false;
+            }
+            
             self.toggleSearch('close');
             if(GLOBAL.searchCategory){
-              self.loadSearch(keyword, GLOBAL.searchCategory);
+              self.loadSearch(keyword, GLOBAL.searchCategory, minPrice, maxPrice, Ext.getCmp('locationField').getValue());
             }else{
-              self.loadSearch(keyword);
+              self.loadSearch(keyword, null , minPrice, maxPrice, Ext.getCmp('locationField').getValue());
             }
 
             Ext.getCmp('globalSearch').setValue('');

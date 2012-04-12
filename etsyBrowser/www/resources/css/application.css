@@ -6643,12 +6643,13 @@ input[type="search"]::-webkit-search-cancel-button {
 /* line 561, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset-title {
   /*    color: $form-dark;*/
-  font-size: 14px;
+  font-size: 12px;
   padding: 5px 15px 0;
   color: #FEFBE3;
+  font-style: italic;
 }
 
-/* line 573, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 574, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-form-fieldset-instructions {
   text-shadow: #fff 0 1px 1px;
   color: #333333;
@@ -6658,7 +6659,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
 }
 
-/* line 582, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 583, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-selectmark-base, .x-field-select .x-component-outer:after {
   content: "";
   position: absolute;
@@ -6672,22 +6673,22 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-top: -0.5em;
 }
 
-/* line 592, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 593, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select {
   position: relative;
 }
-/* line 596, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 597, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select .x-component-outer:after {
   background-color: #dddddd;
   z-index: 2;
 }
-/* line 602, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 603, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select .x-component-outer:before, .x-field-select .x-component-outer:after {
   pointer-events: none;
   position: absolute;
   display: block;
 }
-/* line 608, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
+/* line 609, ../themes/stylesheets/sencha-touch/default/widgets/_form.scss */
 .x-field-select .x-component-outer:before {
   content: "";
   position: absolute;
@@ -7329,12 +7330,13 @@ span.arrow {
 }
 /* line 90, ../sass/sidePanels.scss */
 #searchPanel #searchButton {
-  background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px top;
+  background: url(../images/slices-v2/search-button-1x.png) no-repeat left top;
   height: 36px;
+  margin-left: 167px;
 }
-/* line 94, ../sass/sidePanels.scss */
+/* line 95, ../sass/sidePanels.scss */
 #searchPanel #searchButton.x-button-pressing {
-  background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px -37px;
+  background: url(../images/slices-v2/search-button-1x.png) no-repeat left -37px;
 }
 
 /* line 5, ../sass/carousel.scss */
@@ -7446,7 +7448,6 @@ p.desc {
 }
 /* line 115, ../sass/carousel.scss */
 .products .product {
-  background: white;
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -7455,19 +7456,18 @@ p.desc {
   padding: 0;
   margin: 0 50px 38px 0;
   padding: 5px;
-  border: 1px solid #EAE9E1;
-  border-radius: 4px;
+  background: url(../images/slices-v2/product-container-1x.png) no-repeat 0 0;
 }
-/* line 128, ../sass/carousel.scss */
+/* line 130, ../sass/carousel.scss */
 .products .product.product-pressed-flag .name {
   color: #D24700;
 }
-/* line 132, ../sass/carousel.scss */
+/* line 134, ../sass/carousel.scss */
 .products .product .image {
   height: 135px;
   width: 170px;
 }
-/* line 137, ../sass/carousel.scss */
+/* line 139, ../sass/carousel.scss */
 .products .product .name {
   margin-top: 6px;
   height: 27px;
@@ -7478,7 +7478,7 @@ p.desc {
   font-size: 11px;
   overflow: hidden;
 }
-/* line 148, ../sass/carousel.scss */
+/* line 150, ../sass/carousel.scss */
 .products .product .price {
   position: absolute;
   right: 5px;
@@ -7486,35 +7486,35 @@ p.desc {
   width: 52px;
 }
 
-/* line 157, ../sass/carousel.scss */
+/* line 159, ../sass/carousel.scss */
 .product-bounce {
   -webkit-transition-property: all;
   -webkit-animation: product-bounce 1s 1;
 }
 
 @-webkit-keyframes product-bounce {
-  /* line 163, ../sass/carousel.scss */
+  /* line 165, ../sass/carousel.scss */
   0% {
     -webkit-transform: rotate(0) translate3d(0, 30px, 0);
   }
 
-  /* line 167, ../sass/carousel.scss */
+  /* line 169, ../sass/carousel.scss */
   25% {
     -webkit-transform: rotate(4deg) translate3d(0, -10px, 0);
   }
 
-  /* line 171, ../sass/carousel.scss */
+  /* line 173, ../sass/carousel.scss */
   50% {
     -webkit-transform: rotate(-2deg) translate3d(0, 5px, 0);
   }
 
-  /* line 175, ../sass/carousel.scss */
+  /* line 177, ../sass/carousel.scss */
   100% {
     -webkit-transform: rotate(0) translate3d(0, 0px, 0);
   }
 }
 
-/* line 180, ../sass/carousel.scss */
+/* line 182, ../sass/carousel.scss */
 .quick-bounce {
   -webkit-transition-property: all;
   -webkit-transition-duration: .5s;
@@ -8075,9 +8075,7 @@ p.desc {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border: 1px solid #DADAD6;
   padding: 0px 5px 0px;
-  border-radius: 3px;
   /*  background: rgba(203, 203, 197, 0.1);*/
   font-family: abril;
   font-weight: normal;
@@ -8085,23 +8083,23 @@ p.desc {
   line-height: 25px;
   height: 25px;
 }
-/* line 39, ../sass/application.scss */
+/* line 40, ../sass/application.scss */
 .price.sold {
   background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
   text-indent: -10000px;
   text-align: left;
 }
-/* line 44, ../sass/application.scss */
+/* line 45, ../sass/application.scss */
 .cart-pressed-flag .price.sold {
   background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
 }
-/* line 49, ../sass/application.scss */
+/* line 50, ../sass/application.scss */
 .cart-pressed-flag .price {
   background-color: #78C042;
   color: #fff;
 }
 
-/* line 56, ../sass/application.scss */
+/* line 57, ../sass/application.scss */
 #instructionPanel {
   background-size: contain;
   background: url(../images/instructions/background-2x.png) no-repeat 0 0;
@@ -8118,28 +8116,28 @@ p.desc {
   /* line 34, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
   /* line 37, ../themes/stylesheets/sencha-touch/default/widgets/_carousel.scss */
 }
-/* line 60, ../sass/application.scss */
+/* line 61, ../sass/application.scss */
 #instructionPanel #instructionCarousel {
   overflow: hidden;
 }
-/* line 67, ../sass/application.scss */
+/* line 68, ../sass/application.scss */
 #instructionPanel .x-carousel {
   position: relative;
   overflow: hidden;
 }
-/* line 73, ../sass/application.scss */
+/* line 74, ../sass/application.scss */
 #instructionPanel .x-carousel-item {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 79, ../sass/application.scss */
+/* line 80, ../sass/application.scss */
 #instructionPanel .x-carousel-item > * {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 86, ../sass/application.scss */
+/* line 87, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator {
   padding: 0;
   -webkit-border-radius: 0;
@@ -8148,7 +8146,7 @@ p.desc {
   background-color: transparent;
   background-image: none;
 }
-/* line 96, ../sass/application.scss */
+/* line 97, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator {
   -webkit-box-flex: 1;
   display: -webkit-box;
@@ -8158,7 +8156,7 @@ p.desc {
   -webkit-box-align: center;
   box-align: center;
 }
-/* line 106, ../sass/application.scss */
+/* line 107, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator span {
   display: block;
   width: 0.5em;
@@ -8167,34 +8165,34 @@ p.desc {
   border-radius: 0.25em;
   margin: 0.2em;
 }
-/* line 116, ../sass/application.scss */
+/* line 117, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-horizontal {
   height: 1.5em;
   width: 100%;
 }
-/* line 122, ../sass/application.scss */
+/* line 123, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-vertical {
   -webkit-box-orient: vertical;
   box-orient: vertical;
   width: 1.5em;
   height: 100%;
 }
-/* line 130, ../sass/application.scss */
+/* line 131, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-light span {
   background-color: rgba(255, 255, 255, 0.1);
   background-image: none;
 }
-/* line 135, ../sass/application.scss */
+/* line 136, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-light span.x-carousel-indicator-active {
   background-color: rgba(255, 255, 255, 0.3);
   background-image: none;
 }
-/* line 142, ../sass/application.scss */
+/* line 143, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-dark span {
   background-color: rgba(0, 0, 0, 0.1);
   background-image: none;
 }
-/* line 147, ../sass/application.scss */
+/* line 148, ../sass/application.scss */
 #instructionPanel .x-carousel-indicator-dark span.x-carousel-indicator-active {
   background-color: rgba(0, 0, 0, 0.3);
   background-image: none;
@@ -8202,7 +8200,7 @@ p.desc {
   border: 2px solid #bf1e2e;
 }
 
-/* line 154, ../sass/application.scss */
+/* line 155, ../sass/application.scss */
 .instruction-panel {
   width: 559px;
   height: 655px;

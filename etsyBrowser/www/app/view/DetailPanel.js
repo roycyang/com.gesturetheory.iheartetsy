@@ -62,28 +62,30 @@ Ext.define('Etsy.view.DetailPanel', {
                     width: 97,
                 },
                 {
-                    top: 18,
-                    right: -77,
-                    width: 77,
-                    height: 51,
-                    id: 'detailPanelInfoButton',
-                    xtype: 'button',
-                    listeners: {
-                        tap: function(e) {
-                            if(Ext.getCmp('detailPanelMoreInfo').isHidden()){
-                              ETSY.trackEvent('actions', 'show info', 'from detail panel');
-                              // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
-                              //   type: 'fadeIn',
-                              //   duration: 300,
-                              //   direction: 'down'
-                              // })
-                              Ext.getCmp('detailPanelMoreInfo').show();
-                            }else{
-                              Ext.getCmp('detailPanelMoreInfo').hide();
-                              ETSY.trackEvent('actions', 'hide info', 'from detail panel');
-                            }
-                        }
+                  top: 18,
+                  right: - 77,
+                  width: 77,
+                  height: 51,
+                  id: 'detailPanelInfoButton',
+                  xtype: 'button',
+                  listeners: {
+                    tap: function (e) {
+                      if (Ext.getCmp('detailPanelMoreInfo').isHidden()) {
+                        ETSY.trackEvent('actions', 'show info', 'from detail panel');
+                        // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
+                        //   type: 'fadeIn',
+                        //   duration: 300,
+                        //   direction: 'down'
+                        // })
+                        Ext.getCmp('detailPanelMoreInfo').show();
+                        
+                      } else {
+                        Ext.getCmp('detailPanelMoreInfo').hide();
+                        
+                        ETSY.trackEvent('actions', 'hide info', 'from detail panel');
+                      }
                     }
+                  }
                 },
                 {
                     id: 'detailPanelHeart',
@@ -216,8 +218,10 @@ Ext.define('Etsy.view.DetailPanel', {
                      id: 'scrollingDescription',
                      tpl: new Ext.XTemplate(
                          '<div class="right-wrapper">',
-                           '<div class="text">{description}</div>',
-                          '</div>'
+
+                                 '<div class="text">{parsed_description}</div>',
+                                '</div>'
+
                      ),
                    scrollable: {
                        direction: 'vertical',

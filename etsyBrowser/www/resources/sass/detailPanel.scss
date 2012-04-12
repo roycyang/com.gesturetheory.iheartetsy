@@ -1,242 +1,277 @@
-#detailPanel {
-  background: url(../images/slices-v2/ProductDetail-background-1x.png) no-repeat 0 0;
+@import 'compass/css3';
 
+$img-path: '../images/slices-v2/';
+
+$tan: #fffef4;
+$midgray: #666;
+
+@mixin bs($bs: border-box) {
+  @include box-sizing($bs);
+}
+
+@mixin ellipses($width: '') {
+  @if ($width != '') {
+    width: $width;
+  }
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ----------------------------------
+
+    Retina image mixin.
+    
+    Pass in an image path to output the media query
+    for high density displays.
+    
+    Reference: http://www.stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+    
+---------------------------------- */
+@mixin retina-image($img) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    background-image: url($img);
+  }
+}
+
+
+/* ----------------------------------
+
+    Background image mixin.
+    
+    @param $img Name of an image, without 1x/2x or a file extension.
+    @param [$img-path] Image file path.
+    @param [$ext] File extension. Defaults to .png
+    
+---------------------------------- */
+@mixin bg-image($img, $img-path, $ext: '.png') {
+  $img-path: '' !default;
+  
+  $one: '#{$img-path}#{$img}-1x#{$ext}';
+  $two: '#{$img-path}#{$img}-2x#{$ext}';
+  
+  background-image: url($one);
+  
+  @include retina-image($two);
+}
+
+/*
+  Main detail panel container.
+*/
+#detailPanel {
   padding: 7px 11px 4px 15px;
+  background: no-repeat;
   
-  #detailPanelInfo {
-    background: url(../images/slices-v2/ProductDetail-title-bar-shadow-2x.png) no-repeat left bottom;
-    background-size: contain;
-  }
+  @include bg-image('ProductDetail-background');
   
-  #detailPanelMainInfo {
-    background: #fffef4;
-    background-size: contain;
-  }
-  
-  #detailPanelMoreInfo {
-    background: #fffef4 url(../images/slices-v2/ProductDetail-long-divider-2x.png) no-repeat left top;
-    padding: 20px 10px 20px 20px;
-        background-size: contain;
-  }
-  
-  
-  .favorite-flag {
-    background: url(../images/slices-v2/ProductDetail-favorite-stamp-1x.png) no-repeat left top;
-  }
-  
+  /* Wrapper for product title and buy button. */
   .description-inner-wrapper {
     overflow: hidden;
     
-  }
-  
-  #detailPanelSpacer {
-    background: url(../images/slices-v2/ProductDetail-horizontal-divider-1x.png) no-repeat left top;
-  }
-  
+    /* Favorite stamp. */
+    &.favorite-flag {
+      background: left top no-repeat;
 
-    
-    #detailPanelInfoButton {
-      background: url(../images/slices-v2/ProductDetail-info-tab-link-2x.png) no-repeat 0 0;
-      background-size: contain;
-      border-radius: 0 
+      @include bg-image('ProductDetail-favorite-stamp');
     }
     
-    .x-body {
-        overflow: visible;
+    /*
+      When an item is in the cart, mark the button as active.
+    */
+    &.cart-flag .price {
+      @include bg-image('ProductDetail-cart-button-active');
     }
-    
-    .x-docking-horizontal {
-        overflow: hidden;
-    }
-
-	.description {
-        background: url(../images/final/product-detail-popup-seller-panel-background-1x.png) no-repeat 1px 0;
-        border: none;
-        padding: 20px 20px 20px 65px;
-        background-size: initial;
-        -webkit-transition: -webkit-transform 350ms;
-        -webkit-transform: translate3d(323px, 0, 0);
+  }
 }
 
-    .name {
-      line-height: 25px;
-      font-size: 22px;
-      font-weight: normal;
-      color: #000000;
-      padding: 13px 17px 8px;
-      height: auto;
-      margin-bottom: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 500px;
-      text-shadow: 1px 1px white;       
-    }
-
-
-    
-    .text {
-         
-        font-size:14px;
-        color: #000000;
-        line-height: 18px;
-        padding-bottom: 30px;
-        padding-right: 20px;
-    }
-    
-    .quantity {
-        float: left;
-        margin-left: 18px;
-        font-size: 12px;
-        margin-top: 8px;
-        color: #666;
-        margin-bottom: 20px;
-        padding-right: 20px;
-    }
-    
-    .seller {
-        background: url(../images/final/product-detail-popup-seller-panel-divider-1x.png) no-repeat left bottom;
-
-        font-size: 12px;
-        padding: 0 0 20px 0;
-        margin-bottom: 20px;
-        color: #000000;
-    }
-    
-    .shipping {
-        font-size: 12px;
-        color: #000000;
-    }
-
-    img {
-/*            background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;*/
-	padding: 3px;
-	border: 1px solid #EAEAEA;
-	display: block;
-	margin: 0 auto;
-    }
-    
-    .price {
-      float: left;
-      margin-left: 18px;
-      margin-top: 2px;
-      padding-right: 41px;
-      background-image: url(../images/slices-v2/ProductDetail-cart-button-link-1x.png?4);
+/* Photo carousel. */
+#detailPanelCarousel {
+  overflow: hidden;
+  
+  .x-carousel {
+    overflow: hidden;
+  }
+  
+  .x-carousel-item {      
+    .image {
+      width: 768px;
+      height: 552px;
+      background-position: center center;
       background-repeat: no-repeat;
-      background-position: top right;
-      height: 27px;
-      border-radius: 5px;
-      padding-left: 7px;
-      
-
-      
+      background-size: contain;
     }
+  }
+  
+  .detail-panel-image {
+    background-position: center center;
+  	background-repeat: no-repeat;
+  	background-size: contain;
 
+  	.fullsize & {
+  	  background-size: contain;
+  	}
+  }
+}
     
-    .cart-flag .price {
-      background-image: url(../images/slices-v2/ProductDetail-cart-button-active-1x.png?4);
-    }
-    
-    
-    #detailPanelCarousel .x-carousel {
-        overflow: hidden;
-    }
-    
-
-    
-    .x-button {
-        height: 87px;
-        background: url(../images/final/product-detail-sprite-1x.png?1) no-repeat 13px 25px;
-        
-        &.active {
-            background-position: -87px 25px;
-        }
-        
-        &.x-button-pressing {
-            background-position: -87px 25px;
-        }
-        
-        
-        &#detailPanelEmail {
-            background-position: 13px -475px;
-            
-            &.x-button-pressing {
-                background-position: -87px -475px;
-            }
-        }
-        
-        &#detailPanelFacebook {
-            background-position: 13px -275px;
-            
-            &.x-button-pressing {
-                background-position: -87px -275px;
-            }
-        }
-        
-        &#detailPanelTwitter {
-            background-position: 13px -175px;
-            
-            &.x-button-pressing {
-                background-position: -87px -175px;
-            }
-        }
-        
-        
-    }
-    
-    #detailPanelCarousel {
-        overflow: hidden;
-        .x-carousel-item {
-/*            background: url(../images/loading.gif) no-repeat center center;*/
-
-            
-            .image {
-                width: 768px;
-                height: 552px;
-                background-size: contain;
-                background-position: center center;
-                background-repeat: no-repeat;
-            }
-        }
-    }
-
-    .detail-panel-image {
-    	background-repeat: no-repeat;
-    	background-size: contain;
-    	background-position: center center;
-
-    	.fullsize & {
-    	    background-size: contain;
-    	}
-    }
+/* Vertical divider line in the title bar. */
+#detailPanelSpacer {
+  background: left top no-repeat;
+  
+  @include bg-image('ProductDetail-vertical-divider');
 }
 
+/*
+  Detail panel title bar.
+  
+  Contains the title, sharing tools and price information.
+*/
+#detailPanelInfo {
+  background: left bottom no-repeat;
+  
+  @include bg-image('ProductDetail-title-bar-shadow');
+}
 
-
-
+/* Containing element for product details. */
+#detailPanelMainInfo {
+  background: $tan;
+  
+  /* Wrapper for detail elements. */
+  .description-inner-wrapper {
+    padding: 13px 18px 20px 18px;
     
-        
-
-
-
-
-.product-view,
-.products {
-    a:link,
-    a:active,
-    a:visited {
-        display: block;
-        border: 1px solid darken(#028257, 10);
-        margin: 30px 60px;
-        text-align: center;
-        padding: 10px;
-        font-size: 22px;
-        font-family: 'Quattrocento Sans', sans-serif;
-        font-weight: bold;
-        color: #fff;
-        text-shadow: 0 -1px 0 rgba(0,0,0,.3);
-        text-decoration: none;
+    @include bs;
+  }
+  
+  .name {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+    text-shadow: 1px 1px white;
+    
+    @include ellipses(500px);
+  }
+  
+  .price {
+    float: left;
+    height: 27px;
+    padding: 0 41px 0 7px;
+    background: top right no-repeat;
+    
+    @include border-radius(5px);
+    @include bg-image('ProductDetail-cart-button-link');
+  }
+  
+  .quantity {
+    float: left;
+    margin: 0 0 0 18px;
+    color: $midgray;
+    font-size: 12px;
+    line-height: 27px; // Same as .price height.
+  }
+  
+  /*
+    Sharing tools.
+  */
+  .x-button {
+    height: 87px;
+    background: 13px 25px no-repeat;
+    @include bg-image('product-detail-sprite', '../images/final/');
+    
+    /* Favorite button. */
+    &.active {
+      background-position: -87px 25px;
     }
+    
+    &.x-button-pressing {
+      background-position: -87px 25px;
+    }
+    
+    /* Email sharing. */      
+    &#detailPanelEmail {
+      background-position: 13px -475px;
+        
+      &.x-button-pressing {
+        background-position: -87px -475px;
+      }
+    }
+    
+    /* Facebook sharing. */
+    &#detailPanelFacebook {
+      background-position: 13px -275px;
+  
+      &.x-button-pressing {
+        background-position: -87px -275px;
+      }
+    }
+    
+    /* Twitter sharing. */
+    &#detailPanelTwitter {
+      background-position: 13px -175px;
+    
+      &.x-button-pressing {
+        background-position: -87px -175px;
+      }
+    }
+  }
+}
+
+/*
+  Green tag- More info button. 
+  
+  Chained selector for higher specificity.
+*/
+#detailPanelInfoButton.x-button { 
+  background: no-repeat;
+  border-radius: 0;
+
+  @include bg-image('ProductDetail-info-tab-link');
+  
+  &.x-button-pressing {
+    background: no-repeat;
+    
+    @include bg-image('ProductDetail-info-tab-active');
+  }
+}
+
+/*
+  Extra info panel for an item.
+  Hidden by default.
+*/
+#detailPanelMoreInfo {
+  padding: 20px 10px 20px 20px;
+  background: left top no-repeat $tan;
+  
+  @include bg-image('ProductDetail-long-divider');
+  
+  .seller {
+    margin-bottom: 20px;
+    padding: 0 0 20px 0;
+    font-size: 12px;
+    color: black;
+    background: left bottom no-repeat;
+    
+    @include bg-image('product-detail-popup-seller-panel-divider', '../images/final/');
+  }
+  
+  .shipping {
+    font-size: 12px;
+    color: black;
+  }
+  
+  /*
+    Container for description text.
+  */
+  .x-scroll-scroller {
+    width: 100%;
+  }
+  
+  .text {
+    padding: 0 20px 30px 0;
+    font-size: 14px;
+    color: black;
+    line-height: 18px;
+    word-break: break-word;
+  }
 }

@@ -138,8 +138,13 @@ $green: #78c042;
 */
 #detailPanelInfo {
   background: left bottom no-repeat;
+  background-size: 100% auto;
   
   @include bg-image('ProductDetail-title-bar-shadow');
+  
+  .left-wrapper {
+    padding-right: 20px;
+  }
 }
 
 /* Containing element for product details. */
@@ -176,6 +181,7 @@ $green: #78c042;
     background-size: auto 100%;
     border: 1px solid #DADAD6;
     
+    @include transition(all .2s ease-out);
     @include box-shadow(0 0 10px 0 rgba(black, .1));
     @include border-radius(3px);
     @include bg-image('ProductDetail-cart-button-link');
@@ -185,7 +191,7 @@ $green: #78c042;
     }
     
     &:active {
-      background: darken($tan, 5%);
+      @include box-shadow(0 0 10px 2px rgba(black, .3));
     }
   }
 
@@ -286,6 +292,18 @@ $green: #78c042;
     background-size: 100%;
     
     @include bg-image('product-detail-popup-seller-panel-divider', '../images/final/');
+    
+    span {
+      @include inline-block;
+      
+      margin-right: 5px;
+      padding-right: 5px;
+      border-right: 1px solid $gray;
+      
+      &:last-child {
+        border: 0;
+      }
+    }
   }
   
   .shipping {
@@ -318,6 +336,7 @@ $green: #78c042;
         @include pie-clearfix;
         
         margin: 5px 0;
+        font-weight: 700;
       }
       
       div {

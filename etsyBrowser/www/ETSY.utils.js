@@ -1,4 +1,25 @@
 var ETSY = {
+  
+  facebookWallPost: function() {
+		try{
+		  var params = {
+  		    method: 'feed',
+  		    name: GLOBAL.newData.title,
+  		    link:  GLOBAL.newData.url,
+  		    picture: GLOBAL.newData.image.large,
+  		    caption: 'I Heart Etsy App',
+  		    description: 'Check out this item I found on the I Heart Etsy App'
+  		  };
+  		console.log(params);
+  	  FB.ui(params, function(obj) { 
+  	    console.log('success!');
+  	  });
+		}catch(err){
+		  ETSY.alert('This is only available on the iPad!');
+		}
+		
+	},
+	
   trackPageviews: function(url, dontRecord){
     if(!dontRecord){
       GLOBAL.google_last_url = url;
@@ -116,7 +137,7 @@ var ETSY = {
     
     // Prompt the user and return false if the user is not signed in.
     if (!GLOBAL.signed_in) {
-      ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+      ETSY.askForSignIn('You are trying to favorite this item, would you like to sign in?');
       return false;
     }
     

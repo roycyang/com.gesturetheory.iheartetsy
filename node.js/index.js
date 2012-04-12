@@ -151,7 +151,7 @@ function compileTreasuries(offset) {
         var options = {
             host: 'openapi.etsy.com',
             port: 80,
-            path: '/v2/listings/' + listingIds.join() + '?api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:6'
+            path: '/v2/listings/' + listingIds.join() + '?api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:6,User,ShippingInfo'
         };
         var listData = "";
         var request = http.get(options,
@@ -268,7 +268,7 @@ function compileCategories(category) {
     options = {
         host: 'openapi.etsy.com',
         port: 80,
-        path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=' + category.category_name + '&includes=Images:6&limit=100'
+        path: '/v2/listings/active?api_key=tia49fh9iqjcrukurpbyqtv5&category=' + category.category_name + '&includes=Images:6,User,ShippingInfo&limit=100'
     };
 
     http.get(options,

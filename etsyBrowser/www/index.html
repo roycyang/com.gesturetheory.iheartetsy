@@ -13,7 +13,9 @@
   <script type="text/javascript" charset="utf-8" src="cordova/EmailComposer.js"></script>
   <script type="text/javascript" charset="utf-8" src="cordova/TwitterPlugin.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova/ChildBrowser.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>	
+	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/cdv-plugin-fb-connect.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/facebook_js_sdk.js"></script>
 	
 
 	<script type="text/javascript" charset="utf-8" src="ETSY.utils.js"></script>
@@ -77,8 +79,18 @@
 	for more details -jm */
 	function onDeviceReady()
 	{
+		
+		// initializing facebook
+		try {
+    	FB.init({ appId: "224999977607968", nativeInterface: CDV.FB, useCachedDialogs: false });
+
+    } catch (e) {
+    	alert(e);
+    }
+		
+		
 		// do your thing!
-    // navigator.notification.alert("Cordova is working")
+    	// navigator.notification.alert("Cordova is working")
 
 		var cb = ChildBrowser.install();
 		

@@ -59,7 +59,7 @@ Ext.define('Etsy.view.DetailPanel', {
                 },
                 {
                     xtype: 'spacer',
-                    width: 40,
+                    width: 97,
                 },
                 {
                     top: 18,
@@ -125,50 +125,50 @@ Ext.define('Etsy.view.DetailPanel', {
                     listeners: {
                         tap: function() {
                           ETSY.trackEvent('share', 'facebook');
-                            ETSY.alert('Wire up the facebook!');
+                          ETSY.facebookWallPost();
                         }
                     }
                 },
-                {
-                    id: 'detailPanelTwitter',
-                    xtype: 'button',
-                    listeners: {
-                        tap: function() {
-                          ETSY.trackEvent('share', 'twitter');
-
-                           //  window.plugins.twitter.isTwitterSetup(function(r){
-                           //      console.log("twitter configured? " + r);
-                           //  });
-                           //                            
-                            try {
-                              window.plugins.twitter.isTwitterAvailable(function(r){
-                                   if(r == 1){
-                                     window.plugins.twitter.composeTweet(
-                                     function(s) {
-                                         console.log('success')
-                                     },
-                                     function(e) {
-                                       console.log("tweet failure: " + e);
-                                     },
-                                     'Check out this item from the I Heart Etsy iPad app!',
-                                     {
-                                         imageAttach: GLOBAL.newData.image.thumb,
-                                         urlAttach: GLOBAL.newData.url,
-
-                                     });
-                                     
-                                   }else{
-                                     ETSY.alert('Sorry but this only works with iOS 5');
-                                   }
-                               });
-                            } catch(err) {
-                                ETSY.alert('This only works in iPad');
-                            }
-
-                        }
-                    }
-
-                }
+                // {
+                //                     id: 'detailPanelTwitter',
+                //                     xtype: 'button',
+                //                     listeners: {
+                //                         tap: function() {
+                //                           ETSY.trackEvent('share', 'twitter');
+                // 
+                //                            //  window.plugins.twitter.isTwitterSetup(function(r){
+                //                            //      console.log("twitter configured? " + r);
+                //                            //  });
+                //                            //                            
+                //                             try {
+                //                               window.plugins.twitter.isTwitterAvailable(function(r){
+                //                                    if(r == 1){
+                //                                      window.plugins.twitter.composeTweet(
+                //                                      function(s) {
+                //                                          console.log('success')
+                //                                      },
+                //                                      function(e) {
+                //                                        console.log("tweet failure: " + e);
+                //                                      },
+                //                                      'Check out this item from the I Heart Etsy iPad app!',
+                //                                      {
+                //                                          imageAttach: GLOBAL.newData.image.thumb,
+                //                                          urlAttach: GLOBAL.newData.url,
+                // 
+                //                                      });
+                //                                      
+                //                                    }else{
+                //                                      ETSY.alert('Sorry but this only works with iOS 5');
+                //                                    }
+                //                                });
+                //                             } catch(err) {
+                //                                 ETSY.alert('This only works in iPad');
+                //                             }
+                // 
+                //                         }
+                //                     }
+                // 
+                //                 }
                 ]
             },
             {
@@ -185,8 +185,14 @@ Ext.define('Etsy.view.DetailPanel', {
                      id: 'meta-info',
                      tpl: new Ext.XTemplate(
                          '<div class="left-wrapper">',
-                             '<div class="seller">ANOTHER API CALL FOR USER INFORMATION</div>',
-                             '<div class="shipping">ANOTHER API CALL FOR SHIPPING INFORMATION</div>',
+                             '<div class="seller">login {User.login_name} feedback count: {User.feedback_info.count} feedback score: {User.feedback_info.score}</div>',
+                             '<div class="shipping">',
+                               '<tpl for="ShippingInfo">',
+                                 '{destination_country_name}<br/>',
+                                 '{primary_cost}<br/>',
+                                 '{currency_code}<br/>',
+                               '</tpl>',
+                             '</div>',
                           '</div>'
                      )
                  },
@@ -195,8 +201,8 @@ Ext.define('Etsy.view.DetailPanel', {
                      id: 'scrollingDescription',
                      tpl: new Ext.XTemplate(
                          '<div class="right-wrapper">',
-                                 '<div class="text">{description}</div>',
-                                '</div>'
+                           '<div class="text">{description}</div>',
+                          '</div>'
                      ),
                    scrollable: {
                        direction: 'vertical',

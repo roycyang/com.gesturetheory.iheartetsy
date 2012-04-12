@@ -145,7 +145,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   onSignOutTap: function () {
-    ETSY.alert('You have successfully signed out. Come back soon!');
+    ETSY.alert('You have successfully signed out. Come back soon!', 'Signed Out');
   },
 
   // ==========
@@ -191,7 +191,7 @@ Ext.define('Etsy.controller.Browser', {
     if (panel == 'feedback') {
       ETSY.trackPageviews("/feedback", true); 
       try {
-        window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gtcrafted.com");
+        window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gesturetheory.com");
       } catch (err) {
         ETSY.alert('This only works on the iPad');
       }
@@ -231,7 +231,7 @@ Ext.define('Etsy.controller.Browser', {
           APP.loadHomePanel();
           GLOBAL.second_signin = false;
         }
-      });
+      }, 'Sign Out');
 
       self.selectNavListItem();
     } else if (panel == "bookmarkedCategory") {

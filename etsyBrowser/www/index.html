@@ -9,11 +9,13 @@
 
   <script type="text/javascript" charset="utf-8" src="oauth.js"></script>
   <script type="text/javascript" charset="utf-8" src="sha1.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova/cordova-1.5.0.js"></script>
+  
+	<script type="text/javascript" charset="utf-8" src="cordova/cordova-1.6.0.js"></script>
   <script type="text/javascript" charset="utf-8" src="cordova/EmailComposer.js"></script>
-  <script type="text/javascript" charset="utf-8" src="cordova/TwitterPlugin.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova/ChildBrowser.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>	
+	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/cdv-plugin-fb-connect.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/facebook_js_sdk.js"></script>
 	
 
 	<script type="text/javascript" charset="utf-8" src="ETSY.utils.js"></script>
@@ -77,8 +79,18 @@
 	for more details -jm */
 	function onDeviceReady()
 	{
+		
+		// initializing facebook
+		try {
+    	FB.init({ appId: "224999977607968", nativeInterface: CDV.FB, useCachedDialogs: false });
+
+    } catch (e) {
+    	alert(e);
+    }
+		
+		
 		// do your thing!
-    // navigator.notification.alert("Cordova is working")
+    	// navigator.notification.alert("Cordova is working")
 
 		var cb = ChildBrowser.install();
 		
@@ -86,10 +98,10 @@
 			locChanged(loc); 
 		};
 		
-		// wait until Sencha is finished initializing and then hide splash screen
-		setTimeout(function() {
-		    navigator.splashscreen.hide();
-		}, 3000);
+    // // wait until Sencha is finished initializing and then hide splash screen
+    // setTimeout(function() {
+    //     cordova.exec(null, null, “SplashScreen”, “hide”, []);
+    // }, 2000);
 		
 		// after device ready, create a local alias and start the tracker with your own id.
     GLOBAL.googleAnalytics = window.plugins.googleAnalyticsPlugin;

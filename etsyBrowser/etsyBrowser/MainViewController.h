@@ -19,9 +19,9 @@
 
 //
 //  MainViewController.h
-//  etsyBrowser
+//  tesedf
 //
-//  Created by Roy Yang on 3/23/12.
+//  Created by Roy Yang on 4/12/12.
 //  Copyright Gesture Theory Inc. 2012. All rights reserved.
 //
 

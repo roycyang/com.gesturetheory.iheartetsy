@@ -41,6 +41,7 @@ Ext.define('Etsy.model.Listing', {
             }
         },
         'User',
+        'ShippingInfo',
         'quantity',
 
         {
@@ -76,7 +77,7 @@ Ext.define('Etsy.model.Listing', {
             pageParam: false,
             extraParams: {
                 api_key: 'tia49fh9iqjcrukurpbyqtv5',
-                includes: 'Images:6,User',
+                includes: 'Images:6,User,ShippingInfo',
                 limit: '100'
             },
             reader: {

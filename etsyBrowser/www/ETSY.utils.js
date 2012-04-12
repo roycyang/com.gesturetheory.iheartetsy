@@ -1,4 +1,25 @@
 var ETSY = {
+  
+  facebookWallPost: function() {
+		try{
+		  var params = {
+  		    method: 'feed',
+  		    name: GLOBAL.newData.title,
+  		    link:  GLOBAL.newData.url,
+  		    picture: GLOBAL.newData.image.large,
+  		    caption: 'I Heart Etsy App',
+  		    description: 'Check out this item I found on the I Heart Etsy App'
+  		  };
+  		console.log(params);
+  	  FB.ui(params, function(obj) { 
+  	    console.log('success!');
+  	  });
+		}catch(err){
+		  ETSY.alert('This is only available on the iPad!');
+		}
+		
+	},
+	
   trackPageviews: function(url, dontRecord){
     if(!dontRecord){
       GLOBAL.google_last_url = url;
@@ -101,7 +122,7 @@ var ETSY = {
 		if (buttonId == 'yes' || buttonId == '1') {
       ETSY.initAuthorization();
 		} 
-	});
+	  }, 'Sign In');
 	},
 	
 	/**
@@ -116,7 +137,7 @@ var ETSY = {
     
     // Prompt the user and return false if the user is not signed in.
     if (!GLOBAL.signed_in) {
-      ETSY.askForSignIn('You are trying to add an item to your cart, would you like to sign in?');
+      ETSY.askForSignIn('You are trying to favorite this item, would you like to sign in?');
       return false;
     }
     
@@ -291,21 +312,21 @@ var ETSY = {
 		
 	},
 
-	alert: function(msg) {
+	alert: function(msg, title) {
 		try {
-			navigator.notification.alert(msg);
+			navigator.notification.alert(msg, title);
 		} catch(err) {
-			var msg = Ext.Msg.alert('Alert', msg);
+			var msg = Ext.Msg.alert(title, msg);
 			msg.setZIndex(1000000000000000);
 		}
 	},
 	
-	confirm: function(msg, callback) {
+	confirm: function(msg, callback, title) {
 		try {
-			navigator.notification.confirm(msg, callback);
+			navigator.notification.confirm(msg, callback, title);
 		}
 		catch(err) {
-			var msg = Ext.Msg.confirm('Confirm', msg, callback);
+			var msg = Ext.Msg.confirm(title, msg, callback);
 			msg.setZIndex(1000000000000000);
 		}
 	},

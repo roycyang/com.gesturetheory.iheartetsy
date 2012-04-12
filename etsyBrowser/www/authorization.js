@@ -42,7 +42,7 @@ function completeAuthorization(loc) {
           localStorage['accessTokenKey'] = accessParams.oauth_token;
           localStorage['accessTokenSecret'] = accessParams.oauth_token_secret;
 
-          // Cordova.exec("ChildBrowserCommand.close");
+          // cordova.exec("ChildBrowserCommand.close");
           oauth.setAccessToken([accessParams.oauth_token, accessParams.oauth_token_secret]);
           oauth.get('http://openapi.etsy.com/v2/users/__SELF__?includes=Profile',
           function(data) {
@@ -61,7 +61,7 @@ function completeAuthorization(loc) {
 
               ETSY.toggleSignIn();
               if(!GLOBAL.second_signin){
-                ETSY.alert('Welcome ' + name);
+                ETSY.alert('You have successfully signed in,' + name + '!', 'Welcome');
                 GLOBAL.second_signin = true;
               }
 

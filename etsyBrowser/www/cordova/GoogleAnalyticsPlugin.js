@@ -1,11 +1,11 @@
 function GoogleAnalyticsPlugin() {}
 
 GoogleAnalyticsPlugin.prototype.startTrackerWithAccountID = function(id) {
-	Cordova.exec("GoogleAnalyticsPlugin.startTrackerWithAccountID",id);
+	cordova.exec("GoogleAnalyticsPlugin.startTrackerWithAccountID",id);
 };
 
 GoogleAnalyticsPlugin.prototype.trackPageview = function(pageUri) {
-	Cordova.exec("GoogleAnalyticsPlugin.trackPageview",pageUri);
+	cordova.exec("GoogleAnalyticsPlugin.trackPageview",pageUri);
 };
 
 GoogleAnalyticsPlugin.prototype.trackEvent = function(category,action,label,value) {
@@ -13,14 +13,14 @@ GoogleAnalyticsPlugin.prototype.trackEvent = function(category,action,label,valu
 		action:action,
 		label:label,
 		value:value};
-	Cordova.exec("GoogleAnalyticsPlugin.trackEvent",options);
+	cordova.exec("GoogleAnalyticsPlugin.trackEvent",options);
 };
 
 GoogleAnalyticsPlugin.prototype.setCustomVariable = function(index,name,value) {
 	var options = {index:index,
 		name:name,
 		value:value};
-	Cordova.exec("GoogleAnalyticsPlugin.setCustomVariable",options);
+	cordova.exec("GoogleAnalyticsPlugin.setCustomVariable",options);
 };
 
 GoogleAnalyticsPlugin.prototype.hitDispatched = function(hitString) {

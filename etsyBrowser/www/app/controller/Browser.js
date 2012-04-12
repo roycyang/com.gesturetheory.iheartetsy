@@ -41,7 +41,7 @@ Ext.define('Etsy.controller.Browser', {
       favoritesCarousel: '#favoritesCarousel',
       
       // detail panel
-      detailPanel: '#detailPanel',
+      detailPanel: 'detailPanel',
       
       // categories popup
       categoryPopupPanel: 'categoryPopupPanel'
@@ -73,7 +73,6 @@ Ext.define('Etsy.controller.Browser', {
     self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
     self.mainView.add(Ext.create('Etsy.view.AppPanel'));
     self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
-    self.detailPanel = Ext.create('Etsy.view.DetailPanel');
 
     if(!localStorage.hasSeenInstructions){
       self.mainView.add(Ext.create('Etsy.view.InstructionsPanel'));
@@ -108,6 +107,7 @@ Ext.define('Etsy.controller.Browser', {
     self.loadHomePanel();
 
     ETSY.toggleSignIn();
+    // ETSY.toggleFacebookSignIn();
   },
 
   toggleNav: function (position) {
@@ -173,15 +173,13 @@ Ext.define('Etsy.controller.Browser', {
   // ================================
   onListingTap: function (view, record) {
     ETSY.trackPageviews("/detail/" + record.get('id'));
-    console.log('**on onListingTap!');
-    Ext.getCmp('detailPanelMoreInfo').hide();
-    this.detailPanel.setData(record.data);
 
-    if (!this.detailPanel.getParent()) {
-      Ext.Viewport.add(this.detailPanel);
-    }
 
-    this.detailPanel.show();
+
+    Ext.create('Etsy.view.DetailPanel');
+    self.getAppPanel().add(self.getDetailPanel());
+    self.getDetailPanel().setData(record.data);
+
   },
 
   onNavListTap: function (view, index, item, record) {
@@ -229,7 +227,8 @@ Ext.define('Etsy.controller.Browser', {
           ETSY.toggleSignIn();
           APP.onSignOutTap();
           APP.loadHomePanel();
-          GLOBAL.second_signin = false;
+          GLOBAL.second_signin = false;  
+          FB.logout();          
         }
       }, 'Sign Out');
 
@@ -359,7 +358,8 @@ Ext.define('Etsy.controller.Browser', {
     self.getTreasuryCarousel().setActiveItem(0);
   },
   
-  loadSearch: function (keyword, category) {
+  loadSearch: function (keyword, category, minPrice, maxPrice, location) {
+    console.log('in loadSearch with these params', keyword, category, minPrice, maxPrice, location);
     ETSY.trackPageviews("/search/" + keyword);
     Ext.Ajax.abortAll();
     GLOBAL.panel = 'searchResults';
@@ -387,20 +387,35 @@ Ext.define('Etsy.controller.Browser', {
     self.getAppPanel().add(self.getSearchResultsPanel());
     self.getAppPanel().setActiveItem(self.getSearchResultsPanel());
 
-
-
+    store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+    store.getProxy().setExtraParam('keywords', keyword);
+    
     if(category){
-      store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
-      store.getProxy().setExtraParam('keywords', keyword);
       store.getProxy().setExtraParam('category', category.name);
       self.getSearchToolbar().setTitle('Search in ' + category.short_name + ' for: ' + keyword);
     }else{
-      store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
-      store.getProxy().setExtraParam('keywords', keyword);
       delete self.listingsStore.getProxy()._extraParams.category;
       self.getSearchToolbar().setTitle('Search Results for: ' + keyword);
     }
-
+    
+    if(minPrice){
+      store.getProxy().setExtraParam('min_price', minPrice);
+    }else{
+      delete self.listingsStore.getProxy()._extraParams.min_price;
+    }
+    
+    if(maxPrice){
+      store.getProxy().setExtraParam('max_price', maxPrice);
+    }else{
+      delete self.listingsStore.getProxy()._extraParams.max_price;
+    }
+    
+    if(location){
+      store.getProxy().setExtraParam('location', location);
+    }else{
+      delete self.listingsStore.getProxy()._extraParams.location;
+    }
+    
     store.load();
 
 
@@ -451,8 +466,12 @@ Ext.define('Etsy.controller.Browser', {
     store.removeAll(true);
     self.getCategoriesCarousel().reset();
 
+    // remove all params from search
     delete self.listingsStore.getProxy()._extraParams.tags;
     delete self.listingsStore.getProxy()._extraParams.keywords;
+    delete self.listingsStore.getProxy()._extraParams.min_price;
+    delete self.listingsStore.getProxy()._extraParams.max_price;
+    delete self.listingsStore.getProxy()._extraParams.location;
     // resetting the store to use our NODE.JS
     store.getProxy().setUrl(GLOBAL.api + 'categories?categories=' + record.get('name'));
     delete self.listingsStore.getProxy()._extraParams.categories;

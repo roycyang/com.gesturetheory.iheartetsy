@@ -12,7 +12,6 @@ var ETSY = {
   		  };
   		console.log(params);
   	  FB.ui(params, function(obj) { 
-  	    console.log('success!');
   	  });
 		}catch(err){
 		  ETSY.alert('This is only available on the iPad!');
@@ -46,6 +45,15 @@ var ETSY = {
     
   },
 
+  // toggleFacebookSignIn: function(){
+  //   console.log("localStorage['cdv_fb_session'] is " + localStorage.getItem('cdv_fb_session'));
+  //   if(localStorage['cdv_fb_session']){
+  //     $('.sign-out-facebook-link').parents('.x-list-item').show();
+  //   }else{
+  //     $('.sign-out-facebook-link').parents('.x-list-item').hide();
+  //   }
+  // },
+  
 	toggleSignIn: function(signed_in){
 		if(localStorage['accessTokenKey'] || signed_in){
 			$('body').addClass('signed-in-flag');

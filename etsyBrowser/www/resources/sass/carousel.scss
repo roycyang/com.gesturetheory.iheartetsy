@@ -113,7 +113,7 @@ p.desc {
   }
 
   .product {
-    background: white;
+//    background: white;
     position: relative;
     display: inline-block;
     vertical-align: top;
@@ -122,8 +122,10 @@ p.desc {
     padding: 0;
     margin: 0 50px 38px 0;
     padding: 5px;
-    border: 1px solid #EAE9E1;
-    border-radius: 4px;
+//    border: 1px solid #EAE9E1;
+
+  background: url(../images/slices-v2/product-container-1x.png) no-repeat 0 0;
+    //border-radius: 4px;
 
     &.product-pressed-flag .name {
       color: #D24700;

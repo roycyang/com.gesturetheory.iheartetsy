@@ -107,7 +107,6 @@ p.desc {
 }
 /* line 115, ../sass/carousel.scss */
 .products .product {
-  background: white;
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -116,19 +115,18 @@ p.desc {
   padding: 0;
   margin: 0 50px 38px 0;
   padding: 5px;
-  border: 1px solid #EAE9E1;
-  border-radius: 4px;
+  background: url(../images/slices-v2/product-container-1x.png) no-repeat 0 0;
 }
-/* line 128, ../sass/carousel.scss */
+/* line 130, ../sass/carousel.scss */
 .products .product.product-pressed-flag .name {
   color: #D24700;
 }
-/* line 132, ../sass/carousel.scss */
+/* line 134, ../sass/carousel.scss */
 .products .product .image {
   height: 135px;
   width: 170px;
 }
-/* line 137, ../sass/carousel.scss */
+/* line 139, ../sass/carousel.scss */
 .products .product .name {
   margin-top: 6px;
   height: 27px;
@@ -139,7 +137,7 @@ p.desc {
   font-size: 11px;
   overflow: hidden;
 }
-/* line 148, ../sass/carousel.scss */
+/* line 150, ../sass/carousel.scss */
 .products .product .price {
   position: absolute;
   right: 5px;
@@ -147,35 +145,35 @@ p.desc {
   width: 52px;
 }
 
-/* line 157, ../sass/carousel.scss */
+/* line 159, ../sass/carousel.scss */
 .product-bounce {
   -webkit-transition-property: all;
   -webkit-animation: product-bounce 1s 1;
 }
 
 @-webkit-keyframes product-bounce {
-  /* line 163, ../sass/carousel.scss */
+  /* line 165, ../sass/carousel.scss */
   0% {
     -webkit-transform: rotate(0) translate3d(0, 30px, 0);
   }
 
-  /* line 167, ../sass/carousel.scss */
+  /* line 169, ../sass/carousel.scss */
   25% {
     -webkit-transform: rotate(4deg) translate3d(0, -10px, 0);
   }
 
-  /* line 171, ../sass/carousel.scss */
+  /* line 173, ../sass/carousel.scss */
   50% {
     -webkit-transform: rotate(-2deg) translate3d(0, 5px, 0);
   }
 
-  /* line 175, ../sass/carousel.scss */
+  /* line 177, ../sass/carousel.scss */
   100% {
     -webkit-transform: rotate(0) translate3d(0, 0px, 0);
   }
 }
 
-/* line 180, ../sass/carousel.scss */
+/* line 182, ../sass/carousel.scss */
 .quick-bounce {
   -webkit-transition-property: all;
   -webkit-transition-duration: .5s;

@@ -13,8 +13,6 @@ Ext.define('Etsy.model.Listing', {
         {
           name: 'parsed_description',
           convert: function (value, record) {
-            console.log('record', record);
-
             return record.data.description.replace(/\n/g, '<br />');
           }
         },

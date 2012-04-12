@@ -88,11 +88,12 @@ span.arrow {
   }
   
   #searchButton {
-    background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px top;
+    background: url(../images/slices-v2/search-button-1x.png) no-repeat left top;
     height: 36px;
+    margin-left: 167px;
     
     &.x-button-pressing {
-      background: url(../images/slices-v2/search-button-1x.png) no-repeat 165px -37px;
+      background: url(../images/slices-v2/search-button-1x.png) no-repeat left -37px;
     }
   }
 }

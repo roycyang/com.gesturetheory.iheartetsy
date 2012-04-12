@@ -30,7 +30,7 @@ GoogleAnalyticsPlugin.prototype.trackerDispatchDidComplete = function(count) {
 	//console.log("trackerDispatchDidComplete :: " + count);
 };
 
-Cordova.addConstructor(function() {
+cordova.addConstructor(function() {
   if(!window.plugins) window.plugins = {};
   window.plugins.googleAnalyticsPlugin = new GoogleAnalyticsPlugin();
 });

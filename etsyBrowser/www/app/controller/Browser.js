@@ -96,7 +96,7 @@ Ext.define('Etsy.controller.Browser', {
           { name: 'd', title: '<div class="favorites-label">Favorites <span class="count"></span></div>',  type: ''  , panel: 'favoritesPanel'},
           { name: 'e', title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: ''  , panel: 'cartPanel'},
           { name: 'f', title: 'Feedback',  type: ''  , panel: 'feedback'},
-          { name: 'g', title: 'Instructions',  type: ''  , panel: 'instructions'},
+          { name: 'g', title: 'App Tour',  type: ''  , panel: 'instructions'},
           { name: 'h', title: '<div class="sign-out-link">Sign Out</div>',  type: ''  , panel: 'signout'}
       );
       localStorage.hasLoaded = true;
@@ -306,6 +306,7 @@ Ext.define('Etsy.controller.Browser', {
     self.mainView.add(Ext.create('Etsy.view.InstructionsPanel', {
       hideOnMaskTap: true
     }));
+    Ext.getCmp('instructionCarousel').removeAt(5);
   },
 
   loadTreasury: function (treasury_id, title) {

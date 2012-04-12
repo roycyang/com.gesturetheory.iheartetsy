@@ -60,6 +60,36 @@
   
   #instructionCarousel {
     overflow: hidden;
+    
+    .instruction-panel {
+      width: 559px;
+      height: 655px;
+      margin: 0 auto;
+      background-size: contain;
+    }
+    
+    #panel5 {
+      background-image: url(../images/instructions/slide_5.png);
+      #instr-sign-up-button {
+        background: url(../images/instructions/Sign-in-button-2x.png) no-repeat 0 0;
+        background-size: contain;
+        
+        &.x-button-pressing {
+          background: url(../images/instructions/Sign-in-button-active-2x.png) no-repeat 0 0;
+        }
+      }
+      
+      #instr-app-button {
+        background: url(../images/instructions/Use-app-button-2x.png) no-repeat 0 0;
+        background-size: contain;
+        
+         &.x-button-pressing {
+            background: url(../images/instructions/Use-app-button-active-2x.png) no-repeat 0 0;
+          }
+      }
+    }
+    
+    
   }
   
   
@@ -151,10 +181,4 @@
     background-color: #bf1e2e;
     border: 2px solid #bf1e2e;
   }
-}
-.instruction-panel {
-  width: 559px;
-  height: 655px;
-  margin: 0 auto;
-  background-size: contain;
 }

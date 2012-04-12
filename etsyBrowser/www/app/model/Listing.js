@@ -9,9 +9,17 @@ Ext.define('Etsy.model.Listing', {
                 return record.data.listing_id;
             }
         },
+        'description',
+        {
+          name: 'parsed_description',
+          convert: function (value, record) {
+            console.log('record', record);
+
+            return record.data.description.replace(/\n/g, '<br />');
+          }
+        },
         'listing_id',
         'Images',
-        'description',
         'title',
         'url',
         'price',

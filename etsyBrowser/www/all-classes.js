@@ -28781,9 +28781,10 @@ Ext.define('Etsy.view.TreasuryPanel', {
             items: [
             {
                 xtype: 'button',
-                cls: 'back-button',
-                ui: 'back',
-                text: 'back',
+                width: 105,
+                height: 47,
+                cls: 'header-back-button',
+                ui: 'plain',
                 listeners: {
                     tap: function() {
                         self.getAppPanel().getLayout().setAnimation({
@@ -28829,29 +28830,29 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             docked: 'top',
             id: 'searchResultsToolbar',
             items: [
-            {
-              width: 105,
-              height: 47,
+              {
+                width: 105,
+                height: 47,
                 xtype: 'button',
                 cls: 'header-back-button',
                 ui: 'plain',
                 listeners: {
-                    tap: function() {
-                        Ext.Ajax.abortAll();
-                        GLOBAL.stopEvents = true;
-                        self.getAppPanel().getLayout().setAnimation({
-                            type: 'slide',
-                            duration: 300,
-                            direction: 'right'
-                        });
-                        APP.getAppPanel().setActiveItem(0);
-                        setTimeout(function() {
-                            APP.getSearchResultsPanel().destroy(true);
-                        },
-                        500);
-                    }
+                  tap: function () {
+                    Ext.Ajax.abortAll();
+                    GLOBAL.stopEvents = true;
+                    self.getAppPanel().getLayout().setAnimation({
+                      type: 'slide',
+                      duration: 300,
+                      direction: 'right'
+                    });
+                    APP.getAppPanel().setActiveItem(0);
+                    setTimeout(function () {
+                      APP.getSearchResultsPanel().destroy(true);
+                    }, 500);
+                  }
                 }
-            },
+              },
+
             {
                 xtype: 'spacer'
             },
@@ -29211,14 +29212,6 @@ Ext.define('Etsy.view.DetailPanel',
     },
 
     initialize: function() {
-        // var image = this.down('image');
-        //
-        // image.on({
-        //     scope: this,
-        //     load: function() {
-        //         image.element.dom.style.backgroundSize = "contain";
-        //     }
-        // });
         this.element.on({
             scope: this,
             tap: 'onTap',
@@ -29240,7 +29233,6 @@ Ext.define('Etsy.view.DetailPanel',
         var element = Ext.get(e.target);
         if (element.hasCls('price')) {
             $('.description-inner-wrapper').addClass('cart-pressed-flag');
-            return false;
         }
     },
 
@@ -29256,11 +29248,6 @@ Ext.define('Etsy.view.DetailPanel',
         if(Ext.get(e.target).parent('.x-carousel-item')){
           if (Ext.getCmp('detailPanelMoreInfo').isHidden()) {
             ETSY.trackEvent('actions', 'show info', 'from detail panel');
-            // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
-            //   type: 'slide',
-            //   duration: 300,
-            //   direction: 'down'
-            // })
             Ext.getCmp('detailPanelMoreInfo').show();
             Ext.getCmp('detailPanelInfoButton').setCls('active');
           } else {

@@ -287,14 +287,6 @@ Ext.define('Etsy.view.DetailPanel',
     },
 
     initialize: function() {
-        // var image = this.down('image');
-        //
-        // image.on({
-        //     scope: this,
-        //     load: function() {
-        //         image.element.dom.style.backgroundSize = "contain";
-        //     }
-        // });
         this.element.on({
             scope: this,
             tap: 'onTap',
@@ -316,7 +308,6 @@ Ext.define('Etsy.view.DetailPanel',
         var element = Ext.get(e.target);
         if (element.hasCls('price')) {
             $('.description-inner-wrapper').addClass('cart-pressed-flag');
-            return false;
         }
     },
 
@@ -332,11 +323,6 @@ Ext.define('Etsy.view.DetailPanel',
         if(Ext.get(e.target).parent('.x-carousel-item')){
           if (Ext.getCmp('detailPanelMoreInfo').isHidden()) {
             ETSY.trackEvent('actions', 'show info', 'from detail panel');
-            // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
-            //   type: 'slide',
-            //   duration: 300,
-            //   direction: 'down'
-            // })
             Ext.getCmp('detailPanelMoreInfo').show();
             Ext.getCmp('detailPanelInfoButton').setCls('active');
           } else {

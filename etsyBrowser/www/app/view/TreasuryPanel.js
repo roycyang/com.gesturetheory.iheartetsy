@@ -11,6 +11,8 @@ Ext.define('Etsy.view.TreasuryPanel', {
             items: [
             {
                 xtype: 'button',
+                width: 105,
+                height: 47,
                 cls: 'header-back-button',
                 ui: 'plain',
                 listeners: {

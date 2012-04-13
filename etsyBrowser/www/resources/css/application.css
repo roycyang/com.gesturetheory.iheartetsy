@@ -7347,19 +7347,24 @@ input[type="search"]::-webkit-search-cancel-button {
   padding: 30px 0 10px;
 }
 
-/* line 1, ../sass/sidePanels.scss */
+/** ----------------------------------
+
+    Nav panels.
+    
+---------------------------------- */
+/* line 6, ../sass/_sidePanels.scss */
 #navPanel {
   background: #46250a url(../images/slices-v2/LeftNav-top-background-1x.png) no-repeat top left;
 }
-/* line 4, ../sass/sidePanels.scss */
+/* line 9, ../sass/_sidePanels.scss */
 #navPanel #signUpButton {
   height: 92px;
 }
-/* line 8, ../sass/sidePanels.scss */
+/* line 13, ../sass/_sidePanels.scss */
 #navPanel #signUpButton.x-button-pressing .promo-user-info span.sign-in {
   text-decoration: underline;
 }
-/* line 16, ../sass/sidePanels.scss */
+/* line 21, ../sass/_sidePanels.scss */
 #navPanel .user-info {
   color: #FEFBE3;
   padding: 20px 20px;
@@ -7367,7 +7372,7 @@ input[type="search"]::-webkit-search-cancel-button {
   line-height: 56px;
   overflow: hidden;
 }
-/* line 26, ../sass/sidePanels.scss */
+/* line 31, ../sass/_sidePanels.scss */
 #navPanel .x-button-label, #navPanel .x-hasbadge .x-badge, .x-hasbadge #navPanel .x-badge {
   color: #FEFBE3;
   padding: 20px 20px;
@@ -7376,7 +7381,7 @@ input[type="search"]::-webkit-search-cancel-button {
   overflow: hidden;
   white-space: normal;
 }
-/* line 34, ../sass/sidePanels.scss */
+/* line 39, ../sass/_sidePanels.scss */
 #navPanel .x-button-label span.desc, #navPanel .x-hasbadge .x-badge span.desc, .x-hasbadge #navPanel .x-badge span.desc {
   display: block;
   font-size: 11px;
@@ -7385,7 +7390,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-top: 5px;
   font-weight: 300;
 }
-/* line 44, ../sass/sidePanels.scss */
+/* line 49, ../sass/_sidePanels.scss */
 #navPanel img {
   height: 56px;
   margin-right: 15px;
@@ -7396,7 +7401,7 @@ input[type="search"]::-webkit-search-cancel-button {
   padding: 3px;
 }
 
-/* line 55, ../sass/sidePanels.scss */
+/* line 60, ../sass/_sidePanels.scss */
 span.count {
   display: none;
   float: right;
@@ -7405,40 +7410,57 @@ span.count {
   padding: 2px 5px;
   border-radius: 7px;
 }
-/* line 63, ../sass/sidePanels.scss */
+/* line 68, ../sass/_sidePanels.scss */
 .signed-in-flag span.count {
   display: block;
 }
 
-/* line 69, ../sass/sidePanels.scss */
+/* line 74, ../sass/_sidePanels.scss */
 span.arrow {
   float: right;
   font-size: 13px;
   padding: 2px 5px;
 }
 
-/* line 76, ../sass/sidePanels.scss */
+/** ----------------------------------
+
+    Right side, search panel.
+    
+---------------------------------- */
+/* line 86, ../sass/_sidePanels.scss */
 #searchPanel {
   background: #46250a;
 }
-
-/* line 82, ../sass/sidePanels.scss */
+/* line 89, ../sass/_sidePanels.scss */
 #searchPanel h4 {
   font-size: 12px;
   padding: 5px 20px;
-  background: #2E1807;
-  color: #FEFBE3;
+  background: #2e1807;
+  color: #fefbe3;
   margin-bottom: 20px;
 }
-/* line 90, ../sass/sidePanels.scss */
+/* line 97, ../sass/_sidePanels.scss */
 #searchPanel #searchButton {
-  background: url(../images/slices-v2/search-button-1x.png) no-repeat left top;
-  height: 36px;
-  margin-left: 167px;
+  margin: 0 auto;
+  background: center center no-repeat;
+  background-size: 100%;
+  background-image: url("../images/slices-v2/RightMenu-search-button-link-1x.png");
 }
-/* line 95, ../sass/sidePanels.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 97, ../sass/_sidePanels.scss */
+  #searchPanel #searchButton {
+    background-image: url("../images/slices-v2/RightMenu-search-button-link-2x.png");
+  }
+}
+/* line 104, ../sass/_sidePanels.scss */
 #searchPanel #searchButton.x-button-pressing {
-  background: url(../images/slices-v2/search-button-1x.png) no-repeat left -37px;
+  background-image: url("../images/slices-v2/RightMenu-search-button-active-1x.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 104, ../sass/_sidePanels.scss */
+  #searchPanel #searchButton.x-button-pressing {
+    background-image: url("../images/slices-v2/RightMenu-search-button-active-2x.png");
+  }
 }
 
 /* line 5, ../sass/carousel.scss */

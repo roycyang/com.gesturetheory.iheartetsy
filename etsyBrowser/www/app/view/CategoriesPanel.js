@@ -114,7 +114,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
         }
         
         
-        console.log('sweet!');
+        //console.log('sweet!');
         return false;
       }
     }

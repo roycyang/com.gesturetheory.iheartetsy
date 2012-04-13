@@ -25,7 +25,7 @@ Ext.define('Etsy.view.NavPanel', {
         html: '<div class="promo-user-info"><img src="http://www.etsy.com/images/avatars/default_avatar_75px.png"><span class="sign-in">Sign In</span> <span class="desc">You can favorite and add items to your cart by signing in</span></div>',
 				listeners: {
 					tap: function(){
-					  console.log('tapped signup');
+					  //console.log('tapped signup');
 						ETSY.initAuthorization();
 					}
 				}

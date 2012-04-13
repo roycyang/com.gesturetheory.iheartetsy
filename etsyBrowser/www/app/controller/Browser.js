@@ -253,7 +253,7 @@ Ext.define('Etsy.controller.Browser', {
       self.selectNavListItem();
     } else {
       if (panel == "favoritesPanel") {
-        console.log('calling load favortes');
+        //console.log('calling load favortes');
         self.loadFavorites();
       }
       if (panel == "treasuriesPanel") {
@@ -380,7 +380,7 @@ Ext.define('Etsy.controller.Browser', {
   },
   
   loadSearch: function (keyword, category, minPrice, maxPrice, location) {
-    console.log('in loadSearch with these params', keyword, category, minPrice, maxPrice, location);
+    //console.log('in loadSearch with these params', keyword, category, minPrice, maxPrice, location);
     ETSY.trackPageviews("/search/" + keyword);
     Ext.Ajax.abortAll();
     GLOBAL.panel = 'searchResults';
@@ -434,7 +434,7 @@ Ext.define('Etsy.controller.Browser', {
     }
     
     store.load(function(a,b,c,d,e){
-      console.log(a,b,c,d,e);
+      //console.log(a,b,c,d,e);
       APP.getSearchResultsPanel().unmask();
       setTimeout(function(){
         if(store.getCount() == 0){
@@ -495,7 +495,7 @@ Ext.define('Etsy.controller.Browser', {
     // resetting the store to use our NODE.JS
     store.getProxy().setUrl(GLOBAL.api + 'categories?categories=' + record.get('name'));
     delete self.listingsStore.getProxy()._extraParams.categories;
-    console.log(GLOBAL.api + 'categories?category=' + record.get('name'));
+    //console.log(GLOBAL.api + 'categories?category=' + record.get('name'));
     self.getCategoriesToolbar().setTitle(record.get('short_name'));
     $('#categoriesToolbar').removeClass('favorites');
         
@@ -536,7 +536,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadFavorites: function () {
-    console.log('in loadFavortes');
+    //console.log('in loadFavortes');
     ETSY.trackPageviews("/favorites");
     if (!GLOBAL.signed_in) {
       ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
@@ -559,7 +559,7 @@ Ext.define('Etsy.controller.Browser', {
       message: 'Loading Favorites'
     });
 
-    console.log('loading favorites!!!');
+    //console.log('loading favorites!!!');
     GLOBAL.oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100', function (data) {
 
       var data = JSON.parse(data.text);
@@ -567,7 +567,7 @@ Ext.define('Etsy.controller.Browser', {
       for (i = 0; i < data.results.length; i++) {
         listingIds.push(data.results[i].listing_id);
       }
-      console.log('in favorrites listingIds', listingIds, listingIds.length)
+      //console.log('in favorrites listingIds', listingIds, listingIds.length)
       if(listingIds.length == 0){
         self.getCategoriesCarousel().reset();
         self.getCategoriesPanel().unmask();

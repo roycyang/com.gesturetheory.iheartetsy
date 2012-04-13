@@ -2,7 +2,7 @@ Ext.define('Etsy.view.HomePanel', {
     extend: 'Ext.Panel',
     alias: 'widget.homePanel',
     
-    requires: ['Etsy.view.SmallTreasuries'],
+    requires: ['Etsy.view.SmallTreasuries', 'Ext.field.Search'],
     config: {
         title: 'Home',
         id: 'homePanel',

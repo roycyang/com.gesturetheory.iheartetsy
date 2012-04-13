@@ -1,5 +1,6 @@
 Ext.define('Etsy.view.SearchPanel', {
 	extend: 'Ext.Container',
+    requires: ['Ext.form.Panel', 'Ext.form.FieldSet','Ext.field.Number','Ext.field.Search'],
 	config: {
 		layout: 'vbox',
 		id: 'searchPanel',

@@ -239,18 +239,18 @@ Ext.define('Etsy.view.ListingsCarousel', {
   },
 
   updateStore: function (newStore) {
-    console.log('called updateStore');
+    //console.log('called updateStore');
     var me = this;
 
     if (newStore.isLoading()) {
-      console.log('in newStore.isLoading()');
+      //console.log('in newStore.isLoading()');
       if (GLOBAL.panel == 'listings' || GLOBAL.panel == 'searchResults') {
         // this is when the store updates, we can update the max index.
         newStore.on('refresh', function () {
           var storeCount = newStore.getCount();
             me.adjustAfterLoading(me, newStore);          
             newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
-            console.log('\n\n\n\n\nnew store proxy', newStore.getProxy());
+            //console.log('\n\n\n\n\nnew store proxy', newStore.getProxy());
             if(GLOBAL.panel == 'listings'){
               newStore.getProxy().setExtraParam('category', GLOBAL.searchCategory.name);
             }
@@ -260,7 +260,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       
       // this is when the store loads for the first time
       newStore.on('load', function () {
-        console.log('in store load');
+        //console.log('in store load');
         me.adjustAfterLoading(me, newStore);
         me.updateStore(newStore);
       }, me, {
@@ -268,7 +268,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       });
       
     } else {
-      console.log('NOT in newStore.isLoading()');
+      //console.log('NOT in newStore.isLoading()');
       me.reset();
       me.adjustAfterLoading(me, newStore);
     }
@@ -301,7 +301,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
   onActiveItemChange: function (carousel, newItem, oldItem) {
     // tests to see if we should try to load in another set of items from the Etsy API
     // and then calls adjustAfterLoading which makes sure we adjust the arrows and the max items
-    console.log('called onActiveItemChange');
+    //console.log('called onActiveItemChange');
 
     try{
       var index     = carousel.getActiveIndex(),
@@ -314,49 +314,54 @@ Ext.define('Etsy.view.ListingsCarousel', {
           ETSY.trackPageviews(GLOBAL.google_last_url + "/" + index, true); 
         }
 
-        console.log('storeCount', storeCount);
-        console.log('count', count)
-        console.log('offsetLimit', offsetLimit);
+        //console.log('storeCount', storeCount);
+        //console.log('count', count)
+        //console.log('offsetLimit', offsetLimit);
         
       if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
         if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
-          console.log('calling store.nextPage');
+          //console.log('calling store.nextPage');
           store.nextPage();
         }
       }
 
       carousel.adjustAfterLoading(carousel, store);
     }catch(err){
-      console.log('error: ', err);
+      //console.log('error: ', err);
     }
     
   },
 
   onItemIndexChange: function (me, item, index) {
-    var store = this.getStore(),
-      count = this.getCount(),
-      records, startIndex, endIndex, i;
+    try{
+      var store = this.getStore(),
+        count = this.getCount(),
+        records, startIndex, endIndex, i;
 
-    if (!store) {
-      return;
-    }
-    
-    startIndex = index * count;
-
-    if (count > 1) {
-      endIndex = startIndex + count;
-    } else {
-      endIndex = startIndex;
-    }
-
-    records = store.queryBy(function (record, id) {
-      i = store.indexOf(record);
-      if (i >= startIndex && i <= endIndex) {
-        return record;
+      if (!store) {
+        return;
       }
-    }, this);
 
-    item.setRecords(records);
+      startIndex = index * count;
+
+      if (count > 1) {
+        endIndex = startIndex + count;
+      } else {
+        endIndex = startIndex;
+      }
+
+      records = store.queryBy(function (record, id) {
+        i = store.indexOf(record);
+        if (i >= startIndex && i <= endIndex) {
+          return record;
+        }
+      }, this);
+
+      item.setRecords(records);
+    }catch(err){
+      
+    }
+
   }
   
 });

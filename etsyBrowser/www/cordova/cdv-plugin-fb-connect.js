@@ -21,7 +21,7 @@ CDV.FB = {
         FB.Auth.setAuthResponse(authResponse, 'connected');
        }
       }
-      console.log('Cordova Facebook Connect plugin initialized successfully.');
+      //console.log('Cordova Facebook Connect plugin initialized successfully.');
     }, (fail?fail:null), 'org.apache.cordova.facebook.Connect', 'init', [apiKey]);
   },
   login: function(params, cb, fail) {

@@ -1,6 +1,7 @@
 Ext.define('Etsy.view.CategoryPopupPanel', {
     extend: 'Ext.Panel',
     alias: 'widget.categoryPopupPanel',
+    requires: ['Ext.dataview.List'],
     config: {
         zIndex: 1000000000,
         centered: true,
@@ -35,7 +36,7 @@ Ext.define('Etsy.view.CategoryPopupPanel', {
         listeners: {
           erased: function () {
             APP.getCategoryPopupPanel().destroy();
-            console.log('destroyed the category popup panel!');
+            //console.log('destroyed the category popup panel!');
           }
         }
 

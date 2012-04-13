@@ -6,7 +6,6 @@ Ext.define('Etsy.view.DetailPanel',
     extend: 'Ext.Container',
     xtype: 'listing',
     alias: 'widget.detailPanel',
-    requires: ['Ext.Img'],
     config: {
       id: 'detailPanel',
       cls: 'product-view',
@@ -272,7 +271,7 @@ Ext.define('Etsy.view.DetailPanel',
       listeners: {
         erased: function () {
           APP.getDetailPanel().destroy();
-          console.log('destroyed the detail panel!');
+          //console.log('destroyed the detail panel!');
         }
       }
     },
@@ -313,7 +312,7 @@ Ext.define('Etsy.view.DetailPanel',
 
     onTap: function(e) {
         if (Ext.get(e.target).parent('.description-inner-wrapper')) {
-            console.log('should be going to ETSY.toggleCart');
+            //console.log('should be going to ETSY.toggleCart');
             ETSY.trackEvent('actions', 'add to cart', 'from detail panel');
             ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
             return false;
@@ -323,7 +322,7 @@ Ext.define('Etsy.view.DetailPanel',
         if (Ext.get(e.target).parent('.x-carousel-indicator')) {
             ETSY.trackEvent('actions', 'go to thumbnail', 'from detail panel');
             var index = parseInt($('.x-carousel-indicator span').index($('#' + e.target.id)), 10);
-            console.log('index is', index);
+            //console.log('index is', index);
             setTimeout(function() {
                 Ext.getCmp('detailPanelCarousel').setActiveItem(index);
             },

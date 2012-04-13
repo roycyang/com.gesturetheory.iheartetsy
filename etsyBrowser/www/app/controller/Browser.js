@@ -340,9 +340,8 @@ Ext.define('Etsy.controller.Browser', {
     loadHomePanel: function() {
         var count = 0;
         ETSY.trackPageviews("/home");
-
+        GLOBAL.stopEvents = true;
         Ext.Ajax.abortAll();
-//GLOBAL.stopEvents = true;
         GLOBAL.panel = 'home';
         GLOBAL.searchCategory = null;
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
@@ -359,14 +358,14 @@ Ext.define('Etsy.controller.Browser', {
             message: 'Loading Home',
         });
 
+        GLOBAL.stopEvents = false;
         self.categoryIndexStore.load(function() {
             count++;
             if (count == 2) {
                 self.getHomePanel().unmask();
                 if (self.treasuriesStore.getCount() == 0 && !GLOBAL.stopEvents) {
-                    ETSY.alert('as' + GLOBAL.offline_message);
+                    ETSY.alert(GLOBAL.offline_message);
                 }
-                GLOBAL.stopEvents = false;
             }
         });
         self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
@@ -375,9 +374,8 @@ Ext.define('Etsy.controller.Browser', {
             count++;
             if (count == 2) {
                 if (self.treasuriesStore.getCount() == 0  && !GLOBAL.stopEvents) {
-                    ETSY.alert('as' + GLOBAL.offline_message);
+                    ETSY.alert(GLOBAL.offline_message);
                 }
-                GLOBAL.stopEvents = false;
                 self.getHomePanel().unmask();
             }
 
@@ -396,7 +394,7 @@ Ext.define('Etsy.controller.Browser', {
     loadTreasury: function(treasury_id, title) {
         ETSY.trackPageviews("/treasury/" + treasury_id);
         Ext.Ajax.abortAll();
-//GLOBAL.stopEvents = true;
+        GLOBAL.stopEvents = true;
         GLOBAL.panel = 'treasury';
         var self = this;
 
@@ -425,11 +423,11 @@ Ext.define('Etsy.controller.Browser', {
         GLOBAL.searchCategory = null;
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
 
+        GLOBAL.stopEvents = false;
         store.load(function() {
-            if (self.listingsStore.getCount() == 0 && !GLOBAL.stopEvents ) {
+            if (store.getCount() == 0 && !GLOBAL.stopEvents ) {
                 ETSY.alert(GLOBAL.offline_message);
             }
-            GLOBAL.stopEvents = false;
             APP.getTreasuryPanel().unmask();
         });
         self.getTreasuryCarousel().setStore(store);
@@ -439,7 +437,7 @@ Ext.define('Etsy.controller.Browser', {
         //console.log('in loadSearch with these params', keyword, category, minPrice, maxPrice, location);
         ETSY.trackPageviews("/search/" + keyword);
         Ext.Ajax.abortAll();
-//GLOBAL.stopEvents = true;
+        GLOBAL.stopEvents = true;
         GLOBAL.panel = 'searchResults';
         var self = this;
 
@@ -490,6 +488,7 @@ Ext.define('Etsy.controller.Browser', {
             delete self.listingsStore.getProxy()._extraParams.location;
         }
 
+        GLOBAL.stopEvents = false;
         store.load(function(a, b, c, d, e) {
             //console.log(a,b,c,d,e);
             APP.getSearchResultsPanel().unmask();
@@ -518,7 +517,7 @@ Ext.define('Etsy.controller.Browser', {
         // this wipes out all the pending events and then resumes
         self.listingsStore.suspendEvents();
         Ext.Ajax.abortAll();
-//GLOBAL.stopEvents = true;
+        GLOBAL.stopEvents = true;
         self.listingsStore.resumeEvents();
 
         self.getAppPanel().removeAll(true);
@@ -562,12 +561,12 @@ Ext.define('Etsy.controller.Browser', {
         self.getNavList().select(1);
         GLOBAL.previousNavItemIndex = 1;
 
+        GLOBAL.stopEvents = false;
         // load the store, then set the store, the refresh the carousel
         store.load(function() {
             if (self.listingsStore.getCount() == 0  && !GLOBAL.stopEvents) {
                 ETSY.alert(GLOBAL.offline_message);
             }
-            GLOBAL.stopEvents = false;
             self.getCategoriesPanel().unmask();
         });
         self.getCategoriesCarousel().setStore(store);
@@ -577,7 +576,7 @@ Ext.define('Etsy.controller.Browser', {
     loadTreasuries: function() {
         ETSY.trackPageviews("/treasuries");
         Ext.Ajax.abortAll();
-//GLOBAL.stopEvents = true;
+        GLOBAL.stopEvents = true;
         var self = this;
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.TreasuriesPanel');
@@ -587,11 +586,11 @@ Ext.define('Etsy.controller.Browser', {
             message: 'Loading Treasuries'
         });
         var store = self.treasuriesStore;
+        GLOBAL.stopEvents = false;
         store.load(function() {
-            if (store.getCount() == 0) {
+            if (store.getCount() == 0 && !GLOBAL.stopEvents) {
                 ETSY.alert(GLOBAL.offline_message);
             }
-            GLOBAL.stopEvents = false;
             APP.getTreasuriesPanel().unmask();
         });
         self.getTreasuriesCarousel().setStore(store);
@@ -609,7 +608,7 @@ Ext.define('Etsy.controller.Browser', {
         var self = this;
         // this wipes out all the pending events and then resumes
         Ext.Ajax.abortAll();
-//GLOBAL.stopEvents = true;
+        GLOBAL.stopEvents = true;
 
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');

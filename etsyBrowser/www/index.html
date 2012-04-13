@@ -20,7 +20,7 @@
 	var GLOBAL = {
 	  version: '1.0',
 		signed_in: false,
-		api: 'http://50.74.56.194:8888/'  
+		api: 'http://morning-winter-4366.herokuapp.com/'  
 	};
 	
   // localStorage.accessTokenKey = "d3ffe7f0b9ccc7f3a69ddc409caadd";
@@ -100,15 +100,25 @@
 	  <!-- GT ADDED -->
 	  <link rel="stylesheet" type="text/css" href="resources/css/sencha-touch.css"/>
 	  <link rel="stylesheet" type="text/css" href="resources/css/application.css"/>
-	  <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+
     <script type="text/javascript" charset="utf-8" src="js/oauth.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/sha1.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.bbq.js"></script>
-	  <script type="text/javascript" src="sencha-touch-all-debug.js"></script>
+
+    <!--
+ 	  <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+    <script type="text/javascript" src="sencha-touch-debug.js"></script>
+    -->
+    <script type="text/javascript" src="sencha-touch.js"></script>
+    <script type="text/javascript" src="all-classes.js"></script>
+
+
+
 	  <script type="text/javascript" charset="utf-8" src="ETSY.utils.js"></script>
   	<script type="text/javascript" charset="utf-8" src="ETSY.authorization.js"></script>
-	  <script type="text/javascript" charset="utf-8" src="ETSY.app.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="app.js"></script>
+	  
   </head>
   <body onload="onBodyLoad()">
 	<div class="offline-mask"></div>	

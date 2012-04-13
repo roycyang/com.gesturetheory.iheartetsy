@@ -46,7 +46,7 @@ Ext.define('Etsy.model.Favorites', {
 
                 } catch(err)
                 {
-                    console.log('error in record', record)
+                    //console.log('error in record', record)
                 }
 
                 return images;

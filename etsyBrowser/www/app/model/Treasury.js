@@ -44,7 +44,7 @@ Ext.define('Etsy.model.Treasury', {
             },
             listeners: {
               exception: function(proxy, response, operation){
-                console.log(proxy, response, operation);
+                //console.log(proxy, response, operation);
               }
             }
         }

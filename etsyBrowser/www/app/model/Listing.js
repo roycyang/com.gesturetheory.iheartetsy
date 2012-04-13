@@ -55,7 +55,7 @@ Ext.define('Etsy.model.Listing', {
 
                 } catch(err)
                 {
-                    console.log('error in record', record)
+                    //console.log('error in record', record)
                 }
 
                 return images;

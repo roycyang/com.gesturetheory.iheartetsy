@@ -245,6 +245,7 @@ Ext.define('Etsy.controller.Browser', {
       self.selectNavListItem();
     } else {
       if (panel == "favoritesPanel") {
+        console.log('calling load favortes');
         self.loadFavorites();
       }
       if (panel == "treasuriesPanel") {
@@ -492,6 +493,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadTreasuries: function () {
+    console.log('in loadTreasuries');
     ETSY.trackPageviews("/treasuries");
     Ext.Ajax.abortAll();
     var self = this;
@@ -517,6 +519,7 @@ Ext.define('Etsy.controller.Browser', {
   },
 
   loadFavorites: function () {
+    console.log('in loadFavortes');
     ETSY.trackPageviews("/favorites");
     if (!GLOBAL.signed_in) {
       ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
@@ -541,6 +544,7 @@ Ext.define('Etsy.controller.Browser', {
       message: 'Loading Favorites'
     });
 
+    console.log('loading favorites!!!');
     GLOBAL.oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100', function (data) {
 
       var data = JSON.parse(data.text);
@@ -565,13 +569,12 @@ Ext.define('Etsy.controller.Browser', {
         var store = self.listingsStore;
         // removes the items in the store and doesn't fire any events
         store.removeAll(true);
-        store.add(data.results);
+        setTimeout(function(){
+          store.add(data.results);
+        }, 500);
+
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
         self.getCategoriesCarousel().setStore(store);
-        self.getCategoriesCarousel().reset()
-        
-        self.getCategoriesCarousel().setActiveItem(0);
-        self.getCategoriesPanel().unmask();
       });
     });
   }

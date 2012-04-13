@@ -26,14 +26,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0px 5px 0px;
-/*  background: rgba(203, 203, 197, 0.1);*/
   font-family: abril;
   font-weight: normal;
   font-size: 16px;
   line-height: 25px;
   height: 25px;
   direction: rtl;
-  text-indent: 4px;
+  text-indent: 0px;
   
   &.sold {
     background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;

@@ -7,7 +7,10 @@ var ETSY = {
         {
             // create object
             var imageObj = new Image();
-            imageObj.src = "resources/images/slices-v2/" + images[i];
+            if(images[i]){
+              imageObj.src = "resources/images/slices-v2/" + images[i];
+            }
+
         }
     },
 

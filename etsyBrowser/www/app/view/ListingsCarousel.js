@@ -257,7 +257,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
             
         });
       }
-
+      
       // this is when the store loads for the first time
       newStore.on('load', function () {
         console.log('in store load');
@@ -292,6 +292,10 @@ Ext.define('Etsy.view.ListingsCarousel', {
             $('.rightArrow').hide();
           }
         }
+        
+        if(APP.getCategoriesCarousel()){
+          APP.getCategoriesCarousel().reset();
+        }
 
         me.updateStore(newStore);
       }, me, {
@@ -301,6 +305,13 @@ Ext.define('Etsy.view.ListingsCarousel', {
       console.log('NOT in newStore.isLoading()');
       me.reset();
       me.adjustAfterLoading(me, newStore);
+      
+      if(APP.getCategoriesCarousel()){
+        setTimeout(function(){
+          APP.getCategoriesPanel().unmask();
+          APP.getCategoriesCarousel().reset();
+        }, 1500);
+      }
     }
   },
   

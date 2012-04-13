@@ -89,6 +89,14 @@ $green: #78c042;
     &.cart-flag .price {
       @include bg-image('ProductDetail-cart-button-active');
     }
+    
+    &.cart-flag .quantity {
+      display:none;
+    }
+    
+    &.cart-flag .cart-confirmation {
+      display: block;
+    }
   }
 }
 
@@ -193,12 +201,17 @@ $green: #78c042;
     }
   }
 
+  .cart-confirmation,
   .quantity {
     float: left;
     margin: 0 0 0 18px;
     color: $midgray;
     font-size: 12px;
     line-height: 27px; // Same as .price height.
+  }
+  
+  .cart-confirmation {
+    display: none;
   }
   
   /*
@@ -267,6 +280,15 @@ $green: #78c042;
     background: no-repeat;
     
     @include bg-image('ProductDetail-info-tab-active');
+  }
+  
+  &.active {
+    @include bg-image('ProductDetail-close-tab-link');
+    
+    &.x-button-pressing {
+      background: no-repeat;
+      @include bg-image('ProductDetail-close-tab-active');
+    }
   }
 }
 

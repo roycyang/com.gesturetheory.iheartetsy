@@ -22,16 +22,21 @@
 /*
   Main detail panel container.
 */
-/* line 70, ../sass/detailPanel.scss */
+/* line 68, ../sass/detailPanel.scss */
 #detailPanel {
   padding: 7px 11px 4px 15px;
   background: no-repeat;
   background-size: 100%;
   background-image: url("../images/slices-v2/ProductDetail-background-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-background-2x.png");
   /* Wrapper for product title and buy button. */
 }
-/* line 78, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 68, ../sass/detailPanel.scss */
+  #detailPanel {
+    background-image: url("../images/slices-v2/ProductDetail-background-2x.png");
+  }
+}
+/* line 76, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper {
   overflow: hidden;
   /* Favorite stamp. */
@@ -39,28 +44,46 @@
     When an item is in the cart, mark the button as active.
   */
 }
-/* line 82, ../sass/detailPanel.scss */
+/* line 80, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper.favorite-flag {
   background: left top no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-2x.png");
 }
-/* line 91, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 80, ../sass/detailPanel.scss */
+  #detailPanel .description-inner-wrapper.favorite-flag {
+    background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-2x.png");
+  }
+}
+/* line 89, ../sass/detailPanel.scss */
 #detailPanel .description-inner-wrapper.cart-flag .price {
   background-image: url("../images/slices-v2/ProductDetail-cart-button-active-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-cart-button-active-2x.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 89, ../sass/detailPanel.scss */
+  #detailPanel .description-inner-wrapper.cart-flag .price {
+    background-image: url("../images/slices-v2/ProductDetail-cart-button-active-2x.png");
+  }
+}
+/* line 93, ../sass/detailPanel.scss */
+#detailPanel .description-inner-wrapper.cart-flag .quantity {
+  display: none;
+}
+/* line 97, ../sass/detailPanel.scss */
+#detailPanel .description-inner-wrapper.cart-flag .cart-confirmation {
+  display: block;
 }
 
 /* Photo carousel. */
-/* line 98, ../sass/detailPanel.scss */
+/* line 104, ../sass/detailPanel.scss */
 #detailPanelCarousel {
   overflow: hidden;
 }
-/* line 101, ../sass/detailPanel.scss */
+/* line 107, ../sass/detailPanel.scss */
 #detailPanelCarousel .x-carousel {
   overflow: hidden;
 }
-/* line 106, ../sass/detailPanel.scss */
+/* line 112, ../sass/detailPanel.scss */
 #detailPanelCarousel .x-carousel-item .image {
   width: 768px;
   height: 552px;
@@ -68,24 +91,29 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 115, ../sass/detailPanel.scss */
+/* line 121, ../sass/detailPanel.scss */
 #detailPanelCarousel .detail-panel-image {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 120, ../sass/detailPanel.scss */
+/* line 126, ../sass/detailPanel.scss */
 .fullsize #detailPanelCarousel .detail-panel-image {
   background-size: contain;
 }
 
 /* Vertical divider line in the title bar. */
-/* line 127, ../sass/detailPanel.scss */
+/* line 133, ../sass/detailPanel.scss */
 #detailPanelSpacer {
   background: left top no-repeat;
   background-size: 100%;
   background-image: url("../images/slices-v2/ProductDetail-vertical-divider-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-vertical-divider-2x.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 133, ../sass/detailPanel.scss */
+  #detailPanelSpacer {
+    background-image: url("../images/slices-v2/ProductDetail-vertical-divider-2x.png");
+  }
 }
 
 /*
@@ -93,20 +121,25 @@
   
   Contains the title, sharing tools and price information.
 */
-/* line 139, ../sass/detailPanel.scss */
+/* line 145, ../sass/detailPanel.scss */
 #detailPanelInfo {
   background: left bottom no-repeat;
   background-size: 100% auto;
   background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-2x.png");
 }
-/* line 145, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 145, ../sass/detailPanel.scss */
+  #detailPanelInfo {
+    background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-2x.png");
+  }
+}
+/* line 151, ../sass/detailPanel.scss */
 #detailPanelInfo .left-wrapper {
   padding-right: 20px;
 }
 
 /* Containing element for product details. */
-/* line 151, ../sass/detailPanel.scss */
+/* line 157, ../sass/detailPanel.scss */
 #detailPanelMainInfo {
   background: #fffef4;
   /* Wrapper for detail elements. */
@@ -114,18 +147,19 @@
     Sharing tools.
   */
 }
-/* line 154, ../sass/detailPanel.scss */
+/* line 160, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-inner {
   width: 100%;
 }
-/* line 159, ../sass/detailPanel.scss */
+/* line 165, ../sass/detailPanel.scss */
 #detailPanelMainInfo .description-inner-wrapper {
   padding: 13px 18px 14px 18px;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 165, ../sass/detailPanel.scss */
+/* line 171, ../sass/detailPanel.scss */
 #detailPanelMainInfo .name {
   margin-bottom: 10px;
   font-size: 22px;
@@ -137,7 +171,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 175, ../sass/detailPanel.scss */
+/* line 181, ../sass/detailPanel.scss */
 #detailPanelMainInfo .price {
   float: left;
   height: 27px;
@@ -146,41 +180,52 @@
   background: top right no-repeat #fffef4;
   background-size: auto 100%;
   border: 1px solid #DADAD6;
-  -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
   background-image: url("../images/slices-v2/ProductDetail-cart-button-link-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-cart-button-link-2x.png");
 }
-/* line 189, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 181, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .price {
+    background-image: url("../images/slices-v2/ProductDetail-cart-button-link-2x.png");
+  }
+}
+/* line 195, ../sass/detailPanel.scss */
 #detailPanelMainInfo .price:hover {
   cursor: pointer;
 }
-/* line 193, ../sass/detailPanel.scss */
+/* line 199, ../sass/detailPanel.scss */
 #detailPanelMainInfo .price:active {
-  -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
 }
-/* line 198, ../sass/detailPanel.scss */
-#detailPanelMainInfo .quantity {
+/* line 205, ../sass/detailPanel.scss */
+#detailPanelMainInfo .cart-confirmation, #detailPanelMainInfo .quantity {
   float: left;
   margin: 0 0 0 18px;
   color: #666666;
   font-size: 12px;
   line-height: 27px;
 }
-/* line 209, ../sass/detailPanel.scss */
+/* line 213, ../sass/detailPanel.scss */
+#detailPanelMainInfo .cart-confirmation {
+  display: none;
+}
+/* line 220, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button {
   width: 32px;
   height: 90px;
@@ -193,40 +238,60 @@
   /* Facebook sharing. */
   /* Twitter sharing. */
 }
-/* line 217, ../sass/detailPanel.scss */
+/* line 228, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button.x-button-pressing {
   background-position: right center;
 }
-/* line 222, ../sass/detailPanel.scss */
+/* line 233, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart {
   background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png");
   background-position: right center;
 }
-/* line 227, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 233, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelHeart {
+    background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png");
+  }
+}
+/* line 238, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart.active {
   background-position: right center;
 }
-/* line 231, ../sass/detailPanel.scss */
+/* line 242, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart.x-button-pressing {
   background-position: center center;
 }
-/* line 237, ../sass/detailPanel.scss */
+/* line 248, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelEmail {
   background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png");
 }
-/* line 242, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 248, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelEmail {
+    background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png");
+  }
+}
+/* line 253, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelFacebook {
   background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png");
 }
-/* line 247, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 253, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelFacebook {
+    background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png");
+  }
+}
+/* line 258, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelTwitter {
   background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png");
 }
-/* line 252, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 258, ../sass/detailPanel.scss */
+  #detailPanelMainInfo .x-button#detailPanelTwitter {
+    background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png");
+  }
+}
+/* line 263, ../sass/detailPanel.scss */
 #detailPanelMainInfo #detailPanelSpacer {
   margin: 0 10px;
 }
@@ -236,36 +301,72 @@
   
   Chained selector for higher specificity.
 */
-/* line 262, ../sass/detailPanel.scss */
+/* line 273, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button {
   background: no-repeat;
   border-radius: 0;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-link-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png");
 }
-/* line 268, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 273, ../sass/detailPanel.scss */
+  #detailPanelInfoButton.x-button {
+    background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png");
+  }
+}
+/* line 279, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button.x-button-pressing {
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-active-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 279, ../sass/detailPanel.scss */
+  #detailPanelInfoButton.x-button.x-button-pressing {
+    background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png");
+  }
+}
+/* line 285, ../sass/detailPanel.scss */
+#detailPanelInfoButton.x-button.active {
+  background-image: url("../images/slices-v2/ProductDetail-close-tab-link-1x.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 285, ../sass/detailPanel.scss */
+  #detailPanelInfoButton.x-button.active {
+    background-image: url("../images/slices-v2/ProductDetail-close-tab-link-2x.png");
+  }
+}
+/* line 288, ../sass/detailPanel.scss */
+#detailPanelInfoButton.x-button.active.x-button-pressing {
+  background: no-repeat;
+  background-image: url("../images/slices-v2/ProductDetail-close-tab-active-1x.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 288, ../sass/detailPanel.scss */
+  #detailPanelInfoButton.x-button.active.x-button-pressing {
+    background-image: url("../images/slices-v2/ProductDetail-close-tab-active-2x.png");
+  }
 }
 
 /*
   Extra info panel for an item.
   Hidden by default.
 */
-/* line 279, ../sass/detailPanel.scss */
+/* line 299, ../sass/detailPanel.scss */
 #detailPanelMoreInfo {
   padding: 20px 10px 20px 20px;
   background: left top no-repeat #fffef4;
   background-size: 100%;
   background-image: url("../images/slices-v2/ProductDetail-long-divider-1x.png");
-  background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png");
   /*
     Container for description text.
   */
 }
-/* line 286, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 299, ../sass/detailPanel.scss */
+  #detailPanelMoreInfo {
+    background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png");
+  }
+}
+/* line 306, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller {
   margin-bottom: 20px;
   padding: 0 0 20px 0;
@@ -274,9 +375,14 @@
   background: left bottom no-repeat;
   background-size: 100%;
   background-image: url("../images/final/product-detail-popup-seller-panel-divider-1x.png");
-  background-image: url("../images/final/product-detail-popup-seller-panel-divider-2x.png");
 }
-/* line 296, ../sass/detailPanel.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 306, ../sass/detailPanel.scss */
+  #detailPanelMoreInfo .seller {
+    background-image: url("../images/final/product-detail-popup-seller-panel-divider-2x.png");
+  }
+}
+/* line 316, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller span {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -287,35 +393,35 @@
   padding-right: 5px;
   border-right: 1px solid #afafaf;
 }
-/* line 7, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+/* line 7, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
 #detailPanelMoreInfo .seller span {
   *display: inline;
 }
-/* line 303, ../sass/detailPanel.scss */
+/* line 323, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller span:last-child {
   border: 0;
 }
-/* line 309, ../sass/detailPanel.scss */
+/* line 329, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping {
   font-size: 12px;
   color: black;
 }
-/* line 313, ../sass/detailPanel.scss */
+/* line 333, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-header {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #detailPanelMoreInfo .shipping .table-header:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 316, ../sass/detailPanel.scss */
+/* line 336, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-header div {
   float: left;
   width: 33.333%;
 }
-/* line 321, ../sass/detailPanel.scss */
+/* line 341, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-header span {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -326,32 +432,34 @@
   color: #afafaf;
   background: #ededeb;
   border: 1px solid #e8e8e6;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
+  -webkit-border-radius: 5px;
   -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 7, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+/* line 7, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
 #detailPanelMoreInfo .shipping .table-header span {
   *display: inline;
 }
-/* line 335, ../sass/detailPanel.scss */
+/* line 355, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-content li {
   *zoom: 1;
   margin: 5px 0;
   font-weight: 700;
 }
-/* line 38, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #detailPanelMoreInfo .shipping .table-content li:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 342, ../sass/detailPanel.scss */
+/* line 362, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-content div {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -361,15 +469,15 @@
   float: left;
   width: 33.333%;
 }
-/* line 7, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+/* line 7, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
 #detailPanelMoreInfo .shipping .table-content div {
   *display: inline;
 }
-/* line 354, ../sass/detailPanel.scss */
+/* line 374, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .x-scroll-scroller {
   width: 100%;
 }
-/* line 358, ../sass/detailPanel.scss */
+/* line 378, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .text {
   padding: 0 20px 30px 0;
   font-size: 14px;

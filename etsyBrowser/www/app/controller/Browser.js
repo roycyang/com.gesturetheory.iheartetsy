@@ -304,6 +304,9 @@ Ext.define('Etsy.controller.Browser', {
       count++;
       if(count == 2){
         self.getHomePanel().unmask();
+        if(self.treasuriesStore.getCount() == 0){
+          ETSY.alert('There is an issue with your connection');
+        }
       }
     });
     self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
@@ -311,8 +314,12 @@ Ext.define('Etsy.controller.Browser', {
     self.treasuriesStore.load(function(){
       count++;
       if(count == 2){
+        if(self.treasuriesStore.getCount() == 0){
+          ETSY.alert('There is an issue with your connection');
+        }
         self.getHomePanel().unmask();
       }
+
     });
     self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
   },
@@ -357,6 +364,9 @@ Ext.define('Etsy.controller.Browser', {
     Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
 
     store.load(function(){
+      if(self.listingsStore.getCount() == 0){
+        ETSY.alert('There is an issue with your connection');
+      }
       APP.getTreasuryPanel().unmask();
     });
     self.getTreasuryCarousel().setStore(store);
@@ -488,6 +498,9 @@ Ext.define('Etsy.controller.Browser', {
     
     // load the store, then set the store, the refresh the carousel
     store.load(function(){
+      if(self.listingsStore.getCount() == 0){
+        ETSY.alert('There is an issue with your connection');
+      }
       self.getCategoriesPanel().unmask();
     });
     self.getCategoriesCarousel().setStore(store);
@@ -507,6 +520,9 @@ Ext.define('Etsy.controller.Browser', {
     });
     var store = self.treasuriesStore;
     store.load(function(){
+      if(store.getCount() == 0){
+        ETSY.alert('There is an issue with your connection');
+      }
       APP.getTreasuriesPanel().unmask();
     });
     self.getTreasuriesCarousel().setStore(store);

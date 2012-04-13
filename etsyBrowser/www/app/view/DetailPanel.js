@@ -43,7 +43,7 @@ Ext.define('Etsy.view.DetailPanel',
               },
               items: [
                 {
-                  width: 500,
+                  width: 540,
                   id: 'top-meta-info',
                   tpl: new Ext.XTemplate(
                     '<div class="description-inner-wrapper <tpl if="in_cart"> cart-flag</tpl> <tpl if="in_favorites"> favorite-flag</tpl>">',
@@ -55,12 +55,13 @@ Ext.define('Etsy.view.DetailPanel',
                     '<div class="price">${price}</div>',
                     '</tpl>',
                     '<div class="quantity">Only {quantity} available</div>',
+                    '<div class="cart-confirmation">Added to your cart</div>',
                     '</div>'
                   )
                 },
                 {
                   xtype: 'spacer',
-                  width: 81
+                  width: 40
                 },
                 {
                   top: 18,
@@ -79,9 +80,11 @@ Ext.define('Etsy.view.DetailPanel',
                         //   direction: 'down'
                         // })
                         Ext.getCmp('detailPanelMoreInfo').show();
+                        Ext.getCmp('detailPanelInfoButton').setCls('active');
                       } else {
                         Ext.getCmp('detailPanelMoreInfo').hide();
                         ETSY.trackEvent('actions', 'hide info', 'from detail panel');
+                        Ext.getCmp('detailPanelInfoButton').setCls('');
                       }
                     }
                   }

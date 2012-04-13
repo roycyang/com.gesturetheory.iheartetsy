@@ -37,9 +37,15 @@ Ext.define('Etsy.model.Treasury', {
         proxy: {
             type: 'ajax',
             url: GLOBAL.api + 'treasuries',
+            timeout: 10000,
             reader: {
                 type: 'json',
                 rootProperty: 'results'
+            },
+            listeners: {
+              exception: function(proxy, response, operation){
+                console.log(proxy, response, operation);
+              }
             }
         }
     },

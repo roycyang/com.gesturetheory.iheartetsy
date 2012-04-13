@@ -11,29 +11,29 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             docked: 'top',
             id: 'searchResultsToolbar',
             items: [
-            {
-              width: 105,
-              height: 47,
+              {
+                width: 105,
+                height: 47,
                 xtype: 'button',
                 cls: 'header-back-button',
                 ui: 'plain',
                 listeners: {
-                    tap: function() {
-                        Ext.Ajax.abortAll();
-                        GLOBAL.stopEvents = true;
-                        self.getAppPanel().getLayout().setAnimation({
-                            type: 'slide',
-                            duration: 300,
-                            direction: 'right'
-                        });
-                        APP.getAppPanel().setActiveItem(0);
-                        setTimeout(function() {
-                            APP.getSearchResultsPanel().destroy(true);
-                        },
-                        500);
-                    }
+                  tap: function () {
+                    Ext.Ajax.abortAll();
+                    GLOBAL.stopEvents = true;
+                    self.getAppPanel().getLayout().setAnimation({
+                      type: 'slide',
+                      duration: 300,
+                      direction: 'right'
+                    });
+                    APP.getAppPanel().setActiveItem(0);
+                    setTimeout(function () {
+                      APP.getSearchResultsPanel().destroy(true);
+                    }, 500);
+                  }
                 }
-            },
+              },
+
             {
                 xtype: 'spacer'
             },

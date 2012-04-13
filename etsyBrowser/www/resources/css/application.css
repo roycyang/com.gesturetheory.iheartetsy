@@ -7215,7 +7215,6 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 /* line 24, ../sass/_appPanel.scss */
 #appPanel .left-nav-button.x-button-pressing {
-  background-size: auto;
   background-image: url("../images/slices-v2/HeaderBar-left-menu-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -7224,30 +7223,29 @@ input[type="search"]::-webkit-search-cancel-button {
     background-image: url("../images/slices-v2/HeaderBar-left-menu-button-active-2x.png");
   }
 }
-/* line 31, ../sass/_appPanel.scss */
+/* line 29, ../sass/_appPanel.scss */
 #appPanel .home-nav-button {
   background: center center no-repeat;
   background-size: auto 100%;
   background-image: url("../images/slices-v2/HeaderBar-logo-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 31, ../sass/_appPanel.scss */
+  /* line 29, ../sass/_appPanel.scss */
   #appPanel .home-nav-button {
     background-image: url("../images/slices-v2/HeaderBar-logo-2x.png");
   }
 }
-/* line 37, ../sass/_appPanel.scss */
+/* line 35, ../sass/_appPanel.scss */
 #appPanel .home-nav-button.x-button-pressing {
-  background: no-repeat 21px -2px;
   background-image: url("../images/slices-v2/HeaderBar-logo-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 37, ../sass/_appPanel.scss */
+  /* line 35, ../sass/_appPanel.scss */
   #appPanel .home-nav-button.x-button-pressing {
     background-image: url("../images/slices-v2/HeaderBar-logo-active-2x.png");
   }
 }
-/* line 44, ../sass/_appPanel.scss */
+/* line 40, ../sass/_appPanel.scss */
 #appPanel .right-nav-button {
   margin: 0;
   padding: 0;
@@ -7258,31 +7256,28 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: url("../images/slices-v2/HeaderBar-right-menu-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 44, ../sass/_appPanel.scss */
+  /* line 40, ../sass/_appPanel.scss */
   #appPanel .right-nav-button {
     background-image: url("../images/slices-v2/HeaderBar-right-menu-button-link-2x.png");
   }
 }
-/* line 53, ../sass/_appPanel.scss */
+/* line 49, ../sass/_appPanel.scss */
 #appPanel .right-nav-button.x-button-pressing {
-  background-size: auto;
   background-image: url("../images/slices-v2/HeaderBar-right-menu-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 53, ../sass/_appPanel.scss */
+  /* line 49, ../sass/_appPanel.scss */
   #appPanel .right-nav-button.x-button-pressing {
     background-image: url("../images/slices-v2/HeaderBar-right-menu-button-active-2x.png");
   }
 }
-/* line 60, ../sass/_appPanel.scss */
+/* line 54, ../sass/_appPanel.scss */
 #appPanel #appPanelMask {
   background: rgba(0, 0, 0, 0.2);
   z-index: 10000000 !important;
 }
-/* line 65, ../sass/_appPanel.scss */
+/* line 59, ../sass/_appPanel.scss */
 #appPanel .header-back-button {
-  margin: 0;
-  padding: 0;
   background: center center no-repeat;
   background-size: 100%;
   -webkit-border-radius: 0;
@@ -7290,17 +7285,17 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: url("../images/slices-v2/HeaderBar-back-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 65, ../sass/_appPanel.scss */
+  /* line 59, ../sass/_appPanel.scss */
   #appPanel .header-back-button {
     background-image: url("../images/slices-v2/HeaderBar-back-button-link-2x.png");
   }
 }
-/* line 74, ../sass/_appPanel.scss */
+/* line 68, ../sass/_appPanel.scss */
 #appPanel .header-back-button.x-button-pressing {
   background-image: url("../images/slices-v2/HeaderBar-back-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 74, ../sass/_appPanel.scss */
+  /* line 68, ../sass/_appPanel.scss */
   #appPanel .header-back-button.x-button-pressing {
     background-image: url("../images/slices-v2/HeaderBar-back-button-active-2x.png");
   }

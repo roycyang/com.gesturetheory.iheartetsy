@@ -22,8 +22,6 @@
     @include bg-image('HeaderBar-left-menu-button-link');
     
     &.x-button-pressing {
-      background-size: auto;
-      
       @include bg-image('HeaderBar-left-menu-button-active');
     }
   }
@@ -35,8 +33,6 @@
     @include bg-image('HeaderBar-logo');
     
     &.x-button-pressing {
-      background: no-repeat 21px -2px;
-
       @include bg-image('HeaderBar-logo-active');
     }
   }
@@ -51,8 +47,6 @@
     @include bg-image('HeaderBar-right-menu-button-link');
     
     &.x-button-pressing {
-      background-size: auto;
-      
       @include bg-image('HeaderBar-right-menu-button-active');
     }
   }
@@ -63,8 +57,8 @@
   }	
   
   .header-back-button {
-    margin: 0;
-    padding: 0;
+//    margin: 0;
+//    padding: 0;
     background: center center no-repeat;
     background-size: 100%;
     

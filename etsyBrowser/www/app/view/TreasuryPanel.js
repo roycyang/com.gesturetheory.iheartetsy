@@ -11,9 +11,8 @@ Ext.define('Etsy.view.TreasuryPanel', {
             items: [
             {
                 xtype: 'button',
-                cls: 'back-button',
-                ui: 'back',
-                text: 'back',
+                cls: 'header-back-button',
+                ui: 'plain',
                 listeners: {
                     tap: function() {
                         self.getAppPanel().getLayout().setAnimation({

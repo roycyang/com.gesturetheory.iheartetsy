@@ -262,56 +262,15 @@ Ext.define('Etsy.view.ListingsCarousel', {
       newStore.on('load', function () {
         console.log('in store load');
         me.adjustAfterLoading(me, newStore);
-        
-        // step through and unhide the various panels
-        if (APP.getCategoriesPanel()) {
-          APP.getCategoriesPanel().unmask();
-        }
-        
-        if (APP.getTreasuriesPanel()) {
-          APP.getTreasuriesPanel().unmask();
-        }
-        
-        if (APP.getTreasuryPanel()) {
-          APP.getTreasuryPanel().unmask();
-        }
-        
-        if (APP.getTreasuriesPanel()) {
-            APP.getTreasuriesPanel().unmask();
-        }
-        
-        if (APP.getHomePanel()) {
-            APP.getHomePanel().unmask();
-        }
-        
-        if (APP.getSearchResultsPanel()) {
-          APP.getSearchResultsPanel().unmask();
-          if(newStore.getCount() == 0){
-            Ext.getCmp('noResultsMessage').show();
-            Ext.getCmp('searchResultsCarousel').hide();
-            $('.rightArrow').hide();
-          }
-        }
-        
-        if(APP.getCategoriesCarousel()){
-          APP.getCategoriesCarousel().reset();
-        }
-
         me.updateStore(newStore);
       }, me, {
         single: true
       });
+      
     } else {
       console.log('NOT in newStore.isLoading()');
       me.reset();
       me.adjustAfterLoading(me, newStore);
-      
-      if(APP.getCategoriesCarousel()){
-        setTimeout(function(){
-          APP.getCategoriesPanel().unmask();
-          APP.getCategoriesCarousel().reset();
-        }, 1500);
-      }
     }
   },
   

@@ -30034,7 +30034,7 @@ Ext.define('Etsy.controller.Browser', {
                 return false;
             }
 
-            GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6',
+            GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6,User,ShippingInfo',
             function(data) {
                 var data = JSON.parse(data.text);
                 // console.log('data.results', data.results);

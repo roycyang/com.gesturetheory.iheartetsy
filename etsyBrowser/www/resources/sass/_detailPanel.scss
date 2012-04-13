@@ -1,67 +1,6 @@
 @import 'compass/css3';
 @import "compass/utilities/general/clearfix";
 
-$img-path: '../images/slices-v2/';
-
-$tan: #fffef4;
-$lightgray: #ededeb;
-$gray: #afafaf;
-$midgray: #666;
-$green: #78c042;
-
-@mixin bs($bs: border-box) {
-  @include box-sizing($bs);
-}
-
-@mixin ellipses($width: '') {
-  @if ($width != '') {
-    width: $width;
-  }
-  
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* ----------------------------------
-
-    Retina image mixin.
-    
-    Pass in an image path to output the media query
-    for high density displays.
-    
-    Reference: http://www.stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
-    
-    @param $img Path to a high-res image.
-    
----------------------------------- */
-@mixin retina-image($img) {
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    background-image: url($img);
-  }
-}
-
-
-/* ----------------------------------
-
-    Background image mixin.
-    
-    @param $img Name of an image, without 1x/2x or a file extension.
-    @param [$img-path] Image file path.
-    @param [$ext] File extension. Defaults to .png
-    
----------------------------------- */
-@mixin bg-image($img, $img-path, $ext: '.png') {
-  $img-path: '' !default;
-  
-  $one: '#{$img-path}#{$img}-1x#{$ext}';
-  $two: '#{$img-path}#{$img}-2x#{$ext}';
-  
-  background-image: url($one);
-  
-  @include retina-image($two);
-}
-
 /*
   Main detail panel container.
 */
@@ -197,6 +136,9 @@ $green: #78c042;
     }
     
     &:active {
+      color: $tan;
+      background-color: $green;
+      
       @include box-shadow(0 0 10px 2px rgba(black, .3));
     }
   }

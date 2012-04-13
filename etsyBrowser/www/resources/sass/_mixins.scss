@@ -1,0 +1,67 @@
+/** ----------------------------------
+
+    Convenience mixin for box-sizing
+    
+    @param {String} [$bs] box-sizing value.
+    
+---------------------------------- */
+@mixin bs($bs: border-box) {
+  @include box-sizing($bs);
+}
+
+
+/** ----------------------------------
+
+    Truncate a line of text with ellipses.
+    
+    @param {String|Number} [$width] Width of the element.
+    
+---------------------------------- */
+@mixin ellipses($width: '') {
+  @if ($width != '') {
+    width: $width;
+  }
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ----------------------------------
+
+    Retina image mixin.
+    
+    Pass in an image path to output the media query
+    for high density displays.
+    
+    Reference: http://www.stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+    
+    @param {String} $img Path to a high-res image.
+    
+---------------------------------- */
+@mixin retina-image($img) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    background-image: url($img);
+  }
+}
+
+
+/* ----------------------------------
+
+    Background image mixin.
+    
+    @param {String} $img Name of an image, without 1x/2x or a file extension.
+    @param {String} [$ext] File extension. Defaults to .png
+    
+---------------------------------- */
+@mixin bg-image($img, $ext: '.png') {
+  $img-path: '' !default;
+  
+  $one: '#{$img-path}#{$img}-1x#{$ext}';
+  $two: '#{$img-path}#{$img}-2x#{$ext}';
+  
+  background-image: url($one);
+  
+  @include retina-image($two);
+}

@@ -192,6 +192,14 @@ $green: #78c042;
     @include border-radius(3px);
     @include bg-image('ProductDetail-cart-button-link');
     
+    &.sold {
+      background-image: url("../images/slices-v2/Product-sold-1x.png");
+      background-size: auto;
+      text-indent: 10000em;
+      width: 63px;
+      background-position: center center;
+    }
+    
     &:hover {
       cursor: pointer;
     }

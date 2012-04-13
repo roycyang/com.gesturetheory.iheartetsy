@@ -28927,6 +28927,7 @@ Ext.define('Etsy.view.DetailPanel',
     extend: 'Ext.Container',
     xtype: 'listing',
     alias: 'widget.detailPanel',
+
     config: {
       id: 'detailPanel',
       cls: 'product-view',
@@ -28966,16 +28967,16 @@ Ext.define('Etsy.view.DetailPanel',
                   width: 540,
                   id: 'top-meta-info',
                   tpl: new Ext.XTemplate(
-                    '<div class="description-inner-wrapper <tpl if="in_cart"> cart-flag</tpl> <tpl if="in_favorites"> favorite-flag</tpl>">',
+                    '<div class="description-inner-wrapper <tpl if="state == \'sold_out\'"> sold-flag</tpl> <tpl if="in_cart"> cart-flag</tpl> <tpl if="in_favorites"> favorite-flag</tpl>">',
                     '<div class="name">{title}</div>',
                     '<tpl if="state == \'sold_out\'">',
                     '<div class="sold price">SOLD</div>',
                     '</tpl>',
                     '<tpl if="state == \'active\'">',
-                    '<div class="price">${price}</div>',
+                      '<div class="price">${price}</div>',
+                      '<div class="quantity">Only {quantity} available</div>',
+                      '<div class="cart-confirmation">Added to your cart</div>',
                     '</tpl>',
-                    '<div class="quantity">Only {quantity} available</div>',
-                    '<div class="cart-confirmation">Added to your cart</div>',
                     '</div>'
                   )
                 },
@@ -29279,6 +29280,8 @@ Ext.define('Etsy.view.DetailPanel',
             newData.in_favorites = false;
         }
 
+        // test sold out state
+        // newData.state = "sold_out";
         // set up the carousel
         var images = newData.Images;
         var imageArray = [];

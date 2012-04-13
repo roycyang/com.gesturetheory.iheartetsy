@@ -203,17 +203,25 @@
   }
 }
 /* line 195, ../sass/detailPanel.scss */
+#detailPanelMainInfo .price.sold {
+  background-image: url("../images/slices-v2/Product-sold-1x.png");
+  background-size: auto;
+  text-indent: 10000em;
+  width: 63px;
+  background-position: center center;
+}
+/* line 203, ../sass/detailPanel.scss */
 #detailPanelMainInfo .price:hover {
   cursor: pointer;
 }
-/* line 199, ../sass/detailPanel.scss */
+/* line 207, ../sass/detailPanel.scss */
 #detailPanelMainInfo .price:active {
   -moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
   -o-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
 }
-/* line 205, ../sass/detailPanel.scss */
+/* line 213, ../sass/detailPanel.scss */
 #detailPanelMainInfo .cart-confirmation, #detailPanelMainInfo .quantity {
   float: left;
   margin: 0 0 0 18px;
@@ -221,11 +229,11 @@
   font-size: 12px;
   line-height: 27px;
 }
-/* line 213, ../sass/detailPanel.scss */
+/* line 221, ../sass/detailPanel.scss */
 #detailPanelMainInfo .cart-confirmation {
   display: none;
 }
-/* line 220, ../sass/detailPanel.scss */
+/* line 228, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button {
   width: 32px;
   height: 90px;
@@ -238,60 +246,60 @@
   /* Facebook sharing. */
   /* Twitter sharing. */
 }
-/* line 228, ../sass/detailPanel.scss */
+/* line 236, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button.x-button-pressing {
   background-position: right center;
 }
-/* line 233, ../sass/detailPanel.scss */
+/* line 241, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart {
   background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-1x.png");
   background-position: right center;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 233, ../sass/detailPanel.scss */
+  /* line 241, ../sass/detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelHeart {
     background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png");
   }
 }
-/* line 238, ../sass/detailPanel.scss */
+/* line 246, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart.active {
   background-position: right center;
 }
-/* line 242, ../sass/detailPanel.scss */
+/* line 250, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart.x-button-pressing {
   background-position: center center;
 }
-/* line 248, ../sass/detailPanel.scss */
+/* line 256, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelEmail {
   background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 248, ../sass/detailPanel.scss */
+  /* line 256, ../sass/detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelEmail {
     background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png");
   }
 }
-/* line 253, ../sass/detailPanel.scss */
+/* line 261, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelFacebook {
   background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 253, ../sass/detailPanel.scss */
+  /* line 261, ../sass/detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelFacebook {
     background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png");
   }
 }
-/* line 258, ../sass/detailPanel.scss */
+/* line 266, ../sass/detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelTwitter {
   background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 258, ../sass/detailPanel.scss */
+  /* line 266, ../sass/detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelTwitter {
     background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png");
   }
 }
-/* line 263, ../sass/detailPanel.scss */
+/* line 271, ../sass/detailPanel.scss */
 #detailPanelMainInfo #detailPanelSpacer {
   margin: 0 10px;
 }
@@ -301,46 +309,46 @@
   
   Chained selector for higher specificity.
 */
-/* line 273, ../sass/detailPanel.scss */
+/* line 281, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button {
   background: no-repeat;
   border-radius: 0;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 273, ../sass/detailPanel.scss */
+  /* line 281, ../sass/detailPanel.scss */
   #detailPanelInfoButton.x-button {
     background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png");
   }
 }
-/* line 279, ../sass/detailPanel.scss */
+/* line 287, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button.x-button-pressing {
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 279, ../sass/detailPanel.scss */
+  /* line 287, ../sass/detailPanel.scss */
   #detailPanelInfoButton.x-button.x-button-pressing {
     background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png");
   }
 }
-/* line 285, ../sass/detailPanel.scss */
+/* line 293, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button.active {
   background-image: url("../images/slices-v2/ProductDetail-close-tab-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 285, ../sass/detailPanel.scss */
+  /* line 293, ../sass/detailPanel.scss */
   #detailPanelInfoButton.x-button.active {
     background-image: url("../images/slices-v2/ProductDetail-close-tab-link-2x.png");
   }
 }
-/* line 288, ../sass/detailPanel.scss */
+/* line 296, ../sass/detailPanel.scss */
 #detailPanelInfoButton.x-button.active.x-button-pressing {
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-close-tab-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 288, ../sass/detailPanel.scss */
+  /* line 296, ../sass/detailPanel.scss */
   #detailPanelInfoButton.x-button.active.x-button-pressing {
     background-image: url("../images/slices-v2/ProductDetail-close-tab-active-2x.png");
   }
@@ -350,7 +358,7 @@
   Extra info panel for an item.
   Hidden by default.
 */
-/* line 299, ../sass/detailPanel.scss */
+/* line 307, ../sass/detailPanel.scss */
 #detailPanelMoreInfo {
   padding: 20px 10px 20px 20px;
   background: left top no-repeat #fffef4;
@@ -361,12 +369,12 @@
   */
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 299, ../sass/detailPanel.scss */
+  /* line 307, ../sass/detailPanel.scss */
   #detailPanelMoreInfo {
     background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png");
   }
 }
-/* line 306, ../sass/detailPanel.scss */
+/* line 314, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller {
   margin-bottom: 20px;
   padding: 0 0 20px 0;
@@ -377,12 +385,12 @@
   background-image: url("../images/final/product-detail-popup-seller-panel-divider-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 306, ../sass/detailPanel.scss */
+  /* line 314, ../sass/detailPanel.scss */
   #detailPanelMoreInfo .seller {
     background-image: url("../images/final/product-detail-popup-seller-panel-divider-2x.png");
   }
 }
-/* line 316, ../sass/detailPanel.scss */
+/* line 324, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller span {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -393,35 +401,35 @@
   padding-right: 5px;
   border-right: 1px solid #afafaf;
 }
-/* line 7, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+/* line 7, ../../../../../../Users/roycyang/.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
 #detailPanelMoreInfo .seller span {
   *display: inline;
 }
-/* line 323, ../sass/detailPanel.scss */
+/* line 331, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .seller span:last-child {
   border: 0;
 }
-/* line 329, ../sass/detailPanel.scss */
+/* line 337, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping {
   font-size: 12px;
   color: black;
 }
-/* line 333, ../sass/detailPanel.scss */
+/* line 341, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-header {
   *zoom: 1;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../Users/roycyang/.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #detailPanelMoreInfo .shipping .table-header:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 336, ../sass/detailPanel.scss */
+/* line 344, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-header div {
   float: left;
   width: 33.333%;
 }
-/* line 341, ../sass/detailPanel.scss */
+/* line 349, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-header span {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -443,23 +451,23 @@
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 7, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+/* line 7, ../../../../../../Users/roycyang/.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
 #detailPanelMoreInfo .shipping .table-header span {
   *display: inline;
 }
-/* line 355, ../sass/detailPanel.scss */
+/* line 363, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-content li {
   *zoom: 1;
   margin: 5px 0;
   font-weight: 700;
 }
-/* line 38, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../Users/roycyang/.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #detailPanelMoreInfo .shipping .table-content li:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 362, ../sass/detailPanel.scss */
+/* line 370, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .shipping .table-content div {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -469,15 +477,15 @@
   float: left;
   width: 33.333%;
 }
-/* line 7, ../../../../../../.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+/* line 7, ../../../../../../Users/roycyang/.rvm/gems/ruby-1.9.2-p290@undercurrent/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
 #detailPanelMoreInfo .shipping .table-content div {
   *display: inline;
 }
-/* line 374, ../sass/detailPanel.scss */
+/* line 382, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .x-scroll-scroller {
   width: 100%;
 }
-/* line 378, ../sass/detailPanel.scss */
+/* line 386, ../sass/detailPanel.scss */
 #detailPanelMoreInfo .text {
   padding: 0 20px 30px 0;
   font-size: 14px;

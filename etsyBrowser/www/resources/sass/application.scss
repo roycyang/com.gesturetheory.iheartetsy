@@ -37,7 +37,7 @@
   
   &.sold {
     background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
-    text-indent: -10000px;
+    text-indent: 10000px;
     text-align: left;
     
     .cart-pressed-flag & {

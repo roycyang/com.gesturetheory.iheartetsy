@@ -66,23 +66,23 @@ var ETSY = {
         if (!dontRecord) {
             GLOBAL.google_last_url = url;
         }
-        console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
+        // console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
         try {
             GLOBAL.googleAnalytics.trackPageview(url);
         } catch(err) {
-            console.log('error is: ' + err);
+            //console.log('error is: ' + err);
         }
     },
 
     trackEvent: function(category, action, title, value) {
-        console.log('\n\n\n\n\n\ntracked event is: ' + category + ', ' + action + ', ' + title + '\n\n\n\n\n');
+        // console.log('\n\n\n\n\n\ntracked event is: ' + category + ', ' + action + ', ' + title + '\n\n\n\n\n');
         try {
             value = value || 1;
             title = title || "";
             GLOBAL.googleAnalytics.trackEvent(category, action, title, value);
             //googleAnalytics.trackEvent("Videos","Play","Take On Me: Literal Video Version",1);
         } catch(err) {
-            console.log('error is: ' + err);
+            //console.log('error is: ' + err);
         }
 
     },

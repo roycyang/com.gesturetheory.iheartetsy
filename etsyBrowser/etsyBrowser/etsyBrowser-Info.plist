@@ -28,8 +28,6 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon.png</string>
-				<string>icon@2x.png</string>
 				<string>ipad_icon.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>ipad_retina_icon.png</string>
@@ -45,7 +43,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.gesturetheory.iheartetsy</string>
+	<string>com.gesturetheory.etsyBrowser</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -56,6 +54,17 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.gesturetheory.iheartetsy</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>FB224999977607968</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -72,17 +81,6 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>com.gesturetheory.iheartetsy</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>FB224999977607968</string>
-			</array>
-		</dict>
 	</array>
 </dict>
 </plist>

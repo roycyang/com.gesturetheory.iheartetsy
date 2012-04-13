@@ -7691,6 +7691,7 @@ p.desc {
   background: no-repeat;
   background-size: 100%;
   background-image: url("../images/slices-v2/ProductDetail-background-1x.png");
+  /* Favorite stamp. */
   /* Wrapper for product title and buy button. */
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -7699,54 +7700,57 @@ p.desc {
     background-image: url("../images/slices-v2/ProductDetail-background-2x.png");
   }
 }
-/* line 15, ../sass/_detailPanel.scss */
-#detailPanel .description-inner-wrapper {
-  overflow: hidden;
-  /* Favorite stamp. */
-  /*
-    When an item is in the cart, mark the button as active.
-  */
-}
-/* line 19, ../sass/_detailPanel.scss */
-#detailPanel .description-inner-wrapper.favorite-flag {
+/* line 16, ../sass/_detailPanel.scss */
+#detailPanel .favorite-flag .description-inner-wrapper {
   background: left top no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 19, ../sass/_detailPanel.scss */
-  #detailPanel .description-inner-wrapper.favorite-flag {
+  /* line 16, ../sass/_detailPanel.scss */
+  #detailPanel .favorite-flag .description-inner-wrapper {
     background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-2x.png");
   }
 }
+/* line 22, ../sass/_detailPanel.scss */
+#detailPanel .favorite-flag #detailPanelHeart {
+  background-position: left center !important;
+}
 /* line 28, ../sass/_detailPanel.scss */
+#detailPanel .description-inner-wrapper {
+  overflow: hidden;
+  /*
+    When an item is in the cart, mark the button as active.
+  */
+}
+/* line 34, ../sass/_detailPanel.scss */
 #detailPanel .description-inner-wrapper.cart-flag .price {
   background-image: url("../images/slices-v2/ProductDetail-cart-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 28, ../sass/_detailPanel.scss */
+  /* line 34, ../sass/_detailPanel.scss */
   #detailPanel .description-inner-wrapper.cart-flag .price {
     background-image: url("../images/slices-v2/ProductDetail-cart-button-active-2x.png");
   }
 }
-/* line 32, ../sass/_detailPanel.scss */
+/* line 38, ../sass/_detailPanel.scss */
 #detailPanel .description-inner-wrapper.cart-flag .quantity {
   display: none;
 }
-/* line 36, ../sass/_detailPanel.scss */
+/* line 42, ../sass/_detailPanel.scss */
 #detailPanel .description-inner-wrapper.cart-flag .cart-confirmation {
   display: block;
 }
 
 /* Photo carousel. */
-/* line 43, ../sass/_detailPanel.scss */
+/* line 49, ../sass/_detailPanel.scss */
 #detailPanelCarousel {
   overflow: hidden;
 }
-/* line 46, ../sass/_detailPanel.scss */
+/* line 52, ../sass/_detailPanel.scss */
 #detailPanelCarousel .x-carousel {
   overflow: hidden;
 }
-/* line 51, ../sass/_detailPanel.scss */
+/* line 57, ../sass/_detailPanel.scss */
 #detailPanelCarousel .x-carousel-item .image {
   width: 768px;
   height: 552px;
@@ -7754,26 +7758,26 @@ p.desc {
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 60, ../sass/_detailPanel.scss */
+/* line 66, ../sass/_detailPanel.scss */
 #detailPanelCarousel .detail-panel-image {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* line 65, ../sass/_detailPanel.scss */
+/* line 71, ../sass/_detailPanel.scss */
 .fullsize #detailPanelCarousel .detail-panel-image {
   background-size: contain;
 }
 
 /* Vertical divider line in the title bar. */
-/* line 72, ../sass/_detailPanel.scss */
+/* line 78, ../sass/_detailPanel.scss */
 #detailPanelSpacer {
   background: left top no-repeat;
   background-size: 100%;
   background-image: url("../images/slices-v2/ProductDetail-vertical-divider-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 72, ../sass/_detailPanel.scss */
+  /* line 78, ../sass/_detailPanel.scss */
   #detailPanelSpacer {
     background-image: url("../images/slices-v2/ProductDetail-vertical-divider-2x.png");
   }
@@ -7784,25 +7788,25 @@ p.desc {
   
   Contains the title, sharing tools and price information.
 */
-/* line 84, ../sass/_detailPanel.scss */
+/* line 90, ../sass/_detailPanel.scss */
 #detailPanelInfo {
   background: left bottom no-repeat;
   background-size: 100% auto;
   background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 84, ../sass/_detailPanel.scss */
+  /* line 90, ../sass/_detailPanel.scss */
   #detailPanelInfo {
     background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-2x.png");
   }
 }
-/* line 90, ../sass/_detailPanel.scss */
+/* line 96, ../sass/_detailPanel.scss */
 #detailPanelInfo .left-wrapper {
   padding-right: 20px;
 }
 
 /* Containing element for product details. */
-/* line 96, ../sass/_detailPanel.scss */
+/* line 102, ../sass/_detailPanel.scss */
 #detailPanelMainInfo {
   background: #fffef4;
   /* Wrapper for detail elements. */
@@ -7810,17 +7814,17 @@ p.desc {
     Sharing tools.
   */
 }
-/* line 99, ../sass/_detailPanel.scss */
+/* line 105, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-inner {
   width: 100%;
 }
-/* line 104, ../sass/_detailPanel.scss */
+/* line 110, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .description-inner-wrapper {
   padding: 13px 18px 14px 18px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 110, ../sass/_detailPanel.scss */
+/* line 116, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .name {
   margin-bottom: 10px;
   font-size: 22px;
@@ -7832,7 +7836,7 @@ p.desc {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 120, ../sass/_detailPanel.scss */
+/* line 126, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .price {
   float: left;
   height: 27px;
@@ -7850,12 +7854,12 @@ p.desc {
   background-image: url("../images/slices-v2/ProductDetail-cart-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 120, ../sass/_detailPanel.scss */
+  /* line 126, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .price {
     background-image: url("../images/slices-v2/ProductDetail-cart-button-link-2x.png");
   }
 }
-/* line 134, ../sass/_detailPanel.scss */
+/* line 140, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .price.sold {
   background-image: url("../images/slices-v2/Product-sold-1x.png");
   background-size: auto;
@@ -7863,18 +7867,18 @@ p.desc {
   width: 63px;
   background-position: center center;
 }
-/* line 142, ../sass/_detailPanel.scss */
+/* line 148, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .price:hover {
   cursor: pointer;
 }
-/* line 146, ../sass/_detailPanel.scss */
+/* line 152, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .price:active {
   color: #fffef4;
   background-color: #78c042;
   -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
 }
-/* line 155, ../sass/_detailPanel.scss */
+/* line 161, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .cart-confirmation,
 #detailPanelMainInfo .quantity {
   float: left;
@@ -7883,11 +7887,11 @@ p.desc {
   font-size: 12px;
   line-height: 27px;
 }
-/* line 163, ../sass/_detailPanel.scss */
+/* line 169, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .cart-confirmation {
   display: none;
 }
-/* line 170, ../sass/_detailPanel.scss */
+/* line 176, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button {
   width: 32px;
   height: 90px;
@@ -7900,60 +7904,60 @@ p.desc {
   /* Facebook sharing. */
   /* Twitter sharing. */
 }
-/* line 178, ../sass/_detailPanel.scss */
+/* line 184, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button.x-button-pressing {
   background-position: right center;
 }
-/* line 183, ../sass/_detailPanel.scss */
+/* line 189, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart {
   background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-1x.png");
   background-position: right center;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 183, ../sass/_detailPanel.scss */
+  /* line 189, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelHeart {
     background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png");
   }
 }
-/* line 188, ../sass/_detailPanel.scss */
+/* line 194, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart.active {
   background-position: right center;
 }
-/* line 192, ../sass/_detailPanel.scss */
+/* line 198, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart.x-button-pressing {
   background-position: center center;
 }
-/* line 198, ../sass/_detailPanel.scss */
+/* line 204, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelEmail {
   background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 198, ../sass/_detailPanel.scss */
+  /* line 204, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelEmail {
     background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png");
   }
 }
-/* line 203, ../sass/_detailPanel.scss */
+/* line 209, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelFacebook {
   background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 203, ../sass/_detailPanel.scss */
+  /* line 209, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelFacebook {
     background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png");
   }
 }
-/* line 208, ../sass/_detailPanel.scss */
+/* line 214, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelTwitter {
   background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 208, ../sass/_detailPanel.scss */
+  /* line 214, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelTwitter {
     background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png");
   }
 }
-/* line 213, ../sass/_detailPanel.scss */
+/* line 219, ../sass/_detailPanel.scss */
 #detailPanelMainInfo #detailPanelSpacer {
   margin: 0 10px;
 }
@@ -7963,46 +7967,46 @@ p.desc {
   
   Chained selector for higher specificity.
 */
-/* line 223, ../sass/_detailPanel.scss */
+/* line 229, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button {
   background: no-repeat;
   border-radius: 0;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 223, ../sass/_detailPanel.scss */
+  /* line 229, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button {
     background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png");
   }
 }
-/* line 229, ../sass/_detailPanel.scss */
+/* line 235, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button.x-button-pressing {
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-info-tab-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 229, ../sass/_detailPanel.scss */
+  /* line 235, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button.x-button-pressing {
     background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png");
   }
 }
-/* line 235, ../sass/_detailPanel.scss */
+/* line 241, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button.active {
   background-image: url("../images/slices-v2/ProductDetail-close-tab-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 235, ../sass/_detailPanel.scss */
+  /* line 241, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button.active {
     background-image: url("../images/slices-v2/ProductDetail-close-tab-link-2x.png");
   }
 }
-/* line 238, ../sass/_detailPanel.scss */
+/* line 244, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button.active.x-button-pressing {
   background: no-repeat;
   background-image: url("../images/slices-v2/ProductDetail-close-tab-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 238, ../sass/_detailPanel.scss */
+  /* line 244, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button.active.x-button-pressing {
     background-image: url("../images/slices-v2/ProductDetail-close-tab-active-2x.png");
   }
@@ -8012,7 +8016,7 @@ p.desc {
   Extra info panel for an item.
   Hidden by default.
 */
-/* line 249, ../sass/_detailPanel.scss */
+/* line 255, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo {
   padding: 20px 10px 20px 20px;
   background: left top no-repeat #fffef4;
@@ -8023,12 +8027,12 @@ p.desc {
   */
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 249, ../sass/_detailPanel.scss */
+  /* line 255, ../sass/_detailPanel.scss */
   #detailPanelMoreInfo {
     background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png");
   }
 }
-/* line 256, ../sass/_detailPanel.scss */
+/* line 262, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller {
   margin-bottom: 20px;
   padding: 0 0 20px 0;
@@ -8037,18 +8041,18 @@ p.desc {
   background-image: url("../images/slices-v2/ProductDetail-seller-divider-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 256, ../sass/_detailPanel.scss */
+  /* line 262, ../sass/_detailPanel.scss */
   #detailPanelMoreInfo .seller {
     background-image: url("../images/slices-v2/ProductDetail-seller-divider-2x.png");
   }
 }
-/* line 266, ../sass/_detailPanel.scss */
+/* line 272, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller,
 #detailPanelMoreInfo .shipping {
   font-size: 12px;
   color: #a2a2a2;
 }
-/* line 270, ../sass/_detailPanel.scss */
+/* line 276, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller .table-header,
 #detailPanelMoreInfo .shipping .table-header {
   *zoom: 1;
@@ -8060,13 +8064,13 @@ p.desc {
   display: table;
   clear: both;
 }
-/* line 273, ../sass/_detailPanel.scss */
+/* line 279, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller .table-header div,
 #detailPanelMoreInfo .shipping .table-header div {
   float: left;
   width: 33.333%;
 }
-/* line 278, ../sass/_detailPanel.scss */
+/* line 284, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller .table-header span,
 #detailPanelMoreInfo .shipping .table-header span {
   display: -moz-inline-box;
@@ -8088,7 +8092,7 @@ p.desc {
 #detailPanelMoreInfo .shipping .table-header span {
   *display: inline;
 }
-/* line 292, ../sass/_detailPanel.scss */
+/* line 298, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller .table-content li,
 #detailPanelMoreInfo .shipping .table-content li {
   *zoom: 1;
@@ -8102,7 +8106,7 @@ p.desc {
   display: table;
   clear: both;
 }
-/* line 299, ../sass/_detailPanel.scss */
+/* line 305, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .seller .table-content div,
 #detailPanelMoreInfo .shipping .table-content div {
   display: -moz-inline-box;
@@ -8118,11 +8122,11 @@ p.desc {
 #detailPanelMoreInfo .shipping .table-content div {
   *display: inline;
 }
-/* line 311, ../sass/_detailPanel.scss */
+/* line 317, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .x-scroll-scroller {
   width: 100%;
 }
-/* line 315, ../sass/_detailPanel.scss */
+/* line 321, ../sass/_detailPanel.scss */
 #detailPanelMoreInfo .text {
   padding: 0 20px 30px 0;
   font-size: 14px;

@@ -11,16 +11,22 @@
   
   @include bg-image('ProductDetail-background');
   
-  /* Wrapper for product title and buy button. */
-  .description-inner-wrapper {
-    overflow: hidden;
-    
-    /* Favorite stamp. */
-    &.favorite-flag {
+  /* Favorite stamp. */
+  .favorite-flag {
+    .description-inner-wrapper {
       background: left top no-repeat;
 
       @include bg-image('ProductDetail-favorite-stamp');
     }
+    
+    #detailPanelHeart {
+      background-position: left center !important;
+    }
+  }
+  
+  /* Wrapper for product title and buy button. */
+  .description-inner-wrapper {
+    overflow: hidden;
     
     /*
       When an item is in the cart, mark the button as active.

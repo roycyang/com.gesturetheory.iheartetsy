@@ -218,14 +218,15 @@ var ETSY = {
             ETSY.updateFavoritesInfo();
             if (element.hasClass('favorite-flag')) {
                 ETSY.trackEvent('actions', 'unfavoriting');
-                element.removeClass('favorite-flag');
+                $(element).closest('#detailPanelMainInfo').removeClass('favorite-flag');
                 if (detailPanel) {
 
                     $('.product[ref=' + id + ']').removeClass('favorite-flag');
                 }
             } else {
                 ETSY.trackEvent('actions', 'favoriting');
-                element.addClass('favorite-flag');
+                console.log('element', $(element).closest('#detailPanelMainInfo'));
+                $(element).closest('#detailPanelMainInfo').addClass('favorite-flag');
                 if (detailPanel) {
                     $('.product[ref=' + id + ']').addClass('favorite-flag');
                 }

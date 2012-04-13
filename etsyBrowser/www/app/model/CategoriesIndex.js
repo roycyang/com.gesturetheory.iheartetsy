@@ -18,46 +18,46 @@ Ext.define('Etsy.model.CategoriesIndex', {
 
     config: {
         fields: [
-	        'id',
-            {
-                name: 'title',
-                convert: function(value, record) { 
-                    return record.data.short_name;
-                }
-            },
-            'listings',
-            'short_name',
-            {
-                name: 'name',
-                convert: function(value, record) { 
-                    return record.data.id;
-                }
-            },
-            {
-                name: 'category_index',
-                convert: function(value, record) { 
-                    return true;
-                }
-            },
-            {
-                name: 'image_1',
-                convert: function(value, record) { 
-	                      
-                    return record.data.listings[2].Images[0].url_170x135
-                }
-            },
-            {
-                name: 'image_2',
-                convert: function(value, record) {                        
-                    return record.data.listings[1].Images[0].url_170x135
-                }
-            },
-            {
-                name: 'image_3',
-                convert: function(value, record) {                        
-                    return record.data.listings[0].Images[0].url_170x135
-                }
-            },
+        'id',
+        {
+            name: 'title',
+            convert: function(value, record) {
+                return record.data.short_name;
+            }
+        },
+        'listings',
+        'short_name',
+        {
+            name: 'name',
+            convert: function(value, record) {
+                return record.data.id;
+            }
+        },
+        {
+            name: 'category_index',
+            convert: function(value, record) {
+                return true;
+            }
+        },
+        {
+            name: 'image_1',
+            convert: function(value, record) {
+
+                return record.data.listings[2].Images[0].url_170x135
+            }
+        },
+        {
+            name: 'image_2',
+            convert: function(value, record) {
+                return record.data.listings[1].Images[0].url_170x135
+            }
+        },
+        {
+            name: 'image_3',
+            convert: function(value, record) {
+                return record.data.listings[0].Images[0].url_170x135
+            }
+        },
 
         ],
 

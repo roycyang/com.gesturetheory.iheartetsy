@@ -28,7 +28,14 @@ Ext.define('Etsy.view.CategoriesPanel', {
             ui: 'plain',
             listeners: {
               tap: function(){
-                self.getCategoriesCarousel().previous();
+                if(!GLOBAL.inCarouselAction){
+                  GLOBAL.inCarouselAction = true;
+                  self.getCategoriesCarousel().previous();
+                  setTimeout(function(){
+                    GLOBAL.inCarouselAction = false;
+                  }, 350)
+                }
+
                 
               }
             }
@@ -43,8 +50,13 @@ Ext.define('Etsy.view.CategoriesPanel', {
             height: 701,
             listeners: {
               tap: function(){
-
-                self.getCategoriesCarousel().next();
+                if(!GLOBAL.inCarouselAction){
+                  GLOBAL.inCarouselAction = true;
+                  self.getCategoriesCarousel().next();
+                  setTimeout(function(){
+                    GLOBAL.inCarouselAction = false;
+                  }, 350)
+                }
               }
             }
         },

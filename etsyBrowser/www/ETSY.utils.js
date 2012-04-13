@@ -228,6 +228,10 @@ var ETSY = {
 
         GLOBAL.oauth.get(url,
         function(data) {
+            if(!data.text){
+ //             ETSY.alert('There was an error reading from Etsy');
+              return false;
+            }
             var data = JSON.parse(data.text);
 
             var listingIds = [];
@@ -316,6 +320,10 @@ var ETSY = {
         function(data) {
             // adding this to my cart!
             // console.log(JSON.parse(data.text));
+            if(!data.text){
+//              ETSY.alert('There was an error reading from Etsy');
+              return false;
+            }
             var data = JSON.parse(data.text);
             var listingIds = [];
             for (i = 0; i < data.results.length; i++) {

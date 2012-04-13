@@ -62,7 +62,13 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             ui: 'plain',
             listeners: {
               tap: function(){
-                self.getSearchResultsCarousel().previous();
+                if(!GLOBAL.inCarouselAction){
+                  GLOBAL.inCarouselAction = true;
+                  self.getSearchResultsCarousel().previous();
+                  setTimeout(function(){
+                    GLOBAL.inCarouselAction = false;
+                  }, 350)
+                }
                 
               }
             }
@@ -78,7 +84,13 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             listeners: {
               tap: function(){
 
-                self.getSearchResultsCarousel().next();
+                if(!GLOBAL.inCarouselAction){
+                  GLOBAL.inCarouselAction = true;
+                  self.getSearchResultsCarousel().next();
+                  setTimeout(function(){
+                    GLOBAL.inCarouselAction = false;
+                  }, 350)
+                }
               }
             }
         },

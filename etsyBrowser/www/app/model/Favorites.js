@@ -18,40 +18,40 @@ Ext.define('Etsy.model.Favorites', {
 
     config: {
         fields: [
-			{
-	            name: 'id',
-	            convert: function(value, record) {
-	                return record.data.listing_id;
-	            }
-	        },
-            'listing_id',
-            'Images',
-            'description',
-            'title',
-            'url',
-			'price',
-			'User',
-			'quantity',
-			
-            {
-                name: 'image',
-                convert: function(value, record) {    
-                    var images = {};        
-                    try{
-                        images = {
-                            thumb: record.data.Images[0]['url_170x135'],
-    						large: record.data.Images[0]['url_570xN'],
-    						full: record.data.Images[0]['url_fullxfull']
-                        };
-                        
-                    }catch(err)
-                          {
+        {
+            name: 'id',
+            convert: function(value, record) {
+                return record.data.listing_id;
+            }
+        },
+        'listing_id',
+        'Images',
+        'description',
+        'title',
+        'url',
+        'price',
+        'User',
+        'quantity',
+
+        {
+            name: 'image',
+            convert: function(value, record) {
+                var images = {};
+                try {
+                    images = {
+                        thumb: record.data.Images[0]['url_170x135'],
+                        large: record.data.Images[0]['url_570xN'],
+                        full: record.data.Images[0]['url_fullxfull']
+                    };
+
+                } catch(err)
+                {
                     console.log('error in record', record)
-                    }
-                    
-                    return images;
                 }
-            },
+
+                return images;
+            }
+        },
 
         ],
 
@@ -63,7 +63,7 @@ Ext.define('Etsy.model.Favorites', {
             pageParam: false,
             extraParams: {
                 api_key: 'tia49fh9iqjcrukurpbyqtv5',
-				includes: 'Images:6,User'
+                includes: 'Images:6,User'
             },
             reader: {
                 type: 'json',

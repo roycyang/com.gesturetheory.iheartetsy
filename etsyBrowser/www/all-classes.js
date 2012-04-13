@@ -29135,9 +29135,18 @@ Ext.define('Etsy.view.DetailPanel',
                   tpl: new Ext.XTemplate(
                     '<div class="left-wrapper">',
                       '<div class="seller">',
-                        '<span class="login-name">{User.login_name}</span>',
-                        '<span class="feedback-count">Feedback Count: {User.feedback_info.count}</span>',
-                        '<span class="feedback-score">Feedback Score: {User.feedback_info.score}</span>',
+                        '<header class="table-header">',
+                          '<div><span>Seller Name</span></div>',
+                          '<div><span>Feedback Count</span></div>',
+                          '<div><span>Feedback Score</span></div>',
+                        '</header>',
+                        '<ul class="table-content">',
+                          '<li>',
+                            '<div>{User.login_name}</div>',
+                            '<div>{feedback_count}</div>',
+                            '<div>{feedback_score}</div>',
+                          '</li>',
+                        '</ul>',
                       '</div>',
                       '<div class="shipping">',
                         '<header class="table-header">',
@@ -37667,7 +37676,7 @@ Ext.define('Etsy.view.SearchPanel', {
         xtype: 'button',
         width: 248,
         height: 50,
-        ui: 'none',
+        ui: 'plain',
         id: 'searchButton',
         listeners: {
           tap: function (textfield, e, options) {
@@ -48815,6 +48824,30 @@ Ext.define('Etsy.model.Listing', {
             }
         },
         'User',
+        {
+          name: 'feedback_score',
+          convert: function (value, record) {
+            var score = record.data.User.feedback_info.score;
+            
+            if (score < 1 || score === null) {
+              return 'No score.';
+            } else {
+              return score;
+            }
+          }
+        },
+        {
+          name: 'feedback_count',
+          convert: function (value, record) {
+            var count = record.data.User.feedback_info.count;
+            
+            if (count < 1 || count === null) {
+              return 'No feedback.';
+            } else {
+              return count;
+            }
+          }
+        },
         'ShippingInfo',
         'quantity',
 

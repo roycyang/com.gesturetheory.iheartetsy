@@ -237,9 +237,8 @@ Ext.define('Etsy.controller.Browser', {
       self.selectNavListItem();
     }else if (panel == 'signout-facebook') {
       ETSY.confirm("Are you sure you want to sign out of Facebook?", function (buttonId) {
-        if (buttonId == 'yes' || buttonId == '1') {
-          localStorage.removeItem('facebook_status'); 
-          FB.logout();          
+        if (buttonId == 'yes' || buttonId == '1') {    
+          ETSY.toggleFacebookSignin('signout');    
         }
       }, 'Sign Out');
       self.selectNavListItem();

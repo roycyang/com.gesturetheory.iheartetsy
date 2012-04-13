@@ -45,9 +45,7 @@ var ETSY = {
                 description: 'Check out this item I found on the I Heart Etsy App'
             };
             console.log(params);
-            FB.ui(params,
-            function(obj) {
-                });
+            FB.ui(params);
         } catch(err) {
             ETSY.alert('This is only available on the iPad!');
         }
@@ -59,7 +57,9 @@ var ETSY = {
         localStorage.facebook_status = "connected";
          $('.sign-out-facebook-link').parents('.x-list-item').show();
       }else{
-         $('.sign-out-facebook-link').parents('.x-list-item').hide();
+        localStorage.removeItem('facebook_status');
+        $('.sign-out-facebook-link').parents('.x-list-item').hide();
+        FB.logout();
       }
     },
     trackPageviews: function(url, dontRecord) {

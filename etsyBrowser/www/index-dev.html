@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>I Heart Etsy</title>
+  <meta charset="utf-8">
+
+<!-- <script type="text/javascript" src="http://use.typekit.com/ays5izd.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
+  
+	<script type="text/javascript" charset="utf-8" src="cordova/cordova-1.6.0.js"></script>
+  <script type="text/javascript" charset="utf-8" src="cordova/EmailComposer.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/ChildBrowser.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/cdv-plugin-fb-connect.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova/facebook_js_sdk.js"></script>
+	
+
+
+	<script type="text/javascript">
+	var GLOBAL = {
+	  version: '1.0',
+		signed_in: false,
+		api: 'http://morning-winter-4366.herokuapp.com/'  
+	};
+	
+  // localStorage.accessTokenKey = "d3ffe7f0b9ccc7f3a69ddc409caadd";
+  // localStorage.accessTokenSecret = "b6907cc7ab";
+  // localStorage.avatar = "http://www.etsy.com/images/avatars/default_avatar_75px.png";
+  // localStorage.name = "Roy Yang"
+	// 
+	// If you want to prevent dragging, uncomment this section
+	/*
+	function preventBehavior(e) 
+	{ 
+      e.preventDefault(); 
+    };
+	document.addEventListener("touchmove", preventBehavior, false);
+	*/
+	
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	/*
+	function handleOpenURL(url)
+	{
+		// TODO: do something with the url passed in.
+	}
+	*/
+	
+
+	function onBodyLoad() 
+	{		
+		document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("online", onOnline, false);
+		document.addEventListener("offline", onOffline, false);
+
+	}
+	
+	function onOnline()
+	{
+		$('.offline-mask').hide();
+	}
+	
+	function onOffline()
+	{	
+		$('.offline-mask').show();
+	}
+	
+	/* When this function is called, Cordova has been initialized and is ready to roll */
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	function onDeviceReady()
+	{
+		
+		// initializing facebook
+    FB.init({ appId: "224999977607968", nativeInterface: CDV.FB, useCachedDialogs: false });
+
+		var cb = ChildBrowser.install();
+		
+		cb.onLocationChange = function(loc){ 
+			locChanged(loc); 
+		};
+
+    setTimeout(function(){
+      cordova.exec(null, null, "SplashScreen", "hide", []);
+    }, 5000);
+    
+		
+		// after device ready, create a local alias and start the tracker with your own id.
+    GLOBAL.googleAnalytics = window.plugins.googleAnalyticsPlugin;
+    GLOBAL.googleAnalytics.startTrackerWithAccountID("UA-30797223-1");
+    ETSY.trackPageviews("/application/launch/"); 
+    
+   
+
+	}
+	  </script>
+  
+	  <!-- GT ADDED -->
+	  <link rel="stylesheet" type="text/css" href="resources/css/sencha-touch.css"/>
+	  <link rel="stylesheet" type="text/css" href="resources/css/application.css"/>
+
+    <script type="text/javascript" charset="utf-8" src="js/oauth.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/sha1.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery.bbq.js"></script>
+
+    <!--
+ 	  <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+
+    <script type="text/javascript" src="sencha-touch.js"></script>
+    <script type="text/javascript" src="all-classes.js"></script>
+    -->
+    <script type="text/javascript" src="sencha-touch-debug.js"></script>
+
+
+
+	  <script type="text/javascript" charset="utf-8" src="ETSY.utils.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="ETSY.authorization.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="app.js"></script>
+	  
+  </head>
+  <body onload="onBodyLoad()">
+	<div class="offline-mask"></div>	
+  </body>
+</html>

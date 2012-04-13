@@ -99,6 +99,7 @@ span.arrow {
     background: center center no-repeat;
     background-size: 100%;
     
+    @include border-radius(0);
     @include bg-image('RightMenu-search-button-link');
 
     &.x-button-pressing {

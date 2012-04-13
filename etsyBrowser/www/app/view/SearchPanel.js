@@ -81,7 +81,7 @@ Ext.define('Etsy.view.SearchPanel', {
         xtype: 'button',
         width: 248,
         height: 50,
-        ui: 'none',
+        ui: 'plain',
         id: 'searchButton',
         listeners: {
           tap: function (textfield, e, options) {

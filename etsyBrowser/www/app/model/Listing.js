@@ -39,6 +39,30 @@ Ext.define('Etsy.model.Listing', {
             }
         },
         'User',
+        {
+          name: 'feedback_score',
+          convert: function (value, record) {
+            var score = record.data.User.feedback_info.score;
+            
+            if (score < 1 || score === null) {
+              return 'No score.';
+            } else {
+              return score;
+            }
+          }
+        },
+        {
+          name: 'feedback_count',
+          convert: function (value, record) {
+            var count = record.data.User.feedback_info.count;
+            
+            if (count < 1 || count === null) {
+              return 'No feedback.';
+            } else {
+              return count;
+            }
+          }
+        },
         'ShippingInfo',
         'quantity',
 

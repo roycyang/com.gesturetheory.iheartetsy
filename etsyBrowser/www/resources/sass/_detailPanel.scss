@@ -256,29 +256,16 @@
   .seller {
     margin-bottom: 20px;
     padding: 0 0 20px 0;
-    font-size: 12px;
-    color: black;
     background: left bottom no-repeat;
     background-size: 100%;
     
-    @include bg-image('product-detail-popup-seller-panel-divider', '../images/final/');
-    
-    span {
-      @include inline-block;
-      
-      margin-right: 5px;
-      padding-right: 5px;
-      border-right: 1px solid $gray;
-      
-      &:last-child {
-        border: 0;
-      }
-    }
+    @include bg-image('ProductDetail-seller-divider');
   }
   
+  .seller,
   .shipping {
     font-size: 12px;
-    color: black;
+    color: darken($gray, 5%);
     
     .table-header {
       @include pie-clearfix;
@@ -292,9 +279,9 @@
         @include inline-block;
         
         padding: 5px;
-        color: $gray;
+        color: darken($gray, 5%);
         background: $lightgray;
-        border: 1px solid darken($lightgray, 2%);
+        border: 1px solid darken($lightgray, 5%);
         
         @include bs;
         @include border-radius(5px);

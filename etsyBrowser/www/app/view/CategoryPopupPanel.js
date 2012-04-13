@@ -8,7 +8,6 @@ Ext.define('Etsy.view.CategoryPopupPanel', {
         height: 651,
         modal: true,
         hideOnMaskTap: true,
-        hidden: true,
         layout: 'card',
         items: [{
 
@@ -33,6 +32,12 @@ Ext.define('Etsy.view.CategoryPopupPanel', {
             }
         }
         ],
+        listeners: {
+          erased: function () {
+            APP.getCategoryPopupPanel().destroy();
+            console.log('destroyed the category popup panel!');
+          }
+        }
 
     },
 

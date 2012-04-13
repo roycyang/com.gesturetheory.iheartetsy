@@ -44,7 +44,8 @@ Ext.define('Etsy.controller.Browser', {
       detailPanel: 'detailPanel',
       
       // categories popup
-      categoryPopupPanel: 'categoryPopupPanel'
+      categoryPopupPanel: 'categoryPopupPanel',
+      categoryList: '#categoryList'
 
     },
     control: {
@@ -72,7 +73,7 @@ Ext.define('Etsy.controller.Browser', {
     self.mainView.add(Ext.create('Etsy.view.NavPanel'));
     self.mainView.add(Ext.create('Etsy.view.SearchPanel'));
     self.mainView.add(Ext.create('Etsy.view.AppPanel'));
-    self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
+
 
     if(!localStorage.hasSeenInstructions){
       self.mainView.add(Ext.create('Etsy.view.InstructionsPanel'));
@@ -274,13 +275,14 @@ Ext.define('Etsy.controller.Browser', {
   loadCategories: function () {
     ETSY.trackPageviews("/categoryPopup", true);
     var self = this;
-    self.getCategoryPopupPanel().show();
+    self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
+    self.getCategoryList().getStore().load();
   },
 
   loadHomePanel: function () {
     ETSY.trackPageviews("/home"); 
 
-    //Ext.Ajax.abortAll();
+    Ext.Ajax.abortAll();
     GLOBAL.panel = 'home';
     GLOBAL.searchCategory = null;
     Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');

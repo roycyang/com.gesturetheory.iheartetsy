@@ -19,6 +19,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
                 listeners: {
                     tap: function() {
                         Ext.Ajax.abortAll();
+                        GLOBAL.stopEvents = true;
                         self.getAppPanel().getLayout().setAnimation({
                             type: 'slide',
                             duration: 300,
@@ -61,16 +62,17 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             height: 701,
             ui: 'plain',
             listeners: {
-              tap: function(){
-                if(!GLOBAL.inCarouselAction){
-                  GLOBAL.inCarouselAction = true;
-                  self.getSearchResultsCarousel().previous();
-                  setTimeout(function(){
-                    GLOBAL.inCarouselAction = false;
-                  }, 350)
+                tap: function() {
+                    if (!GLOBAL.inCarouselAction) {
+                        GLOBAL.inCarouselAction = true;
+                        self.getSearchResultsCarousel().previous();
+                        setTimeout(function() {
+                            GLOBAL.inCarouselAction = false;
+                        },
+                        350)
+                    }
+
                 }
-                
-              }
             }
         },
         {
@@ -82,16 +84,17 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             top: 0,
             height: 701,
             listeners: {
-              tap: function(){
+                tap: function() {
 
-                if(!GLOBAL.inCarouselAction){
-                  GLOBAL.inCarouselAction = true;
-                  self.getSearchResultsCarousel().next();
-                  setTimeout(function(){
-                    GLOBAL.inCarouselAction = false;
-                  }, 350)
+                    if (!GLOBAL.inCarouselAction) {
+                        GLOBAL.inCarouselAction = true;
+                        self.getSearchResultsCarousel().next();
+                        setTimeout(function() {
+                            GLOBAL.inCarouselAction = false;
+                        },
+                        350)
+                    }
                 }
-              }
             }
         },
 

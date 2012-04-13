@@ -312,11 +312,30 @@ Ext.define('Etsy.view.DetailPanel',
     },
 
     onTap: function(e) {
+
         if (Ext.get(e.target).parent('.description-inner-wrapper')) {
             //console.log('should be going to ETSY.toggleCart');
             ETSY.trackEvent('actions', 'add to cart', 'from detail panel');
             ETSY.toggleCart(GLOBAL.newData.id, $('.description-inner-wrapper'), true);
             return false;
+        }
+        
+        if(Ext.get(e.target).parent('.x-carousel-item')){
+          if (Ext.getCmp('detailPanelMoreInfo').isHidden()) {
+            ETSY.trackEvent('actions', 'show info', 'from detail panel');
+            // Ext.getCmp('detailPanelMoreInfo').setShowAnimation({
+            //   type: 'slide',
+            //   duration: 300,
+            //   direction: 'down'
+            // })
+            Ext.getCmp('detailPanelMoreInfo').show();
+            Ext.getCmp('detailPanelInfoButton').setCls('active');
+          } else {
+            Ext.getCmp('detailPanelMoreInfo').hide();
+            ETSY.trackEvent('actions', 'hide info', 'from detail panel');
+            Ext.getCmp('detailPanelInfoButton').setCls('');
+          }
+          return false;
         }
 
         // tapping on an image

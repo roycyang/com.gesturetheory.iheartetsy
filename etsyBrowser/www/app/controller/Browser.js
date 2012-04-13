@@ -98,7 +98,8 @@ Ext.define('Etsy.controller.Browser', {
           { name: 'e', title: '<div class="cart-label">Cart <span class="count"></span></div>',  type: ''  , panel: 'cartPanel'},
           { name: 'f', title: 'Feedback',  type: ''  , panel: 'feedback'},
           { name: 'g', title: 'App Tour',  type: ''  , panel: 'instructions'},
-          { name: 'h', title: '<div class="sign-out-link">Sign Out</div>',  type: ''  , panel: 'signout'}
+          { name: 'h', title: '<div class="sign-out-link">Sign Out of Etsy</div>',  type: ''  , panel: 'signout'},
+          { name: 'h', title: '<div class="sign-out-facebook-link">Sign Out of Facebook</div>',  type: ''  , panel: 'signout-facebook'}
       );
       localStorage.hasLoaded = true;
     }
@@ -109,7 +110,7 @@ Ext.define('Etsy.controller.Browser', {
 
     ETSY.toggleSignIn();
     ETSY.preloadImages();
-    // ETSY.toggleFacebookSignIn();
+    ETSY.toggleFacebookSignin();
   },
 
   toggleNav: function (position) {
@@ -214,7 +215,7 @@ Ext.define('Etsy.controller.Browser', {
 
       self.selectNavListItem();
     } else if (panel == 'signout') {
-      ETSY.confirm("Are you sure you want to sign out?", function (buttonId) {
+      ETSY.confirm("Are you sure you want to sign out of Etsy?", function (buttonId) {
 
         if (buttonId == 'yes' || buttonId == '1') {
           ETSY.trackPageviews("/signing_out", true); 
@@ -233,7 +234,14 @@ Ext.define('Etsy.controller.Browser', {
           FB.logout();          
         }
       }, 'Sign Out');
-
+      self.selectNavListItem();
+    }else if (panel == 'signout-facebook') {
+      ETSY.confirm("Are you sure you want to sign out of Facebook?", function (buttonId) {
+        if (buttonId == 'yes' || buttonId == '1') {
+          localStorage.removeItem('facebook_status'); 
+          FB.logout();          
+        }
+      }, 'Sign Out');
       self.selectNavListItem();
     } else if (panel == "bookmarkedCategory") {
       ETSY.trackPageviews("/bookmarked/" + record.get('name')); 

@@ -13,8 +13,28 @@ var ETSY = {
 
         }
     },
+    
+    askForFacebookSignin: function(msg){
+      ETSY.confirm(msg,
+      function(buttonId) {
+
+          if (buttonId == 'yes' || buttonId == '1') {
+            FB.login(function(){
+              ETSY.toggleFacebookSignin('connected');
+              ETSY.facebookWallPost();
+            }, {scope: 'email'});
+          }
+      },
+      'Facebook');
+    },
 
     facebookWallPost: function() {
+      console.log('in facebook wall post');
+      console.log('localStorage.facebook_status', localStorage.facebook_status);
+      if(!localStorage.facebook_status){
+        // Prompt the user and return false if the user is not signed in.
+        ETSY.askForFacebookSignin('To post this to your wall, you will need to sign into Facebook. Would you like to sign in?');
+      }else{
         try {
             var params = {
                 method: 'feed',
@@ -31,9 +51,17 @@ var ETSY = {
         } catch(err) {
             ETSY.alert('This is only available on the iPad!');
         }
-
+      }
     },
 
+    toggleFacebookSignin: function(status){
+      if(status == "connected"){
+        localStorage.facebook_status = "connected";
+         $('.sign-out-facebook-link').parents('.x-list-item').show();
+      }else{
+         $('.sign-out-facebook-link').parents('.x-list-item').hide();
+      }
+    },
     trackPageviews: function(url, dontRecord) {
         if (!dontRecord) {
             GLOBAL.google_last_url = url;
@@ -162,6 +190,7 @@ var ETSY = {
         // Prompt the user and return false if the user is not signed in.
         if (!GLOBAL.signed_in) {
             ETSY.askForSignIn('You are trying to favorite this item, would you like to sign in?');
+            APP.selectNavListItem();
             return false;
         }
 

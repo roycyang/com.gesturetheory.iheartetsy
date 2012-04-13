@@ -12,10 +12,11 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             id: 'searchResultsToolbar',
             items: [
             {
+              width: 105,
+              height: 47,
                 xtype: 'button',
-                cls: 'back-button',
-                ui: 'back',
-                text: 'Back',
+                cls: 'header-back-button',
+                ui: 'plain',
                 listeners: {
                     tap: function() {
                         Ext.Ajax.abortAll();

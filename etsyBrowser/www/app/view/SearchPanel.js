@@ -77,38 +77,40 @@ Ext.define('Etsy.view.SearchPanel', {
 				}
 				]
 			},
-			{
-				xtype: 'button',
-				width: 107,
-				height: 37,
-				ui: 'none',
-				id: 'searchButton',
+      {
+        xtype: 'button',
+        width: 248,
+        height: 50,
+        ui: 'none',
+        id: 'searchButton',
         listeners: {
-          tap: function(textfield, e, options){
-
+          tap: function (textfield, e, options) {
             var keyword = Ext.getCmp('globalSearch').getValue();
-            var minPrice =  Ext.getCmp('minPriceField').getValue();
-            var maxPrice =  Ext.getCmp('maxPriceField').getValue();
-            if(!keyword){
+              minPrice  = Ext.getCmp('minPriceField').getValue();
+              maxPrice  = Ext.getCmp('maxPriceField').getValue();
+            
+            if (!keyword) {
               ETSY.alert('Please enter a keyword', 'Error');
               return false;
             }
-            if(minPrice > maxPrice){
+            if (minPrice > maxPrice) {
               ETSY.alert('The minimum price cannot be larger than the maximum price', 'Error');
               return false;
             }
-            
+
             self.toggleSearch('close');
-            if(GLOBAL.searchCategory){
+            
+            if (GLOBAL.searchCategory) {
               self.loadSearch(keyword, GLOBAL.searchCategory, minPrice, maxPrice, Ext.getCmp('locationField').getValue());
-            }else{
-              self.loadSearch(keyword, null , minPrice, maxPrice, Ext.getCmp('locationField').getValue());
+            } else {
+              self.loadSearch(keyword, null, minPrice, maxPrice, Ext.getCmp('locationField').getValue());
             }
 
             Ext.getCmp('globalSearch').setValue('');
           }
         }
-			}
+      }
+
 			]
 		}
 		],

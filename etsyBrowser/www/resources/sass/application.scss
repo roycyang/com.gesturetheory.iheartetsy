@@ -1,6 +1,28 @@
 @import 'sencha-touch';
 @import 'compass/css3/box-sizing';
 
+/** Application Config.
+-------------------------------------------------------------------- */
+/*
+  Paths
+*/
+$img-path: '../images/slices-v2/';
+
+/*
+  Colors
+*/
+$tan: #fffef4;
+$lightgray: #ededeb;
+$gray: #afafaf;
+$midgray: #666;
+$green: #78c042;
+
+/** Application Mixins.
+-------------------------------------------------------------------- */
+@import 'mixins';
+
+/** Application imports.
+-------------------------------------------------------------------- */
 @import 'fonts';
 @import 'appPanel';
 @import 'homePanel';
@@ -9,6 +31,8 @@
 @import 'detailPanel';
 @import 'treasuries';
 
+/** Application styles.
+-------------------------------------------------------------------- */
 .offline-mask {
   display: none;
 	position: absolute;

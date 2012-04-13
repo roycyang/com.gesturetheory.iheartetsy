@@ -1,0 +1,78 @@
+/** ----------------------------------
+
+    Main application panel.
+    
+---------------------------------- */
+#appPanel {
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform 350ms;
+	-webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,.3);
+	
+	.x-layout-card-item {
+    background: #fdf9df url(../images/slices-v2/GeneralApp-background-1x.png) repeat 0 0;
+	}
+	
+	.left-nav-button {
+	  margin: 0;
+	  padding: 0;
+	  background: center center no-repeat;
+	  background-size: auto 100%;
+	  
+	  @include border-radius(0);
+    @include bg-image('HeaderBar-left-menu-button-link');
+    
+    &.x-button-pressing {
+      background-size: auto;
+      
+      @include bg-image('HeaderBar-left-menu-button-active');
+    }
+  }
+  
+  .home-nav-button {
+    background: center center no-repeat;
+    background-size: auto 100%;
+    
+    @include bg-image('HeaderBar-logo');
+    
+    &.x-button-pressing {
+      background: no-repeat 21px -2px;
+
+      @include bg-image('HeaderBar-logo-active');
+    }
+  }
+  
+  .right-nav-button {
+    margin: 0;
+    padding: 0;
+    background: center center no-repeat;
+    background-size: auto 100%;
+    
+    @include border-radius(0);
+    @include bg-image('HeaderBar-right-menu-button-link');
+    
+    &.x-button-pressing {
+      background-size: auto;
+      
+      @include bg-image('HeaderBar-right-menu-button-active');
+    }
+  }
+  
+  #appPanelMask {
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 10000000 !important;
+  }	
+  
+  .header-back-button {
+    margin: 0;
+    padding: 0;
+    background: center center no-repeat;
+    background-size: 100%;
+    
+    @include border-radius(0);
+    @include bg-image('HeaderBar-back-button-link');
+    
+    &.x-button-pressing {
+      @include bg-image('HeaderBar-back-button-active');
+    }
+  }
+}

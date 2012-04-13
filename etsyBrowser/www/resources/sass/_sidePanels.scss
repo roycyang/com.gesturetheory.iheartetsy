@@ -1,3 +1,8 @@
+/** ----------------------------------
+
+    Nav panels.
+    
+---------------------------------- */
 #navPanel {
   background: #46250A url(../images/slices-v2/LeftNav-top-background-1x.png) no-repeat top left;
 
@@ -73,27 +78,31 @@ span.arrow {
 }
 
 
-#searchPanel {
-    background: #46250a;
-}
+/** ----------------------------------
 
-
+    Right side, search panel.
+    
+---------------------------------- */
 #searchPanel {
+  background: #46250a;
+  
   h4 {
     font-size: 12px;
     padding: 5px 20px;
-    background: #2E1807;
-    color: #FEFBE3;
+    background: #2e1807;
+    color: #fefbe3;
     margin-bottom: 20px;
   }
   
   #searchButton {
-    background: url(../images/slices-v2/search-button-1x.png) no-repeat left top;
-    height: 36px;
-    margin-left: 167px;
+    margin: 0 auto;
+    background: center center no-repeat;
+    background-size: 100%;
     
+    @include bg-image('RightMenu-search-button-link');
+
     &.x-button-pressing {
-      background: url(../images/slices-v2/search-button-1x.png) no-repeat left -37px;
+      @include bg-image('RightMenu-search-button-active');
     }
   }
 }

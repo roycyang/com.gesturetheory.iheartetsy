@@ -61,4 +61,18 @@
     background: rgba(0, 0, 0, 0.2);
     z-index: 10000000 !important;
   }	
+  
+  .header-back-button {
+    margin: 0;
+    padding: 0;
+    background: center center no-repeat;
+    background-size: 100%;
+    
+    @include border-radius(0);
+    @include bg-image('HeaderBar-back-button-link');
+    
+    &.x-button-pressing {
+      @include bg-image('HeaderBar-back-button-active');
+    }
+  }
 }

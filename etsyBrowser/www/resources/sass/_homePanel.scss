@@ -1,5 +1,5 @@
 #homePanel {
-  background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
+  background: #f2f3db url(../images/v1-0-0/home_panel_background.png) repeat-x left bottom !important;
     
   .treasury-item-wrapper div.x-innerhtml>div:nth-of-type(5){
     display: none
@@ -7,7 +7,7 @@
 
   .browse-categories,
   .hottest-treasuries {
-    background: url(../images/slices-v2/GeneralApp-white-title-bar-1x.png) no-repeat center 7px !important;
+    background: url(../images/v1-0-0/GeneralApp-white-title-bar-1x.png) no-repeat center 7px !important;
     height: 67px;
     line-height: 67px;
     font-weight: normal;
@@ -16,7 +16,7 @@
   
   .x-button-pressing   .browse-categories,
   .x-button-pressing   .hottest-treasuries {
-    background: url(../images/slices-v2/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
+    background: url(../images/v1-0-0/GeneralApp-active-title-bar-1x.png?1) no-repeat center 1px !important;
   }
 
   .x-field { 

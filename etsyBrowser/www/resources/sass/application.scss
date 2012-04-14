@@ -6,7 +6,7 @@
 /*
   Paths
 */
-$img-path: '../images/slices-v2/';
+$img-path: '../images/v1-0-0/';
 
 /*
   Colors
@@ -39,7 +39,7 @@ $green: #78c042;
 	z-index: 1000000;
 	width: 1024px;
 	height: 748px;
-	background: url(../images/slices-v2/waiting-for-internet.png) no-repeat 0 0;
+	background: url(../images/v1-0-0/waiting-for-internet.png) no-repeat 0 0;
 	background-size: contain;
 }
 
@@ -60,12 +60,12 @@ $green: #78c042;
 
   
   &.sold {
-    background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
+    background: url(../images/v1-0-0/Product-sold-1x.png) no-repeat center center;
     text-indent: 10000px;
     text-align: left;
     
     .cart-pressed-flag & {
-      background: url(../images/slices-v2/Product-sold-1x.png) no-repeat center center;
+      background: url(../images/v1-0-0/Product-sold-1x.png) no-repeat center center;
     }
 	}
 

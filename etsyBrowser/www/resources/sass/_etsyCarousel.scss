@@ -3,12 +3,12 @@
 // =====================
 
 #appPanel .leftArrow {
-  background: url('../images/left_arrow_off.png') no-repeat left center;
+  background: url('../images/v1-0-0/left_arrow_off.png') no-repeat left center;
   background-size: contain;
   border-radius: 0;
   
   &.x-button-pressing {
-      background-image: url('../images/left_arrow_on.png');
+      background-image: url('../images/v1-0-0/left_arrow_on.png');
   }
 }
 
@@ -17,12 +17,12 @@
 // ======================
 
 #appPanel .rightArrow {
-  background: url('../images/right_arrow_off.png') no-repeat left center;
+  background: url('../images/v1-0-0/right_arrow_off.png') no-repeat left center;
   background-size: contain;
   border-radius: 0;
   
   &.x-button-pressing {
-      background-image: url('../images/right_arrow_on.png');
+      background-image: url('../images/v1-0-0/right_arrow_on.png');
   }
 }
 
@@ -40,7 +40,7 @@ p.desc {
 }
 
 .no-favorites-messaging {
-  background: url(../images/slices-v2/Favorites-no-items-2x.png) no-repeat 0 0;
+  background: url(../images/v1-0-0/Favorites-no-items-2x.png) no-repeat 0 0;
   background-size: contain;
   width: 430px;
   height: 430px;
@@ -48,7 +48,7 @@ p.desc {
 }
 
 .no-search-results-messaging {
-  background: url(../images/slices-v2/Results-no-items-2x.png) no-repeat 0 0;
+  background: url(../images/v1-0-0/Results-no-items-2x.png) no-repeat 0 0;
   background-size: contain;
   width: 430px;
   height: 430px;
@@ -62,13 +62,13 @@ p.desc {
   }
   
   .x-title .x-innerhtml {
-    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-off-2x.png) no-repeat top right;
+    background: url(../images/v1-0-0/HeaderBar-bookmark-ribbon-off-2x.png) no-repeat top right;
     padding: 0 55px;
     height: 62px;
     background-size: contain;
   }
   .bookmarked .x-innerhtml {
-    background: url(../images/slices-v2/HeaderBar-bookmark-ribbon-on-2x.png) no-repeat top right;
+    background: url(../images/v1-0-0/HeaderBar-bookmark-ribbon-on-2x.png) no-repeat top right;
   }
   
 }
@@ -97,7 +97,7 @@ p.desc {
   }
     
   .favorite-flag  .favorite-stamp {
-      background-image: url(../images/heart_stamp_x2.png);
+      background-image: url(../images/v1-0-0/heart_stamp_x2.png);
   }
     
   .cart-flag .cart-stamp {
@@ -108,7 +108,7 @@ p.desc {
     height: 26px;
     background: red;
     z-index: 10000;
-    background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
+    background: url(../images/v1-0-0/cart_stamp_x2.png) no-repeat 0 0;
     background-size: contain;
   }
 

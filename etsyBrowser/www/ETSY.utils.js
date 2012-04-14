@@ -90,7 +90,15 @@ var ETSY = {
         "Treasuries-button-2x.png",
         "Treasuries-published-icon-1x.png",
         "Treasuries-published-icon-2x.png",
+        "cart_stamp_x2.png",
         "default_avatar_75px.png",
+        "heart_stamp_x2.png",
+        "home_panel_background.png",
+        "instructions",
+        "left_arrow_off.png",
+        "left_arrow_on.png",
+        "right_arrow_off.png",
+        "right_arrow_on.png",
         "search-button-1x.png",
         "search-button-2x.png",
         "waiting-for-internet.png"
@@ -101,7 +109,7 @@ var ETSY = {
             // create object
             var imageObj = new Image();
             if(images[i]){
-              imageObj.src = "resources/images/slices-v2/" + images[i];
+              imageObj.src = "resources/images/v1-0-0/" + images[i];
             }
 
         }

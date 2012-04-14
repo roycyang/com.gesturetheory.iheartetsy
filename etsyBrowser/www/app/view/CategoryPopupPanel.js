@@ -19,6 +19,9 @@ Ext.define('Etsy.view.CategoryPopupPanel', {
         {
             id: 'categoryList',
             xtype: 'list',
+            scrollable: {
+              indicators: false
+            },
             title: 'Categories',
             store: 'Categories',
             itemTpl: '<div class="category-item">{short_name}</div>',

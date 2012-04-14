@@ -34,7 +34,9 @@ Ext.define('Etsy.view.NavPanel', {
 			xtype: 'list',
 			flex: 1,
 			id: 'navList',
-
+      scrollable: {
+        indicators: false
+      },
 			itemTpl: '<div class="contact">{title}</div>',
 			store: 'Navigation',
       grouped: true,

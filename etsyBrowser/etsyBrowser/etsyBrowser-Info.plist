@@ -10,17 +10,15 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>icon.png</string>
-		<string>icon@2x.png</string>
-		<string>ipad_icon.png</string>
-		<string>Default-Landscape~ipad.png</string>
-		<string>ipad_retina_icon.png</string>
-		<string>Default-Landscape@2x~ipad.png</string>
-		<string>Default-Landscape~ipad.png</string>
 		<string>Default-Landscape~ipad.png</string>
 		<string>Default-Landscape@2x~ipad.png</string>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
+		<string>Icon-72.png</string>
+		<string>Icon-72@2x.png</string>
 		<string>Default-Landscape~ipad.png</string>
 		<string>Default-Landscape@2x~ipad.png</string>
+		<string>iTunesArtwork.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -28,15 +26,15 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>ipad_icon.png</string>
-				<string>Default-Landscape~ipad.png</string>
-				<string>ipad_retina_icon.png</string>
-				<string>Default-Landscape@2x~ipad.png</string>
-				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
+				<string>Icon-72.png</string>
+				<string>Icon-72@2x.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
+				<string>iTunesArtwork.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -66,7 +64,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>041412</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>

@@ -7303,7 +7303,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* line 1, ../sass/_homePanel.scss */
 #homePanel {
-  background: #f2f3db url(../images/home_panel_background.png) repeat-x left bottom !important;
+  background: #f2f3db url(../images/v1-0-0/home_panel_background.png) repeat-x left bottom !important;
 }
 /* line 4, ../sass/_homePanel.scss */
 #homePanel .treasury-item-wrapper div.x-innerhtml > div:nth-of-type(5) {
@@ -7488,24 +7488,24 @@ span.arrow {
 
 /* line 5, ../sass/_etsyCarousel.scss */
 #appPanel .leftArrow {
-  background: url("../images/left_arrow_off.png") no-repeat left center;
+  background: url("../images/v1-0-0/left_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
 /* line 10, ../sass/_etsyCarousel.scss */
 #appPanel .leftArrow.x-button-pressing {
-  background-image: url("../images/left_arrow_on.png");
+  background-image: url("../images/v1-0-0/left_arrow_on.png");
 }
 
 /* line 19, ../sass/_etsyCarousel.scss */
 #appPanel .rightArrow {
-  background: url("../images/right_arrow_off.png") no-repeat left center;
+  background: url("../images/v1-0-0/right_arrow_off.png") no-repeat left center;
   background-size: contain;
   border-radius: 0;
 }
 /* line 24, ../sass/_etsyCarousel.scss */
 #appPanel .rightArrow.x-button-pressing {
-  background-image: url("../images/right_arrow_on.png");
+  background-image: url("../images/v1-0-0/right_arrow_on.png");
 }
 
 /* line 30, ../sass/_etsyCarousel.scss */
@@ -7579,7 +7579,7 @@ p.desc {
 }
 /* line 99, ../sass/_etsyCarousel.scss */
 .products .favorite-flag .favorite-stamp {
-  background-image: url(../images/heart_stamp_x2.png);
+  background-image: url(../images/v1-0-0/heart_stamp_x2.png);
 }
 /* line 103, ../sass/_etsyCarousel.scss */
 .products .cart-flag .cart-stamp {
@@ -7590,7 +7590,7 @@ p.desc {
   height: 26px;
   background: red;
   z-index: 10000;
-  background: url(../images/cart_stamp_x2.png) no-repeat 0 0;
+  background: url(../images/v1-0-0/cart_stamp_x2.png) no-repeat 0 0;
   background-size: contain;
 }
 /* line 115, ../sass/_etsyCarousel.scss */

@@ -30809,6 +30809,7 @@ Ext.define('Etsy.view.DetailPanel',
         }
         if (localStorage.favorites_listing_ids && localStorage.favorites_listing_ids.indexOf(id) != -1) {
             newData.in_favorites = true;
+            Ext.getCmp('detailPanelMainInfo').addCls('favorite-flag');
         }else{
             newData.in_favorites = false;
         }

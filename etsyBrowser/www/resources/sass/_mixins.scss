@@ -58,8 +58,8 @@
 @mixin bg-image($img, $ext: '.png') {
   $img-path: '' !default;
   
-  $one: '#{$img-path}#{$img}-1x#{$ext}?1';
-  $two: '#{$img-path}#{$img}-2x#{$ext}?1';
+  $one: '#{$img-path}#{$img}-1x#{$ext}';
+  $two: '#{$img-path}#{$img}-2x#{$ext}';
   
   background-image: url($one);
   

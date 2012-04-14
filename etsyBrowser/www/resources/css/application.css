@@ -7205,44 +7205,44 @@ input[type="search"]::-webkit-search-cancel-button {
   background-size: auto 100%;
   -webkit-border-radius: 0;
   border-radius: 0;
-  background-image: url("../images/slices-v2/HeaderBar-left-menu-button-link-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-left-menu-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 15, ../sass/_appPanel.scss */
   #appPanel .left-nav-button {
-    background-image: url("../images/slices-v2/HeaderBar-left-menu-button-link-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-left-menu-button-link-2x.png");
   }
 }
 /* line 24, ../sass/_appPanel.scss */
 #appPanel .left-nav-button.x-button-pressing {
-  background-image: url("../images/slices-v2/HeaderBar-left-menu-button-active-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-left-menu-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 24, ../sass/_appPanel.scss */
   #appPanel .left-nav-button.x-button-pressing {
-    background-image: url("../images/slices-v2/HeaderBar-left-menu-button-active-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-left-menu-button-active-2x.png");
   }
 }
 /* line 29, ../sass/_appPanel.scss */
 #appPanel .home-nav-button {
   background: center center no-repeat;
   background-size: auto 100%;
-  background-image: url("../images/slices-v2/HeaderBar-logo-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-logo-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 29, ../sass/_appPanel.scss */
   #appPanel .home-nav-button {
-    background-image: url("../images/slices-v2/HeaderBar-logo-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-logo-2x.png");
   }
 }
 /* line 35, ../sass/_appPanel.scss */
 #appPanel .home-nav-button.x-button-pressing {
-  background-image: url("../images/slices-v2/HeaderBar-logo-active-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-logo-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 35, ../sass/_appPanel.scss */
   #appPanel .home-nav-button.x-button-pressing {
-    background-image: url("../images/slices-v2/HeaderBar-logo-active-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-logo-active-2x.png");
   }
 }
 /* line 40, ../sass/_appPanel.scss */
@@ -7253,22 +7253,22 @@ input[type="search"]::-webkit-search-cancel-button {
   background-size: auto 100%;
   -webkit-border-radius: 0;
   border-radius: 0;
-  background-image: url("../images/slices-v2/HeaderBar-right-menu-button-link-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-right-menu-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 40, ../sass/_appPanel.scss */
   #appPanel .right-nav-button {
-    background-image: url("../images/slices-v2/HeaderBar-right-menu-button-link-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-right-menu-button-link-2x.png");
   }
 }
 /* line 49, ../sass/_appPanel.scss */
 #appPanel .right-nav-button.x-button-pressing {
-  background-image: url("../images/slices-v2/HeaderBar-right-menu-button-active-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-right-menu-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 49, ../sass/_appPanel.scss */
   #appPanel .right-nav-button.x-button-pressing {
-    background-image: url("../images/slices-v2/HeaderBar-right-menu-button-active-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-right-menu-button-active-2x.png");
   }
 }
 /* line 54, ../sass/_appPanel.scss */
@@ -7282,22 +7282,22 @@ input[type="search"]::-webkit-search-cancel-button {
   background-size: 100%;
   -webkit-border-radius: 0;
   border-radius: 0;
-  background-image: url("../images/slices-v2/HeaderBar-back-button-link-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-back-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 59, ../sass/_appPanel.scss */
   #appPanel .header-back-button {
-    background-image: url("../images/slices-v2/HeaderBar-back-button-link-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-back-button-link-2x.png");
   }
 }
 /* line 68, ../sass/_appPanel.scss */
 #appPanel .header-back-button.x-button-pressing {
-  background-image: url("../images/slices-v2/HeaderBar-back-button-active-1x.png?1");
+  background-image: url("../images/slices-v2/HeaderBar-back-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 68, ../sass/_appPanel.scss */
   #appPanel .header-back-button.x-button-pressing {
-    background-image: url("../images/slices-v2/HeaderBar-back-button-active-2x.png?1");
+    background-image: url("../images/slices-v2/HeaderBar-back-button-active-2x.png");
   }
 }
 
@@ -7467,22 +7467,22 @@ span.arrow {
   background-size: 100%;
   -webkit-border-radius: 0;
   border-radius: 0;
-  background-image: url("../images/slices-v2/RightMenu-search-button-link-1x.png?1");
+  background-image: url("../images/slices-v2/RightMenu-search-button-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 97, ../sass/_sidePanels.scss */
   #searchPanel #searchButton {
-    background-image: url("../images/slices-v2/RightMenu-search-button-link-2x.png?1");
+    background-image: url("../images/slices-v2/RightMenu-search-button-link-2x.png");
   }
 }
 /* line 105, ../sass/_sidePanels.scss */
 #searchPanel #searchButton.x-button-pressing {
-  background-image: url("../images/slices-v2/RightMenu-search-button-active-1x.png?1");
+  background-image: url("../images/slices-v2/RightMenu-search-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 105, ../sass/_sidePanels.scss */
   #searchPanel #searchButton.x-button-pressing {
-    background-image: url("../images/slices-v2/RightMenu-search-button-active-2x.png?1");
+    background-image: url("../images/slices-v2/RightMenu-search-button-active-2x.png");
   }
 }
 
@@ -7606,12 +7606,12 @@ p.desc {
   background: no-repeat;
   background-size: 100%;
   background-position: center center;
-  background-image: url("../images/slices-v2/Product-container-1x.png?1");
+  background-image: url("../images/slices-v2/Product-container-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 115, ../sass/_etsyCarousel.scss */
   .products .product {
-    background-image: url("../images/slices-v2/Product-container-2x.png?1");
+    background-image: url("../images/slices-v2/Product-container-2x.png");
   }
 }
 /* line 131, ../sass/_etsyCarousel.scss */
@@ -7686,26 +7686,26 @@ p.desc {
   padding: 7px 11px 4px 15px;
   background: no-repeat;
   background-size: 100%;
-  background-image: url("../images/slices-v2/ProductDetail-background-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-background-1x.png");
   /* Favorite stamp. */
   /* Wrapper for product title and buy button. */
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 7, ../sass/_detailPanel.scss */
   #detailPanel {
-    background-image: url("../images/slices-v2/ProductDetail-background-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-background-2x.png");
   }
 }
 /* line 16, ../sass/_detailPanel.scss */
 #detailPanel .favorite-flag .description-inner-wrapper {
   background: left top no-repeat;
   background-size: auto 100%;
-  background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 16, ../sass/_detailPanel.scss */
   #detailPanel .favorite-flag .description-inner-wrapper {
-    background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-favorite-stamp-2x.png");
   }
 }
 /* line 23, ../sass/_detailPanel.scss */
@@ -7721,12 +7721,12 @@ p.desc {
 }
 /* line 35, ../sass/_detailPanel.scss */
 #detailPanel .description-inner-wrapper.cart-flag .price {
-  background-image: url("../images/slices-v2/ProductDetail-cart-button-active-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-cart-button-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 35, ../sass/_detailPanel.scss */
   #detailPanel .description-inner-wrapper.cart-flag .price {
-    background-image: url("../images/slices-v2/ProductDetail-cart-button-active-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-cart-button-active-2x.png");
   }
 }
 /* line 39, ../sass/_detailPanel.scss */
@@ -7771,12 +7771,12 @@ p.desc {
 #detailPanelSpacer {
   background: left top no-repeat;
   background-size: 100%;
-  background-image: url("../images/slices-v2/ProductDetail-vertical-divider-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-vertical-divider-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 79, ../sass/_detailPanel.scss */
   #detailPanelSpacer {
-    background-image: url("../images/slices-v2/ProductDetail-vertical-divider-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-vertical-divider-2x.png");
   }
 }
 
@@ -7789,12 +7789,12 @@ p.desc {
 #detailPanelInfo {
   background: left bottom no-repeat;
   background-size: 100% auto;
-  background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 91, ../sass/_detailPanel.scss */
   #detailPanelInfo {
-    background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-title-bar-shadow-2x.png");
   }
 }
 /* line 97, ../sass/_detailPanel.scss */
@@ -7857,7 +7857,7 @@ p.desc {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  background-image: url("../images/slices-v2/ProductDetail-cart-button-link-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-cart-button-link-1x.png");
   /*    &:hover {
         cursor: pointer;
       }
@@ -7871,7 +7871,7 @@ p.desc {
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 133, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .price {
-    background-image: url("../images/slices-v2/ProductDetail-cart-button-link-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-cart-button-link-2x.png");
   }
 }
 /* line 151, ../sass/_detailPanel.scss */
@@ -7914,13 +7914,13 @@ p.desc {
 }
 /* line 199, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelHeart {
-  background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-1x.png");
   background-position: right center;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 199, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelHeart {
-    background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-favorite-button-sprite-2x.png");
   }
 }
 /* line 204, ../sass/_detailPanel.scss */
@@ -7933,32 +7933,32 @@ p.desc {
 }
 /* line 214, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelEmail {
-  background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 214, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelEmail {
-    background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-email-button-sprite-2x.png");
   }
 }
 /* line 219, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelFacebook {
-  background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 219, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelFacebook {
-    background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-facebook-button-sprite-2x.png");
   }
 }
 /* line 224, ../sass/_detailPanel.scss */
 #detailPanelMainInfo .x-button#detailPanelTwitter {
-  background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 224, ../sass/_detailPanel.scss */
   #detailPanelMainInfo .x-button#detailPanelTwitter {
-    background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-twitter-button-sprite-2x.png");
   }
 }
 /* line 229, ../sass/_detailPanel.scss */
@@ -7977,42 +7977,42 @@ p.desc {
   border-radius: 0;
   background-position: center center;
   background-size: 100% auto;
-  background-image: url("../images/slices-v2/ProductDetail-info-tab-link-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-info-tab-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 239, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button {
-    background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-info-tab-link-2x.png");
   }
 }
 /* line 247, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button.x-button-pressing {
-  background-image: url("../images/slices-v2/ProductDetail-info-tab-active-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-info-tab-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 247, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button.x-button-pressing {
-    background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-info-tab-active-2x.png");
   }
 }
 /* line 253, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button.active {
-  background-image: url("../images/slices-v2/ProductDetail-close-tab-link-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-close-tab-link-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 253, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button.active {
-    background-image: url("../images/slices-v2/ProductDetail-close-tab-link-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-close-tab-link-2x.png");
   }
 }
 /* line 256, ../sass/_detailPanel.scss */
 #detailPanelInfoButton.x-button.active.x-button-pressing {
-  background-image: url("../images/slices-v2/ProductDetail-close-tab-active-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-close-tab-active-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 256, ../sass/_detailPanel.scss */
   #detailPanelInfoButton.x-button.active.x-button-pressing {
-    background-image: url("../images/slices-v2/ProductDetail-close-tab-active-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-close-tab-active-2x.png");
   }
 }
 
@@ -8025,7 +8025,7 @@ p.desc {
   padding: 20px 10px 20px 20px;
   background: left top no-repeat #fffef4;
   background-size: 100%;
-  background-image: url("../images/slices-v2/ProductDetail-long-divider-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-long-divider-1x.png");
   /*
     Container for description text.
   */
@@ -8033,7 +8033,7 @@ p.desc {
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 266, ../sass/_detailPanel.scss */
   #detailPanelMoreInfo {
-    background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-long-divider-2x.png");
   }
 }
 /* line 273, ../sass/_detailPanel.scss */
@@ -8042,12 +8042,12 @@ p.desc {
   padding: 0 0 20px 0;
   background: left bottom no-repeat;
   background-size: 100%;
-  background-image: url("../images/slices-v2/ProductDetail-seller-divider-1x.png?1");
+  background-image: url("../images/slices-v2/ProductDetail-seller-divider-1x.png");
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   /* line 273, ../sass/_detailPanel.scss */
   #detailPanelMoreInfo .seller {
-    background-image: url("../images/slices-v2/ProductDetail-seller-divider-2x.png?1");
+    background-image: url("../images/slices-v2/ProductDetail-seller-divider-2x.png");
   }
 }
 /* line 283, ../sass/_detailPanel.scss */

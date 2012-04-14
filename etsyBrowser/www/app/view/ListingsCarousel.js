@@ -239,16 +239,17 @@ Ext.define('Etsy.view.ListingsCarousel', {
   },
 
   updateStore: function (newStore) {
-    //console.log('called updateStore');
-    var me = this;
+    // console.log('called updateStore');
+    var self = this;
 
+    
     if (newStore.isLoading()) {
-      //console.log('in newStore.isLoading()');
       if (GLOBAL.panel == 'listings' || GLOBAL.panel == 'searchResults') {
         // this is when the store updates, we can update the max index.
+        window.newStore = newStore;
         newStore.on('refresh', function () {
           var storeCount = newStore.getCount();
-            me.adjustAfterLoading(me, newStore);          
+            self.adjustAfterLoading(self, newStore);          
             newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
             //console.log('\n\n\n\n\nnew store proxy', newStore.getProxy());
             if(GLOBAL.panel == 'listings'){
@@ -260,17 +261,17 @@ Ext.define('Etsy.view.ListingsCarousel', {
       
       // this is when the store loads for the first time
       newStore.on('load', function () {
-        //console.log('in store load');
-        me.adjustAfterLoading(me, newStore);
-        me.updateStore(newStore);
-      }, me, {
+        // console.log('in store load');
+        self.adjustAfterLoading(self, newStore);
+        self.updateStore(newStore);
+      }, self, {
         single: true
       });
       
     } else {
       //console.log('NOT in newStore.isLoading()');
-      me.reset();
-      me.adjustAfterLoading(me, newStore);
+      self.reset();
+      self.adjustAfterLoading(self, newStore);
     }
   },
   
@@ -282,20 +283,19 @@ Ext.define('Etsy.view.ListingsCarousel', {
     if(GLOBAL.panel != 'favorites' && GLOBAL.panel != 'home'){
       max = max - 1;
     }
-    
+
     me.setMaxItemIndex(max);
     if(me.getActiveIndex() < max){
       $('.rightArrow').show();
     }else{
       $('.rightArrow').hide();
     }
-    
+
     if(me.getActiveIndex() == 0){
       $('.leftArrow').hide();
     }else{
       $('.leftArrow').show();
-    }
-    
+    }    
   },
 
   onActiveItemChange: function (carousel, newItem, oldItem) {
@@ -303,32 +303,29 @@ Ext.define('Etsy.view.ListingsCarousel', {
     // and then calls adjustAfterLoading which makes sure we adjust the arrows and the max items
     //console.log('called onActiveItemChange');
 
-    try{
-      var index     = carousel.getActiveIndex(),
-        count       = this.getCount(),
-        offsetLimit = this.getOffsetLimit(),
-        store       = this.getStore(),
-        storeCount  = store.getCount();
-        
-        if(index > 1){
-          ETSY.trackPageviews(GLOBAL.google_last_url + "/" + index, true); 
-        }
-
-        //console.log('storeCount', storeCount);
-        //console.log('count', count)
-        //console.log('offsetLimit', offsetLimit);
-        
-      if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
-        if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
-          //console.log('calling store.nextPage');
-          store.nextPage();
-        }
+    var index     = carousel.getActiveIndex(),
+      count       = this.getCount(),
+      offsetLimit = this.getOffsetLimit(),
+      store       = this.getStore(),
+      storeCount  = store.getCount();
+      
+      if(index > 1){
+        ETSY.trackPageviews(GLOBAL.google_last_url + "/" + index, true); 
       }
 
-      carousel.adjustAfterLoading(carousel, store);
-    }catch(err){
-      //console.log('error: ', err);
+      //console.log('storeCount', storeCount);
+      //console.log('count', count)
+      //console.log('offsetLimit', offsetLimit);
+      
+    if (GLOBAL.panel != 'treasury' && GLOBAL.panel != 'favorites') {
+      if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
+        //console.log('calling store.nextPage');
+        store.nextPage();
+      }
     }
+
+    carousel.adjustAfterLoading(carousel, store);
+
     
   },
 

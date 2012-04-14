@@ -27,7 +27,7 @@ $green: #78c042;
 @import 'appPanel';
 @import 'homePanel';
 @import 'sidePanels';
-@import 'carousel';
+@import 'etsyCarousel';
 @import 'detailPanel';
 @import 'treasuries';
 
@@ -72,7 +72,7 @@ $green: #78c042;
 	.cart-pressed-flag & {
 	  background-color: #78C042;
 	  color: #fff;
-	  
+    @include box-shadow(0 0 10px 2px rgba(black, .3));
 	  @include border-radius(5px);
 	}
 

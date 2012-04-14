@@ -123,12 +123,20 @@
     @include ellipses(100%);
   }
   
+  .cart-pressed-flag .price {
+    color: $tan;
+    background-color: $green;
+    @include box-shadow(0 0 10px 2px rgba(black, .3));
+  }
+  
   .price {
     float: left;
     height: 27px;
     padding: 0 41px 0 7px;
     color: $green;
-    background: top right no-repeat $tan;
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-color: $tan;
     background-size: auto 100%;
     border: 1px solid #DADAD6;
     
@@ -136,6 +144,8 @@
     @include box-shadow(0 0 10px 0 rgba(black, .1));
     @include border-radius(3px);
     @include bg-image('ProductDetail-cart-button-link');
+    
+
     
     &.sold {
       background-image: url("../images/slices-v2/Product-sold-1x.png");
@@ -145,16 +155,15 @@
       background-position: center center;
     }
     
-    &:hover {
+/*    &:hover {
       cursor: pointer;
     }
     
     &:active {
-      color: $tan;
-      background-color: $green;
+
       
       @include box-shadow(0 0 10px 2px rgba(black, .3));
-    }
+    }*/
   }
 
   .cart-confirmation,

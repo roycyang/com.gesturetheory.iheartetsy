@@ -157,6 +157,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
     if (yDist > 0 && !$element.hasClass('favoriting') && $element && !this.isDragging && this.productDragging === $element.attr('ref')) {
       // Move the element with the drag coords.
+      console.log(yDist);
       $element.css('-webkit-transform', 'translate3d(0, ' + yDist + 'px, 0)');
 
       // Once the element is raised enough:

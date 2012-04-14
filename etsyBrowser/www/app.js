@@ -59,7 +59,7 @@ Ext.application({
     
     eventPublishers: {
         touchGesture: {
-            moveThrottle: 3
+            moveThrottle: 5
         }
     },
 });

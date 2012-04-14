@@ -64,10 +64,10 @@ Ext.define('Etsy.view.DetailPanel',
                   width: 40
                 },
                 {
-                  top: 18,
+                  top: -3,
                   right: -87,
                   width: 77,
-                  height: 51,
+                  height: 100,
                   id: 'detailPanelInfoButton',
                   xtype: 'button',
                   listeners: {
@@ -280,7 +280,9 @@ Ext.define('Etsy.view.DetailPanel',
       ],
       listeners: {
         erased: function () {
-          APP.getDetailPanel().destroy();
+          setTimeout(function(){
+            APP.getDetailPanel().destroy();  
+          }, 100);
           //console.log('destroyed the detail panel!');
         }
       }

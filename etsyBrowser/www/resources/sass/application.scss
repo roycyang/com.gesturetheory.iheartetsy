@@ -73,7 +73,7 @@ $green: #78c042;
 	  background-color: #78C042;
 	  color: #fff;
     @include box-shadow(0 0 10px 2px rgba(black, .3));
-	  @include border-radius(5px);
+	  @include border-radius(3px);
 	}
 
 }

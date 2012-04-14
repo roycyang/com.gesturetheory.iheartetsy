@@ -15,7 +15,8 @@
   .favorite-flag {
     .description-inner-wrapper {
       background: left top no-repeat;
-
+      background-size: auto 100%;
+      
       @include bg-image('ProductDetail-favorite-stamp');
     }
     
@@ -238,11 +239,13 @@
 #detailPanelInfoButton.x-button { 
   background: no-repeat;
   border-radius: 0;
+  background-position: center center;
+  background-size: 100% auto;
 
   @include bg-image('ProductDetail-info-tab-link');
   
   &.x-button-pressing {
-    background: no-repeat;
+
     
     @include bg-image('ProductDetail-info-tab-active');
   }
@@ -251,7 +254,6 @@
     @include bg-image('ProductDetail-close-tab-link');
     
     &.x-button-pressing {
-      background: no-repeat;
       @include bg-image('ProductDetail-close-tab-active');
     }
   }

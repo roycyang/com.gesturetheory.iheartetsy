@@ -124,6 +124,7 @@ p.desc {
     padding: 6px;
     background: no-repeat;
     background-size: 100%;
+    background-position: center center;
 
     @include bg-image('Product-container');
 

@@ -216,33 +216,39 @@ var ETSY = {
         GLOBAL.oauth.post(url, {},
         function(data) {
             ETSY.updateFavoritesInfo();
-            if (element.hasClass('favorite-flag')) {
-                ETSY.trackEvent('actions', 'unfavoriting');
-                $(element).removeClass('favorite-flag');
- 
-                if (detailPanel) {
-                    $(element).closest('#detailPanelMainInfo').removeClass('favorite-flag');
-                    $('.product[ref=' + id + ']').removeClass('favorite-flag');
-                }
-            } else {
-                ETSY.trackEvent('actions', 'favoriting');
-                console.log('element', $(element).closest('#detailPanelMainInfo'));
-                $(element).addClass('favorite-flag');
-                if (detailPanel) {
-                    $(element).closest('#detailPanelMainInfo').addClass('favorite-flag');
-                    $('.product[ref=' + id + ']').addClass('favorite-flag');
-                }
-            }
         },
         function(data) {
             //        ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
-            });
+        });
+        
+        if (element.hasClass('favorite-flag')) {
+            ETSY.trackEvent('actions', 'unfavoriting');
+            $(element).removeClass('favorite-flag');
 
-        // wait until the animation is over before we remove the favoriting flag
-        setTimeout(function() {
-            element.removeClass('favoriting');
-        },
-        1000);
+            if (detailPanel) {
+                $(element).closest('#detailPanelMainInfo').removeClass('favorite-flag');
+                $('.product[ref=' + id + ']').removeClass('favorite-flag');
+            }
+        } else {
+            ETSY.trackEvent('actions', 'favoriting');
+            console.log('element', $(element).closest('#detailPanelMainInfo'));
+            $(element).addClass('favorite-flag');
+            if (detailPanel) {
+                $(element).closest('#detailPanelMainInfo').addClass('favorite-flag');
+                $('.product[ref=' + id + ']').addClass('favorite-flag');
+            }
+        }
+
+        if (detailPanel) {
+          element.removeClass('favoriting');
+        }else{
+          // wait until the animation is over before we remove the favoriting flag
+          setTimeout(function() {
+              element.removeClass('favoriting');
+          },
+          1000);
+        }
+
 
         return true;
     },
@@ -321,24 +327,25 @@ var ETSY = {
         },
         function(data) {
             // after add success
-            if (element.hasClass('cart-flag')) {
-                ETSY.trackEvent('actions', 'remove from cart');
-                element.removeClass('cart-flag');
-                if (detailPanel) {
-                    $('.product[ref=' + id + ']').removeClass('cart-flag');
-                }
-            } else {
-                ETSY.trackEvent('actions', 'add to cart');
-                element.addClass('cart-flag');
-                if (detailPanel) {
-                    $('.product[ref=' + id + ']').addClass('cart-flag');
-                }
-            }
             ETSY.updateCartInfo();
         },
         function(data) {
             // ETSY.alert('Sorry but there is a problem connecting with Etsy. Please try again later!');
-            });
+        });
+        
+        if (element.hasClass('cart-flag')) {
+             ETSY.trackEvent('actions', 'remove from cart');
+             element.removeClass('cart-flag');
+             if (detailPanel) {
+                 $('.product[ref=' + id + ']').removeClass('cart-flag');
+             }
+         } else {
+             ETSY.trackEvent('actions', 'add to cart');
+             element.addClass('cart-flag');
+             if (detailPanel) {
+                 $('.product[ref=' + id + ']').addClass('cart-flag');
+             }
+         }
     },
 
     updateCartInfo: function() {

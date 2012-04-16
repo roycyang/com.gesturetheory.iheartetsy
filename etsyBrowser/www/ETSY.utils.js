@@ -94,7 +94,6 @@ var ETSY = {
         "default_avatar_75px.png",
         "heart_stamp_x2.png",
         "home_panel_background.png",
-        "instructions",
         "left_arrow_off.png",
         "left_arrow_on.png",
         "right_arrow_off.png",

@@ -52,19 +52,18 @@
 	function onBodyLoad() 
 	{		
 		document.addEventListener("deviceready", onDeviceReady, false);
-		document.addEventListener("online", onOnline, false);
-		document.addEventListener("offline", onOffline, false);
-
 	}
 	
 	function onOnline()
 	{
+		// alert('on online');
 		$('.offline-mask').hide();
 	}
 	
 	function onOffline()
 	{	
-		$('.offline-mask').show();
+		// $('.offline-mask').show();
+		alert('on offline');
 	}
 	
 	/* When this function is called, Cordova has been initialized and is ready to roll */
@@ -73,6 +72,11 @@
 	for more details -jm */
 	function onDeviceReady()
 	{
+		// ETSY.alert('run with it!');
+		// initialize the online/offline mode
+		document.addEventListener("online", onOnline, false);
+		document.addEventListener("offline", onOffline, false);
+
 		
 		// initializing facebook
     FB.init({ appId: "224999977607968", nativeInterface: CDV.FB, useCachedDialogs: false });

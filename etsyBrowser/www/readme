@@ -1,0 +1,23 @@
+Version 1.1 Roadmap
+
+App
+* Add in all favorites (currently limited to 100)
+* Add in animation on treasuries and explore using arrows
+* Explore using arrows for homepage
+* Add in-app cart functionality
+* Add the ability to see a user's shop
+* Add Treasuries and Users to favorites
+* Fill out the product detail with user information
+* Fill out the treasuries with "X hours ago"
+* Add advertisements and release a free version.
+* Add more analytics
+* Add Twitter
+* Add Pinterest
+* Add settings page (Where we would have the signout buttons, instructions, etc.
+* Add load timestamp to the homepage.
+* Upgrade to Cordova 1.6.1
+* Add messaging and validation to the search panel
+
+Backend
+* Use Express and MongoDB to cache results from Etsy
+

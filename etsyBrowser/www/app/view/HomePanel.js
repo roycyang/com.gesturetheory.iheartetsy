@@ -1,8 +1,7 @@
 Ext.define('Etsy.view.HomePanel', {
     extend: 'Ext.Panel',
     alias: 'widget.homePanel',
-    
-    requires: ['Etsy.view.SmallTreasuries', 'Ext.field.Search'],
+    requires: ['Etsy.view.SmallTreasuries', 'Ext.field.Search', 'GT.FixedButton'],
     config: {
         title: 'Home',
         id: 'homePanel',
@@ -31,7 +30,9 @@ Ext.define('Etsy.view.HomePanel', {
                 }
             },
             {   
-                xtype: 'button',
+                width: 420,
+                margin: '0 302px',
+                xtype: 'fixedbutton',
                 ui: 'plain',
                 html: '<div class="browse-categories">Browse Categories</div>',
                 listeners: {
@@ -51,7 +52,9 @@ Ext.define('Etsy.view.HomePanel', {
                 },
             },
             {
-                xtype: 'button',
+                width: 420,
+                margin: '0 302px',
+                xtype: 'fixedbutton',
                 ui: 'plain',
                 html: '<div class="hottest-treasuries">Hottest Treasuries</div>',
                 listeners: {

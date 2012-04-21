@@ -6,6 +6,7 @@ Ext.define('Etsy.view.DetailPanel',
     extend: 'Ext.Container',
     xtype: 'listing',
     alias: 'widget.detailPanel',
+    requires: ['GT.FixedButton'],
 
     config: {
       id: 'detailPanel',
@@ -69,7 +70,7 @@ Ext.define('Etsy.view.DetailPanel',
                   width: 77,
                   height: 100,
                   id: 'detailPanelInfoButton',
-                  xtype: 'button',
+                  xtype: 'fixedbutton',
                   listeners: {
                     tap: function (e) {
                       if (Ext.getCmp('detailPanelMoreInfo').isHidden()) {
@@ -91,7 +92,7 @@ Ext.define('Etsy.view.DetailPanel',
                 },
                 {
                   id: 'detailPanelHeart',
-                  xtype: 'button',
+                  xtype: 'fixedbutton',
                   width: 32,
                   listeners: {
                     tap: function (e) {
@@ -111,7 +112,7 @@ Ext.define('Etsy.view.DetailPanel',
                 },
                 {
                   id: 'detailPanelEmail',
-                  xtype: 'button',
+                  xtype: 'fixedbutton',
                   width: 32,
                   listeners: {
                     tap: function () {
@@ -127,7 +128,7 @@ Ext.define('Etsy.view.DetailPanel',
                 },
                 {
                   id: 'detailPanelFacebook',
-                  xtype: 'button',
+                  xtype: 'fixedbutton',
                   width: 32,
                   listeners: {
                     tap: function () {
@@ -140,7 +141,7 @@ Ext.define('Etsy.view.DetailPanel',
 
                 // {
                 //     id: 'detailPanelTwitter',
-                //     xtype: 'button',
+                //     xtype: 'fixedbutton',
                 //     listeners: {
                 //         tap: function() {
                 //           // ETSY.trackEvent('share', 'twitter');

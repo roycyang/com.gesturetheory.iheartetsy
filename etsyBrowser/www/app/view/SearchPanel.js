@@ -1,6 +1,6 @@
 Ext.define('Etsy.view.SearchPanel', {
 	extend: 'Ext.Container',
-    requires: ['Ext.form.Panel', 'Ext.form.FieldSet','Ext.field.Number','Ext.field.Search'],
+    requires: ['Ext.form.Panel', 'Ext.form.FieldSet','Ext.field.Number','Ext.field.Search', 'GT.FixedButton'],
 	config: {
 		layout: 'vbox',
 		id: 'searchPanel',
@@ -78,7 +78,7 @@ Ext.define('Etsy.view.SearchPanel', {
 				]
 			},
       {
-        xtype: 'button',
+        xtype: 'fixedbutton',
         width: 248,
         height: 50,
         ui: 'plain',

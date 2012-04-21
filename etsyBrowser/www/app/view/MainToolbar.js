@@ -2,12 +2,13 @@ Ext.define('Etsy.view.MainToolbar', {
     extend: 'Ext.Toolbar',
     alias: 'widget.mainToolbar',
     xtype: 'maintoolbar',
+    requires: ['GT.FixedButton'],
 
     config: {
         docked: 'top',
         items: [
         {
-          xtype: 'button',
+          xtype: 'fixedbutton',
           ui: 'plain',
           width: 74,
           height: 47,
@@ -28,7 +29,7 @@ Ext.define('Etsy.view.MainToolbar', {
           }
         },
         {
-          xtype: 'button',
+          xtype: 'fixedbutton',
           ui: 'plain',
           width: 140,
           height: 47,
@@ -43,7 +44,7 @@ Ext.define('Etsy.view.MainToolbar', {
           xtype: 'spacer'
         },
         {
-          xtype: 'button',
+          xtype: 'fixedbutton',
           ui: 'plain',
           width: 74,
           height: 47,

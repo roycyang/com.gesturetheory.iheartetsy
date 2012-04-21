@@ -1,5 +1,6 @@
 Ext.define('Etsy.view.NavPanel', {
 	extend: 'Ext.Container',
+        requires: ['GT.FixedButton'],
 	config: {
 		layout: {
 			type: 'vbox',
@@ -18,7 +19,7 @@ Ext.define('Etsy.view.NavPanel', {
 				height: 93,
 			},
 			{
-			  xtype: 'button',
+			  xtype: 'fixedbutton',
 			  ui: 'none',
         height: 93,
 				id: 'signUpButton',

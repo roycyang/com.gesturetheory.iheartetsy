@@ -1,5 +1,6 @@
 Ext.define('Etsy.view.SearchResultsPanel', {
     extend: 'Ext.Panel',
+    requires: ['GT.FixedButton'],
     alias: 'widget.searchResultsPanel',
     config: {
         title: 'Search Results',
@@ -14,7 +15,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
               {
                 width: 105,
                 height: 47,
-                xtype: 'button',
+                xtype: 'fixedbutton',
                 cls: 'header-back-button',
                 ui: 'plain',
                 listeners: {
@@ -54,7 +55,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             html: '<h1>No Search Results</h1><p class="desc">Tap the back button to try again.</p><div class="no-search-results-messaging"></div>'
         },
         {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             cls: 'leftArrow',
             width: 46,
             left: 0,
@@ -77,7 +78,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             }
         },
         {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             cls: 'rightArrow',
             right: 0,
             ui: 'plain',

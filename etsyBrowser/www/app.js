@@ -2,6 +2,10 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
+Ext.Loader.setPath({
+    'GT': 'GT'
+});
+
 Ext.application({
     models: [
     'Listing',
@@ -57,9 +61,9 @@ Ext.application({
 
     },
     
-    eventPublishers: {
-        touchGesture: {
-            moveThrottle: 5
-        }
-    },
+    // eventPublishers: {
+    //     touchGesture: {
+    //         moveThrottle: 5
+    //     }
+    // },
 });

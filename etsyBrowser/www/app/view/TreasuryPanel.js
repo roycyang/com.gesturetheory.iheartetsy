@@ -1,6 +1,7 @@
 Ext.define('Etsy.view.TreasuryPanel', {
     extend: 'Ext.Panel',
     alias: 'widget.treasuryPanel',
+    requires: ['GT.FixedButton'],
     config: {
         id: 'treasuryPanel',
         items: [
@@ -10,7 +11,7 @@ Ext.define('Etsy.view.TreasuryPanel', {
             id: 'treasuryToolbar',
             items: [
             {
-                xtype: 'button',
+                xtype: 'fixedbutton',
                 width: 105,
                 height: 47,
                 cls: 'header-back-button',

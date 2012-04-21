@@ -1,7 +1,7 @@
 Ext.define('Etsy.view.InstructionsPanel', {
     extend: 'Ext.Container',
     alias: 'widget.instructionsPanel',
-
+        requires: ['GT.FixedButton'],
     config: {
         id: 'instructionPanel',
         zIndex: 1000000000,
@@ -48,7 +48,7 @@ Ext.define('Etsy.view.InstructionsPanel', {
                   top: 255,
                   left: 50,
                   id: 'instr-sign-up-button',
-                  xtype: 'button',
+                  xtype: 'fixedbutton',
                   ui: 'plain',
                   listeners: {
                     tap: function(){
@@ -63,7 +63,7 @@ Ext.define('Etsy.view.InstructionsPanel', {
                    top: 255,
                    right: 50,
                   id: 'instr-app-button',
-                  xtype: 'button',
+                  xtype: 'fixedbutton',
                   ui: 'plain',
                   listeners: {
                     tap: function(){

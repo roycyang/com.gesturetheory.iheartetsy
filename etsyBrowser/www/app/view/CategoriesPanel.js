@@ -1,6 +1,7 @@
 Ext.define('Etsy.view.CategoriesPanel', {
     extend: 'Ext.Panel',
     alias: 'widget.categoriesPanel',
+    requires: ['GT.FixedButton'],
     config: {
         title: 'Categories',
         id: 'categoriesPanel',
@@ -18,7 +19,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
             id: 'categoriesToolbar'
         },
         {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             cls: 'leftArrow',
             width: 46,
             left: 0,
@@ -41,7 +42,7 @@ Ext.define('Etsy.view.CategoriesPanel', {
             }
         },
         {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             cls: 'rightArrow',
             right: 0,
             ui: 'plain',

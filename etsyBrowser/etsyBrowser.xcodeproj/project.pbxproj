@@ -61,6 +61,9 @@
 		4375EAB9151F78BC00E416BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAE151F78BC00E416BF /* index.html */; };
 		4375EABA151F78BC00E416BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAF151F78BC00E416BF /* README.txt */; };
 		4375EABB151F78BC00E416BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAB0151F78BC00E416BF /* README.md */; };
+		43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43988F401546386D00C2E444 /* TwitterPlugin.m */; };
+		43988F43154638F000C2E444 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F42154638F000C2E444 /* Twitter.framework */; };
+		43988F45154638F900C2E444 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F44154638F900C2E444 /* Accounts.framework */; };
 		43B0FC9F1536789300159DDB /* GoogleAnalyticsPlugin.js in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FC991536789300159DDB /* GoogleAnalyticsPlugin.js */; };
 		43B0FCA01536789300159DDB /* GoogleAnalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FC9A1536789300159DDB /* GoogleAnalyticsPlugin.m */; };
 		43B0FCA11536789300159DDB /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FC9D1536789300159DDB /* libGoogleAnalytics.a */; };
@@ -151,6 +154,10 @@
 		4375EAAE151F78BC00E416BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		4375EAAF151F78BC00E416BF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4375EAB0151F78BC00E416BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		43988F3F1546386D00C2E444 /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
+		43988F401546386D00C2E444 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
+		43988F42154638F000C2E444 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		43988F44154638F900C2E444 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		43B0FC981536789300159DDB /* GoogleAnalyticsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsPlugin.h; sourceTree = "<group>"; };
 		43B0FC991536789300159DDB /* GoogleAnalyticsPlugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = GoogleAnalyticsPlugin.js; sourceTree = "<group>"; };
 		43B0FC9A1536789300159DDB /* GoogleAnalyticsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsPlugin.m; sourceTree = "<group>"; };
@@ -176,6 +183,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43988F45154638F900C2E444 /* Accounts.framework in Frameworks */,
+				43988F43154638F000C2E444 /* Twitter.framework in Frameworks */,
 				43B0FCA7153680BF00159DDB /* libsqlite3.0.dylib in Frameworks */,
 				43B0FCA4153678B500159DDB /* CFNetwork.framework in Frameworks */,
 				43DE14881520F5950050CFF0 /* MessageUI.framework in Frameworks */,
@@ -277,6 +286,8 @@
 		4352FD4B151D1A4400F75C44 = {
 			isa = PBXGroup;
 			children = (
+				43988F44154638F900C2E444 /* Accounts.framework */,
+				43988F42154638F000C2E444 /* Twitter.framework */,
 				43017FD5153A284E00AEFB15 /* Icon-72.png */,
 				43017FD6153A284E00AEFB15 /* Icon-72@2x.png */,
 				43017FD7153A284E00AEFB15 /* Icon.png */,
@@ -410,6 +421,7 @@
 		4352FDAC151D1A4400F75C44 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				43988F3D1546385700C2E444 /* Twitter */,
 				4311194515370FB500870F05 /* Facebook */,
 				43B0FC971536789300159DDB /* GoogleAnalytics */,
 				43DE147E1520F4E50050CFF0 /* EmailComposer */,
@@ -443,6 +455,15 @@
 				4375EAAF151F78BC00E416BF /* README.txt */,
 			);
 			path = FBConnectExample;
+			sourceTree = "<group>";
+		};
+		43988F3D1546385700C2E444 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				43988F3F1546386D00C2E444 /* TwitterPlugin.h */,
+				43988F401546386D00C2E444 /* TwitterPlugin.m */,
+			);
+			name = Twitter;
 			sourceTree = "<group>";
 		};
 		43B0FC971536789300159DDB /* GoogleAnalytics */ = {
@@ -607,6 +628,7 @@
 				4311196F1537107100870F05 /* SBJsonWriter.m in Sources */,
 				43C473A215373222005DDFDC /* AppDelegate.m in Sources */,
 				43C473A315373222005DDFDC /* MainViewController.m in Sources */,
+				43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

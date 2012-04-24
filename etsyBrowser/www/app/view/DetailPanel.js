@@ -156,13 +156,9 @@ Ext.define('Etsy.view.DetailPanel',
                             setTimeout(function(){
                                 window.plugins.twitter.isTwitterAvailable(function(r){
                                     APP.getAppPanel().unmask();
-                                    
-                                    console.log("twitter available? " + r);
-                                    if(r == 1){
-
+                                    if(r == 1){ // this means twitter is available (iOS 5)
                                         window.plugins.twitter.composeTweet(
-                                        function(s) {
-                                            console.log('success')
+                                        function(s) { // success
                                             APP.getAppPanel().setMasked({
                                                 xtype: 'loadmask',
                                                 message: 'Tweeted!',
@@ -172,15 +168,13 @@ Ext.define('Etsy.view.DetailPanel',
                                                 APP.getAppPanel().unmask();
                                             }, 750);
                                         },
-                                        function(e) {
+                                        function(e) { // error message (when someone cancels)
                                             APP.getAppPanel().unmask();
-                                            console.log("tweet failure: " + e);
                                         },
                                         'Check out this item from the I Heart Etsy iPad app!',
                                         {
                                             imageAttach: GLOBAL.newData.image.thumb,
-                                            urlAttach: GLOBAL.newData.url,
-
+                                            urlAttach: GLOBAL.newData.url
                                         });
                                     }else{
                                         APP.getAppPanel().unmask();

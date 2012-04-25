@@ -53,9 +53,8 @@ Ext.application({
     launch: function() {
         Ext.define('Ext.overrides.carousel.Indicator', {
             override: 'Ext.carousel.Indicator',
-
             onTap: function() {
-                console.log('on tap!!!! override');
+                return false;
             }
         });
 
@@ -63,7 +62,7 @@ Ext.application({
     
     // eventPublishers: {
     //     touchGesture: {
-    //         moveThrottle: 5
+    //         moveThrottle: 2
     //     }
     // },
 });

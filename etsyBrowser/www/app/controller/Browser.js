@@ -150,7 +150,7 @@ Ext.define('Etsy.controller.Browser', {
 
 
         // adding the homepage to the getAppPanel		
-        self.loadHomePanel();
+        self.loadHomePanel(true);
 
         ETSY.toggleSignIn();
         ETSY.preloadImages();
@@ -346,7 +346,7 @@ Ext.define('Etsy.controller.Browser', {
         self.getCategoryList().getStore().load();
     },
 
-    loadHomePanel: function() {
+    loadHomePanel: function(first_run) {
         var count = 0;
         ETSY.trackPageviews("/home");
         GLOBAL.panel = 'home';
@@ -356,7 +356,7 @@ Ext.define('Etsy.controller.Browser', {
         var self = this;
         self.getAppPanel().removeAll(true);
 
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
         
         // load homePanel and then destroy all the other panels
         Ext.create('Etsy.view.HomePanel');
@@ -367,28 +367,44 @@ APP.removeStoreListeners();
             message: 'Loading Home',
         });
 
-        self.categoryIndexStore.load(function() {
-            count++;
-            if (count == 2) {
-                self.getHomePanel().unmask();
-                if (self.categoryIndexStore.getCount() == 0 && self.treasuriesStore.getCount() == 0) {
-                    ETSY.alert(GLOBAL.offline_message);
-                }
-            }
-        });
-        self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
+        var timestamp = new Date().getTime();
+        var homePanelTimeStamp = localStorage.homePanelTimeStamp || 0;
 
-        self.treasuriesStore.load(function() {
-            count++;
-            if (count == 2) {
-                if (self.categoryIndexStore.getCount() == 0  && self.treasuriesStore.getCount() == 0) {
-                    ETSY.alert(GLOBAL.offline_message);
+        if(
+            first_run || 
+            timestamp > (parseInt(homePanelTimeStamp,10) + 1000*60*10) ||
+            self.categoryIndexStore.getCount() == 0 ||
+            self.treasuriesStore.getCount() == 0
+        ){
+            self.categoryIndexStore.load(function() {
+                count++;
+                if (count == 2) {
+                    self.getHomePanel().unmask();
+                    if (self.categoryIndexStore.getCount() == 0 && self.treasuriesStore.getCount() == 0) {
+                        ETSY.alert(GLOBAL.offline_message);
+                    }
                 }
-                self.getHomePanel().unmask();
-            }
+            });
+            self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
+            self.treasuriesStore.load(function() {
+                count++;
+                if (count == 2) {
+                    if (self.categoryIndexStore.getCount() == 0  && self.treasuriesStore.getCount() == 0) {
+                        ETSY.alert(GLOBAL.offline_message);
+                    }
+                    self.getHomePanel().unmask();
+                }
 
-        });
-        self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+            });
+            localStorage.homePanelTimeStamp = timestamp;
+            self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+        }else{
+            self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
+            self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+            setTimeout(function(){
+                self.getHomePanel().unmask();
+            }, 1500);
+        }
     },
 
     loadInstructions: function() {

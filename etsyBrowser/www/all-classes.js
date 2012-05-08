@@ -31141,11 +31141,11 @@ Ext.define('Etsy.controller.Browser', {
     },
 
     onNavListTap: function(view, index, item, record) {
-        ETSY.trackPageviews("/nav", true);
+        ETSY.trackPageviews("/nav");
         var self = this;
         var panel = record.panel || record.get('panel');
         if (panel == 'feedback') {
-            ETSY.trackPageviews("/feedback", true);
+            ETSY.trackPageviews("/feedback");
             try {
                 window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gesturetheory.com");
             } catch(err) {
@@ -31156,7 +31156,7 @@ Ext.define('Etsy.controller.Browser', {
             self.loadInstructions();
             self.selectNavListItem();
         } else if (panel == 'cartPanel') {
-            ETSY.trackPageviews("/cart", true);
+            ETSY.trackPageviews("/cart");
             if (!GLOBAL.signed_in) {
                 ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
                 self.selectNavListItem();
@@ -31174,7 +31174,7 @@ Ext.define('Etsy.controller.Browser', {
             function(buttonId) {
 
                 if (buttonId == 'yes' || buttonId == '1') {
-                    ETSY.trackPageviews("/signing_out", true);
+                    ETSY.trackPageviews("/signing_out");
                     localStorage.removeItem('accessTokenKey');
                     localStorage.removeItem('accessTokenSecret');
                     localStorage.removeItem('favorites_count');
@@ -31249,7 +31249,7 @@ Ext.define('Etsy.controller.Browser', {
     },
 
     loadCategories: function() {
-        ETSY.trackPageviews("/categoryPopup", true);
+        ETSY.trackPageviews("/categoryPopup");
         var self = this;
         self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
         self.getCategoryList().getStore().load();
@@ -31258,6 +31258,7 @@ Ext.define('Etsy.controller.Browser', {
     loadHomePanel: function() {
         var count = 0;
         ETSY.trackPageviews("/home");
+        GLOBAL.google_last_url = "/home";
         GLOBAL.panel = 'home';
         GLOBAL.searchCategory = null;
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
@@ -31301,7 +31302,7 @@ APP.removeStoreListeners();
     },
 
     loadInstructions: function() {
-        ETSY.trackPageviews("/instructions", true);
+        ETSY.trackPageviews("/instructions");
         self.mainView.add(Ext.create('Etsy.view.InstructionsPanel', {
             hideOnMaskTap: true
         }));
@@ -31426,6 +31427,7 @@ APP.removeStoreListeners();
     loadListings: function(type, record, name, tags) {
 
         ETSY.trackPageviews("/categories/" + record.get('name'));
+        GLOBAL.google_last_category = record.get('name');
         GLOBAL.panel = 'listings';
         GLOBAL.searchCategory = {
             short_name: record.get('short_name'),
@@ -40915,7 +40917,7 @@ Ext.define('Etsy.view.ListingsCarousel', {
       storeCount  = store.getCount();
       
       if(index > 1){
-        ETSY.trackPageviews(GLOBAL.google_last_url + "/" + index, true); 
+        ETSY.trackPageviews(GLOBAL.google_last_category + "/" + index, true); 
       }
 
       //console.log('storeCount', storeCount);

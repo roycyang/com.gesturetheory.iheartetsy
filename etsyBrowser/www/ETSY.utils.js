@@ -161,11 +161,9 @@ var ETSY = {
         FB.logout();
       }
     },
-    trackPageviews: function(url, dontRecord) {
-        if (!dontRecord) {
-            GLOBAL.google_last_url = url;
-        }
-        // console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
+    
+    trackPageviews: function(url) {
+        console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
         try {
             GLOBAL.googleAnalytics.trackPageview(url);
         } catch(err) {

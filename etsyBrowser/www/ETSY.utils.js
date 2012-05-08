@@ -292,7 +292,7 @@ var ETSY = {
             APP.selectNavListItem();
             return false;
         }
-
+        
         // If the id is missing or blank, log a warning.
         if (!id || id === '') {
             console.log('addToFavorites(): ID cannot be blank.');
@@ -302,6 +302,10 @@ var ETSY = {
         // Convert the ID to a number.
         if (typeof id === 'string') {
             id = parseInt(id, 10);
+        }
+        
+        if (!element.hasClass('favoriting')) {
+            element.addClass('favoriting');
         }
 
         if (element.hasClass('favorite-flag')) {

@@ -98,10 +98,7 @@ Ext.define('Etsy.view.DetailPanel',
                         tap: function(e) {
                             ETSY.trackEvent('actions', 'favoriting', 'from detail panel');
                             var $elem = $('.description-inner-wrapper');
-                            if (!$elem.hasClass('favoriting')) {
-                                $elem.addClass('favoriting');
-                                ETSY.toggleFavorites(GLOBAL.newData.id, $elem, true);
-                            }
+                            ETSY.toggleFavorites(GLOBAL.newData.id, $elem, true);
                         }
                     }
                 },

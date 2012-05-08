@@ -212,7 +212,11 @@ Ext.define('Etsy.controller.Browser', {
         if (e.event.keyCode == 13) {
             self.toggleSearch('close');
             self.loadSearch(textfield.getValue());
-            textfield.setValue('');
+            // wait until the slide animation is complete
+            setTimeout(function(){
+              textfield.setValue('');
+            }, 1000);
+
         }
 
     },

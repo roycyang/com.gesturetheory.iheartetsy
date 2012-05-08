@@ -337,13 +337,11 @@ Ext.define('Etsy.controller.Browser', {
     
     removeStoreListeners: function(){
       var self = this;
-      Ext.Ajax.abortAll();
-      self.listingsStore.clearListeners();
-      self.resultsListingsStore.clearListeners();
-      self.treasuriesStore.clearListeners();
-      self.categoryIndexStore.clearListeners();
-      Ext.Ajax.abortAll();
-      GLOBAL.listeners = false;
+      // Ext.Ajax.abortAll();
+      // self.listingsStore.clearListeners();
+      // self.resultsListingsStore.clearListeners();
+      // self.treasuriesStore.clearListeners();
+      // self.categoryIndexStore.clearListeners();
     },
 
     loadCategories: function() {
@@ -364,11 +362,12 @@ Ext.define('Etsy.controller.Browser', {
         window.clearTimeout(GLOBAL.homepageMaskTimeout);  
 
         var self = this;
-        self.getAppPanel().removeAll(true);
+
 
         APP.removeStoreListeners(true);
         
-        // load homePanel and then destroy all the other panels
+        // destroy all the other panels and load homePanel and then 
+        self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.HomePanel');
         self.getAppPanel().add(self.getHomePanel());
         self.getAppPanel().setActiveItem(self.getHomePanel());
@@ -415,7 +414,7 @@ Ext.define('Etsy.controller.Browser', {
             self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
             setTimeout(function(){
                 self.getHomePanel().unmask();
-            }, 1500);
+            }, 500);
         }
         
         // after 15 seconds, we unmask it
@@ -543,7 +542,6 @@ Ext.define('Etsy.controller.Browser', {
                 if (store.getCount() == 0) {
                     Ext.getCmp('noResultsMessage').show();
                     Ext.getCmp('searchResultsCarousel').hide();
-                    $('.rightArrow').hide();
                 }
             },
             350);
@@ -625,7 +623,6 @@ Ext.define('Etsy.controller.Browser', {
         ETSY.trackPageviews("/treasuries");
 
         var self = this;
-        
         APP.removeStoreListeners();
         
         self.getAppPanel().removeAll(true);
@@ -670,36 +667,66 @@ Ext.define('Etsy.controller.Browser', {
         });
 
         //console.log('loading favorites!!!');
-        GLOBAL.oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100',
+        GLOBAL.oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings',
         function(data) {
-
+          
             var data = JSON.parse(data.text);
-            var listingIds = [];
-            for (i = 0; i < data.results.length; i++) {
-                listingIds.push(data.results[i].listing_id);
-            }
             //console.log('in favorrites listingIds', listingIds, listingIds.length)
-            if (listingIds.length == 0) {
+            if (data.count == 0) {
                 self.getCategoriesCarousel().reset();
                 self.getCategoriesPanel().unmask();
                 Ext.getCmp('noFavoritesMessage').show();
                 Ext.getCmp('categoriesCarousel').hide();
                 $('.rightArrow').hide();
 
-                return false;
+            }else{
+                // for(i = 0; i < data.count; i = i+24){
+                //   self.getFavorites(i);
+                // }
+                self.getFavorites(0, data.count);
             }
 
-            GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?limit=100&includes=Images:6,User,ShippingInfo',
-            function(data) {
-                var data = JSON.parse(data.text);
-                // console.log('data.results', data.results);
-                var store = self.listingsStore;
 
-                store.setData(data.results);
-                self.getCategoriesCarousel().setStore(store);
-                self.getCategoriesPanel().unmask();
-            });
         });
+    },
+    
+    getFavorites: function(offset, totalCount) {
+      var self = this;
+      console.log('offset is', offset);
+      GLOBAL.oauth.get('http://openapi.etsy.com/v2/users/__SELF__/favorites/listings?limit=100', //&offset=' + offset
+      function(data) {
+        var data = JSON.parse(data.text);
+        var listingIds = [];
+        for (i = 0; i < data.results.length; i++) {
+            listingIds.push(data.results[i].listing_id);
+        }
+        
+        GLOBAL.oauth.get('http://openapi.etsy.com/v2/listings/' + listingIds.join() + '?includes=Images:6,User,ShippingInfo',
+        function(data) {
+            var data = JSON.parse(data.text);
+            // console.log('data.results', data.results);
+            var store = self.listingsStore;
+
+            // if(offset){
+            //   store.add(data.results);
+            // }else{
+              self.getCategoriesCarousel().setStore(store);
+              store.setData(data.results);
+              self.getCategoriesPanel().unmask();
+              self.getCategoriesCarousel().reset();
+              
+              // fire this
+              self.getCategoriesCarousel().adjustAfterLoading(self.getCategoriesCarousel(), self.listingsStore)
+              // set the total count so there won't be extra RIGHT ARROW
+              self.listingsStore.setTotalCount(totalCount);
+            // }
+
+        });
+        
+      });
+
     }
+      
+    
 
 });

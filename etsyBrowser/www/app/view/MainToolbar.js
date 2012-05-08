@@ -37,6 +37,7 @@ Ext.define('Etsy.view.MainToolbar', {
           listeners: {
             tap: function () {
               APP.loadHomePanel();
+              APP.getNavList().select(0);
             }
           }
         },

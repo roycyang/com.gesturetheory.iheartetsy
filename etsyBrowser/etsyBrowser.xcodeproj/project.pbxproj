@@ -31,6 +31,8 @@
 		431256AD1558A55200D0B4AC /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 431256A81558A55200D0B4AC /* ChildBrowserCommand.m */; };
 		431256AE1558A55200D0B4AC /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431256AA1558A55200D0B4AC /* ChildBrowserViewController.m */; };
 		431256AF1558A55200D0B4AC /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 431256AB1558A55200D0B4AC /* ChildBrowserViewController.xib */; };
+		43299EAE1558D89E006923A0 /* AppiraterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43299EAD1558D89E006923A0 /* AppiraterPlugin.m */; };
+		43299EB11558D93E006923A0 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 43299EB01558D93E006923A0 /* Appirater.m */; };
 		4352FD5E151D1A4400F75C44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352FD5D151D1A4400F75C44 /* Foundation.framework */; };
 		4352FD60151D1A4400F75C44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352FD5F151D1A4400F75C44 /* UIKit.framework */; };
 		4352FD62151D1A4400F75C44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352FD61151D1A4400F75C44 /* CoreGraphics.framework */; };
@@ -116,6 +118,10 @@
 		431256A91558A55200D0B4AC /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
 		431256AA1558A55200D0B4AC /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
 		431256AB1558A55200D0B4AC /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
+		43299EAA1558D893006923A0 /* AppiraterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterPlugin.h; sourceTree = "<group>"; };
+		43299EAD1558D89E006923A0 /* AppiraterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiraterPlugin.m; sourceTree = "<group>"; };
+		43299EAF1558D93E006923A0 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		43299EB01558D93E006923A0 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		4352FD59151D1A4400F75C44 /* etsyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etsyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4352FD5D151D1A4400F75C44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4352FD5F151D1A4400F75C44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -257,6 +263,15 @@
 				431119631537107100870F05 /* SBJsonWriter.m */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		43299EA81558D887006923A0 /* Appirater */ = {
+			isa = PBXGroup;
+			children = (
+				43299EAA1558D893006923A0 /* AppiraterPlugin.h */,
+				43299EAD1558D89E006923A0 /* AppiraterPlugin.m */,
+			);
+			name = Appirater;
 			sourceTree = "<group>";
 		};
 		434C18FF153A199B00B7351B /* icons */ = {
@@ -402,6 +417,8 @@
 		4352FDA3151D1A4400F75C44 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				43299EAF1558D93E006923A0 /* Appirater.h */,
+				43299EB01558D93E006923A0 /* Appirater.m */,
 				43C4739E15373222005DDFDC /* AppDelegate.h */,
 				43C4739F15373222005DDFDC /* AppDelegate.m */,
 				43C473A015373222005DDFDC /* MainViewController.h */,
@@ -413,6 +430,7 @@
 		4352FDAC151D1A4400F75C44 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				43299EA81558D887006923A0 /* Appirater */,
 				43988F3D1546385700C2E444 /* Twitter */,
 				4311194515370FB500870F05 /* Facebook */,
 				43B0FC971536789300159DDB /* GoogleAnalytics */,
@@ -605,6 +623,8 @@
 				43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */,
 				431256AD1558A55200D0B4AC /* ChildBrowserCommand.m in Sources */,
 				431256AE1558A55200D0B4AC /* ChildBrowserViewController.m in Sources */,
+				43299EAE1558D89E006923A0 /* AppiraterPlugin.m in Sources */,
+				43299EB11558D93E006923A0 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

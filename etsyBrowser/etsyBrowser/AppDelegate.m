@@ -35,7 +35,7 @@
     #import "CDVPlugin.h"
     #import "CDVURLProtocol.h"
 #endif
-
+#import "Appirater.h"
 
 @implementation AppDelegate
 
@@ -110,7 +110,7 @@
     
     [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
-    
+    [Appirater appLaunched:YES];
     return YES;
 }
 

@@ -150,7 +150,7 @@ Ext.define('Etsy.controller.Browser', {
 
 
         // adding the homepage to the getAppPanel		
-        self.loadHomePanel();
+        self.loadHomePanel(true);
 
         ETSY.toggleSignIn();
         ETSY.preloadImages();
@@ -194,7 +194,7 @@ Ext.define('Etsy.controller.Browser', {
     },
 
     onSignOutTap: function() {
-        ETSY.alert('You have successfully signed out. Come back soon!', 'Signed Out');
+        ETSY.alert('You have successfully signed out. Come back soon!', 'Confirmation');
     },
 
     // ==========
@@ -212,7 +212,11 @@ Ext.define('Etsy.controller.Browser', {
         if (e.event.keyCode == 13) {
             self.toggleSearch('close');
             self.loadSearch(textfield.getValue());
-            textfield.setValue('');
+            // wait until the slide animation is complete
+            setTimeout(function(){
+              textfield.setValue('');
+            }, 1000);
+
         }
 
     },
@@ -232,11 +236,11 @@ Ext.define('Etsy.controller.Browser', {
     },
 
     onNavListTap: function(view, index, item, record) {
-        ETSY.trackPageviews("/nav", true);
+        ETSY.trackPageviews("/nav");
         var self = this;
         var panel = record.panel || record.get('panel');
         if (panel == 'feedback') {
-            ETSY.trackPageviews("/feedback", true);
+            ETSY.trackPageviews("/feedback");
             try {
                 window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gesturetheory.com");
             } catch(err) {
@@ -247,7 +251,7 @@ Ext.define('Etsy.controller.Browser', {
             self.loadInstructions();
             self.selectNavListItem();
         } else if (panel == 'cartPanel') {
-            ETSY.trackPageviews("/cart", true);
+            ETSY.trackPageviews("/cart");
             if (!GLOBAL.signed_in) {
                 ETSY.askForSignIn('This feature requires sign in.  Would you like to sign in?');
                 self.selectNavListItem();
@@ -265,7 +269,7 @@ Ext.define('Etsy.controller.Browser', {
             function(buttonId) {
 
                 if (buttonId == 'yes' || buttonId == '1') {
-                    ETSY.trackPageviews("/signing_out", true);
+                    ETSY.trackPageviews("/signing_out");
                     localStorage.removeItem('accessTokenKey');
                     localStorage.removeItem('accessTokenSecret');
                     localStorage.removeItem('favorites_count');
@@ -275,9 +279,9 @@ Ext.define('Etsy.controller.Browser', {
                     localStorage.removeItem('name');
                     localStorage.removeItem('avatar');
                     ETSY.toggleSignIn();
+                    GLOBAL.signed_in_flag = false;
                     APP.onSignOutTap();
                     APP.loadHomePanel();
-                    GLOBAL.second_signin = false;
                     FB.logout();
                 }
             },
@@ -294,10 +298,10 @@ Ext.define('Etsy.controller.Browser', {
             self.selectNavListItem();
         } else if (panel == "bookmarkedCategory") {
             ETSY.trackPageviews("/bookmarked/" + record.get('name'));
+            GLOBAL.google_root_url = "/bookmarked/" + record.get('name');
             self.getAppPanel().setActiveItem(self.categoriesPanel);
             self.loadListings('category', record);
             GLOBAL.previousNavItemIndex = index;
-
         } else if (panel == 'categoriesPanel') {
             self.loadCategories();
             self.selectNavListItem();
@@ -315,6 +319,7 @@ Ext.define('Etsy.controller.Browser', {
             GLOBAL.previousNavItemIndex = index;
         }
         this.toggleNav('close');
+        
     },
 
     selectNavListItem: function() {
@@ -332,31 +337,36 @@ Ext.define('Etsy.controller.Browser', {
     
     removeStoreListeners: function(){
       var self = this;
+      Ext.Ajax.abortAll();
       self.listingsStore.clearListeners();
       self.resultsListingsStore.clearListeners();
       self.treasuriesStore.clearListeners();
       self.categoryIndexStore.clearListeners();
       Ext.Ajax.abortAll();
+      GLOBAL.listeners = false;
     },
 
     loadCategories: function() {
-        ETSY.trackPageviews("/categoryPopup", true);
+        ETSY.trackPageviews("/categoryPopup");
         var self = this;
         self.mainView.add(Ext.create('Etsy.view.CategoryPopupPanel'));
         self.getCategoryList().getStore().load();
     },
 
-    loadHomePanel: function() {
+    loadHomePanel: function(first_run) {
         var count = 0;
         ETSY.trackPageviews("/home");
+        GLOBAL.google_root_url = "/home";
         GLOBAL.panel = 'home';
         GLOBAL.searchCategory = null;
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
+        // if there is a settimeout going, clear it
+        window.clearTimeout(GLOBAL.homepageMaskTimeout);  
 
         var self = this;
         self.getAppPanel().removeAll(true);
 
-APP.removeStoreListeners();
+        APP.removeStoreListeners(true);
         
         // load homePanel and then destroy all the other panels
         Ext.create('Etsy.view.HomePanel');
@@ -367,32 +377,58 @@ APP.removeStoreListeners();
             message: 'Loading Home',
         });
 
-        self.categoryIndexStore.load(function() {
-            count++;
-            if (count == 2) {
-                self.getHomePanel().unmask();
-                if (self.categoryIndexStore.getCount() == 0 && self.treasuriesStore.getCount() == 0) {
-                    ETSY.alert(GLOBAL.offline_message);
-                }
-            }
-        });
-        self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
+        var timestamp = new Date().getTime();
+        var homePanelTimeStamp = localStorage.homePanelTimeStamp || 0;
 
-        self.treasuriesStore.load(function() {
-            count++;
-            if (count == 2) {
-                if (self.categoryIndexStore.getCount() == 0  && self.treasuriesStore.getCount() == 0) {
-                    ETSY.alert(GLOBAL.offline_message);
+        // grabs the latest
+        if(
+            first_run || 
+            timestamp > (parseInt(homePanelTimeStamp,10) + 1000*60*10) ||
+            self.categoryIndexStore.getCount() == 0 ||
+            self.treasuriesStore.getCount() == 0
+        ){
+            self.categoryIndexStore.load(function() {
+                count++;
+                if (count == 2) {
+                    self.getHomePanel().unmask();
+                    if (self.categoryIndexStore.getCount() == 0 && self.treasuriesStore.getCount() == 0) {
+                        ETSY.alert(GLOBAL.offline_message);
+                    }
                 }
-                self.getHomePanel().unmask();
-            }
+            });
+            self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
+            self.treasuriesStore.load(function() {
+                count++;
+                if (count == 2) {
+                    if (self.categoryIndexStore.getCount() == 0  && self.treasuriesStore.getCount() == 0) {
+                        ETSY.alert(GLOBAL.offline_message);
+                    }
+                    self.getHomePanel().unmask();
+                }
 
-        });
-        self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+            });
+            localStorage.homePanelTimeStamp = timestamp;
+            self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+        }else{
+        // already has the latest in the cache
+            self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
+            self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
+            setTimeout(function(){
+                self.getHomePanel().unmask();
+            }, 1500);
+        }
+        
+        // after 15 seconds, we unmask it
+        GLOBAL.homepageMaskTimeout = setTimeout(function(){
+          if(self.getHomePanel()){
+            self.getHomePanel().unmask();
+          }
+          
+        }, 15000);
     },
 
     loadInstructions: function() {
-        ETSY.trackPageviews("/instructions", true);
+        ETSY.trackPageviews("/instructions");
         self.mainView.add(Ext.create('Etsy.view.InstructionsPanel', {
             hideOnMaskTap: true
         }));
@@ -447,10 +483,11 @@ APP.removeStoreListeners();
     loadSearch: function(keyword, category, minPrice, maxPrice, location) {
         //console.log('in loadSearch with these params', keyword, category, minPrice, maxPrice, location);
         ETSY.trackPageviews("/search/" + keyword);
+        GLOBAL.google_root_url = "/search/" + keyword;
         GLOBAL.panel = 'searchResults';
         var self = this;
 
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
         
         var store = self.resultsListingsStore;
 
@@ -500,6 +537,7 @@ APP.removeStoreListeners();
 
         store.load(function(a, b, c, d, e) {
             //console.log(a,b,c,d,e);
+            Ext.getCmp('searchResultsCarousel').reset();
             APP.getSearchResultsPanel().unmask();
             setTimeout(function() {
                 if (store.getCount() == 0) {
@@ -515,16 +553,18 @@ APP.removeStoreListeners();
     },
 
     loadListings: function(type, record, name, tags) {
-
+        APP.removeStoreListeners();
+        console.log('in loadListings');
         ETSY.trackPageviews("/categories/" + record.get('name'));
+        GLOBAL.google_root_url = "/categories/" + record.get('name');
         GLOBAL.panel = 'listings';
         GLOBAL.searchCategory = {
             short_name: record.get('short_name'),
             name: record.get('name')
         };
         var self = this;
-
-APP.removeStoreListeners();
+        console.log('calling the removestorelistings');
+        
 
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');
@@ -566,9 +606,12 @@ APP.removeStoreListeners();
         Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
         self.getNavList().select(1);
         GLOBAL.previousNavItemIndex = 1;
+        
 
         // load the store, then set the store, the refresh the carousel
         store.load(function() {
+            // ensures that everything gets aborted and cleared again... there is some wierd typing issue with  APP.removeStoreListeners();
+            self.getCategoriesCarousel().reset();
             if (self.listingsStore.getCount() == 0) {
                 ETSY.alert(GLOBAL.offline_message);
             }
@@ -583,7 +626,7 @@ APP.removeStoreListeners();
 
         var self = this;
         
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
         
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.TreasuriesPanel');
@@ -613,7 +656,7 @@ APP.removeStoreListeners();
         GLOBAL.panel = 'favorites';
         var self = this;
 
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
 
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');

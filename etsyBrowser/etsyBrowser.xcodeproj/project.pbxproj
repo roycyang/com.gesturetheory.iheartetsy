@@ -27,6 +27,12 @@
 		4311196D1537107100870F05 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4311195F1537107100870F05 /* SBJsonBase.m */; };
 		4311196E1537107100870F05 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 431119611537107100870F05 /* SBJsonParser.m */; };
 		4311196F1537107100870F05 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 431119631537107100870F05 /* SBJsonWriter.m */; };
+		431256AC1558A55200D0B4AC /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 431256A61558A55200D0B4AC /* ChildBrowser.bundle */; };
+		431256AD1558A55200D0B4AC /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 431256A81558A55200D0B4AC /* ChildBrowserCommand.m */; };
+		431256AE1558A55200D0B4AC /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431256AA1558A55200D0B4AC /* ChildBrowserViewController.m */; };
+		431256AF1558A55200D0B4AC /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 431256AB1558A55200D0B4AC /* ChildBrowserViewController.xib */; };
+		43299EAE1558D89E006923A0 /* AppiraterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43299EAD1558D89E006923A0 /* AppiraterPlugin.m */; };
+		43299EB11558D93E006923A0 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 43299EB01558D93E006923A0 /* Appirater.m */; };
 		4352FD5E151D1A4400F75C44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352FD5D151D1A4400F75C44 /* Foundation.framework */; };
 		4352FD60151D1A4400F75C44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352FD5F151D1A4400F75C44 /* UIKit.framework */; };
 		4352FD62151D1A4400F75C44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4352FD61151D1A4400F75C44 /* CoreGraphics.framework */; };
@@ -52,15 +58,10 @@
 		4352FDAF151D1A4400F75C44 /* verify.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4352FDAE151D1A4400F75C44 /* verify.sh */; };
 		4352FDB6151D1A5800F75C44 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 4352FDB5151D1A5800F75C44 /* www */; };
 		436E2E1615223A0A00A73595 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E2E1515223A0A00A73595 /* Security.framework */; };
-		4375EAB1151F78BC00E416BF /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAA3151F78BC00E416BF /* ChildBrowser.bundle */; };
-		4375EAB4151F78BC00E416BF /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375EAA7151F78BC00E416BF /* ChildBrowserCommand.m */; };
-		4375EAB5151F78BC00E416BF /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375EAA9151F78BC00E416BF /* ChildBrowserViewController.m */; };
-		4375EAB6151F78BC00E416BF /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAA151F78BC00E416BF /* ChildBrowserViewController.xib */; };
-		4375EAB7151F78BC00E416BF /* facebook.html in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAC151F78BC00E416BF /* facebook.html */; };
-		4375EAB8151F78BC00E416BF /* FBConnect.js in Sources */ = {isa = PBXBuildFile; fileRef = 4375EAAD151F78BC00E416BF /* FBConnect.js */; };
-		4375EAB9151F78BC00E416BF /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAE151F78BC00E416BF /* index.html */; };
-		4375EABA151F78BC00E416BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAAF151F78BC00E416BF /* README.txt */; };
 		4375EABB151F78BC00E416BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAB0151F78BC00E416BF /* README.md */; };
+		43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43988F401546386D00C2E444 /* TwitterPlugin.m */; };
+		43988F43154638F000C2E444 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F42154638F000C2E444 /* Twitter.framework */; };
+		43988F45154638F900C2E444 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F44154638F900C2E444 /* Accounts.framework */; };
 		43B0FC9F1536789300159DDB /* GoogleAnalyticsPlugin.js in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FC991536789300159DDB /* GoogleAnalyticsPlugin.js */; };
 		43B0FCA01536789300159DDB /* GoogleAnalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FC9A1536789300159DDB /* GoogleAnalyticsPlugin.m */; };
 		43B0FCA11536789300159DDB /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FC9D1536789300159DDB /* libGoogleAnalytics.a */; };
@@ -111,6 +112,16 @@
 		431119611537107100870F05 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		431119621537107100870F05 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		431119631537107100870F05 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		431256A61558A55200D0B4AC /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
+		431256A71558A55200D0B4AC /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
+		431256A81558A55200D0B4AC /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
+		431256A91558A55200D0B4AC /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
+		431256AA1558A55200D0B4AC /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
+		431256AB1558A55200D0B4AC /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
+		43299EAA1558D893006923A0 /* AppiraterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterPlugin.h; sourceTree = "<group>"; };
+		43299EAD1558D89E006923A0 /* AppiraterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiraterPlugin.m; sourceTree = "<group>"; };
+		43299EAF1558D93E006923A0 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		43299EB01558D93E006923A0 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		4352FD59151D1A4400F75C44 /* etsyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = etsyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4352FD5D151D1A4400F75C44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4352FD5F151D1A4400F75C44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -140,17 +151,11 @@
 		4352FDAE151D1A4400F75C44 /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
 		4352FDB5151D1A5800F75C44 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		436E2E1515223A0A00A73595 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		4375EAA3151F78BC00E416BF /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
-		4375EAA6151F78BC00E416BF /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
-		4375EAA7151F78BC00E416BF /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
-		4375EAA8151F78BC00E416BF /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
-		4375EAA9151F78BC00E416BF /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
-		4375EAAA151F78BC00E416BF /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
-		4375EAAC151F78BC00E416BF /* facebook.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = facebook.html; sourceTree = "<group>"; };
-		4375EAAD151F78BC00E416BF /* FBConnect.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FBConnect.js; sourceTree = "<group>"; };
-		4375EAAE151F78BC00E416BF /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		4375EAAF151F78BC00E416BF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4375EAB0151F78BC00E416BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		43988F3F1546386D00C2E444 /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
+		43988F401546386D00C2E444 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
+		43988F42154638F000C2E444 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		43988F44154638F900C2E444 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		43B0FC981536789300159DDB /* GoogleAnalyticsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsPlugin.h; sourceTree = "<group>"; };
 		43B0FC991536789300159DDB /* GoogleAnalyticsPlugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = GoogleAnalyticsPlugin.js; sourceTree = "<group>"; };
 		43B0FC9A1536789300159DDB /* GoogleAnalyticsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsPlugin.m; sourceTree = "<group>"; };
@@ -176,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43988F45154638F900C2E444 /* Accounts.framework in Frameworks */,
+				43988F43154638F000C2E444 /* Twitter.framework in Frameworks */,
 				43B0FCA7153680BF00159DDB /* libsqlite3.0.dylib in Frameworks */,
 				43B0FCA4153678B500159DDB /* CFNetwork.framework in Frameworks */,
 				43DE14881520F5950050CFF0 /* MessageUI.framework in Frameworks */,
@@ -258,6 +265,15 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		43299EA81558D887006923A0 /* Appirater */ = {
+			isa = PBXGroup;
+			children = (
+				43299EAA1558D893006923A0 /* AppiraterPlugin.h */,
+				43299EAD1558D89E006923A0 /* AppiraterPlugin.m */,
+			);
+			name = Appirater;
+			sourceTree = "<group>";
+		};
 		434C18FF153A199B00B7351B /* icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +293,8 @@
 		4352FD4B151D1A4400F75C44 = {
 			isa = PBXGroup;
 			children = (
+				43988F44154638F900C2E444 /* Accounts.framework */,
+				43988F42154638F000C2E444 /* Twitter.framework */,
 				43017FD5153A284E00AEFB15 /* Icon-72.png */,
 				43017FD6153A284E00AEFB15 /* Icon-72@2x.png */,
 				43017FD7153A284E00AEFB15 /* Icon.png */,
@@ -399,6 +417,8 @@
 		4352FDA3151D1A4400F75C44 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				43299EAF1558D93E006923A0 /* Appirater.h */,
+				43299EB01558D93E006923A0 /* Appirater.m */,
 				43C4739E15373222005DDFDC /* AppDelegate.h */,
 				43C4739F15373222005DDFDC /* AppDelegate.m */,
 				43C473A015373222005DDFDC /* MainViewController.h */,
@@ -410,6 +430,8 @@
 		4352FDAC151D1A4400F75C44 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				43299EA81558D887006923A0 /* Appirater */,
+				43988F3D1546385700C2E444 /* Twitter */,
 				4311194515370FB500870F05 /* Facebook */,
 				43B0FC971536789300159DDB /* GoogleAnalytics */,
 				43DE147E1520F4E50050CFF0 /* EmailComposer */,
@@ -422,27 +444,24 @@
 		4375EAA2151F78BC00E416BF /* ChildBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				4375EAA3151F78BC00E416BF /* ChildBrowser.bundle */,
-				4375EAA6151F78BC00E416BF /* ChildBrowserCommand.h */,
-				4375EAA7151F78BC00E416BF /* ChildBrowserCommand.m */,
-				4375EAA8151F78BC00E416BF /* ChildBrowserViewController.h */,
-				4375EAA9151F78BC00E416BF /* ChildBrowserViewController.m */,
-				4375EAAA151F78BC00E416BF /* ChildBrowserViewController.xib */,
-				4375EAAB151F78BC00E416BF /* FBConnectExample */,
+				431256A61558A55200D0B4AC /* ChildBrowser.bundle */,
+				431256A71558A55200D0B4AC /* ChildBrowserCommand.h */,
+				431256A81558A55200D0B4AC /* ChildBrowserCommand.m */,
+				431256A91558A55200D0B4AC /* ChildBrowserViewController.h */,
+				431256AA1558A55200D0B4AC /* ChildBrowserViewController.m */,
+				431256AB1558A55200D0B4AC /* ChildBrowserViewController.xib */,
 				4375EAB0151F78BC00E416BF /* README.md */,
 			);
 			path = ChildBrowser;
 			sourceTree = "<group>";
 		};
-		4375EAAB151F78BC00E416BF /* FBConnectExample */ = {
+		43988F3D1546385700C2E444 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				4375EAAC151F78BC00E416BF /* facebook.html */,
-				4375EAAD151F78BC00E416BF /* FBConnect.js */,
-				4375EAAE151F78BC00E416BF /* index.html */,
-				4375EAAF151F78BC00E416BF /* README.txt */,
+				43988F3F1546386D00C2E444 /* TwitterPlugin.h */,
+				43988F401546386D00C2E444 /* TwitterPlugin.m */,
 			);
-			path = FBConnectExample;
+			name = Twitter;
 			sourceTree = "<group>";
 		};
 		43B0FC971536789300159DDB /* GoogleAnalytics */ = {
@@ -542,11 +561,6 @@
 				4352FDAB151D1A4400F75C44 /* MainViewController.xib in Resources */,
 				4352FDAF151D1A4400F75C44 /* verify.sh in Resources */,
 				4352FDB6151D1A5800F75C44 /* www in Resources */,
-				4375EAB1151F78BC00E416BF /* ChildBrowser.bundle in Resources */,
-				4375EAB6151F78BC00E416BF /* ChildBrowserViewController.xib in Resources */,
-				4375EAB7151F78BC00E416BF /* facebook.html in Resources */,
-				4375EAB9151F78BC00E416BF /* index.html in Resources */,
-				4375EABA151F78BC00E416BF /* README.txt in Resources */,
 				4375EABB151F78BC00E416BF /* README.md in Resources */,
 				43DE14851520F4E50050CFF0 /* readme.md in Resources */,
 				43B0FCA21536789300159DDB /* README.md in Resources */,
@@ -560,6 +574,8 @@
 				43017FDA153A284E00AEFB15 /* Icon-72@2x.png in Resources */,
 				43017FDB153A284E00AEFB15 /* Icon.png in Resources */,
 				43017FDC153A284E00AEFB15 /* Icon@2x.png in Resources */,
+				431256AC1558A55200D0B4AC /* ChildBrowser.bundle in Resources */,
+				431256AF1558A55200D0B4AC /* ChildBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,9 +603,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4352FD7E151D1A4400F75C44 /* main.m in Sources */,
-				4375EAB4151F78BC00E416BF /* ChildBrowserCommand.m in Sources */,
-				4375EAB5151F78BC00E416BF /* ChildBrowserViewController.m in Sources */,
-				4375EAB8151F78BC00E416BF /* FBConnect.js in Sources */,
 				43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */,
 				43B0FC9F1536789300159DDB /* GoogleAnalyticsPlugin.js in Sources */,
 				43B0FCA01536789300159DDB /* GoogleAnalyticsPlugin.m in Sources */,
@@ -607,6 +620,11 @@
 				4311196F1537107100870F05 /* SBJsonWriter.m in Sources */,
 				43C473A215373222005DDFDC /* AppDelegate.m in Sources */,
 				43C473A315373222005DDFDC /* MainViewController.m in Sources */,
+				43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */,
+				431256AD1558A55200D0B4AC /* ChildBrowserCommand.m in Sources */,
+				431256AE1558A55200D0B4AC /* ChildBrowserViewController.m in Sources */,
+				43299EAE1558D89E006923A0 /* AppiraterPlugin.m in Sources */,
+				43299EB11558D93E006923A0 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

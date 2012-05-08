@@ -13,8 +13,8 @@
 	<script type="text/javascript" charset="utf-8" src="cordova/GoogleAnalyticsPlugin.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova/cdv-plugin-fb-connect.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova/facebook_js_sdk.js"></script>
-	
-
+	<script type="text/javascript" charset="utf-8" src="cordova/TwitterPlugin.js"></script>	
+	<script type="text/javascript" charset="utf-8" src="cordova/AppiraterPlugin.js"></script>	
 
 	<script type="text/javascript">
 	var GLOBAL = {
@@ -57,14 +57,22 @@
 	
 	function onOnline()
 	{
-		alert('on online');
+		// alert('on online');
 		$('.offline-mask').hide();
 	}
 	
 	function onOffline()
 	{	
 		$('.offline-mask').show();
-		alert('on offline');
+		// alert('on offline');
+	}
+	
+	function onCloseBrowser() {
+	    console.log("onCloseBrowser!");
+	}
+
+	function onOpenExternal() {
+	    alert("onOpenExternal!");
 	}
 	
 	/* When this function is called, Cordova has been initialized and is ready to roll */
@@ -81,15 +89,16 @@
 		// initializing facebook
     FB.init({ appId: "224999977607968", nativeInterface: CDV.FB, useCachedDialogs: false });
 
-		var cb = ChildBrowser.install();
-		
-		cb.onLocationChange = function(loc){ 
-			locChanged(loc); 
-		};
+    var root = this;
+    cb = window.plugins.childBrowser;
 
+    if(cb != null) {
+			cb.onLocationChange = function(loc){ root.locChanged(loc); };
+		}
+		
     setTimeout(function(){
       cordova.exec(null, null, "SplashScreen", "hide", []);
-    }, 5000);
+    }, 3000);
     
 		
 		// after device ready, create a local alias and start the tracker with your own id.
@@ -111,8 +120,9 @@
 		<script type="text/javascript" charset="utf-8" src="js/jquery.bbq.js"></script>
 
 
- 	  <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+
     <!--
+ 	  <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
     <script type="text/javascript" src="sencha-touch.js"></script>
     <script type="text/javascript" src="all-classes.js"></script>
     -->

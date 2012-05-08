@@ -8,45 +8,138 @@
 
 Ext.define('GT.FixedButton', {
     extend: 'Ext.Button',
-    xtype: 'fixedbutton',
+    xtype: 'fixedbutton',  
+    config: {
+        /**
+         * @cfg {String} tapMask
+         * Optional tap mask indicator.
+         * @accessor
+         */
+        tapMask: null,
+        tapMaskFactor: 2,
+        tapOverflowTop: 10,
+        tapOverflowBottom: 10,
+        tapOverflowLeft: 10,
+        tapOverflowRight: 10,
+        
+    }, 
+    template: [
+        {
+            tag: 'span',
+            reference: 'tapMask',
+            style: {
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                boxSizing: 'content-box'
+            }
+        },
+        {
+            tag: 'span',
+            reference: 'badgeElement',
+            hidden: true
+        },
+        {
+            tag: 'span',
+            className: Ext.baseCSSPrefix + 'button-icon',
+            reference: 'iconElement',
+            hidden: true
+        },
+        {
+            tag: 'span',
+            reference: 'textElement',
+            hidden: true
+        }
+    ],
+    
+    /**
+     * @private
+     */
+    updateTapMask: function(tapMask) {
+        console.log('in it!');
+    },
 
-    // removed the tap event and rolling our own logic
+    /**
+     * @private
+     * removed the tap event and rolling our own logic
+     */
     initialize: function() {
         this.callParent();
+        this.element.setStyle('overflow', 'visible');
+        
+        if(this.getTapMask()){
+            this.setMaskSize(1, true);
+        }
 
         this.element.on({
             scope      : this,
             touchstart : 'onPress',
-            touchend   : 'onRelease',
-            touchmove  : 'onMove',
+            dragend    : 'onRelease',
+            drag       : 'onMove',
             tap        : 'onTap'
         });
+    },
+    
+    // @private
+    setMaskSize: function(factor, reset){
+        var parsedFactor = factor || this.getTapMaskFactor();
+        
+        // change tapMask size
+        this.tapMask.setStyle({
+            paddingTop: this.getTapOverflowTop() * parsedFactor + 'px',
+            paddingRight: this.getTapOverflowRight() * parsedFactor + 'px',
+            paddingBottom: this.getTapOverflowBottom() * parsedFactor + 'px',
+            paddingLeft: this.getTapOverflowLeft() * parsedFactor + 'px',
+            top: '-' + this.getTapOverflowTop() * parsedFactor + 'px',
+            left: '-' + this.getTapOverflowLeft() * parsedFactor + 'px'
+        });
+    
+        // change tapMask color
+        if(reset){
+            this.tapMask.setStyle({
+                'background': 'orange',
+                'opacity' : '0.2'
+            });
+        } else{
+            this.tapMask.setStyle({
+                'background': 'green',
+                'opacity' : '0.2'
+            });
+        }
     },
 
     // @private
     onPress: function(e) {
         var element = this.element,
             pressedCls = this.getPressedCls();
-
+            
         if (!this.getDisabled()) {
             this.isPressed = true;
-            // console.log('e.target', e);
-            // adding a pressed flag
+            
+            if(this.getTapMask()){
+                // makes the mask bigger
+                this.setMaskSize();
+            }
+            
+            //adding a pressed flag
             if(!e.target.children.length){
                 this.pressedTarget = e.target.parentElement.id;
             }else{
                 this.pressedTarget = e.target.id;
             }
             
-            // console.log('onPress ' + this.pressTarget);
-
+            // until the Sencha touch target bug gets fixed, we are using actual x/y coordinates
+            this.pressedTargetLeft = Ext.getCmp(this.pressedTarget).element.getX() - (this.getTapOverflowLeft() * this.getTapMaskFactor());
+            this.pressedTargetWidth = Ext.getCmp(this.pressedTarget).element.getWidth() + (this.getTapOverflowLeft() * this.getTapMaskFactor()) + (this.getTapOverflowRight() * this.getTapMaskFactor());
+            this.pressedTargetTop = Ext.getCmp(this.pressedTarget).element.getY() - (this.getTapOverflowTop() * this.getTapMaskFactor());
+            this.pressedTargetHeight = Ext.getCmp(this.pressedTarget).element.getHeight() + (this.getTapOverflowTop() * this.getTapMaskFactor()) + (this.getTapOverflowBottom() * this.getTapMaskFactor())
+            
             if (this.hasOwnProperty('releasedTimeout')) {
                 clearTimeout(this.releasedTimeout);
                 delete this.releasedTimeout;
             }
 
             element.addCls(pressedCls);
-            
         }
     },
 
@@ -57,28 +150,29 @@ Ext.define('GT.FixedButton', {
         if (!this.isPressed) {
           return;
         }
-        
-        var currentPressedTarget;
-        var elem = Ext.get(element);
-        console.log('element', elem);
-        
-        // clicked on the label or icon instead of the button
-        if(elem.parent('.x-button')){
-            console.log('inside!');
-            currentPressedTarget = elem.parent('.x-button').id;
-        }else if(elem.hasCls('x-button')){
-            currentPressedTarget = elem.id;
-        }
-        
-        console.log('currentPressedTarget ', currentPressedTarget);
-        
-        // console.log('onMove ' + currentPressedTarget);
-        // console.log('')
-        if(currentPressedTarget != this.pressedTarget){
+                                   
+        // until the Sencha touch target bug gets fixed, we are using actual x/y coordinates
+        // this tests to see if the touch is over the tapmask or not to show the tapzone in green
+        // or red
+        if(
+            e.pageX < this.pressedTargetLeft || 
+            e.pageX > (this.pressedTargetLeft + this.pressedTargetWidth) ||
+            e.pageY < this.pressedTargetTop || 
+            e.pageY > (this.pressedTargetTop + this.pressedTargetHeight)
+        ){
             this.element.removeCls(this.getPressedCls());
+            if(this.getTapMask()){
+                this.tapMask.setStyle({
+                    'background': 'red'
+                });
+            }
         }else{
             this.element.addCls(this.getPressedCls());
-            
+            if(this.getTapMask()){
+                this.tapMask.setStyle({
+                    'background': 'green'
+                });
+            }
         }
     },
     
@@ -89,18 +183,11 @@ Ext.define('GT.FixedButton', {
 
     // @private
     doRelease: function(me, e, element) {
-        var currentPressedTarget;
-        var elem = Ext.get(element);
-        
-        // clicked on the label or icon instead of the button
-        if(elem.parent('.x-button')){
-            console.log('inside!');
-            currentPressedTarget = elem.parent('.x-button').id;
-        }else if(elem.hasCls('x-button')){
-            currentPressedTarget = elem.id;
+
+        if(this.getTapMask()){
+            // resets mask
+            this.setMaskSize(1, true);
         }
-        
-        console.log('doRelease ' + currentPressedTarget);
         
         if (!me.isPressed) {
             return;
@@ -116,10 +203,17 @@ Ext.define('GT.FixedButton', {
         me.releasedTimeout = setTimeout(function() {
             if (me && me.element) {
                 me.element.removeCls(me.getPressedCls());
-                if(currentPressedTarget == me.pressedTarget){
-                  me.fireAction('tap', [me, e], 'doTap');
-                }
 
+                // until the Sencha touch target bug gets fixed, we are using actual x/y coordinates
+                // this tests to see if the touch is over the tapmask or not
+                if(!(
+                    e.pageX < me.pressedTargetLeft || 
+                    e.pageX > (me.pressedTargetLeft + me.pressedTargetWidth) ||
+                    e.pageY < me.pressedTargetTop || 
+                    e.pageY > (me.pressedTargetTop + me.pressedTargetHeight)
+                )){
+                    me.fireAction('tap', [me, e], 'doTap');
+                }
             }
             
             // remove the pressedTarget flag
@@ -131,8 +225,5 @@ Ext.define('GT.FixedButton', {
     // disable the existing onTap function from Ext.Button
     onTap: function(e) {
         return false;
-    },
-    
-
-
+    }
 });

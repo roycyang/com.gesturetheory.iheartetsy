@@ -138,11 +138,10 @@ var ETSY = {
         try {
             var params = {
                 method: 'feed',
-                name: GLOBAL.newData.title,
                 link: GLOBAL.newData.url,
                 picture: GLOBAL.newData.image.large,
-                caption: 'I Heart Etsy App',
-                description: 'Check out this item I found on the I Heart Etsy App'
+                caption: GLOBAL.newData.title,
+                description: 'Check out this item I discovered on the I Heart Etsy iPad App!'
             };
             console.log(params);
             FB.ui(params);
@@ -162,12 +161,11 @@ var ETSY = {
         FB.logout();
       }
     },
-    trackPageviews: function(url, dontRecord) {
-        if (!dontRecord) {
-            GLOBAL.google_last_url = url;
-        }
-        // console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
+    
+    trackPageviews: function(url) {
+        console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
         try {
+            Cordova.exec("AppiraterPlugin.sigEvent");
             GLOBAL.googleAnalytics.trackPageview(url);
         } catch(err) {
             //console.log('error is: ' + err);
@@ -243,7 +241,7 @@ var ETSY = {
         var options = {
             consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
             consumerSecret: '2dvoqadnxo',
-            callbackUrl: 'https://www.etsy.com/cart'
+            callbackUrl: 'https://www.etsy.com'
         };
 
         oauth = OAuth(options);
@@ -251,15 +249,14 @@ var ETSY = {
         function(data) {
             setTimeout(function() {
                 GLOBAL.params = $.deparam(data.text);
-                window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url, {
-                    showLocationBar: false
-                });
-                mask.hide();
+                window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url);
+                mask.destroy();
+                
             },
             1000);
         },
         function(data) {
-            alert('Error : No Authorization');
+            ETSY.alert('Error : No Authorization');
             console.log(data.text);
             //$('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
         });
@@ -293,7 +290,7 @@ var ETSY = {
             APP.selectNavListItem();
             return false;
         }
-
+        
         // If the id is missing or blank, log a warning.
         if (!id || id === '') {
             console.log('addToFavorites(): ID cannot be blank.');
@@ -303,6 +300,10 @@ var ETSY = {
         // Convert the ID to a number.
         if (typeof id === 'string') {
             id = parseInt(id, 10);
+        }
+        
+        if (!element.hasClass('favoriting')) {
+            element.addClass('favoriting');
         }
 
         if (element.hasClass('favorite-flag')) {
@@ -484,10 +485,11 @@ var ETSY = {
     },
 
     alert: function(msg, title) {
+      var new_title = title || "Alert";
         try {
-            navigator.notification.alert(msg, title);
+            navigator.notification.alert(msg, function(){}, new_title);
         } catch(err) {
-            var msg = Ext.Msg.alert(title, msg);
+            var msg = Ext.Msg.alert(new_title, msg);
             msg.setZIndex(10000);
         }
     },

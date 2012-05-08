@@ -310,8 +310,8 @@ Ext.define('Etsy.view.ListingsCarousel', {
       store       = this.getStore(),
       storeCount  = store.getCount();
       
-      if(index > 1){
-        ETSY.trackPageviews(GLOBAL.google_last_url + "/" + index, true); 
+      if(index > 0){
+        ETSY.trackPageviews(GLOBAL.google_root_url + "/" + (index+1)); 
       }
 
       //console.log('storeCount', storeCount);

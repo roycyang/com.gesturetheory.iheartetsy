@@ -116,7 +116,7 @@ Ext.define('Etsy.view.DetailPanel',
                             ETSY.trackEvent('share', 'email');
                             console.log('e is', GLOBAL.newData);
                             try {
-                                window.plugins.emailComposer.showEmailComposer('Check out this great Etsy item!', 'I have discovered this great item from the I Heart Etsy iPad app.  \n\nYou can see it at:\n\n ' + GLOBAL.newData.url, null);
+                                window.plugins.emailComposer.showEmailComposer('Check out this great Etsy item!', 'I have discovered this great item, ' + GLOBAL.newData.title + ', from the I Heart Etsy iPad app (http://bit.ly/I-Heart-Etsy).  \n\nYou can see it at:\n\n ' + GLOBAL.newData.url, null);
                             } catch(err) {
                                 alert('This only works on the iPad');
                             }

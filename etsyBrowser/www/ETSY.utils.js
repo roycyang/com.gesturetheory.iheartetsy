@@ -138,11 +138,10 @@ var ETSY = {
         try {
             var params = {
                 method: 'feed',
-                name: GLOBAL.newData.title,
                 link: GLOBAL.newData.url,
                 picture: GLOBAL.newData.image.large,
-                caption: 'I Heart Etsy App',
-                description: 'Check out this item I found on the I Heart Etsy App'
+                caption: GLOBAL.newData.title,
+                description: 'Check out this item I discovered on the I Heart Etsy iPad App!'
             };
             console.log(params);
             FB.ui(params);

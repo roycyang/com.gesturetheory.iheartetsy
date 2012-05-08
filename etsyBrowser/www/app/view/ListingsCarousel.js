@@ -284,12 +284,24 @@ Ext.define('Etsy.view.ListingsCarousel', {
     if(GLOBAL.panel != 'favorites' && GLOBAL.panel != 'home'){
       max = max - 1;
     }
+    window.me = me;
 
     me.setMaxItemIndex(max);
     if(me.getActiveIndex() < max){
-      $('.rightArrow').show();
+      console.log('adding loading');
+      $('.rightArrow').each(function(){
+        var cmp = Ext.getCmp($(this).attr('id'));
+        cmp.removeCls('loading');
+        cmp.enable();
+      });
     }else{
-      $('.rightArrow').hide();
+      console.log('removing loading');
+      $('.rightArrow').each(function(){
+        var cmp = Ext.getCmp($(this).attr('id'));
+        cmp.addCls('loading');
+        cmp.disable();
+      });
+      
     }
 
     if(me.getActiveIndex() == 0){

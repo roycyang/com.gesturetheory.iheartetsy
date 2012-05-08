@@ -66,6 +66,14 @@
 		// alert('on offline');
 	}
 	
+	function onCloseBrowser() {
+	    console.log("onCloseBrowser!");
+	}
+
+	function onOpenExternal() {
+	    alert("onOpenExternal!");
+	}
+	
 	/* When this function is called, Cordova has been initialized and is ready to roll */
 	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
 	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
@@ -80,15 +88,16 @@
 		// initializing facebook
     FB.init({ appId: "224999977607968", nativeInterface: CDV.FB, useCachedDialogs: false });
 
-		var cb = ChildBrowser.install();
-		
-		cb.onLocationChange = function(loc){ 
-			locChanged(loc); 
-		};
+    var root = this;
+    cb = window.plugins.childBrowser;
 
+    if(cb != null) {
+			cb.onLocationChange = function(loc){ root.locChanged(loc); };
+		}
+		
     setTimeout(function(){
       cordova.exec(null, null, "SplashScreen", "hide", []);
-    }, 5000);
+    }, 3000);
     
 		
 		// after device ready, create a local alias and start the tracker with your own id.

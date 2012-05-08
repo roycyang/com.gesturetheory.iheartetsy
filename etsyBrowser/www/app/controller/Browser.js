@@ -194,7 +194,7 @@ Ext.define('Etsy.controller.Browser', {
     },
 
     onSignOutTap: function() {
-        ETSY.alert('You have successfully signed out. Come back soon!', 'Signed Out');
+        ETSY.alert('You have successfully signed out. Come back soon!', 'Confirmation');
     },
 
     // ==========
@@ -275,9 +275,9 @@ Ext.define('Etsy.controller.Browser', {
                     localStorage.removeItem('name');
                     localStorage.removeItem('avatar');
                     ETSY.toggleSignIn();
+                    GLOBAL.signed_in_flag = false;
                     APP.onSignOutTap();
                     APP.loadHomePanel();
-                    GLOBAL.second_signin = false;
                     FB.logout();
                 }
             },
@@ -352,6 +352,8 @@ Ext.define('Etsy.controller.Browser', {
         GLOBAL.panel = 'home';
         GLOBAL.searchCategory = null;
         Ext.getCmp('globalSearch').setPlaceHolder('Search Etsy');
+        // if there is a settimeout going, clear it
+        window.clearTimeout(GLOBAL.homepageMaskTimeout);  
 
         var self = this;
         self.getAppPanel().removeAll(true);
@@ -370,6 +372,7 @@ Ext.define('Etsy.controller.Browser', {
         var timestamp = new Date().getTime();
         var homePanelTimeStamp = localStorage.homePanelTimeStamp || 0;
 
+        // grabs the latest
         if(
             first_run || 
             timestamp > (parseInt(homePanelTimeStamp,10) + 1000*60*10) ||
@@ -399,12 +402,18 @@ Ext.define('Etsy.controller.Browser', {
             localStorage.homePanelTimeStamp = timestamp;
             self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
         }else{
+        // already has the latest in the cache
             self.getHomeCategoriesCarousel().setStore(self.categoryIndexStore);
             self.getHomeTreasuriesCarousel().setStore(self.treasuriesStore);
             setTimeout(function(){
                 self.getHomePanel().unmask();
             }, 1500);
         }
+        
+        // after 15 seconds, we unmask it
+        GLOBAL.homepageMaskTimeout = setTimeout(function(){
+          self.getHomePanel().unmask();
+        }, 15000);
     },
 
     loadInstructions: function() {

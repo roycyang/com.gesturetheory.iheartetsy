@@ -243,7 +243,7 @@ var ETSY = {
         var options = {
             consumerKey: 'tia49fh9iqjcrukurpbyqtv5',
             consumerSecret: '2dvoqadnxo',
-            callbackUrl: 'https://www.etsy.com/cart'
+            callbackUrl: 'https://www.etsy.com'
         };
 
         oauth = OAuth(options);
@@ -251,15 +251,14 @@ var ETSY = {
         function(data) {
             setTimeout(function() {
                 GLOBAL.params = $.deparam(data.text);
-                window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url, {
-                    showLocationBar: false
-                });
-                mask.hide();
+                window.plugins.childBrowser.showWebPage(GLOBAL.params.login_url);
+                mask.destroy();
+                
             },
             1000);
         },
         function(data) {
-            alert('Error : No Authorization');
+            ETSY.alert('Error : No Authorization');
             console.log(data.text);
             //$('#oauthStatus').html('<span style="color:red;">Error during authorization</span>');
         });
@@ -484,10 +483,11 @@ var ETSY = {
     },
 
     alert: function(msg, title) {
+      var new_title = title || "Alert";
         try {
-            navigator.notification.alert(msg, title);
+            navigator.notification.alert(msg, function(){}, new_title);
         } catch(err) {
-            var msg = Ext.Msg.alert(title, msg);
+            var msg = Ext.Msg.alert(new_title, msg);
             msg.setZIndex(10000);
         }
     },

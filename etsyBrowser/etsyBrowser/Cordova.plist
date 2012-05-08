@@ -28,7 +28,7 @@
 	<dict>
 		<key>AppiraterPlugin</key>
 		<string>AppiraterPlugin</string>
-		<key>org.apache.cordova.twitter</key>
+		<key>TwitterPlugin</key>
 		<string>TwitterPlugin</string>
 		<key>ChildBrowserCommand</key>
 		<string>ChildBrowserCommand</string>

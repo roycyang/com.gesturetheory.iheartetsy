@@ -59,7 +59,6 @@
 		4352FDB6151D1A5800F75C44 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 4352FDB5151D1A5800F75C44 /* www */; };
 		436E2E1615223A0A00A73595 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E2E1515223A0A00A73595 /* Security.framework */; };
 		4375EABB151F78BC00E416BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAB0151F78BC00E416BF /* README.md */; };
-		43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43988F401546386D00C2E444 /* TwitterPlugin.m */; };
 		43988F43154638F000C2E444 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F42154638F000C2E444 /* Twitter.framework */; };
 		43988F45154638F900C2E444 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F44154638F900C2E444 /* Accounts.framework */; };
 		43B0FC9F1536789300159DDB /* GoogleAnalyticsPlugin.js in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FC991536789300159DDB /* GoogleAnalyticsPlugin.js */; };
@@ -68,6 +67,7 @@
 		43B0FCA21536789300159DDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43B0FC9E1536789300159DDB /* README.md */; };
 		43B0FCA4153678B500159DDB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FCA3153678B500159DDB /* CFNetwork.framework */; };
 		43B0FCA7153680BF00159DDB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FCA5153678C700159DDB /* libsqlite3.0.dylib */; };
+		43C0379E1559AA540010EFF9 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C0379D1559AA540010EFF9 /* TwitterPlugin.m */; };
 		43C473A215373222005DDFDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C4739F15373222005DDFDC /* AppDelegate.m */; };
 		43C473A315373222005DDFDC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C473A115373222005DDFDC /* MainViewController.m */; };
 		43C473A6153732D0005DDFDC /* Cordova.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C473A5153732D0005DDFDC /* Cordova.plist */; };
@@ -152,8 +152,6 @@
 		4352FDB5151D1A5800F75C44 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		436E2E1515223A0A00A73595 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4375EAB0151F78BC00E416BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		43988F3F1546386D00C2E444 /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
-		43988F401546386D00C2E444 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
 		43988F42154638F000C2E444 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		43988F44154638F900C2E444 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		43B0FC981536789300159DDB /* GoogleAnalyticsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsPlugin.h; sourceTree = "<group>"; };
@@ -164,6 +162,8 @@
 		43B0FC9E1536789300159DDB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		43B0FCA3153678B500159DDB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		43B0FCA5153678C700159DDB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		43C0379C1559AA540010EFF9 /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
+		43C0379D1559AA540010EFF9 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
 		43C4739E15373222005DDFDC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43C4739F15373222005DDFDC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		43C473A015373222005DDFDC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -458,8 +458,8 @@
 		43988F3D1546385700C2E444 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				43988F3F1546386D00C2E444 /* TwitterPlugin.h */,
-				43988F401546386D00C2E444 /* TwitterPlugin.m */,
+				43C0379C1559AA540010EFF9 /* TwitterPlugin.h */,
+				43C0379D1559AA540010EFF9 /* TwitterPlugin.m */,
 			);
 			name = Twitter;
 			sourceTree = "<group>";
@@ -620,11 +620,11 @@
 				4311196F1537107100870F05 /* SBJsonWriter.m in Sources */,
 				43C473A215373222005DDFDC /* AppDelegate.m in Sources */,
 				43C473A315373222005DDFDC /* MainViewController.m in Sources */,
-				43988F411546386D00C2E444 /* TwitterPlugin.m in Sources */,
 				431256AD1558A55200D0B4AC /* ChildBrowserCommand.m in Sources */,
 				431256AE1558A55200D0B4AC /* ChildBrowserViewController.m in Sources */,
 				43299EAE1558D89E006923A0 /* AppiraterPlugin.m in Sources */,
 				43299EB11558D93E006923A0 /* Appirater.m in Sources */,
+				43C0379E1559AA540010EFF9 /* TwitterPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

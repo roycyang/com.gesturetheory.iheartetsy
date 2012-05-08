@@ -242,7 +242,7 @@ Ext.define('Etsy.controller.Browser', {
         if (panel == 'feedback') {
             ETSY.trackPageviews("/feedback");
             try {
-                window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, null, "iheartetsy@gesturetheory.com");
+                window.plugins.emailComposer.showEmailComposer('Feedback on I Heart Etsy iPad App v' + GLOBAL.version, 'iOS version: ' + device.version + '\niPad Model: __', "iheartetsy@gesturetheory.com");
             } catch(err) {
                 ETSY.alert('This only works on the iPad');
             }
@@ -493,7 +493,7 @@ Ext.define('Etsy.controller.Browser', {
         Ext.create('Etsy.view.SearchResultsPanel');
         self.getSearchResultsPanel().setMasked({
             xtype: 'loadmask',
-            message: 'Loading ' + keyword
+            message: 'Searching for "' + keyword + '"'
         });
 
         self.getAppPanel().getLayout().setAnimation({
@@ -545,7 +545,7 @@ Ext.define('Etsy.controller.Browser', {
                 }
             },
             350);
-
+            store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
         });
         self.getSearchResultsCarousel().setStore(store);
     },
@@ -614,6 +614,8 @@ Ext.define('Etsy.controller.Browser', {
                 ETSY.alert(GLOBAL.offline_message);
             }
             self.getCategoriesPanel().unmask();
+            store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
+            store.getProxy().setExtraParam('category', record.get('name'));
         });
         self.getCategoriesCarousel().setStore(store);
 

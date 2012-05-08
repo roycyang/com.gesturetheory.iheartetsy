@@ -40,27 +40,16 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
         if (newStore.isLoading()) {
             console.log('in updateStore and the newStore is still loading');
-            if (self.getIsInfinite()) {
-                // this is when the store updates, we can update the max index.
-                newStore.on('refresh',
-                function() {
-                    console.log('in updateStore refresh fired');
-                    var storeCount = newStore.getCount();
-                    self.adjustAfterLoading(self, newStore);
-                    newStore.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
-                    //console.log('\n\n\n\n\nnew store proxy', newStore.getProxy());
-                    if (GLOBAL.panel == 'listings') {
-                        newStore.getProxy().setExtraParam('category', GLOBAL.searchCategory.name);
-                    }
-
-                });
-            }
+            newStore.on('refresh',
+            function(){
+              console.log('calling store on refresh');
+              self.adjustAfterLoading(self, newStore);
+            });
 
             // this is when the store loads for the first time
             newStore.on('load',
             function() {
                 console.log('in updateStore and load fired');
-                //self.adjustAfterLoading(self, newStore);
                 self.updateStore(newStore, GLOBAL.panel);
             },
             self, {

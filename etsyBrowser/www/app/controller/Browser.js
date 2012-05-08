@@ -297,7 +297,6 @@ Ext.define('Etsy.controller.Browser', {
             self.getAppPanel().setActiveItem(self.categoriesPanel);
             self.loadListings('category', record);
             GLOBAL.previousNavItemIndex = index;
-
         } else if (panel == 'categoriesPanel') {
             self.loadCategories();
             self.selectNavListItem();
@@ -315,6 +314,7 @@ Ext.define('Etsy.controller.Browser', {
             GLOBAL.previousNavItemIndex = index;
         }
         this.toggleNav('close');
+        
     },
 
     selectNavListItem: function() {
@@ -332,11 +332,13 @@ Ext.define('Etsy.controller.Browser', {
     
     removeStoreListeners: function(){
       var self = this;
+      Ext.Ajax.abortAll();
       self.listingsStore.clearListeners();
       self.resultsListingsStore.clearListeners();
       self.treasuriesStore.clearListeners();
       self.categoryIndexStore.clearListeners();
       Ext.Ajax.abortAll();
+      GLOBAL.listeners = false;
     },
 
     loadCategories: function() {
@@ -358,7 +360,7 @@ Ext.define('Etsy.controller.Browser', {
         var self = this;
         self.getAppPanel().removeAll(true);
 
-        APP.removeStoreListeners();
+        APP.removeStoreListeners(true);
         
         // load homePanel and then destroy all the other panels
         Ext.create('Etsy.view.HomePanel');
@@ -412,7 +414,10 @@ Ext.define('Etsy.controller.Browser', {
         
         // after 15 seconds, we unmask it
         GLOBAL.homepageMaskTimeout = setTimeout(function(){
-          self.getHomePanel().unmask();
+          if(self.getHomePanel()){
+            self.getHomePanel().unmask();
+          }
+          
         }, 15000);
     },
 
@@ -475,7 +480,7 @@ Ext.define('Etsy.controller.Browser', {
         GLOBAL.panel = 'searchResults';
         var self = this;
 
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
         
         var store = self.resultsListingsStore;
 
@@ -540,7 +545,8 @@ APP.removeStoreListeners();
     },
 
     loadListings: function(type, record, name, tags) {
-
+        APP.removeStoreListeners();
+        console.log('in loadListings');
         ETSY.trackPageviews("/categories/" + record.get('name'));
         GLOBAL.panel = 'listings';
         GLOBAL.searchCategory = {
@@ -548,8 +554,8 @@ APP.removeStoreListeners();
             name: record.get('name')
         };
         var self = this;
-
-APP.removeStoreListeners();
+        console.log('calling the removestorelistings');
+        
 
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');
@@ -591,9 +597,12 @@ APP.removeStoreListeners();
         Ext.getCmp('globalSearch').setPlaceHolder('Search ' + record.get('short_name'));
         self.getNavList().select(1);
         GLOBAL.previousNavItemIndex = 1;
+        
 
         // load the store, then set the store, the refresh the carousel
         store.load(function() {
+            // ensures that everything gets aborted and cleared again... there is some wierd typing issue with  APP.removeStoreListeners();
+            self.getCategoriesCarousel().reset();
             if (self.listingsStore.getCount() == 0) {
                 ETSY.alert(GLOBAL.offline_message);
             }
@@ -608,7 +617,7 @@ APP.removeStoreListeners();
 
         var self = this;
         
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
         
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.TreasuriesPanel');
@@ -638,7 +647,7 @@ APP.removeStoreListeners();
         GLOBAL.panel = 'favorites';
         var self = this;
 
-APP.removeStoreListeners();
+        APP.removeStoreListeners();
 
         self.getAppPanel().removeAll(true);
         Ext.create('Etsy.view.CategoriesPanel');

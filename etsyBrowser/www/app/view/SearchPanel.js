@@ -18,6 +18,7 @@ Ext.define('Etsy.view.SearchPanel', {
 				xtype: 'searchfield',
 				id: 'globalSearch',
 				placeHolder: 'Search Etsy',
+        autoCorrect: false,
 				listeners: {
 				  keyup: function (textfield, e, options) {
             if (e.event.keyCode == 13) {
@@ -72,8 +73,8 @@ Ext.define('Etsy.view.SearchPanel', {
 				{
 				  id: 'locationField',
 					xtype: 'textfield',
+          autoCorrect: false,
 	        placeHolder: 'Country, city or zip'
-
 				}
 				]
 			},

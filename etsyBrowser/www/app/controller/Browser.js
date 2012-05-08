@@ -537,6 +537,7 @@ Ext.define('Etsy.controller.Browser', {
 
         store.load(function(a, b, c, d, e) {
             //console.log(a,b,c,d,e);
+            Ext.getCmp('searchResultsCarousel').reset();
             APP.getSearchResultsPanel().unmask();
             setTimeout(function() {
                 if (store.getCount() == 0) {

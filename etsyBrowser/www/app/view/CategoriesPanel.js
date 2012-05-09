@@ -65,6 +65,8 @@ Ext.define('Etsy.view.CategoriesPanel', {
             flex: 1,
             id: 'categoriesCarousel',
             xtype: 'listingsCarousel',
+            truncate: true,
+            isInfinite: true,
         },
         {
             flex: 1,

@@ -11,6 +11,7 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             xtype: 'toolbar',
             docked: 'top',
             id: 'searchResultsToolbar',
+            
             items: [
               {
                 width: 105,
@@ -46,7 +47,8 @@ Ext.define('Etsy.view.SearchResultsPanel', {
             id: 'searchResultsCarousel',
             xtype: 'listingsCarousel',
             width: 1024,
-            count: 12
+            count: 12,
+            truncate: true,
         },
         {
             flex: 1,

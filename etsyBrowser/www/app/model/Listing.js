@@ -11,10 +11,10 @@ Ext.define('Etsy.model.Listing', {
         },
         'description',
         {
-          name: 'parsed_description',
-          convert: function (value, record) {
-            return record.data.description.replace(/\n/g, '<br />');
-          }
+            name: 'parsed_description',
+            convert: function(value, record) {
+                return record.data.description.replace(/\n/g, '<br />');
+            }
         },
         'listing_id',
         'Images',
@@ -25,7 +25,6 @@ Ext.define('Etsy.model.Listing', {
         'in_cart',
         'in_favorites',
         'category_path',
-
         {
             name: 'rounded_price',
             convert: function(value, record) {
@@ -35,37 +34,33 @@ Ext.define('Etsy.model.Listing', {
                 } catch(err) {
                     return "";
                 }
-
             }
         },
         'User',
         {
-          name: 'feedback_score',
-          convert: function (value, record) {
-            var score = record.data.User.feedback_info.score;
-            
-            if (score < 1 || score === null) {
-              return 'No score.';
-            } else {
-              return score;
+            name: 'feedback_score',
+            convert: function(value, record) {
+                var score = record.data.User.feedback_info.score;
+                if (score < 1 || score === null) {
+                    return 'No score.';
+                } else {
+                    return score;
+                }
             }
-          }
         },
         {
-          name: 'feedback_count',
-          convert: function (value, record) {
-            var count = record.data.User.feedback_info.count;
-            
-            if (count < 1 || count === null) {
-              return 'No feedback.';
-            } else {
-              return count;
+            name: 'feedback_count',
+            convert: function(value, record) {
+                var count = record.data.User.feedback_info.count;
+                if (count < 1 || count === null) {
+                    return 'No feedback.';
+                } else {
+                    return count;
+                }
             }
-          }
         },
         'ShippingInfo',
         'quantity',
-
         {
             name: 'image',
             convert: function(value, record) {
@@ -77,17 +72,14 @@ Ext.define('Etsy.model.Listing', {
                         full: record.data.Images[0]['url_fullxfull']
                     };
 
-                } catch(err)
-                {
+                } catch(err) {
                     //console.log('error in record', record)
-                }
+                    }
 
                 return images;
             }
         },
-
         ],
-
         proxy: {
             type: 'ajax',
             url: GLOBAL.api + 'categories',
@@ -101,6 +93,7 @@ Ext.define('Etsy.model.Listing', {
             },
             reader: {
                 type: 'json',
+                totalProperty: 'count',
                 rootProperty: 'results'
             }
         }

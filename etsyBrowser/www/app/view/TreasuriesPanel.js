@@ -15,7 +15,8 @@ Ext.define('Etsy.view.TreasuriesPanel', {
 	    {
             id: 'treasuriesCarousel',
             xtype: 'treasuriesCarousel',
-            count: 6
+            count: 6,
+            isInfinite: false
         }
 		]
 	}

@@ -163,7 +163,7 @@ var ETSY = {
     },
     
     trackPageviews: function(url) {
-        console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
+        //console.log('\n\n\n\n\n\ntracked URL is: ' + url + '\n\n\n\n\n');
         try {
             Cordova.exec("AppiraterPlugin.sigEvent");
             GLOBAL.googleAnalytics.trackPageview(url);

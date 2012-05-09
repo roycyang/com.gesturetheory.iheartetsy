@@ -18,9 +18,10 @@
 
 	<script type="text/javascript">
 	var GLOBAL = {
-	  version: '1.0',
+	  version: '1.1',
 		signed_in: false,
-		api: 'http://iheartetsy.herokuapp.com/',
+    api: 'http://iheartetsy.herokuapp.com/',
+    //		api: 'http://localhost:3000/',
 		offline_message: 'There was a problem connecting with Etsy.  Please try again.' 
 	};
 	
@@ -97,7 +98,7 @@
 		
     setTimeout(function(){
       cordova.exec(null, null, "SplashScreen", "hide", []);
-    }, 3000);
+    }, 5000);
     
 		
 		// after device ready, create a local alias and start the tracker with your own id.
@@ -119,9 +120,11 @@
 		<script type="text/javascript" charset="utf-8" src="js/jquery.bbq.js"></script>
 
 
+ 	  
 
     <!--
- 	  <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+     	  <script src="http://192.168.0.250:8080/target/target-script-min.js#anonymous"></script>
+<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
     <script type="text/javascript" src="sencha-touch.js"></script>
     <script type="text/javascript" src="all-classes.js"></script>
     -->

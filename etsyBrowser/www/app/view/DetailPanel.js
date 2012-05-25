@@ -326,9 +326,7 @@ Ext.define('Etsy.view.DetailPanel',
     },
 
     onTap: function(e) {
-      ETSY.alert('tap');
         if (Ext.get(e.target).parent('.shop-items')) {
-
           window.location.hash = "shop/" + GLOBAL.shopId + "/"+ GLOBAL.shopName;
           return false;
         }

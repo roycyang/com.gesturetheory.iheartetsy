@@ -267,6 +267,7 @@ Ext.define('Etsy.view.DetailPanel',
                 {
                   flex: 1,
                   xtype: 'container',
+                  cls: 'shop-items',
                   id: 'shopItems'
                 }
                 
@@ -289,7 +290,10 @@ Ext.define('Etsy.view.DetailPanel',
         listeners: {
             erased: function() {
                 setTimeout(function() {
+                  if(APP.getDetailPanel()){
                     APP.getDetailPanel().destroy();
+                  }
+
                 },
                 100);
                 //console.log('destroyed the detail panel!');
@@ -323,6 +327,10 @@ Ext.define('Etsy.view.DetailPanel',
     },
 
     onTap: function(e) {
+        if (Ext.get(e.target).parent('.shop-items')) {
+          window.location.hash = "shop/" + GLOBAL.shopId + "/"+ GLOBAL.shopName;
+          return false;
+        }
 
         if (Ext.get(e.target).parent('.description-inner-wrapper')) {
             //console.log('should be going to ETSY.toggleCart');
@@ -370,7 +378,11 @@ Ext.define('Etsy.view.DetailPanel',
         GLOBAL.newData = newData;
 
 
-
+        APP.getAppPanel().setMasked({
+            xtype: 'loadmask',
+            message: 'Loading Item.',
+            zIndex: 100000000000
+        });
         // test to see if the items are already in the shopping cart or favorites
         var id = newData.id;
 
@@ -384,7 +396,8 @@ Ext.define('Etsy.view.DetailPanel',
             url: 'http://openapi.etsy.com/v2/listings/' + newData.id + '?_dc=1336848510210&api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images,User,ShippingInfo,Shop',
             success: function(response){
                 var newData = JSON.parse(response.responseText).results[0];
-                
+                GLOBAL.shopId = newData.Shop.shop_id;
+                GLOBAL.shopName = newData.Shop.shop_name;
                  Ext.Ajax.request({
                     url: 'http://openapi.etsy.com/v2/shops/' + newData.Shop.shop_id + '/listings/active/?_dc=1336848510210&api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:1,User,ShippingInfo,Shop&limit=7',
                     success: function(response){
@@ -399,17 +412,17 @@ Ext.define('Etsy.view.DetailPanel',
                           html += '<div class="shop-image" style="background-image: url(' + image + ')"></div>'
                       }
                       Ext.getCmp('shopItems').setHtml(html)
-                      
+                    
                     }
                 });
-                
+              
                 console.log(newData);
                 var carousel = Ext.getCmp('detailPanelCarousel');
                 // console.log(data)
-                
+              
                 newData.parsed_description = newData.description.replace(/\n/g, '<br />');
 
-                
+              
                 if (localStorage.cart_listing_ids && localStorage.cart_listing_ids.indexOf(id) != -1) {
                     newData.in_cart = true;
                 } else {
@@ -421,7 +434,7 @@ Ext.define('Etsy.view.DetailPanel',
                 } else {
                     newData.in_favorites = false;
                 }
-                
+              
                 // test sold out state
                 // newData.state = "sold_out";
                 // set up the carousel
@@ -453,10 +466,11 @@ Ext.define('Etsy.view.DetailPanel',
                     });
                 },
                 100)
-                
+              
                 Ext.getCmp('scrollingDescription').setData(newData);
                 Ext.getCmp('meta-info').setData(newData);
                 Ext.getCmp('top-meta-info').setData(newData);
+                APP.getAppPanel().unmask();
             }
         });
 

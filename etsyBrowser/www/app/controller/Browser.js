@@ -3,7 +3,8 @@ Ext.define('Etsy.controller.Browser', {
 
     config: {
       routes: {
-          '': 'loadHomePanel'
+          ''                        : 'loadHomePanel',
+          'shop/:shopId/:shopName'  : 'loadShopPanel'
       },
         refs: {
             navPanel: '#navPanel',
@@ -618,6 +619,71 @@ Ext.define('Etsy.controller.Browser', {
             categoryPanel.unmask();
             store.getProxy().setUrl('http://openapi.etsy.com/v2/listings/active');
             store.getProxy().setExtraParam('category', record.get('name'));
+        });
+        
+
+
+    },
+    
+    
+    loadShopPanel: function(shopId, shopName) {
+        // track the pageviews
+        ETSY.trackPageviews("/shop/" + shopId);
+        
+
+        
+        
+        var self = this;
+
+        // destroy any detail panels
+        
+        if(self.getDetailPanel()){
+          self.getDetailPanel().destroy();
+        }
+        
+                
+        // create a shopPanel
+        var shopPanel = Ext.create('Etsy.view.SearchResultsPanel');
+        shopPanel.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading ' + shopName
+        });
+
+        
+
+
+        // adding the category panel
+        self.getAppPanel().add(shopPanel);
+        
+        self.getAppPanel().getLayout().setAnimation({
+            type: 'slide',
+            duration: 300,
+            direction: 'left'
+        });
+        
+        
+        self.getAppPanel().setActiveItem(shopPanel);
+
+        // setting up a new store
+        var store = Ext.create('Etsy.store.Listings');
+        store.getProxy().setUrl('http://openapi.etsy.com/v2/shops/' + shopId + '/listings/active');
+        // /?_dc=1336848510210&api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:1,User,ShippingInfo,Shop&limit=7
+                
+        shopPanel.query('listingsCarousel')[0].setStore(store);
+
+        // setting the title bar
+        Ext.getCmp('searchResultsToolbar').setTitle(shopName + '\'s Shop');
+        
+        // load the store, then set the store, the refresh the carousel
+        store.load(function() {
+            // ensures that everything gets aborted and cleared again... there is some wierd typing issue with  APP.removeStoreListeners();
+            // self.getCategoriesCarousel().reset();
+            
+            shopPanel.query('listingsCarousel')[0].reset();
+            if (store.getCount() == 0) {
+                ETSY.alert(GLOBAL.offline_message);
+            }
+            shopPanel.unmask();
         });
         
 

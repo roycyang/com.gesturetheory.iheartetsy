@@ -293,7 +293,6 @@ Ext.define('Etsy.view.DetailPanel',
                   if(APP.getDetailPanel()){
                     APP.getDetailPanel().destroy();
                   }
-
                 },
                 100);
                 //console.log('destroyed the detail panel!');
@@ -327,7 +326,9 @@ Ext.define('Etsy.view.DetailPanel',
     },
 
     onTap: function(e) {
+      ETSY.alert('tap');
         if (Ext.get(e.target).parent('.shop-items')) {
+
           window.location.hash = "shop/" + GLOBAL.shopId + "/"+ GLOBAL.shopName;
           return false;
         }
@@ -402,13 +403,13 @@ Ext.define('Etsy.view.DetailPanel',
                     url: 'http://openapi.etsy.com/v2/shops/' + newData.Shop.shop_id + '/listings/active/?_dc=1336848510210&api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:1,User,ShippingInfo,Shop&limit=7',
                     success: function(response){
                       var shopData = JSON.parse(response.responseText).results;
-                      console.log('******shopData DATA', shopData);
+                      // console.log('******shopData DATA', shopData);
                       var html = "<h2>Visit " + newData.Shop.shop_name + "'s Shop ></h2>";
 
                       for (i = 0; i < shopData.length; i++) {
-                        console.log(shopData[i].Images[0]);
+                        // console.log(shopData[i].Images[0]);
                           var image = shopData[i].Images[0].url_75x75;
-                          console.log(image);
+                          // console.log(image);
                           html += '<div class="shop-image" style="background-image: url(' + image + ')"></div>'
                       }
                       Ext.getCmp('shopItems').setHtml(html)
@@ -416,7 +417,7 @@ Ext.define('Etsy.view.DetailPanel',
                     }
                 });
               
-                console.log(newData);
+
                 var carousel = Ext.getCmp('detailPanelCarousel');
                 // console.log(data)
               

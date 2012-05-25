@@ -742,7 +742,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /Users/Shared/Cordova/Frameworks/Cordova.framework/Headers;
 				INFOPLIST_FILE = "etsyBrowser/etsyBrowser-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/etsyBrowser/GoogleAnalytics/GoogSDK\"",
@@ -779,7 +779,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /Users/Shared/Cordova/Frameworks/Cordova.framework/Headers;
 				INFOPLIST_FILE = "etsyBrowser/etsyBrowser-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/etsyBrowser/GoogleAnalytics/GoogSDK\"",

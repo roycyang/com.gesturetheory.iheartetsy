@@ -19,9 +19,9 @@
 
 //
 //  AppDelegate.h
-//  tesedf
+//  dfsg
 //
-//  Created by Roy Yang on 4/12/12.
+//  Created by Roy Yang on 5/25/12.
 //  Copyright Gesture Theory Inc. 2012. All rights reserved.
 //
 
@@ -39,7 +39,7 @@
 }
 
 // invoke string is passed to your app on launch, this is only valid if you 
-// edit tesedf-Info.plist to add a protocol
+// edit dfsg-Info.plist to add a protocol
 // a simple tutorial can be found here : 
 // http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
 

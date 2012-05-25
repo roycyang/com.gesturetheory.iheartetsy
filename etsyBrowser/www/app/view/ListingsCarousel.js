@@ -27,46 +27,42 @@ Ext.define('Etsy.view.ListingsCarousel', {
         }
     },
 
-    /**
- * Describe what this method does
- * @private
- * @param {String|Object|Array|Boolean|Number} paramName Describe this parameter
- * @returns Describe what it returns
- * @type String|Object|Array|Boolean|Number
- */
+
 
     updateStore: function(newStore) {
         var self = this;
 
-        if (newStore.isLoading()) {
-            console.log('in updateStore and the newStore is still loading');
-            newStore.on('refresh',
-            function(){
-              console.log('calling store on refresh');
-              self.adjustAfterLoading(self, newStore);
-            });
+        // on refresh, fire the adjust after loading
+        newStore.on('refresh',
+        function() {
+            console.log('calling store on refresh');
+            self.adjustAfterLoading(self, newStore);
+        });
 
+        if (newStore.isLoading()) {
             // this is when the store loads for the first time
             newStore.on('load',
             function() {
                 console.log('in updateStore and load fired');
-                self.updateStore(newStore, GLOBAL.panel);
+                self.updateStore(newStore);
             },
             self, {
                 single: true
             });
-
         } else {
             console.log('in updateStore and the newStore is FINISHED loading');
             self.reset();
-            self.adjustAfterLoading(self, newStore);
         }
     },
 
-    adjustAfterLoading: function(me, newStore) {
+    adjustAfterLoading: function(me) {
+
+        var newStore = me.getStore();
         var storeCount = newStore.data.length;
         var storeTotalCount = newStore.getTotalCount();
         var max = parseInt((storeCount - 1) / (me.getCount()));
+
+
         var finalMax = parseInt((storeTotalCount - 1) / (me.getCount()));
 
         // some panels should only show full panels of items, they are truncate: true
@@ -75,7 +71,11 @@ Ext.define('Etsy.view.ListingsCarousel', {
             finalMax = finalMax - 1;
         }
 
-        me.setMaxItemIndex(max);
+        try {
+            me.setMaxItemIndex(max);
+        } catch(e) {
+            console.log('damn error');
+        }
 
         // shows or hides the left and right arrows
         if (me.parent) {
@@ -103,13 +103,13 @@ Ext.define('Etsy.view.ListingsCarousel', {
                 }
             }
         }
+
     },
 
     onActiveItemChange: function(carousel, newItem, oldItem) {
         // tests to see if we should try to load in another set of items from the Etsy API
         // and then calls adjustAfterLoading which makes sure we adjust the arrows and the max items
-        console.log('called onActiveItemChange');
-
+        // console.log('called onActiveItemChange, GLOBAL.listing_store_key', GLOBAL.listing_store_key);
         try {
             var index = carousel.getActiveIndex(),
             count = this.getCount(),
@@ -123,14 +123,14 @@ Ext.define('Etsy.view.ListingsCarousel', {
 
             if (carousel.getIsInfinite()) {
                 if (storeCount - (count * index) < offsetLimit && !store.isLoading()) {
-                    console.log('calling store.nextPage');
+                    // console.log('calling store.nextPage');
                     store.nextPage();
                 }
             }
 
             carousel.adjustAfterLoading(carousel, store);
         } catch(err) {
-            console.log(err);
+            console.log('***** ERROR *****', err);
         }
 
 
@@ -165,69 +165,69 @@ Ext.define('Etsy.view.ListingsCarousel', {
         },
         this);
 
-        //console.log('setting records', records);
+        // console.log('setting records', records);
         item.setRecords(records);
     },
-    
-    initialize: function () {
-      var self = this;
 
-      this.element.on({
-        scope     : this,
-        tap       : 'onTap',
-        drag      : 'onDragItem',
-        dragstart : 'trackProduct',
-        dragend   : 'resetElement',
-        touchstart: 'onTouchEtsyItemStart',
-        touchend  : 'onTouchEtsyItemEnd'
-      });
+    initialize: function() {
+        var self = this;
+
+        this.element.on({
+            scope: this,
+            tap: 'onTap',
+            drag: 'onDragItem',
+            dragstart: 'trackProduct',
+            dragend: 'resetElement',
+            touchstart: 'onTouchEtsyItemStart',
+            touchend: 'onTouchEtsyItemEnd'
+        });
     },
 
-    onTouchEtsyItemStart: function (e) {
-      // console.log('touch event', e);
-      var element = Ext.get(e.target);   
-      if (element.hasCls('favorite-stamp') && GLOBAL.signed_in) {
-          element = Ext.get(e.target).parent('.product');
-         $('#' + element.id).addClass('cart-pressed-flag');
-         return false;
-      }
+    onTouchEtsyItemStart: function(e) {
+        // console.log('touch event', e);
+        var element = Ext.get(e.target);
+        if (element.hasCls('favorite-stamp') && GLOBAL.signed_in) {
+            element = Ext.get(e.target).parent('.product');
+            $('#' + element.id).addClass('cart-pressed-flag');
+            return false;
+        }
 
-      if(element = Ext.get(e.target).parent('.treasury-item')){
-        var parent = Ext.get(e.target).parent('.treasury-item')
-        $('#' + parent.id).addClass('pressed');
-        return false;
-      }
+        if (element = Ext.get(e.target).parent('.treasury-item')) {
+            var parent = Ext.get(e.target).parent('.treasury-item')
+            $('#' + parent.id).addClass('pressed');
+            return false;
+        }
 
-      element = Ext.get(e.target).parent('.product');
+        element = Ext.get(e.target).parent('.product');
 
-      if(element){
-        $('#' + element.id).addClass('product-pressed-flag');
-      }
+        if (element) {
+            $('#' + element.id).addClass('product-pressed-flag');
+        }
 
     },
 
-    onTouchEtsyItemEnd: function (e) {
-      $('.product').removeClass('cart-pressed-flag'); 
-      $('.product').removeClass('product-pressed-flag');   
-      $('.treasury-item').removeClass('pressed');   
+    onTouchEtsyItemEnd: function(e) {
+        $('.product').removeClass('cart-pressed-flag');
+        $('.product').removeClass('product-pressed-flag');
+        $('.treasury-item').removeClass('pressed');
     },
 
     /**
      * Track which element is currently being dragged.
      * @param {Object} event Event object
      */
-    trackProduct: function (event) {
-      $('.product').removeClass('cart-pressed-flag'); 
-      $('.product').removeClass('product-pressed-flag');   
-      $('.treasury-item').removeClass('pressed');
+    trackProduct: function(event) {
+        $('.product').removeClass('cart-pressed-flag');
+        $('.product').removeClass('product-pressed-flag');
+        $('.treasury-item').removeClass('pressed');
 
-      var $element = $(event.target);
+        var $element = $(event.target);
 
-      if (!$element.hasClass('product')) {
-        $element = $element.parents('.product');
-      }
+        if (!$element.hasClass('product')) {
+            $element = $element.parents('.product');
+        }
 
-      this.productDragging = $element.attr('ref');
+        this.productDragging = $element.attr('ref');
     },
 
     /**
@@ -235,151 +235,151 @@ Ext.define('Etsy.view.ListingsCarousel', {
      * @param {Object} event Event object
      * @param {String} [animate] Pass the animation type.
      */
-    resetElement: function (event, animate) {
-      var $element = $(event.target),
+    resetElement: function(event, animate) {
+        var $element = $(event.target),
         timer,
         type;
 
-      if (!$element.hasClass('product')) {
-        $element = $element.parents('.product');
-      }
-
-      if ($element && !this.isDragging) {
-        if (typeof animate === 'string') {
-          switch (animate) {
-          case 'bounce':
-            timer = 1000;
-            type = 'product-bounce';
-            break;
-
-          case 'quick':
-            timer = 500;
-            type = 'quick-bounce';
-            break;
-
-          default:
-            throw new Error('resetElement(): Unknown animation type.');
-          }
-
-          $element.attr('style', '').addClass(type);
-
-          // Remove the animation class once the animation is complete.
-          setTimeout(function () {
-            $element.removeClass(type);
-            $element.css({
-              '-webkit-transform': 'translate3d(0, 0, 0)'
-            });
-          }, timer);
-        } else {
-          $element.css({
-            '-webkit-transform': 'translate3d(0, 0, 0)'
-          });
+        if (!$element.hasClass('product')) {
+            $element = $element.parents('.product');
         }
-      }
+
+        if ($element && !this.isDragging) {
+            if (typeof animate === 'string') {
+                switch (animate) {
+                case 'bounce':
+                    timer = 1000;
+                    type = 'product-bounce';
+                    break;
+
+                case 'quick':
+                    timer = 500;
+                    type = 'quick-bounce';
+                    break;
+
+                default:
+                    throw new Error('resetElement(): Unknown animation type.');
+                }
+
+                $element.attr('style', '').addClass(type);
+
+                // Remove the animation class once the animation is complete.
+                setTimeout(function() {
+                    $element.removeClass(type);
+                    $element.css({
+                        '-webkit-transform': 'translate3d(0, 0, 0)'
+                    });
+                },
+                timer);
+            } else {
+                $element.css({
+                    '-webkit-transform': 'translate3d(0, 0, 0)'
+                });
+            }
+        }
     },
 
     /**
      * Handle drag events for products.
      * @param {Object} event Event object
      */
-    onDragItem: function (event) {
-      if(!GLOBAL.signed_in){
-        return false;
-      }
-      var $element  = $(event.target),
-        store       = this.getStore(),
-        yDist       = event.deltaY,
-        xDist       = event.deltaX,
+    onDragItem: function(event) {
+        if (!GLOBAL.signed_in) {
+            return false;
+        }
+        var $element = $(event.target),
+        store = this.getStore(),
+        yDist = event.deltaY,
+        xDist = event.deltaX,
         id;
 
-      // Set the correct element if the target is a child of .product
-      if (!$element.hasClass('product')) {
-        $element = $element.parents('.product');
-      }
-
-      id = $element.attr('ref');
-
-      if (yDist > 0 && !$element.hasClass('favoriting') && $element && !this.isDragging && this.productDragging === $element.attr('ref')) {
-        // Move the element with the drag coords.
-        console.log(yDist);
-        $element.css('-webkit-transform', 'translate3d(0, ' + yDist + 'px, 0)');
-
-        // Once the element is raised enough:
-        // 1. Trigger a dragend to reset.
-        // 2. Add item to favorites list.
-        // if (yDist < -30) {
-        //   this.element.fireEvent('dragend', event, 'bounce');
-        //   ETSY.addToFavorites(id, $element);
-        // }
-
-        // If the element is lowered:
-        // 1. Trigger a dragend.
-        // 2. Remove from favorites.
-        if (yDist > 30) {
-          if(!$element.hasClass('favoriting')){
-            $element.addClass('favoriting');
-            this.element.fireEvent('dragend', event, 'bounce');
-            ETSY.trackEvent('actions', 'favoriting', 'from index panel');
-            ETSY.toggleFavorites(id, $element);
-          }
-
-
+        // Set the correct element if the target is a child of .product
+        if (!$element.hasClass('product')) {
+            $element = $element.parents('.product');
         }
-      }
+
+        id = $element.attr('ref');
+
+        if (yDist > 0 && !$element.hasClass('favoriting') && $element && !this.isDragging && this.productDragging === $element.attr('ref')) {
+            // Move the element with the drag coords.
+            // console.log(yDist);
+            $element.css('-webkit-transform', 'translate3d(0, ' + yDist + 'px, 0)');
+
+            // Once the element is raised enough:
+            // 1. Trigger a dragend to reset.
+            // 2. Add item to favorites list.
+            // if (yDist < -30) {
+            //   this.element.fireEvent('dragend', event, 'bounce');
+            //   ETSY.addToFavorites(id, $element);
+            // }
+            // If the element is lowered:
+            // 1. Trigger a dragend.
+            // 2. Remove from favorites.
+            if (yDist > 30) {
+                if (!$element.hasClass('favoriting')) {
+                    $element.addClass('favoriting');
+                    this.element.fireEvent('dragend', event, 'bounce');
+                    ETSY.trackEvent('actions', 'favoriting', 'from index panel');
+                    ETSY.toggleFavorites(id, $element);
+                }
+
+
+            }
+        }
     },
 
-    onTap: function (e) {
+    onTap: function(e) {
 
-      var element = Ext.get(e.target),
+        var element = Ext.get(e.target),
         store = this.getStore(),
         title,
         id;
 
-      // tapped on homepage category item
-      if (element.parent('.category-index-item')) {
-        element = element.parent('.category-index-item');
-        title = $('#' + element.id + ' .title').html();
-        id = element.getAttribute('rel');
-        record = store.getAt(store.findExact('id', id));
-        APP.loadListings('category', record);
-        return false;
-      }
-
-      // tapped on a treasury item
-      if (Ext.get(e.target).parent('.treasury-item')) {
-        element = Ext.get(e.target).parent('.treasury-item');
-        title = $('#' + element.id + ' .title').html();
-        id = element.getAttribute('rel');
-        APP.loadTreasury(id, title);
-        return false;
-      }
-
-      // signed in and tapped on the favorite stamp (price area)
-      if (element.hasCls('favorite-stamp') && GLOBAL.signed_in) {
-        var element = Ext.get(e.target).parent('.product'),
-          id        = Math.abs(element.getAttribute('ref')),
-          $element = $('#' + element.id);
-        ETSY.trackEvent('actions', 'add to cart', 'from index panel');
-        ETSY.toggleCart(id, $element);
-        return false;
-      }
-
-      // if not, then set it to the product and open it up!
-      if (!element.hasCls('product')) {
-        element = Ext.get(e.target).parent('.product');
-
-        // if there actually is an element, then we tapped on a product
-        if (element) {
-          id = Math.abs(element.getAttribute('ref'));
-          // console.log('id is', id);
-          // console.log('store is', store);
-          record = store.getAt(store.findExact('id', id));
-          // console.log('record', record);
-          if (record) {
-            this.fireEvent('itemtap', this, record);
-          }
+        // tapped on homepage category item
+        if (element.parent('.category-index-item')) {
+            element = element.parent('.category-index-item');
+            title = $('#' + element.id + ' .title').html();
+            id = element.getAttribute('rel');
+            record = store.getAt(store.findExact('id', id));
+            APP.loadListings('category', record);
+            return false;
         }
-      }
+
+        // tapped on a treasury item
+        if (Ext.get(e.target).parent('.treasury-item')) {
+            element = Ext.get(e.target).parent('.treasury-item');
+            title = $('#' + element.id + ' .title').html();
+            id = element.getAttribute('rel');
+            APP.loadTreasury(id, title);
+            return false;
+        }
+
+        // signed in and tapped on the favorite stamp (price area)
+        if (element.hasCls('favorite-stamp') && GLOBAL.signed_in) {
+            var element = Ext.get(e.target).parent('.product'),
+            id = Math.abs(element.getAttribute('ref')),
+            $element = $('#' + element.id);
+            ETSY.trackEvent('actions', 'add to cart', 'from index panel');
+            ETSY.toggleCart(id, $element);
+            return false;
+        }
+
+        // if not, then set it to the product and open it up!
+        if (!element.hasCls('product')) {
+            element = Ext.get(e.target).parent('.product');
+
+            // if there actually is an element, then we tapped on a product
+            if (element) {
+                id = Math.abs(element.getAttribute('ref'));
+                // console.log('id is', id);
+                // console.log('store is', store);
+                record = store.getAt(store.findExact('id', id));
+                // console.log('record', record);
+                if (record) {
+                    this.fireEvent('itemtap', this, record);
+                }
+            }
+        }
 
     },
 

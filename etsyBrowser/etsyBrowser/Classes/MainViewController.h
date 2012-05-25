@@ -19,9 +19,9 @@
 
 //
 //  MainViewController.h
-//  tesedf
+//  dfsg
 //
-//  Created by Roy Yang on 4/12/12.
+//  Created by Roy Yang on 5/25/12.
 //  Copyright Gesture Theory Inc. 2012. All rights reserved.
 //
 

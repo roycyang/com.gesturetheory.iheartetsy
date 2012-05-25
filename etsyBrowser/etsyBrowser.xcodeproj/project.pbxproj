@@ -59,6 +59,8 @@
 		4352FDB6151D1A5800F75C44 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 4352FDB5151D1A5800F75C44 /* www */; };
 		436E2E1615223A0A00A73595 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436E2E1515223A0A00A73595 /* Security.framework */; };
 		4375EABB151F78BC00E416BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4375EAB0151F78BC00E416BF /* README.md */; };
+		438005141570233C0046F853 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 438005111570233C0046F853 /* AppDelegate.m */; };
+		438005151570233C0046F853 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438005131570233C0046F853 /* MainViewController.m */; };
 		43988F43154638F000C2E444 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F42154638F000C2E444 /* Twitter.framework */; };
 		43988F45154638F900C2E444 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43988F44154638F900C2E444 /* Accounts.framework */; };
 		43B0FC9F1536789300159DDB /* GoogleAnalyticsPlugin.js in Sources */ = {isa = PBXBuildFile; fileRef = 43B0FC991536789300159DDB /* GoogleAnalyticsPlugin.js */; };
@@ -68,8 +70,6 @@
 		43B0FCA4153678B500159DDB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FCA3153678B500159DDB /* CFNetwork.framework */; };
 		43B0FCA7153680BF00159DDB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B0FCA5153678C700159DDB /* libsqlite3.0.dylib */; };
 		43C0379E1559AA540010EFF9 /* TwitterPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C0379D1559AA540010EFF9 /* TwitterPlugin.m */; };
-		43C473A215373222005DDFDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C4739F15373222005DDFDC /* AppDelegate.m */; };
-		43C473A315373222005DDFDC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C473A115373222005DDFDC /* MainViewController.m */; };
 		43C473A6153732D0005DDFDC /* Cordova.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C473A5153732D0005DDFDC /* Cordova.plist */; };
 		43C473A8153732E5005DDFDC /* Cordova copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C473A7153732E5005DDFDC /* Cordova copy.plist */; };
 		43DE14841520F4E50050CFF0 /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE14811520F4E50050CFF0 /* EmailComposer.m */; };
@@ -152,6 +152,10 @@
 		4352FDB5151D1A5800F75C44 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		436E2E1515223A0A00A73595 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4375EAB0151F78BC00E416BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		438005101570233C0046F853 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		438005111570233C0046F853 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
+		438005121570233C0046F853 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
+		438005131570233C0046F853 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
 		43988F42154638F000C2E444 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		43988F44154638F900C2E444 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		43B0FC981536789300159DDB /* GoogleAnalyticsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsPlugin.h; sourceTree = "<group>"; };
@@ -164,10 +168,6 @@
 		43B0FCA5153678C700159DDB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		43C0379C1559AA540010EFF9 /* TwitterPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterPlugin.h; sourceTree = "<group>"; };
 		43C0379D1559AA540010EFF9 /* TwitterPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterPlugin.m; sourceTree = "<group>"; };
-		43C4739E15373222005DDFDC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		43C4739F15373222005DDFDC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		43C473A015373222005DDFDC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		43C473A115373222005DDFDC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		43C473A5153732D0005DDFDC /* Cordova.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cordova.plist; sourceTree = "<group>"; };
 		43C473A7153732E5005DDFDC /* Cordova copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cordova copy.plist"; sourceTree = "<group>"; };
 		43DE147F1520F4E50050CFF0 /* EmailComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailComposer.h; sourceTree = "<group>"; };
@@ -417,12 +417,12 @@
 		4352FDA3151D1A4400F75C44 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				438005101570233C0046F853 /* AppDelegate.h */,
+				438005111570233C0046F853 /* AppDelegate.m */,
+				438005121570233C0046F853 /* MainViewController.h */,
+				438005131570233C0046F853 /* MainViewController.m */,
 				43299EAF1558D93E006923A0 /* Appirater.h */,
 				43299EB01558D93E006923A0 /* Appirater.m */,
-				43C4739E15373222005DDFDC /* AppDelegate.h */,
-				43C4739F15373222005DDFDC /* AppDelegate.m */,
-				43C473A015373222005DDFDC /* MainViewController.h */,
-				43C473A115373222005DDFDC /* MainViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -618,13 +618,13 @@
 				4311196D1537107100870F05 /* SBJsonBase.m in Sources */,
 				4311196E1537107100870F05 /* SBJsonParser.m in Sources */,
 				4311196F1537107100870F05 /* SBJsonWriter.m in Sources */,
-				43C473A215373222005DDFDC /* AppDelegate.m in Sources */,
-				43C473A315373222005DDFDC /* MainViewController.m in Sources */,
 				431256AD1558A55200D0B4AC /* ChildBrowserCommand.m in Sources */,
 				431256AE1558A55200D0B4AC /* ChildBrowserViewController.m in Sources */,
 				43299EAE1558D89E006923A0 /* AppiraterPlugin.m in Sources */,
 				43299EB11558D93E006923A0 /* Appirater.m in Sources */,
 				43C0379E1559AA540010EFF9 /* TwitterPlugin.m in Sources */,
+				438005141570233C0046F853 /* AppDelegate.m in Sources */,
+				438005151570233C0046F853 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

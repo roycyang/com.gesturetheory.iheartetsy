@@ -9,17 +9,17 @@ Ext.define('Etsy.model.Listing', {
                 return record.data.listing_id;
             }
         },
-        'description',
-        {
-            name: 'parsed_description',
-            convert: function(value, record) {
-                return record.data.description.replace(/\n/g, '<br />');
-            }
-        },
+        // 'description',
+        // {
+        //     name: 'parsed_description',
+        //     convert: function(value, record) {
+        //         return record.data.description.replace(/\n/g, '<br />');
+        //     }
+        // },
         'listing_id',
         'Images',
         'title',
-        'url',
+        // 'url',
         'price',
         'state',
         'in_cart',
@@ -36,49 +36,49 @@ Ext.define('Etsy.model.Listing', {
                 }
             }
         },
-        'User',
+        // 'User',
+        // {
+        //     name: 'feedback_score',
+        //     convert: function(value, record) {
+        //         var score = record.data.User.feedback_info.score;
+        //         if (score < 1 || score === null) {
+        //             return 'No score.';
+        //         } else {
+        //             return score;
+        //         }
+        //     }
+        // },
+        // {
+        //     name: 'feedback_count',
+        //     convert: function(value, record) {
+        //         var count = record.data.User.feedback_info.count;
+        //         if (count < 1 || count === null) {
+        //             return 'No feedback.';
+        //         } else {
+        //             return count;
+        //         }
+        //     }
+        // },
+        // 'ShippingInfo',
+        // 'quantity',
         {
-            name: 'feedback_score',
-            convert: function(value, record) {
-                var score = record.data.User.feedback_info.score;
-                if (score < 1 || score === null) {
-                    return 'No score.';
-                } else {
-                    return score;
-                }
-            }
-        },
-        {
-            name: 'feedback_count',
-            convert: function(value, record) {
-                var count = record.data.User.feedback_info.count;
-                if (count < 1 || count === null) {
-                    return 'No feedback.';
-                } else {
-                    return count;
-                }
-            }
-        },
-        'ShippingInfo',
-        'quantity',
-        {
-            name: 'image',
-            convert: function(value, record) {
-                var images = {};
-                try {
-                    images = {
-                        thumb: record.data.Images[0]['url_170x135'],
-                        large: record.data.Images[0]['url_570xN'],
-                        full: record.data.Images[0]['url_fullxfull']
-                    };
-
-                } catch(err) {
-                    //console.log('error in record', record)
+                    name: 'image',
+                    convert: function(value, record) {
+                        var images = {};
+                        try {
+                            images = {
+                                thumb: record.data.Images[0]['url_170x135'],
+                                large: record.data.Images[0]['url_570xN'],
+                                full: record.data.Images[0]['url_fullxfull']
+                            };
+                
+                        } catch(err) {
+                            //console.log('error in record', record)
+                            }
+                
+                        return images;
                     }
-
-                return images;
-            }
-        },
+                },
         ],
         proxy: {
             type: 'ajax',
@@ -88,8 +88,8 @@ Ext.define('Etsy.model.Listing', {
             pageParam: false,
             extraParams: {
                 api_key: 'tia49fh9iqjcrukurpbyqtv5',
-                includes: 'Images:6,User,ShippingInfo',
-                limit: '100'
+                includes: 'Images:1',
+                limit: '96'
             },
             reader: {
                 type: 'json',

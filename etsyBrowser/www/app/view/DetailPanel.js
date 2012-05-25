@@ -187,76 +187,92 @@ Ext.define('Etsy.view.DetailPanel',
                 // items
             },
             {
-                height: 300,
+                height: 550,
                 id: 'detailPanelMoreInfo',
                 hidden: true,
                 xtype: 'container',
-                layout: 'hbox',
-                defaults: {
-                    flex: 1
-                },
+                layout: 'vbox',
                 items: [
+                
                 {
-                    flex: 1,
-                    id: 'meta-info',
-                    tpl: new Ext.XTemplate(
-                    '<div class="left-wrapper">',
-                    '<div class="seller">',
-                    '<header class="table-header">',
-                    '<div><span>Seller Name</span></div>',
-                    '<div><span>Feedback Count</span></div>',
-                    '<div><span>Feedback Score</span></div>',
-                    '</header>',
-                    '<ul class="table-content">',
-                    '<li>',
-                    '<div>{User.login_name}</div>',
-                    '<div>{feedback_count}</div>',
-                    '<div>{feedback_score}</div>',
-                    '</li>',
-                    '</ul>',
-                    '</div>',
-                    '<div class="shipping">',
-                    '<header class="table-header">',
-                    '<div><span>Ship to</span></div>',
-                    '<div><span>Cost</span></div>',
-                    '<div><span>With another item</span></div>',
-                    '</header>',
-                    '<ul class="table-content">',
-                    '<tpl for="ShippingInfo">',
-                    '<li>',
-                    '<div>{destination_country_name}</div>',
-                    '<div>${primary_cost}</div>',
-                    '<div>{currency_code}</div>',
-                    '</li>',
-                    '</tpl>',
-                    '</ul>',
-                    '</div>',
-                    '</div>'
-                    ),
-                    scrollable: {
-                        direction: 'vertical',
-                        directionLock: true
-                    }
+                  height: 360,
+                  xtype: 'container',
+                  layout: 'hbox',
+                  defaults: {
+                      flex: 1
+                  },
+                  items: [
+                  {
+                      flex: 1,
+                      id: 'meta-info',
+                      tpl: new Ext.XTemplate(
+                      '<div class="left-wrapper">',
+                      '<div class="seller">',
+                      '<header class="table-header">',
+                      '<div><span>Seller Name</span></div>',
+                      '<div><span>Feedback Count</span></div>',
+                      '<div><span>Feedback Score</span></div>',
+                      '</header>',
+                      '<ul class="table-content">',
+                      '<li>',
+                      '<div>{User.login_name}</div>',
+                      '<div>{feedback_count}</div>',
+                      '<div>{feedback_score}</div>',
+                      '</li>',
+                      '</ul>',
+                      '</div>',
+                      '<div class="shipping">',
+                      '<header class="table-header">',
+                      '<div><span>Ship to</span></div>',
+                      '<div><span>Cost</span></div>',
+                      '<div><span>With another item</span></div>',
+                      '</header>',
+                      '<ul class="table-content">',
+                      '<tpl for="ShippingInfo">',
+                      '<li>',
+                      '<div>{destination_country_name}</div>',
+                      '<div>${primary_cost}</div>',
+                      '<div>{currency_code}</div>',
+                      '</li>',
+                      '</tpl>',
+                      '</ul>',
+                      '</div>',
+                      '</div>'
+                      ),
+                      scrollable: {
+                          direction: 'vertical',
+                          directionLock: true
+                      }
+                  },
+                  {
+                      xtype: 'spacer',
+                      width: 20
+                  },
+                  {
+                      flex: 1,
+                      id: 'scrollingDescription',
+                      tpl: new Ext.XTemplate(
+                      '<div class="right-wrapper">',
+                      '<div class="text">{parsed_description}</div>',
+                      '</div>'
+                      ),
+                      scrollable: {
+                          direction: 'vertical',
+                          directionLock: true
+                      }
+                  }
+                  ]
+                  // items
                 },
                 {
-                    xtype: 'spacer',
-                    width: 20
-                },
-                {
-                    flex: 1,
-                    id: 'scrollingDescription',
-                    tpl: new Ext.XTemplate(
-                    '<div class="right-wrapper">',
-                    '<div class="text">{parsed_description}</div>',
-                    '</div>'
-                    ),
-                    scrollable: {
-                        direction: 'vertical',
-                        directionLock: true
-                    }
+                  flex: 1,
+                  xtype: 'container',
+                  id: 'shopItems'
                 }
+                
                 ]
-                // items
+                
+                
             },
             ]
         },
@@ -353,56 +369,96 @@ Ext.define('Etsy.view.DetailPanel',
     updateData: function(newData) {
         GLOBAL.newData = newData;
 
-        var carousel = Ext.getCmp('detailPanelCarousel');
+
 
         // test to see if the items are already in the shopping cart or favorites
         var id = newData.id;
-        if (localStorage.cart_listing_ids && localStorage.cart_listing_ids.indexOf(id) != -1) {
-            newData.in_cart = true;
-        } else {
-            newData.in_cart = false;
-        }
-        if (localStorage.favorites_listing_ids && localStorage.favorites_listing_ids.indexOf(id) != -1) {
-            newData.in_favorites = true;
-            Ext.getCmp('detailPanelMainInfo').addCls('favorite-flag');
-        } else {
-            newData.in_favorites = false;
-        }
+
 
         // test sold out state
         // newData.state = "sold_out";
         // set up the carousel
-        var images = newData.Images;
-        var imageArray = [];
-        var thumbnailsArray = [];
-        for (i = 0; i < images.length; i++) {
-            var image = images[i].url_570xN;
-            imageArray.push({
-                xtype: 'container',
-                cls: 'detail-panel-image',
-                html: '<div class="image" style="background-image: url(' + image + ')"></div>'
-            });
-            thumbnailsArray.push(images[i].url_75x75);
-        }
 
-        // if there is only one item, remove the indicator
-        if (images.length == 1) {
-            carousel.setIndicator(false);
-        } else {
-            carousel.setIndicator(true);
-        }
-        carousel.add(imageArray);
-        carousel.setActiveItem(0);
 
-        setTimeout(function() {
-            $('.x-carousel-indicator span').each(function(index) {
-                $(this).css('background-image', 'url(' + thumbnailsArray[index] + ')');
-            });
-        },
-        100)
+        Ext.Ajax.request({
+            url: 'http://openapi.etsy.com/v2/listings/' + newData.id + '?_dc=1336848510210&api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images,User,ShippingInfo,Shop',
+            success: function(response){
+                var newData = JSON.parse(response.responseText).results[0];
+                
+                 Ext.Ajax.request({
+                    url: 'http://openapi.etsy.com/v2/shops/' + newData.Shop.shop_id + '/listings/active/?_dc=1336848510210&api_key=tia49fh9iqjcrukurpbyqtv5&includes=Images:1,User,ShippingInfo,Shop&limit=7',
+                    success: function(response){
+                      var shopData = JSON.parse(response.responseText).results;
+                      console.log('******shopData DATA', shopData);
+                      var html = "<h2>Visit " + newData.Shop.shop_name + "'s Shop ></h2>";
 
-        Ext.getCmp('scrollingDescription').setData(newData);
-        Ext.getCmp('meta-info').setData(newData);
-        Ext.getCmp('top-meta-info').setData(newData);
+                      for (i = 0; i < shopData.length; i++) {
+                        console.log(shopData[i].Images[0]);
+                          var image = shopData[i].Images[0].url_75x75;
+                          console.log(image);
+                          html += '<div class="shop-image" style="background-image: url(' + image + ')"></div>'
+                      }
+                      Ext.getCmp('shopItems').setHtml(html)
+                      
+                    }
+                });
+                
+                console.log(newData);
+                var carousel = Ext.getCmp('detailPanelCarousel');
+                // console.log(data)
+                
+                newData.parsed_description = newData.description.replace(/\n/g, '<br />');
+
+                
+                if (localStorage.cart_listing_ids && localStorage.cart_listing_ids.indexOf(id) != -1) {
+                    newData.in_cart = true;
+                } else {
+                    newData.in_cart = false;
+                }
+                if (localStorage.favorites_listing_ids && localStorage.favorites_listing_ids.indexOf(id) != -1) {
+                    newData.in_favorites = true;
+                    Ext.getCmp('detailPanelMainInfo').addCls('favorite-flag');
+                } else {
+                    newData.in_favorites = false;
+                }
+                
+                // test sold out state
+                // newData.state = "sold_out";
+                // set up the carousel
+                var images = newData.Images;
+                var imageArray = [];
+                var thumbnailsArray = [];
+                for (i = 0; i < images.length; i++) {
+                    var image = images[i].url_570xN;
+                    imageArray.push({
+                        xtype: 'container',
+                        cls: 'detail-panel-image',
+                        html: '<div class="image" style="background-image: url(' + image + ')"></div>'
+                    });
+                    thumbnailsArray.push(images[i].url_75x75);
+                }
+
+                // if there is only one item, remove the indicator
+                if (images.length == 1) {
+                    carousel.setIndicator(false);
+                } else {
+                    carousel.setIndicator(true);
+                }
+                carousel.add(imageArray);
+                carousel.setActiveItem(0);
+
+                setTimeout(function() {
+                    $('.x-carousel-indicator span').each(function(index) {
+                        $(this).css('background-image', 'url(' + thumbnailsArray[index] + ')');
+                    });
+                },
+                100)
+                
+                Ext.getCmp('scrollingDescription').setData(newData);
+                Ext.getCmp('meta-info').setData(newData);
+                Ext.getCmp('top-meta-info').setData(newData);
+            }
+        });
+
     }
 });

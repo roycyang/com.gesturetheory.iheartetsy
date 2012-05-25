@@ -4,19 +4,11 @@ Ext.define('Etsy.view.CategoriesPanel', {
     requires: ['GT.FixedButton'],
     config: {
         title: 'Categories',
-        id: 'categoriesPanel',
         layout: 'vbox',
         items: [
         {
-          hidden: true,
-            xtype: 'searchfield',
-            id: 'searchSearch',
-            placeHolder: 'Search Etsy'
-        },
-        {
             xtype: 'maintoolbar',
-            title: 'Categories',
-            id: 'categoriesToolbar'
+            title: 'Categories'
         },
         {
             xtype: 'fixedbutton',
@@ -28,10 +20,10 @@ Ext.define('Etsy.view.CategoriesPanel', {
             height: 701,
             ui: 'plain',
             listeners: {
-              tap: function(){
+              tap: function(me){
                 if(!GLOBAL.inCarouselAction){
                   GLOBAL.inCarouselAction = true;
-                  self.getCategoriesCarousel().previous();
+                   me.parent.query('listingsCarousel')[0].previous();
                   setTimeout(function(){
                     GLOBAL.inCarouselAction = false;
                   }, 350)
@@ -50,10 +42,10 @@ Ext.define('Etsy.view.CategoriesPanel', {
             top: 0,
             height: 701,
             listeners: {
-              tap: function(){
+              tap: function(me){
                 if(!GLOBAL.inCarouselAction){
                   GLOBAL.inCarouselAction = true;
-                  self.getCategoriesCarousel().next();
+                  me.parent.query('listingsCarousel')[0].next();
                   setTimeout(function(){
                     GLOBAL.inCarouselAction = false;
                   }, 350)
@@ -63,10 +55,9 @@ Ext.define('Etsy.view.CategoriesPanel', {
         },
         {
             flex: 1,
-            id: 'categoriesCarousel',
             xtype: 'listingsCarousel',
             truncate: true,
-            isInfinite: true,
+            isInfinite: true
         },
         {
             flex: 1,
@@ -77,16 +68,17 @@ Ext.define('Etsy.view.CategoriesPanel', {
         ]
     },
     initialize: function(){
+      console.log('INITIALIZE');
+      var self = this;
+      
       this.element.on({
            scope: this,
-           tap: 'onTap',
-           // touchstart: 'onTouchStart',
-           // touchmove: 'onTouchMove',
-           // touchend: 'onTouchEnd',
+           tap: 'onTap'
        });
        
+       console.log( self.query('maintoolbar'));
        if(GLOBAL.panel == "listings" && APP.navigationStore.findExact('name', GLOBAL.searchCategory.name) != -1){
-         Ext.getCmp('categoriesToolbar').element.down('.x-title').addCls('bookmarked');
+         self.query('maintoolbar')[0].element.down('.x-title').addCls('bookmarked');
        }
     },
     

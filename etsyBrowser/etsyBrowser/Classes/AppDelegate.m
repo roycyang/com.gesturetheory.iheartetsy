@@ -19,9 +19,9 @@
 
 //
 //  AppDelegate.m
-//  tesedf
+//  dfsg
 //
-//  Created by Roy Yang on 4/12/12.
+//  Created by Roy Yang on 5/25/12.
 //  Copyright Gesture Theory Inc. 2012. All rights reserved.
 //
 
@@ -35,6 +35,7 @@
     #import "CDVPlugin.h"
     #import "CDVURLProtocol.h"
 #endif
+
 #import "Appirater.h"
 
 @implementation AppDelegate
@@ -66,7 +67,7 @@
     
     if (url && [url isKindOfClass:[NSURL class]]) {
         invokeString = [url absoluteString];
-		NSLog(@"tesedf launchOptions = %@", url);
+		NSLog(@"dfsg launchOptions = %@", url);
     }    
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -110,12 +111,14 @@
     
     [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
+    
     [Appirater appLaunched:YES];
+    
     return YES;
 }
 
 // this happens while we are running ( in the background, or from within our own app )
-// only valid if tesedf-Info.plist specifies a protocol to handle
+// only valid if dfsg-Info.plist specifies a protocol to handle
 - (BOOL) application:(UIApplication*)application handleOpenURL:(NSURL*)url 
 {
     if (!url) { 

@@ -337,3 +337,20 @@
     word-break: break-word;
   }
 }
+
+#shopItems {
+  padding: 20px 10px 20px 20px;
+  background: left top no-repeat #FFFEF4;
+  background-size: 100%;
+  background-image: url("../images/v1-0-0/ProductDetail-long-divider-1x.png");
+
+  
+  div.shop-image {
+    border: 1px solid #AEAEAE;
+    width: 75px;
+    height: 75px;
+    float: left;
+    margin: 20px 26px 0 0;
+    padding: 5px;
+  }
+}

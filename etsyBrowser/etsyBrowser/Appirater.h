@@ -99,7 +99,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  Users need to 'use' the same version of the app this many times before
  before they will be prompted to rate it.
  */
-#define APPIRATER_USES_UNTIL_PROMPT		5		// integer
+#define APPIRATER_USES_UNTIL_PROMPT		10		// integer
 
 /*
  A significant event can be anything you want to be in your app. In a
@@ -112,7 +112,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  a significant event, call the method:
  [Appirater userDidSignificantEvent:];
  */
-#define APPIRATER_SIG_EVENTS_UNTIL_PROMPT	200	// integer
+#define APPIRATER_SIG_EVENTS_UNTIL_PROMPT	-1	// integer
 
 /*
  Once the rating alert is presented to the user, they might select

@@ -19,9 +19,9 @@
 
 //
 //  MainViewController.h
-//  tesedf
+//  dfsg
 //
-//  Created by Roy Yang on 4/12/12.
+//  Created by Roy Yang on 5/25/12.
 //  Copyright Gesture Theory Inc. 2012. All rights reserved.
 //
 
@@ -66,6 +66,14 @@
     // Return YES for supported orientations
     return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 }
+
+/* Comment out the block below to over-ride */
+/*
+- (CDVCordovaView*) newCordovaViewWithFrame:(CGRect)bounds
+{
+    return[super newCordovaViewWithFrame:bounds];
+}
+*/
 
 /* Comment out the block below to over-ride */
 /*

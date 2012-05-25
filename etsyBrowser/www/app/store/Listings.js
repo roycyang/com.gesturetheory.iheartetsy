@@ -7,7 +7,6 @@ Ext.define('Etsy.store.Listings', {
     config: {
         clearOnPageLoad: false,
         model: 'Etsy.model.Listing',
-        storeId: 'Listings',
-        pageSize: 100,
+        pageSize: 96,
     }
 });
